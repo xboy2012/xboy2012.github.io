@@ -1,0 +1,35 @@
+.articleTitle {
+  position: relative;
+  padding-bottom: 7px;
+  margin-bottom: 15px;
+}
+
+.articleTitle::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 30px;
+  height: 3px;
+  background: var(--text-gradient-yellow);
+  border-radius: 3px;
+}
+
+@media (min-width: 580px) {
+  .articleTitle {
+    font-weight: var(--fw-600);
+    padding-bottom: 15px;
+      margin-bottom: 20px;
+  }
+
+  .articleTitle::after {
+    width: 40px;
+    height: 5px;
+  }
+}
+
+@media (min-width: 768px) {
+  .articleTitle {
+    padding-bottom: 20px;
+  }
+}

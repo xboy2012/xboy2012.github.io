@@ -1,0 +1,63 @@
+.btnMore {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  border: none;
+  border-radius: 0 15px;
+  font-size: 13px;
+  text-align: left;
+  cursor: pointer;
+  color: var(--orange-yellow-crayola);
+  background: var(--border-gradient-onyx);
+  padding: 10px;
+  box-shadow: var(--shadow-2);
+  transition: var(--transition-1);
+  z-index: 1;
+}
+
+.btnMore::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  border-radius: inherit;
+  background: var(--bg-gradient-jet);
+  transition: var(--transition-1);
+  z-index: -1;
+}
+
+.btnMore:hover,
+.btnMore:focus {
+  background: var(--bg-gradient-yellow-1);
+}
+
+.btnMore:hover::before,
+.btnMore:focus::before {
+  background: var(--bg-gradient-yellow-2);
+}
+
+.btnMoreText {
+  display: none;
+}
+
+@media (min-width: 580px) {
+  .btnMore {
+    top: -30px;
+    right: -30px;
+    padding: 10px 15px;
+  }
+
+  .btnMoreText {
+    display: block;
+    font-size: var(--fs-8);
+  }
+
+  .chevronDown {
+    display: none;
+  }
+}
+
+@media (min-width: 1250px) {
+  .btnMore {
+    display: none;
+  }
+}
