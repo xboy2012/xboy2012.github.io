@@ -6,6 +6,7 @@ import {ROOT_DIR} from './core/consts';
 
 import './android_manifest';
 import './index_html';
+import './index_js';
 
 const files = [
     '/dist/css/index.css',
@@ -36,7 +37,7 @@ const getManifestContent = (hash) => {
     ].join('\r\n');
 };
 
-gulp.task('appcache', ['android_manifest', 'index_html'], (callback) => {
+gulp.task('appcache', ['android_manifest', 'index_html', 'index_js'], (callback) => {
     getCheckSum().then((hash) => {
         file('index.manifest', getManifestContent(hash), {src:true})
             .pipe(
