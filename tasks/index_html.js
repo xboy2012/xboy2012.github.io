@@ -43,7 +43,7 @@ gulp.task('index_html', () => {
                 //head.appendChild(createTag('meta', {name:"apple-mobile-web-app-status-bar-style", content:"black"}));
 
                 let html = document.querySelector('html');
-                html.setAttribute('manifest', '/dist/appcahce/index.manifest');
+                html.setAttribute('manifest', '/dist/appcahce/index.txt');
 
                 return document;
             })

@@ -14,9 +14,8 @@ const files = [
     '/dist/json/manifest.json'
 ];
 
-gulp.task('appcache', ['android_manifest'], (callback) => {
-
-    let promises = files.map(file => new Promise((resolve, reject) => {
+gulp.task('appcache', ['android_manifest', 'index_html'], () => {
+    let promises = files.concat('/dist/html/index.html').map(file => new Promise((resolve, reject) => {
         checksum.file(`${ROOT_DIR}${file}`, (err, sum) => {
             err ? reject(err) : resolve(sum);
         });
@@ -34,7 +33,7 @@ gulp.task('appcache', ['android_manifest'], (callback) => {
             '*'
         ].join('\r\n');
 
-        return file('index.manifest', code, {src:true})
+        return file('index.txt', code, {src:true})
             .pipe(
                 gulp.dest(`${ROOT_DIR}/dist/appcache`)
             );
