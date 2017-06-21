@@ -1,1 +1,1 @@
-import './tasks';
+import './tasks/default';
