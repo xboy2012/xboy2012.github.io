@@ -4,8 +4,8 @@ var el = document.querySelector('.main');
 
 
 const reset = () => {
-    el.scrollLeft = 1;
-    el.scrollTop = 1;
+    el.scrollLeft = 400;
+    el.scrollTop = 400;
 };
 
 reset();
