@@ -5,3 +5,5 @@ import iNoBounce from 'inobounce';
 
 if(isIOS())
     iNoBounce.enable();
+
+alert(1);
