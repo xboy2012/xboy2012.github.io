@@ -33,7 +33,7 @@ gulp.task('appcache', ['android_manifest', 'index_html'], () => {
             '*'
         ].join('\r\n');
 
-        return file('index.html', code, {src:true})
+        return file('index.manifest', code, {src:true})
             .pipe(
                 gulp.dest(`${ROOT_DIR}/dist/appcache`)
             );
