@@ -1,15 +1,19 @@
+//页面内嵌加载逻辑
 window.addEventListener('load', () => {
-    const head = document.getElementsByTagName('head').item(0);
+    const doc = document;
+    const head = doc.getElementsByTagName('head').item(0);
+    const createEl = (tagName) => doc.createElement(tagName);
+    const appendHead = (el) => head.appendChild(el);
     const loadScript = (url) => {
-        let script = document.createElement('script');
+        let script = createEl('script');
         script.src = url;
-        head.appendChild(script);
+        appendHead(script);
     };
     const loadCss = (url) => {
-        let link = document.createElement('link');
+        let link = createEl('link');
         link.rel = 'stylesheet';
         link.href = url;
-        head.appendChild(link);
+        appendHead(link);
     };
     loadScript('dist/js/index.js');
     loadCss('dist/css/index.css');

@@ -1,0 +1,10 @@
+CACHE MANIFEST
+#30fd0c18050752c5ebb884415d4310dfd671cfeb
+CACHE:
+/dist/css/index.css
+/dist/images/icon.png
+/dist/images/splash.jpg
+/dist/js/index.js
+/dist/json/manifest.json
+NETWORK:
+*
