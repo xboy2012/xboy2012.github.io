@@ -1,3 +1,7 @@
 console.log('Hello, github');
 
-import 'inobounce';
+import isIOS from './utils/isIOS';
+import iNoBounce from 'inobounce';
+
+if(isIOS())
+    iNoBounce.enable();
