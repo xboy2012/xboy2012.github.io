@@ -1,6 +1,7 @@
 import gulp from 'gulp';
 import file from 'gulp-file';
-import checksum from 'checksum';
+import fs from 'fs';
+import md5 from 'md5';
 import {ROOT_DIR} from './core/consts';
 
 import './android_manifest';
@@ -14,28 +15,33 @@ const files = [
     '/dist/json/manifest.json'
 ];
 
-gulp.task('appcache', ['android_manifest', 'index_html'], () => {
+const getCheckSum = () => {
     let promises = files.concat('/dist/html/index.html').map(file => new Promise((resolve, reject) => {
-        checksum.file(`${ROOT_DIR}${file}`, (err, sum) => {
-            err ? reject(err) : resolve(sum);
+        fs.readFile(`${ROOT_DIR}${file}`, (err, buf) => {
+            err ? reject(err) : resolve(md5(buf));
         });
     }));
 
-    return Promise.all(promises).then((sums) => {
-        let sum = checksum(sums.join(''));
+    return Promise.all(promises).then((sums) => md5(sums.join('')));
+};
 
-        let code = [
-            'CACHE MANIFEST',
-            `#${sum}`,
-            'CACHE:',
-            ...files,
-            'NETWORK:',
-            '*'
-        ].join('\r\n');
+const getManifestContent = (hash) => {
+    return [
+        'CACHE MANIFEST',
+        `#${hash}`,
+        'CACHE:',
+        ...files,
+        'NETWORK:',
+        '*'
+    ].join('\r\n');
+};
 
-        return file('index.manifest', code, {src:true})
+gulp.task('appcache', ['android_manifest', 'index_html'], (callback) => {
+    getCheckSum().then((hash) => {
+        file('index.manifest', getManifestContent(hash), {src:true})
             .pipe(
                 gulp.dest(`${ROOT_DIR}/dist/appcache`)
-            );
-    });
+            )
+            .on('end', callback);
+    }, callback);
 });

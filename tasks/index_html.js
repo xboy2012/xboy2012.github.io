@@ -6,7 +6,7 @@ import {ROOT_DIR} from './core/consts';
 import {appName, icon, splash} from '../src/js/manefest';
 
 gulp.task('index_html', () => {
-    gulp.src(`${ROOT_DIR}/src/pug/index.pug`)
+    return gulp.src(`${ROOT_DIR}/src/pug/index.pug`)
         .pipe(
             pug()
         )
