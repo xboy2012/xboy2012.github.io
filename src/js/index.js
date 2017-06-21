@@ -9,5 +9,4 @@ const reset = () => {
 };
 
 reset();
-el.addEventListener('touchend', reset);
-el.addEventListener('touchcancel', reset);
+el.addEventListener('touchstart', reset);
