@@ -2,7 +2,12 @@ doctype html
 html
     head
         meta(charset='UTF-8')
+        style
+            include:stylus ../stylus/loader.styl
     body
-        h2 Hello GitHub
+
+        .main
+            .inner
+                h2 Hello GitHub
         script
             include:babel ../js/loader.js
