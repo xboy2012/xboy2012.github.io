@@ -34,7 +34,7 @@ export default () => dom(
         link({rel: "icon", sizes: "192x192", href: icon});
         link({rel: 'apple-touch-icon', href: icon});
         link({rel: 'apple-touch-startup-image', href: splash});
-        link({rel: "manifest", href: "/dist/json/manifest.json"});
+        link({rel: "manifest", href: "dist/json/manifest.json"});
         meta({name: 'apple-mobile-web-app-title', content: appName});
         meta({name: 'apple-mobile-web-app-capable', content: "yes"});
         meta({name: "mobile-web-app-capable", content: "yes"});
@@ -42,7 +42,7 @@ export default () => dom(
         //meta({name:"apple-mobile-web-app-status-bar-style", content:"black"});
 
         let html = document.querySelector('html');
-        html.setAttribute('manifest', '/dist/appcache/index.manifest');
+        html.setAttribute('manifest', 'dist/appcache/index.manifest');
 
         return document;
     });

@@ -1,5 +1,4 @@
 import document from './loader/document';
-import ROOT_URL from './loader/rootUrl';
 
 import isIOS from './utils/isIOS';
 import {preventDefault, addEventListener, removeEventListener, Fix} from './loader/bouncefix';
@@ -30,6 +29,6 @@ addEventListener(window, 'load', () => {
         removeEventListener(document, 'touchstart', preventDefault);
         Fix('main');
     }
-    loadScript(`${ROOT_URL}/dist/js/index.js`);
-    loadCss(`${ROOT_URL}/dist/css/index.css`);
+    loadScript('dist/js/index.js');
+    loadCss('dist/css/index.css');
 });
