@@ -12,6 +12,23 @@ function DOMEvent(el, eventName, handler, context) {
     // Attach
     this.add();
 }
+
+
+function stopPropagation(e) {
+    if (e.stopPropagation) {
+        e.stopPropagation();
+    } else {
+        e.cancelBubble = true;
+    }
+}
+
+function preventDefault(e) {
+    if (e.preventDefault) {
+        e.preventDefault();
+    } else {
+        e.returnValue = false;
+    }
+}
 //
 // Handler that manages context, and normalizes both
 // preventDefault and stopPropagation.
@@ -20,28 +37,8 @@ DOMEvent.prototype._handler = function (e, context) {
     // Copy props to new evt object. This is shallow.
     // Only done so that I can modify stopPropagation
     // and preventDefault.
-    var evt = {};
-    for (var k in e) {
-        evt[k] = e[k];
-    }
-    // Normalize stopPropagation
-    evt.stopPropagation = function () {
-        if (e.stopPropagation) {
-            e.stopPropagation();
-        } else {
-            e.cancelBubble = true;
-        }
-    };
-    // Normalize preventDefault
-    evt.preventDefault = function () {
-        if (e.preventDefault) {
-            e.preventDefault();
-        } else {
-            e.returnValue = false;
-        }
-    };
     // Call with context and modified evt.
-    this.handler.call(this.context || context, evt);
+    this.handler.call(this.context || context, e);
 };
 //
 // Add the `EventListener`. This method is called internally in
@@ -69,26 +66,12 @@ DOMEvent.prototype.remove = function () {
 // Search nodes to find target el. Return if exists
 //
 const getTargetedEl = function (el, className) {
-    while (true) {
-        // We found it, exit
-        if (el.classList.contains(className)) {
-            break;
-        }
-        // Else keep climbing up tree
-        if (el = el.parentElement) {
-            continue;
-        }
-        // Not found
-        break;
-    }
-    return el;
-};
-//
-// Return true or false depending on if content
-// is scrollable
-//
-const isScrollable = function (el) {
-    return el.scrollHeight > el.offsetHeight;
+    do {
+        if (el.classList.contains(className))
+            return el;
+        el = el.parentElement;
+    } while (el);
+    return null;
 };
 //
 // Keep scrool from hitting end bounds
@@ -98,7 +81,7 @@ const scrollToEnd = function (el) {
     // If at top, bump down 1px
     if (curPos <= 0) {
         el.scrollTop = 1;
-    }
+    } else
     // If at bottom, bump up 1px
     if (curPos + height >= scroll) {
         el.scrollTop = scroll - height - 1;
@@ -119,7 +102,7 @@ Fix.prototype.touchStart = function (evt) {
     // Get target
     var el = getTargetedEl(evt.target, this.className);
     // If el scrollable
-    if (el && isScrollable(el)) {
+    if (el && el.scrollHeight > el.offsetHeight) {
         return scrollToEnd(el);
     }
     // Else block touchmove
@@ -132,7 +115,7 @@ Fix.prototype.touchStart = function (evt) {
 // by preventing default behavior.
 //
 Fix.prototype.touchMove = function (evt) {
-    evt.preventDefault();
+    preventDefault(evt);
 };
 //
 // On touchend we need to remove and listeners
