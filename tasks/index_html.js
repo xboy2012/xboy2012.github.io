@@ -5,7 +5,9 @@ import {ROOT_DIR} from './core/consts';
 import webapp from './plugins/gulp-webapp';
 import appcache from './plugins/gulp-appcache';
 
-gulp.task('index_html', () => {
+import './loader_js';
+
+gulp.task('index_html', ['loader_js'], () => {
     return gulp.src(`${ROOT_DIR}/src/pug/index.pug`)
         .pipe(
             pug()

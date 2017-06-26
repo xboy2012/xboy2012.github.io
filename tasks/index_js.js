@@ -1,9 +1,8 @@
 import gulp from 'gulp';
 import webpack from 'webpack';
-import webpackConfig from '../webpack.config';
+import webpackConfig from './core/webpack.config';
 
 gulp.task('index_js', (callback) => {
-
     webpack(webpackConfig).run((err, stats) => {
         if (err) {
             callback(err);

@@ -25,7 +25,7 @@ const scrollToEnd = function (el) {
 };
 
 
-const preventDefault = function(event) {
+export const preventDefault = function(event) {
     if (event.preventDefault) {
         event.preventDefault();
     } else {
@@ -33,15 +33,15 @@ const preventDefault = function(event) {
     }
 };
 
-const addEventListener = function(el, eventName, fn) {
+export const addEventListener = function(el, eventName, fn) {
     el.addEventListener(eventName, fn, false);
 };
 
-const removeEventListener = function(el, eventName, fn) {
+export const removeEventListener = function(el, eventName, fn) {
     el.removeEventListener(eventName, fn);
 };
 
-export default (className) => {
+export const Fix = (className) => {
 
     let el;
 

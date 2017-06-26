@@ -1,5 +1,5 @@
 import webpack from 'webpack';
-import {ROOT_DIR} from './tasks/core/consts';
+import {ROOT_DIR} from './consts';
 
 export default {
     entry: [
