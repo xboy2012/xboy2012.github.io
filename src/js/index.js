@@ -12,8 +12,8 @@ reset();
 el.addEventListener('touchstart', reset);
 
 import isIOS from './utils/isIOS';
-import bouncefix from 'bouncefix.js/dist/bouncefix';
+import {add} from './bouncefix/bouncefix';
 
 
 if(isIOS())
-    bouncefix.add('main');
+    add('main');
