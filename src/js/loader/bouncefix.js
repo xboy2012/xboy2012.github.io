@@ -1,3 +1,5 @@
+import document from './document';
+
 //
 // Search nodes to find target el. Return if exists
 //

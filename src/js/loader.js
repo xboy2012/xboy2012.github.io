@@ -1,36 +1,35 @@
-import isIOS from './utils/isIOS';
-import {preventDefault, addEventListener, removeEventListener, Fix} from './bouncefix/bouncefix';
+import document from './loader/document';
+import ROOT_URL from './loader/rootUrl';
 
-const doc = document;
-const head = doc.getElementsByTagName('head').item(0);
-const createEl = (tagName) => doc.createElement(tagName);
+import isIOS from './utils/isIOS';
+import {preventDefault, addEventListener, removeEventListener, Fix} from './loader/bouncefix';
+const head = document.getElementsByTagName('head').item(0);
+const createElement = (tagName) => document.createElement(tagName);
 const appendHead = (el) => head.appendChild(el);
 const loadScript = (url) => {
-    let script = createEl('script');
+    let script = createElement('script');
     script.src = url;
     appendHead(script);
 };
 const loadCss = (url) => {
-    let link = createEl('link');
+    let link = createElement('link');
     link.rel = 'stylesheet';
     link.href = url;
     appendHead(link);
 };
 
-const main = () => {
+
+
+if(isIOS()) {
+    addEventListener(document, 'touchstart', preventDefault);
+}
+
+//页面内嵌加载逻辑
+addEventListener(window, 'load', () => {
     if(isIOS()) {
-        addEventListener(doc, 'touchstart', preventDefault);
+        removeEventListener(document, 'touchstart', preventDefault);
+        Fix('main');
     }
-
-    //页面内嵌加载逻辑
-    window.addEventListener('load', () => {
-        if(isIOS()) {
-            removeEventListener(doc, 'touchstart', preventDefault);
-            Fix('main');
-        }
-        loadScript('dist/js/index.js');
-        loadCss('dist/css/index.css');
-    });
-};
-
-main();
+    loadScript(`${ROOT_URL}/dist/js/index.js`);
+    loadCss(`${ROOT_URL}/dist/css/index.css`);
+});
