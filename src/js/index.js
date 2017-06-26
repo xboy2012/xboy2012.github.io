@@ -10,3 +10,10 @@ const reset = () => {
 
 reset();
 el.addEventListener('touchstart', reset);
+
+import isIOS from './utils/isIOS';
+import bouncefix from 'bouncefix.js';
+
+
+if(isIOS())
+    bouncefix.add('main');
