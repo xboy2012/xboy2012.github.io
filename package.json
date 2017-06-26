@@ -26,6 +26,7 @@
     "babel-preset-env": "^1.5.2",
     "babel-preset-es2015": "^6.24.1",
     "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
     "gulp-dom": "^0.9.17",
     "gulp-file": "^0.3.0",
     "gulp-htmlmin": "^3.0.0",
@@ -40,6 +41,11 @@
   "babel": {
     "presets": [
       "es2015"
+    ],
+    "plugins": [
+      "transform-remove-strict-mode",
+      "transform-helper-modules",
+      "transform-object-rest-spread"
     ]
   }
 }
