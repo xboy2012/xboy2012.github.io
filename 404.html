@@ -1,5 +1,10 @@
 <html>
 <body>
-<script>console.log(location.href)</script>
+<script>
+    (() => {
+        const p = location.href.substring(location.origin.length);
+        location.replace('/?' + p);
+    })()
+</script>
 </body>
 </html>
