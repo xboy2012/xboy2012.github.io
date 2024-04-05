@@ -21,5 +21,5 @@ gulp.task('android_manifest', () => {
     };
 
     return file('manifest.json', JSON.stringify(json), { src: true })
-        .pipe(gulp.dest(`${ROOT_DIR}/dist/json`));
+        .pipe(gulp.dest(`${ROOT_DIR}/docs/dist/json`));
 });

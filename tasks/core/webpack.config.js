@@ -6,7 +6,7 @@ export default {
         `${ROOT_DIR}/src/js/index.js`
     ],
     output: {
-        path: `${ROOT_DIR}/dist/js`,
+        path: `${ROOT_DIR}/docs/dist/js`,
         filename: 'index.js',
         pathinfo: true
     },

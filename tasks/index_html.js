@@ -3,7 +3,6 @@ import pug from 'gulp-pug';
 import htmlmin from 'gulp-htmlmin';
 import {ROOT_DIR} from './core/consts';
 import webapp from './plugins/gulp-webapp';
-import appcache from './plugins/gulp-appcache';
 
 import './loader_js';
 
@@ -16,9 +15,6 @@ gulp.task('index_html', ['loader_js'], () => {
             webapp()
         )
         .pipe(
-            appcache()
-        )
-        .pipe(
             htmlmin({
                 removeComments: true,
                 collapseWhitespace: true,
@@ -27,6 +23,6 @@ gulp.task('index_html', ['loader_js'], () => {
             })
         )
         .pipe(
-            gulp.dest(`${ROOT_DIR}/dist/html`)
+            gulp.dest(`${ROOT_DIR}/docs/dist/html`)
         )
 });

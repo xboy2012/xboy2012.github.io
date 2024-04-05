@@ -12,6 +12,6 @@ gulp.task('index_css', () => {
             cssnano()
         )
         .pipe(
-            gulp.dest(`${ROOT_DIR}/dist/css`)
+            gulp.dest(`${ROOT_DIR}/docs/dist/css`)
         );
 });

@@ -1,8 +1,8 @@
 import gulp from 'gulp';
 
 import './index_html';
-import './android_manifest';
-import './appcache';
 import './index_css';
+import './index_js';
+import './android_manifest';
 
-gulp.task('default', ['index_html', 'android_manifest', 'appcache', 'index_css']);
+gulp.task('default', ['index_html', 'index_css', 'index_js', 'android_manifest']);
