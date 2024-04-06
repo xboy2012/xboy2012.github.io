@@ -6,9 +6,9 @@ export const NavBar = () => {
     <nav className={styles.navbar}>
       <ul className={styles.navbarList}>
         <NavBarItem title="About" path="/" />
-        <NavBarItem title="Resume" path="/resume/" />
-        <NavBarItem title="Portfolio" path="/portfolio/" />
-        <NavBarItem title="Blog" path="/blog/" />
+        <NavBarItem title="Resume" path="/resume" />
+        <NavBarItem title="Portfolio" path="/portfolio" />
+        <NavBarItem title="Blog" path="/blog" />
       </ul>
     </nav>
   );
