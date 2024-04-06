@@ -518,19 +518,21 @@ main {
 .clients-item {
   min-width: 50%;
   scroll-snap-align: start;
+  background: white;
+  /*filter: grayscale(1);*/
+  /*transition: var(--transition-1);*/
+  aspect-ratio: 1.63;
 }
 
-.clients-item img {
+/*.clients-item:hover {*/
+/*  filter: grayscale(0);*/
+/*}*/
+
+.clients-item a {
+  display: block;
   width: 100%;
-  filter: grayscale(1);
-  transition: var(--transition-1);
+  height: 100%;
 }
-
-.clients-item img:hover { filter: grayscale(0); }
-
-
-
-
 
 /*-----------------------------------*\
   #RESUME
