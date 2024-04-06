@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "release": "rm -rf out && next build && rm -rf docs/* && touch docs/.nojekyll && cp -r out/* docs/",
     "start": "next start",
     "lint": "next lint"
   },
