@@ -14,7 +14,7 @@ export interface UserData {
     from: string;
     to: string;
     position: string;
-    desc: string;
+    desc: string | string[];
   }[]
   skills: { skill: string; percent: number }[]
 }

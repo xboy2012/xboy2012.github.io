@@ -21,11 +21,13 @@ export default function Home() {
           {userData.educations.map(({ from, to, school, desc }, index) => {
             return (
               <li key={index} className="timeline-item">
-                <h4 className="h4 timeline-item-title">{school}</h4>
+                <h4 className="text-white2 text-4 timeline-item-title">{school}</h4>
 
-                <span>
-                  {from} — {to}
-                </span>
+                {!!(from && to) && (
+                  <span>
+                    {from} — {to}
+                  </span>
+                )}
 
                 <p className="timeline-text">{desc}</p>
               </li>
@@ -44,16 +46,26 @@ export default function Home() {
         </div>
 
         <ol className="timeline-list">
-          {userData.workExperiences.map(({ from, to, position, desc }, index) => {
+          {userData.workExperiences.map((o, index) => {
+            const { from, to, position, desc: rawDesc } = o;
+            const desc = typeof rawDesc === "string" ? [rawDesc] : rawDesc;
+
             return (
               <li key={index} className="timeline-item">
-                <h4 className="h4 timeline-item-title">{position}</h4>
+                <h4 className="text-white2 text-4 timeline-item-title">{position}</h4>
 
-                <span>
-                  {from} — {to}
-                </span>
-
-                <p className="timeline-text">{desc}</p>
+                {!!(from && to) && (
+                  <span>
+                    {from} — {to}
+                  </span>
+                )}
+                {desc.map((text, i) => {
+                  return (
+                    <p className="timeline-text" key={i}>
+                      {text}
+                    </p>
+                  );
+                })}
               </li>
             );
           })}
