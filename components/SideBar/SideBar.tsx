@@ -13,8 +13,7 @@ import { userData } from "../../src/data";
 import styles from "./SideBar.module.css";
 
 export const SideBar = () => {
-  const { email, phoneCA, location, facebook, twitter, github, linkedin } =
-    userData;
+  const { facebook, twitter, github, linkedin } = userData;
   const [showSideBar, setShowSideBar] = useState(false);
 
   const handleOpen = useCallback(() => {
@@ -28,9 +27,9 @@ export const SideBar = () => {
         <div className={styles.separator}></div>
 
         <ul className={styles.contactsList}>
-          <ContactItemEmail email={email} />
-          <ContactItemPhone phoneCA={phoneCA} />
-          <ContactItemLocation location={location} />
+          <ContactItemEmail />
+          <ContactItemPhone />
+          <ContactItemLocation />
         </ul>
 
         <div className={styles.separator} />
