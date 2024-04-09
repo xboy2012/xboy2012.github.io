@@ -37,3 +37,10 @@ export interface ProjectData {
   title: string;
   image: string;
 }
+
+export interface TestimonialData {
+  name: string;
+  avatar: string;
+  datetime: `${string}-${string}-${string}`;
+  text: string;
+}

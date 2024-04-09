@@ -12,7 +12,6 @@ export default function About() {
       <AboutText />
       <Service />
       <Testimonials />
-      <TestimonialDialog />
       <Clients />
     </article>
   );

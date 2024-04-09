@@ -38,7 +38,7 @@ const config: Config = {
       gridTemplateColumns: {
         '1fr': '1fr',
         '1fr1fr': '1fr 1fr',
-        'r3_1fr': 'repeat(3, 1fr)',
+        r3_1fr: 'repeat(3, 1fr)',
       },
       spacing: {
         '7.5': '30px',
@@ -46,6 +46,8 @@ const config: Config = {
         contact2: 'calc(100% - 64px)',
       },
       backgroundImage: {
+        bgGradientOnyx:
+          'linear-gradient(to bottom right, hsl(240, 1%, 25%) 3%, hsl(0, 0%, 19%) 97%)',
         borderGradientOnyx:
           'linear-gradient(to bottom right, hsl(0, 0%, 25%) 0%, hsla(0, 0%, 25%, 0) 50%)',
         textGradientYellow:
@@ -83,7 +85,7 @@ const config: Config = {
         '600': '600',
       },
       minWidth: {
-        'test_xl': 'calc(50% - 15px)'
+        test_xl: 'calc(50% - 15px)',
       },
       zIndex: {
         '1': '1',

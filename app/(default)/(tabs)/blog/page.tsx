@@ -1,5 +1,5 @@
 import { ArticleTitle } from '../../../../components/ArticleTitle';
-import { formatDateTime } from './formatDateTime';
+import { formatDateTime } from '../../../../src/utils/formatDateTime';
 import { blogs } from '../../../../src/blogs';
 import cx from 'classnames';
 import styles from './index.module.css';
