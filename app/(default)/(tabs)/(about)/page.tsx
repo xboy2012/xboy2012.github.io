@@ -3,14 +3,12 @@ import { Service } from './Service';
 import { Testimonials } from './Testimonials';
 import { TestimonialDialog } from './TestimonialDialog';
 import { Clients } from './Clients';
-import styles from './index.module.css';
+import { ArticleTitle } from '../../../../components/ArticleTitle';
 
 export default function About() {
   return (
-    <article className="about active">
-      <header>
-        <h2 className={`h2 ${styles.articleTitle}`}>About me</h2>
-      </header>
+    <article className="animate-fade">
+      <ArticleTitle title="About Me" />
       <AboutText />
       <Service />
       <Testimonials />

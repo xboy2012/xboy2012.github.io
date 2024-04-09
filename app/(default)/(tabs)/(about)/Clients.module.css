@@ -1,0 +1,47 @@
+.clientsList {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 15px;
+  margin: 0 -15px;
+  padding: 25px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  overscroll-behavior-inline: contain;
+  scroll-snap-type: inline mandatory;
+  scroll-padding-inline: 25px;
+}
+
+@media (min-width: 580px) {
+  .clientsList {
+    gap: 50px;
+    margin: 0 -30px;
+    padding: 45px;
+    scroll-padding-inline: 45px;
+  }
+}
+
+.clientsItem {
+  min-width: 50%;
+  scroll-snap-align: start;
+  background: white;
+  aspect-ratio: 1.63;
+}
+
+@media (min-width: 450px) {
+  .clientsItem {
+    min-width: calc(33.33% - 10px);
+  }
+}
+
+@media (min-width: 580px) {
+  .clientsItem {
+    min-width: calc(33.33% - 35px);
+  }
+}
+
+@media (min-width: 1024px) {
+  .clientsItem {
+    min-width: calc(25% - 38px);
+  }
+}

@@ -15,6 +15,9 @@ const config: Config = {
       '2xl': '1250px',
     },
     extend: {
+      animation: {
+        fade: 'fade 0.5s ease backwards',
+      },
       colors: {
         jet: 'hsl(0, 0%, 22%)',
         onyx: 'hsl(240, 1%, 17%)',
@@ -39,6 +42,8 @@ const config: Config = {
       backgroundImage: {
         borderGradientOnyx:
           'linear-gradient(to bottom right, hsl(0, 0%, 25%) 0%, hsla(0, 0%, 25%, 0) 50%)',
+        textGradientYellow:
+          'linear-gradient(to right, hsl(45, 100%, 72%), hsl(35, 100%, 68%))',
       },
       borderRadius: {
         '2.5xl': '20px',
@@ -65,7 +70,8 @@ const config: Config = {
         '8': 'var(--fs-8)',
       },
       fontWeight: {
-        '200': '300',
+        '200': '200',
+        '300': '300',
         '400': '400',
         '500': '500',
         '600': '600',

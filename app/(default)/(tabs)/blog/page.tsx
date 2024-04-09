@@ -1,10 +1,9 @@
+import { ArticleTitle } from '../../../../components/ArticleTitle';
+
 export default function Blog() {
   return (
-    <article className="blog active">
-      <header>
-        <h2 className="h2 article-title">Blog</h2>
-      </header>
-
+    <article className="animate-fade">
+      <ArticleTitle title="Blog" />
       <section className="blog-posts">
         <ul className="blog-posts-list">
           <li className="blog-post-item">

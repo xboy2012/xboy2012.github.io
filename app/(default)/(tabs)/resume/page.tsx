@@ -1,27 +1,24 @@
-import { BookOutline } from '../../../../components/Icons/BookOutline';
 import { userData } from '../../../../src/data';
+import { ArticleTitle } from '../../../../components/ArticleTitle';
+import { IconBox } from '../../../../components/IconBox';
+import styles from './index.module.css';
 
 export default function Resume() {
   return (
-    <article className="resume active">
-      <header>
-        <h2 className="h2 article-title">Resume</h2>
-      </header>
+    <article className="animate-fade">
+      <ArticleTitle title="Resume" />
 
-      <section className="timeline">
-        <div className="title-wrapper">
-          <div className="icon-box">
-            <BookOutline />
-          </div>
-
-          <h3 className="h3">Education</h3>
+      <section className="mb-[30px]">
+        <div className="flex items-center gap-[15px] mb-[25px]">
+          <IconBox />
+          <h3 className="text-white2 capitalize text-2">Education</h3>
         </div>
 
-        <ol className="timeline-list">
+        <ol className={styles.timelineList}>
           {userData.educations.map(({ from, to, school, desc }, index) => {
             return (
-              <li key={index} className="timeline-item">
-                <h4 className="text-white2 text-4 timeline-item-title">
+              <li key={index} className={styles.timelineItem}>
+                <h4 className="text-white2 text-6 leading-[1.3] mb-[7px]">
                   {school}
                 </h4>
 
@@ -31,30 +28,29 @@ export default function Resume() {
                   </span>
                 )}
 
-                <p className="timeline-text">{desc}</p>
+                <p className="text-lightGray font-300 leading-[1.6] 2xl:max-w-[700px]">
+                  {desc}
+                </p>
               </li>
             );
           })}
         </ol>
       </section>
 
-      <section className="timeline">
-        <div className="title-wrapper">
-          <div className="icon-box">
-            <BookOutline />
-          </div>
-
-          <h3 className="h3">Experience</h3>
+      <section className="mb-[30px]">
+        <div className="flex items-center gap-[15px] mb-[25px]">
+          <IconBox />
+          <h3 className="text-white2 capitalize text-2">Experience</h3>
         </div>
 
-        <ol className="timeline-list">
+        <ol className={styles.timelineList}>
           {userData.workExperiences.map((o, index) => {
             const { from, to, position, desc: rawDesc } = o;
             const desc = typeof rawDesc === 'string' ? [rawDesc] : rawDesc;
 
             return (
-              <li key={index} className="timeline-item">
-                <h4 className="text-white2 text-4 timeline-item-title">
+              <li key={index} className={styles.timelineItem}>
+                <h4 className="text-white2 text-6 leading-[1.3] mb-[7px]">
                   {position}
                 </h4>
 
@@ -65,7 +61,10 @@ export default function Resume() {
                 )}
                 {desc.map((text, i) => {
                   return (
-                    <p className="timeline-text" key={i}>
+                    <p
+                      className="text-lightGray font-300 leading-[1.6] 2xl:max-w-[700px]"
+                      key={i}
+                    >
                       {text}
                     </p>
                   );
@@ -77,20 +76,27 @@ export default function Resume() {
       </section>
 
       <section className="skill">
-        <h3 className="h3 skills-title">My skills</h3>
+        <h3 className="text-white2 capitalize text-2 mb-5">My skills</h3>
 
-        <ul className="skills-list content-card">
+        <ul className="p-5 content-card">
           {userData.skills.map(({ skill, percent }) => {
             return (
-              <li key={skill} className="skills-item">
-                <div className="title-wrapper">
-                  <h5 className="h5">{skill}</h5>
-                  <data value={percent}>{percent}%</data>
+              <li key={skill} className="mb-[15px] md:mb-[25px] !last:mb-0">
+                <div className="flex items-center gap-[5px] mb-2">
+                  <h5 className="text-white2 capitalize text-7 font-500">
+                    {skill}
+                  </h5>
+                  <data
+                    value={percent}
+                    className="text-lightGray text-7 font-300"
+                  >
+                    {percent}%
+                  </data>
                 </div>
 
-                <div className="skill-progress-bg">
+                <div className="bg-jet w-full h-2 rounded-[10px]">
                   <div
-                    className="skill-progress-fill"
+                    className="bg-textGradientYellow h-full rounded-inherit"
                     style={{ width: `${percent}%` }}
                   ></div>
                 </div>

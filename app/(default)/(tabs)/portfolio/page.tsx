@@ -1,13 +1,11 @@
 import { ChevronDown } from '../../../../components/Icons/ChevronDown';
 import { EyeOutline } from '../../../../components/Icons/EyeOutline';
+import { ArticleTitle } from '../../../../components/ArticleTitle';
 
 export default function Portfolio() {
   return (
-    <article className="portfolio active">
-      <header>
-        <h2 className="h2 article-title">Portfolio</h2>
-      </header>
-
+    <article className="animate-fade">
+      <ArticleTitle title="Portfolio" />
       <section className="projects">
         <ul className="filter-list">
           <li className="filter-item">
