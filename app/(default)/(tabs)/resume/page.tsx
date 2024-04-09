@@ -1,7 +1,7 @@
 import { BookOutline } from '../../../../components/Icons/BookOutline';
 import { userData } from '../../../../src/data';
 
-export default function Home() {
+export default function Resume() {
   return (
     <article className="resume active">
       <header>

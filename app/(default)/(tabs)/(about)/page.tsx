@@ -5,7 +5,7 @@ import { TestimonialDialog } from './TestimonialDialog';
 import { Clients } from './Clients';
 import styles from './index.module.css';
 
-export default function Home() {
+export default function About() {
   return (
     <article className="about active">
       <header>

@@ -1,7 +1,7 @@
 import { ChevronDown } from '../../../../components/Icons/ChevronDown';
 import { EyeOutline } from '../../../../components/Icons/EyeOutline';
 
-export default function Home() {
+export default function Portfolio() {
   return (
     <article className="portfolio active">
       <header>
