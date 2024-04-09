@@ -1,5 +1,5 @@
-import { BookOutline } from "../../../../components/Icons/BookOutline";
-import { userData } from "../../../../src/data";
+import { BookOutline } from '../../../../components/Icons/BookOutline';
+import { userData } from '../../../../src/data';
 
 export default function Home() {
   return (
@@ -21,7 +21,9 @@ export default function Home() {
           {userData.educations.map(({ from, to, school, desc }, index) => {
             return (
               <li key={index} className="timeline-item">
-                <h4 className="text-white2 text-4 timeline-item-title">{school}</h4>
+                <h4 className="text-white2 text-4 timeline-item-title">
+                  {school}
+                </h4>
 
                 {!!(from && to) && (
                   <span>
@@ -48,11 +50,13 @@ export default function Home() {
         <ol className="timeline-list">
           {userData.workExperiences.map((o, index) => {
             const { from, to, position, desc: rawDesc } = o;
-            const desc = typeof rawDesc === "string" ? [rawDesc] : rawDesc;
+            const desc = typeof rawDesc === 'string' ? [rawDesc] : rawDesc;
 
             return (
               <li key={index} className="timeline-item">
-                <h4 className="text-white2 text-4 timeline-item-title">{position}</h4>
+                <h4 className="text-white2 text-4 timeline-item-title">
+                  {position}
+                </h4>
 
                 {!!(from && to) && (
                   <span>

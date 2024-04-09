@@ -1,4 +1,4 @@
-import styles from "./AboutText.module.css";
+import styles from './AboutText.module.css';
 
 export const AboutText = () => {
   return (

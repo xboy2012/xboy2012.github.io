@@ -1,7 +1,7 @@
-import { AvatarBox } from "./AvatarBox";
-import { MoreButton } from "./MoreButton";
-import { userData } from "../../src/data";
-import styles from "./InfoCard.module.css";
+import { AvatarBox } from './AvatarBox';
+import { MoreButton } from './MoreButton';
+import { userData } from '../../src/data';
+import styles from './InfoCard.module.css';
 
 interface Props {
   onMoreClick?: () => void;

@@ -1,4 +1,4 @@
-import styles from "./AvatarBox.module.css";
+import styles from './AvatarBox.module.css';
 
 export const AvatarBox = ({ avatar, alt }: { avatar: string; alt: string }) => {
   return (

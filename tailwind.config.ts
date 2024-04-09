@@ -1,47 +1,48 @@
-import type { Config } from "tailwindcss";
+import type { Config } from 'tailwindcss';
 
 const config: Config = {
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    './pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './components/**/*.{js,ts,jsx,tsx,mdx}',
+    './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     screens: {
-      'sm': '450px',
-      'md': '580px',
-      'lg': '768px',
-      'xl': '1024px',
+      sm: '450px',
+      md: '580px',
+      lg: '768px',
+      xl: '1024px',
       '2xl': '1250px',
     },
     extend: {
       colors: {
-        'jet': 'hsl(0, 0%, 22%)',
-        'onyx': 'hsl(240, 1%, 17%)',
-        'eerieBlack1': 'hsl(240, 2%, 13%)',
-        'eerieBlack2': 'hsl(240, 2%, 12%)',
-        'smokyBlack': 'hsl(0, 0%, 7%)',
-        'white1': 'hsl(0, 0%, 100%)',
-        'white2': 'hsl(0, 0%, 98%)',
-        'orangeYellowCrayola': 'hsl(45, 100%, 72%)',
-        'vegasGold': 'hsl(45, 54%, 58%)',
-        'lightGray': 'hsl(0, 0%, 84%)',
-        'lightGray70': 'hsla(0, 0%, 84%, 0.7)',
-        'bittersweetShimmer': 'hsl(0, 43%, 51%)',
+        jet: 'hsl(0, 0%, 22%)',
+        onyx: 'hsl(240, 1%, 17%)',
+        eerieBlack1: 'hsl(240, 2%, 13%)',
+        eerieBlack2: 'hsl(240, 2%, 12%)',
+        smokyBlack: 'hsl(0, 0%, 7%)',
+        white1: 'hsl(0, 0%, 100%)',
+        white2: 'hsl(0, 0%, 98%)',
+        orangeYellowCrayola: 'hsl(45, 100%, 72%)',
+        vegasGold: 'hsl(45, 54%, 58%)',
+        lightGray: 'hsl(0, 0%, 84%)',
+        lightGray70: 'hsla(0, 0%, 84%, 0.7)',
+        bittersweetShimmer: 'hsl(0, 43%, 51%)',
 
-        'navbarBg': 'hsla(240, 1%, 17%, 0.75)',
+        navbarBg: 'hsla(240, 1%, 17%, 0.75)',
       },
       spacing: {
         '7.5': '30px',
-        'contact': 'calc(100% - 46px)',
-        'contact2': 'calc(100% - 64px)'
+        contact: 'calc(100% - 46px)',
+        contact2: 'calc(100% - 64px)',
       },
       backgroundImage: {
-        'borderGradientOnyx': 'linear-gradient(to bottom right, hsl(0, 0%, 25%) 0%, hsla(0, 0%, 25%, 0) 50%)',
+        borderGradientOnyx:
+          'linear-gradient(to bottom right, hsl(0, 0%, 25%) 0%, hsla(0, 0%, 25%, 0) 50%)',
       },
       borderRadius: {
         '2.5xl': '20px',
-        'inherit': 'inherit'
+        inherit: 'inherit',
       },
       boxShadow: {
         '1': '-4px 8px 24px hsla(0, 0%, 0%, 0.25)',
@@ -72,7 +73,7 @@ const config: Config = {
       zIndex: {
         '1': '1',
         '5': '5',
-      }
+      },
       // backgroundImage: {
       //   "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
       //   "gradient-conic":

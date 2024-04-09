@@ -5,7 +5,7 @@
 }
 
 .articleTitle::after {
-  content: "";
+  content: '';
   position: absolute;
   bottom: 0;
   left: 0;
@@ -19,7 +19,7 @@
   .articleTitle {
     font-weight: var(--fw-600);
     padding-bottom: 15px;
-      margin-bottom: 20px;
+    margin-bottom: 20px;
   }
 
   .articleTitle::after {

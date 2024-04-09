@@ -1,9 +1,9 @@
-import { AboutText } from "./AboutText";
-import { Service } from "./Service";
-import { Testimonials } from "./Testimonials";
-import { TestimonialDialog } from "./TestimonialDialog";
-import { Clients } from "./Clients";
-import styles from "./index.module.css";
+import { AboutText } from './AboutText';
+import { Service } from './Service';
+import { Testimonials } from './Testimonials';
+import { TestimonialDialog } from './TestimonialDialog';
+import { Clients } from './Clients';
+import styles from './index.module.css';
 
 export default function Home() {
   return (

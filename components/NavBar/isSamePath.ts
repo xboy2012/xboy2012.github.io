@@ -4,12 +4,15 @@
  * @param path the actual path
  * @return {boolean} true if the same, false otherwise.
  */
-export const isSamePath = (simplePath: `/${string}`, path: `/${string}`): boolean => {
+export const isSamePath = (
+  simplePath: `/${string}`,
+  path: `/${string}`,
+): boolean => {
   if (simplePath === path) {
     return true;
   }
-  if (simplePath === "/") {
-    return path === "/index" || path === "/index.html";
+  if (simplePath === '/') {
+    return path === '/index' || path === '/index.html';
   }
   return (
     path === `${simplePath}/` ||

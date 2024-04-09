@@ -16,7 +16,7 @@
 }
 
 .btnMore::before {
-  content: "";
+  content: '';
   position: absolute;
   inset: 1px;
   border-radius: inherit;

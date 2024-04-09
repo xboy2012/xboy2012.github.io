@@ -69,7 +69,7 @@ export const Clients = () => {
 
         <li
           className="clients-item overflow-hidden rounded"
-          style={{ background: "black" }}
+          style={{ background: 'black' }}
         >
           <a href="https://www.wacai.com" target="_blank">
             <div

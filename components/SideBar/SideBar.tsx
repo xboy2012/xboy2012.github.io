@@ -1,16 +1,16 @@
-"use client";
+'use client';
 
-import { useCallback, useState } from "react";
-import { ContactItemEmail } from "./ContactItemEmail";
-import { ContactItemPhone } from "./ContactItemPhone";
-import { ContactItemLocation } from "./ContactItemLocation";
-import { LogoFacebook } from "./Icons/LogoFacebook";
-import { LogoTwitter } from "./Icons/LogoTwitter";
-import { LogoGithub } from "./Icons/LogoGithub";
-import { LogoLinkedin } from "./Icons/LogoLinkedin";
-import { InfoCard } from "./InfoCard";
-import { userData } from "../../src/data";
-import styles from "./SideBar.module.css";
+import { useCallback, useState } from 'react';
+import { ContactItemEmail } from './ContactItemEmail';
+import { ContactItemPhone } from './ContactItemPhone';
+import { ContactItemLocation } from './ContactItemLocation';
+import { LogoFacebook } from './Icons/LogoFacebook';
+import { LogoTwitter } from './Icons/LogoTwitter';
+import { LogoGithub } from './Icons/LogoGithub';
+import { LogoLinkedin } from './Icons/LogoLinkedin';
+import { InfoCard } from './InfoCard';
+import { userData } from '../../src/data';
+import styles from './SideBar.module.css';
 
 export const SideBar = () => {
   const { facebook, twitter, github, linkedin } = userData;
@@ -21,7 +21,7 @@ export const SideBar = () => {
   }, []);
 
   return (
-    <aside className={`${styles.sideBar} ${showSideBar ? styles.active : ""}`}>
+    <aside className={`${styles.sideBar} ${showSideBar ? styles.active : ''}`}>
       <InfoCard onMoreClick={handleOpen} />
       <div className={styles.sideBarInfoMore}>
         <div className={styles.separator}></div>

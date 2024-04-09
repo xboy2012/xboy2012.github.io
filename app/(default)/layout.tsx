@@ -1,6 +1,6 @@
-"use client";
-import { ReactNode, useEffect, useState } from "react";
-import { SideBar } from "../../components/SideBar";
+'use client';
+import { ReactNode, useEffect, useState } from 'react';
+import { SideBar } from '../../components/SideBar';
 
 export default function Layout({
   children,
@@ -9,8 +9,8 @@ export default function Layout({
 }>) {
   const [enabled, setEnabled] = useState(false);
   useEffect(() => {
-      // TODO: hide from public access
-    if (localStorage.getItem("exp") === "1") {
+    // TODO: hide from public access
+    if (localStorage.getItem('exp') === '1') {
       setEnabled(true);
     }
   }, []);

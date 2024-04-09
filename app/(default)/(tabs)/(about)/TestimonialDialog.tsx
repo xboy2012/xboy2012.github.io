@@ -1,4 +1,4 @@
-import { CloseOutline } from "../../../../components/Icons/CloseOutline";
+import { CloseOutline } from '../../../../components/Icons/CloseOutline';
 
 export const TestimonialDialog = () => {
   return (

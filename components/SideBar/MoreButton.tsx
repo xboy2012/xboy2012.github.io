@@ -1,5 +1,5 @@
-import { ChevronDown } from "../Icons/ChevronDown";
-import styles from "./MoreButton.module.css";
+import { ChevronDown } from '../Icons/ChevronDown';
+import styles from './MoreButton.module.css';
 
 interface Props {
   onClick?: () => void;

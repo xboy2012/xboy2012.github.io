@@ -1,10 +1,10 @@
-import { useCallback, useMemo } from "react";
-import { usePathname, useRouter } from "next/navigation";
-import { isSamePath } from "./isSamePath";
-import cx from "classnames";
+import { useCallback, useMemo } from 'react';
+import { usePathname, useRouter } from 'next/navigation';
+import { isSamePath } from './isSamePath';
+import cx from 'classnames';
 
 interface NavBarItemProps {
-  path: "/" | "/resume" | "/portfolio" | "/blog";
+  path: '/' | '/resume' | '/portfolio' | '/blog';
   title: string;
 }
 
@@ -22,10 +22,10 @@ export const NavBarItem = ({ path, title }: NavBarItemProps) => {
     <li>
       <button
         className={cx(
-          "px-2 py-5 text-8 md:text-6 lg:text-5 xl:font-500",
+          'px-2 py-5 text-8 md:text-6 lg:text-5 xl:font-500',
           isActive
-            ? "text-orangeYellowCrayola"
-            : "text-lightGray hover:text-lightGray70 focus:text-lightGray70",
+            ? 'text-orangeYellowCrayola'
+            : 'text-lightGray hover:text-lightGray70 focus:text-lightGray70',
         )}
         onClick={!isActive ? handleClick : undefined}
       >

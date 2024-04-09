@@ -1,5 +1,5 @@
-import { ChevronDown } from "../../../../components/Icons/ChevronDown";
-import { EyeOutline } from "../../../../components/Icons/EyeOutline";
+import { ChevronDown } from '../../../../components/Icons/ChevronDown';
+import { EyeOutline } from '../../../../components/Icons/EyeOutline';
 
 export default function Home() {
   return (
