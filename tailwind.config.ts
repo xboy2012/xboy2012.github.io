@@ -17,6 +17,7 @@ const config: Config = {
     extend: {
       animation: {
         fade: 'fade 0.5s ease backwards',
+        scaleUp: 'scaleUp 0.25s ease forwards',
       },
       colors: {
         jet: 'hsl(0, 0%, 22%)',
@@ -33,6 +34,11 @@ const config: Config = {
         bittersweetShimmer: 'hsl(0, 43%, 51%)',
 
         navbarBg: 'hsla(240, 1%, 17%, 0.75)',
+      },
+      gridTemplateColumns: {
+        '1fr': '1fr',
+        '1fr1fr': '1fr 1fr',
+        'r3_1fr': 'repeat(3, 1fr)',
       },
       spacing: {
         '7.5': '30px',
@@ -75,6 +81,9 @@ const config: Config = {
         '400': '400',
         '500': '500',
         '600': '600',
+      },
+      minWidth: {
+        'test_xl': 'calc(50% - 15px)'
       },
       zIndex: {
         '1': '1',

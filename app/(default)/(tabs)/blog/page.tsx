@@ -1,192 +1,56 @@
 import { ArticleTitle } from '../../../../components/ArticleTitle';
+import { formatDateTime } from './formatDateTime';
+import { blogs } from '../../../../src/blogs';
+import cx from 'classnames';
+import styles from './index.module.css';
 
 export default function Blog() {
   return (
     <article className="animate-fade">
       <ArticleTitle title="Blog" />
-      <section className="blog-posts">
-        <ul className="blog-posts-list">
-          <li className="blog-post-item">
-            <a href="#">
-              <figure className="blog-banner-box">
-                <img
-                  src="/assets/blog-1.jpg"
-                  alt="Design conferences in 2022"
-                  loading="lazy"
-                />
-              </figure>
+      <section className="mb-2.5">
+        <ul className="grid grid-cols-1fr gap-5 md:gap-7.5 lg:grid-cols-1fr1fr">
+          {blogs.map(({ link, title, desc, image, datetime, category }, i) => {
+            return (
+              <li key={i} className={styles.blogPostItem}>
+                <a href={link} target="_blank">
+                  <figure className={styles.blogBannerBox}>
+                    <img src={image} alt={title} loading="lazy" />
+                  </figure>
 
-              <div className="blog-content">
-                <div className="blog-meta">
-                  <p className="blog-category">Design</p>
+                  <div className="p-[15px] md:p-[25px]">
+                    <div className="flex justify-start items-center gap-[7px] mb-2.5">
+                      <p className="text-lightGray70 text-6 font-300">
+                        {category}
+                      </p>
 
-                  <span className="dot"></span>
+                      <span className="bg-lightGray70 w-1 h-1 rounded" />
 
-                  <time dateTime="2022-02-23">Fab 23, 2022</time>
-                </div>
+                      <time
+                        dateTime={datetime}
+                        className="block text-lightGray70 text-6 font-300"
+                      >
+                        {formatDateTime(datetime)}
+                      </time>
+                    </div>
 
-                <h3 className="h3 blog-item-title">
-                  Design conferences in 2022
-                </h3>
+                    <h3
+                      className={cx(
+                        'text-white2 capitalize text-2',
+                        styles.blogItemTitle,
+                      )}
+                    >
+                      {title}
+                    </h3>
 
-                <p className="blog-text">
-                  Veritatis et quasi architecto beatae vitae dicta sunt,
-                  explicabo.
-                </p>
-              </div>
-            </a>
-          </li>
-
-          <li className="blog-post-item">
-            <a href="#">
-              <figure className="blog-banner-box">
-                <img
-                  src="/assets/blog-2.jpg"
-                  alt="Best fonts every designer"
-                  loading="lazy"
-                />
-              </figure>
-
-              <div className="blog-content">
-                <div className="blog-meta">
-                  <p className="blog-category">Design</p>
-
-                  <span className="dot"></span>
-
-                  <time dateTime="2022-02-23">Fab 23, 2022</time>
-                </div>
-
-                <h3 className="h3 blog-item-title">
-                  Best fonts every designer
-                </h3>
-
-                <p className="blog-text">
-                  Sed ut perspiciatis, nam libero tempore, cum soluta nobis est
-                  eligendi.
-                </p>
-              </div>
-            </a>
-          </li>
-
-          <li className="blog-post-item">
-            <a href="#">
-              <figure className="blog-banner-box">
-                <img
-                  src="/assets/blog-3.jpg"
-                  alt="Design digest #80"
-                  loading="lazy"
-                />
-              </figure>
-
-              <div className="blog-content">
-                <div className="blog-meta">
-                  <p className="blog-category">Design</p>
-
-                  <span className="dot"></span>
-
-                  <time dateTime="2022-02-23">Fab 23, 2022</time>
-                </div>
-
-                <h3 className="h3 blog-item-title">Design digest #80</h3>
-
-                <p className="blog-text">
-                  Excepteur sint occaecat cupidatat no proident, quis nostrum
-                  exercitationem ullam corporis suscipit.
-                </p>
-              </div>
-            </a>
-          </li>
-
-          <li className="blog-post-item">
-            <a href="#">
-              <figure className="blog-banner-box">
-                <img
-                  src="/assets/blog-4.jpg"
-                  alt="UI interactions of the week"
-                  loading="lazy"
-                />
-              </figure>
-
-              <div className="blog-content">
-                <div className="blog-meta">
-                  <p className="blog-category">Design</p>
-
-                  <span className="dot"></span>
-
-                  <time dateTime="2022-02-23">Fab 23, 2022</time>
-                </div>
-
-                <h3 className="h3 blog-item-title">
-                  UI interactions of the week
-                </h3>
-
-                <p className="blog-text">
-                  Enim ad minim veniam, consectetur adipiscing elit, quis
-                  nostrud exercitation ullamco laboris nisi.
-                </p>
-              </div>
-            </a>
-          </li>
-
-          <li className="blog-post-item">
-            <a href="#">
-              <figure className="blog-banner-box">
-                <img
-                  src="/assets/blog-5.jpg"
-                  alt="The forgotten art of spacing"
-                  loading="lazy"
-                />
-              </figure>
-
-              <div className="blog-content">
-                <div className="blog-meta">
-                  <p className="blog-category">Design</p>
-
-                  <span className="dot"></span>
-
-                  <time dateTime="2022-02-23">Fab 23, 2022</time>
-                </div>
-
-                <h3 className="h3 blog-item-title">
-                  The forgotten art of spacing
-                </h3>
-
-                <p className="blog-text">
-                  Maxime placeat, sed do eiusmod tempor incididunt ut labore et
-                  dolore magna aliqua.
-                </p>
-              </div>
-            </a>
-          </li>
-
-          <li className="blog-post-item">
-            <a href="#">
-              <figure className="blog-banner-box">
-                <img
-                  src="/assets/blog-6.jpg"
-                  alt="Design digest #79"
-                  loading="lazy"
-                />
-              </figure>
-
-              <div className="blog-content">
-                <div className="blog-meta">
-                  <p className="blog-category">Design</p>
-
-                  <span className="dot"></span>
-
-                  <time dateTime="2022-02-23">Fab 23, 2022</time>
-                </div>
-
-                <h3 className="h3 blog-item-title">Design digest #79</h3>
-
-                <p className="blog-text">
-                  Optio cumque nihil impedit uo minus quod maxime placeat, velit
-                  esse cillum.
-                </p>
-              </div>
-            </a>
-          </li>
+                    <p className="text-lightGray text-6 font-300 leading-[1.6]">
+                      {desc}
+                    </p>
+                  </div>
+                </a>
+              </li>
+            );
+          })}
         </ul>
       </section>
     </article>

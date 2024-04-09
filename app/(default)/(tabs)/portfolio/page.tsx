@@ -1,254 +1,131 @@
+'use client';
+import { useCallback, useMemo, useState } from 'react';
+import cx from 'classnames';
 import { ChevronDown } from '../../../../components/Icons/ChevronDown';
 import { EyeOutline } from '../../../../components/Icons/EyeOutline';
 import { ArticleTitle } from '../../../../components/ArticleTitle';
+import type { ProjectCategory } from '../../../../src/types';
+import { projects } from '../../../../src/projects';
+
+type Category = ProjectCategory | 'All';
+
+const categories: Category[] = [
+  'All',
+  'Web design',
+  'Applications',
+  'Web development',
+];
 
 export default function Portfolio() {
+  const [isSelecting, setIsSelecting] = useState(false);
+  const [curCategory, setCurCategory] = useState<Category>('All');
+
+  const handleSelectClick = useCallback(() => {
+    setIsSelecting((isSelecting) => !isSelecting);
+  }, []);
+
+  const handleCategorySelect = useCallback((category: Category) => {
+    setCurCategory(category);
+    setIsSelecting(false);
+  }, []);
+
+  const filteredProjects = useMemo(() => {
+    if (curCategory === 'All') {
+      return projects;
+    }
+    return projects.filter((project) => project.category === curCategory);
+  }, [curCategory]);
+
   return (
     <article className="animate-fade">
       <ArticleTitle title="Portfolio" />
       <section className="projects">
-        <ul className="filter-list">
-          <li className="filter-item">
-            <button className="active" data-filter-btn>
-              All
-            </button>
-          </li>
-
-          <li className="filter-item">
-            <button data-filter-btn>Web design</button>
-          </li>
-
-          <li className="filter-item">
-            <button data-filter-btn>Applications</button>
-          </li>
-
-          <li className="filter-item">
-            <button data-filter-btn>Web development</button>
-          </li>
+        <ul className="hidden lg:flex justify-start items-center gap-[25px] pl-[5px] mb-[30px]">
+          {categories.map((category, i) => {
+            return (
+              <li key={category} className="filter-item">
+                <button
+                  className={curCategory === category ? 'active' : ''}
+                  onClick={() => {
+                    handleCategorySelect(category);
+                  }}
+                >
+                  {category}
+                </button>
+              </li>
+            );
+          })}
         </ul>
 
-        <div className="filter-select-box">
-          <button className="filter-select" data-select>
-            <div className="select-value" data-selecct-value>
-              Select category
-            </div>
+        <div className="relative mb-[25px] lg:hidden">
+          <button
+            className={cx(
+              'flex justify-between items-center w-full py-3 px-4',
+              'bg-eerieBlack2 text-lightGray',
+              'border border-solid border-jet rounded-[14px] text-6 font-300',
+            )}
+            onClick={handleSelectClick}
+          >
+            <div className="select-value">{curCategory}</div>
 
-            <div className="select-icon">
+            <div className={isSelecting ? 'rotate-180' : ''}>
               <ChevronDown />
             </div>
           </button>
 
-          <ul className="select-list">
-            <li className="select-item">
-              <button data-select-item>All</button>
-            </li>
-
-            <li className="select-item">
-              <button data-select-item>Web design</button>
-            </li>
-
-            <li className="select-item">
-              <button data-select-item>Applications</button>
-            </li>
-
-            <li className="select-item">
-              <button data-select-item>Web development</button>
-            </li>
+          <ul
+            className={cx(
+              'bg-eerieBlack2 absolute w-full p-1.5 z-[2]',
+              'border border-solid border-jet rounded-[14px]',
+              isSelecting
+                ? 'opacity-100 visible pointer-events-auto'
+                : 'opacity-0 invisible pointer-events-none',
+            )}
+            style={{
+              top: 'calc(100% + 6px)',
+              transition: '0.15s ease-in-out',
+            }}
+          >
+            {categories.map((category, i) => {
+              return (
+                <li key={category} className="select-item">
+                  <button
+                    onClick={() => {
+                      handleCategorySelect(category);
+                    }}
+                  >
+                    {category}
+                  </button>
+                </li>
+              );
+            })}
           </ul>
         </div>
 
-        <ul className="project-list">
-          <li
-            className="project-item  active"
-            data-filter-item
-            data-category="web development"
-          >
-            <a href="#">
-              <figure className="project-img">
-                <div className="project-item-icon-box">
-                  <EyeOutline />
-                </div>
+        <ul className="grid grid-cols-1fr gap-7.5 mb-2.5 lg:grid-cols-1fr1fr xl:grid-cols-r3_1fr">
+          {filteredProjects.map(({ id, category, link, title, image }) => {
+            return (
+              <li key={id} className="project-item animate-scaleUp">
+                <a href={link} className="w-full">
+                  <figure className="project-img">
+                    <div className="project-item-icon-box">
+                      <EyeOutline />
+                    </div>
 
-                <img src="/assets/project-1.jpg" alt="finance" loading="lazy" />
-              </figure>
+                    <img src={image} alt={title} loading="lazy" />
+                  </figure>
 
-              <h3 className="project-title">Finance</h3>
+                  <h3 className="ml-2.5 text-white2 text-5 font-400 capitalize leading-[1.3]">
+                    {title}
+                  </h3>
 
-              <p className="project-category">Web development</p>
-            </a>
-          </li>
-
-          <li
-            className="project-item  active"
-            data-filter-item
-            data-category="web development"
-          >
-            <a href="#">
-              <figure className="project-img">
-                <div className="project-item-icon-box">
-                  <EyeOutline />
-                </div>
-
-                <img src="/assets/project-2.png" alt="orizon" loading="lazy" />
-              </figure>
-
-              <h3 className="project-title">Orizon</h3>
-
-              <p className="project-category">Web development</p>
-            </a>
-          </li>
-
-          <li
-            className="project-item  active"
-            data-filter-item
-            data-category="web design"
-          >
-            <a href="#">
-              <figure className="project-img">
-                <div className="project-item-icon-box">
-                  <EyeOutline />
-                </div>
-
-                <img src="/assets/project-3.jpg" alt="fundo" loading="lazy" />
-              </figure>
-
-              <h3 className="project-title">Fundo</h3>
-
-              <p className="project-category">Web design</p>
-            </a>
-          </li>
-
-          <li
-            className="project-item  active"
-            data-filter-item
-            data-category="applications"
-          >
-            <a href="#">
-              <figure className="project-img">
-                <div className="project-item-icon-box">
-                  <EyeOutline />
-                </div>
-
-                <img
-                  src="/assets/project-4.png"
-                  alt="brawlhalla"
-                  loading="lazy"
-                />
-              </figure>
-
-              <h3 className="project-title">Brawlhalla</h3>
-
-              <p className="project-category">Applications</p>
-            </a>
-          </li>
-
-          <li
-            className="project-item  active"
-            data-filter-item
-            data-category="web design"
-          >
-            <a href="#">
-              <figure className="project-img">
-                <div className="project-item-icon-box">
-                  <EyeOutline />
-                </div>
-
-                <img src="/assets/project-5.png" alt="dsm." loading="lazy" />
-              </figure>
-
-              <h3 className="project-title">DSM.</h3>
-
-              <p className="project-category">Web design</p>
-            </a>
-          </li>
-
-          <li
-            className="project-item  active"
-            data-filter-item
-            data-category="web design"
-          >
-            <a href="#">
-              <figure className="project-img">
-                <div className="project-item-icon-box">
-                  <EyeOutline />
-                </div>
-
-                <img
-                  src="/assets/project-6.png"
-                  alt="metaspark"
-                  loading="lazy"
-                />
-              </figure>
-
-              <h3 className="project-title">MetaSpark</h3>
-
-              <p className="project-category">Web design</p>
-            </a>
-          </li>
-
-          <li
-            className="project-item  active"
-            data-filter-item
-            data-category="web development"
-          >
-            <a href="#">
-              <figure className="project-img">
-                <div className="project-item-icon-box">
-                  <EyeOutline />
-                </div>
-
-                <img src="/assets/project-7.png" alt="summary" loading="lazy" />
-              </figure>
-
-              <h3 className="project-title">Summary</h3>
-
-              <p className="project-category">Web development</p>
-            </a>
-          </li>
-
-          <li
-            className="project-item  active"
-            data-filter-item
-            data-category="applications"
-          >
-            <a href="#">
-              <figure className="project-img">
-                <div className="project-item-icon-box">
-                  <EyeOutline />
-                </div>
-
-                <img
-                  src="/assets/project-8.jpg"
-                  alt="task manager"
-                  loading="lazy"
-                />
-              </figure>
-
-              <h3 className="project-title">Task Manager</h3>
-
-              <p className="project-category">Applications</p>
-            </a>
-          </li>
-
-          <li
-            className="project-item  active"
-            data-filter-item
-            data-category="web development"
-          >
-            <a href="#">
-              <figure className="project-img">
-                <div className="project-item-icon-box">
-                  <EyeOutline />
-                </div>
-
-                <img src="/assets/project-9.png" alt="arrival" loading="lazy" />
-              </figure>
-
-              <h3 className="project-title">Arrival</h3>
-
-              <p className="project-category">Web development</p>
-            </a>
-          </li>
+                  <p className="ml-2.5 text-lightGray70 text-6 font-300">
+                    {category}
+                  </p>
+                </a>
+              </li>
+            );
+          })}
         </ul>
       </section>
     </article>

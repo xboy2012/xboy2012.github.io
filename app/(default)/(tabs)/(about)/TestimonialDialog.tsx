@@ -24,7 +24,7 @@ export const TestimonialDialog = () => {
         </div>
 
         <div className="modal-content">
-          <h4 className="h3 modal-title" data-modal-title>
+          <h4 className="text-white2 capitalize text-2 modal-title" data-modal-title>
             Daniel lewis
           </h4>
 

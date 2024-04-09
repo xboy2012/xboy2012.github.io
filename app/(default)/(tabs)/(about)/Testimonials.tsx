@@ -1,3 +1,5 @@
+import cx from 'classnames';
+
 // TODO: FAKE DATA
 const testimonials: {
   name: string;
@@ -29,30 +31,42 @@ const testimonials: {
 export const Testimonials = () => {
   return (
     <section className="testimonials">
-      <h3 className="h3 testimonials-title">Testimonials</h3>
+      <h3 className="text-white2 capitalize text-2 testimonials-title">
+        Testimonials
+      </h3>
 
       <ul className="testimonials-list has-scrollbar">
         {testimonials.map(({ name, avatar, text }, index) => {
           return (
-            <li className="testimonials-item" key={index}>
+            <li className="min-w-full snap-center xl:min-w-test_xl" key={index}>
               <div className="content-card" data-testimonials-item>
-                <figure className="testimonials-avatar-box">
+                <figure
+                  className={cx(
+                    'absolute top-0 left-0 rounded-[14px] md:rounded-[20px]',
+                    'translate-x-[15px] -translate-y-[25px] md:translate-x-[30px] md:-translate-y-[30px]',
+                    'bg-borderGradientOnyx shadow-1',
+                  )}
+                >
                   <img
                     src={avatar}
                     alt={name}
                     width="60"
+                    className="md:w-[80px]"
                     data-testimonials-avatar
                   />
                 </figure>
 
                 <h4
-                  className="h4 testimonials-item-title"
+                  className="text-white2 capitalize text-4 mb-[7px] md:mb-2.5 md:ml-[95px]"
                   data-testimonials-title
                 >
                   {name}
                 </h4>
 
-                <div className="testimonials-text" data-testimonials-text>
+                <div
+                  className="text-lightGray text-6 font-300 leading-[1.6] line-clamp-4 md:line-clamp-2"
+                  data-testimonials-text
+                >
                   <p>{text}</p>
                 </div>
               </div>
