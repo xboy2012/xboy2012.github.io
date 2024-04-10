@@ -44,12 +44,17 @@ export const Testimonials = () => {
                 key={index}
               >
                 <div
-                  className="content-card"
+                  className={cx(
+                    'relative bg-borderGradientOnyx',
+                    'pt-[45px] pb-[15px] px-[15px] md:pt-[25px] md:pb-[30px] md:px-[30px]',
+                    'rounded-[14px] shadow-2 cursor-pointer z-1',
+                  )}
                   onClick={() => {
                     setCurTestNominal(item);
                     setDialogVisible(true);
                   }}
                 >
+                  <div className="absolute inset-px bg-bgGradientJet bg-eerieBlack1 rounded-inherit -z-1" />
                   <figure
                     className={cx(
                       'absolute top-0 left-0 rounded-[14px] md:rounded-[20px]',

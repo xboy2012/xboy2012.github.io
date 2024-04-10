@@ -50,7 +50,7 @@ export const TestimonialDialog = ({
           <CloseOutline />
         </button>
 
-        <div className="modal-img-wrapper">
+        <div className="md:flex md:flex-col md:items-center">
           <figure
             className={cx(
               'bg-bgGradientOnyx w-max rounded-[14px] mb-[15px] shadow-2',

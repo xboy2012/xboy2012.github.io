@@ -24,9 +24,11 @@ const config: Config = {
         jet: 'hsl(0, 0%, 22%)',
         onyx: 'hsl(240, 1%, 17%)',
         overlay: 'hsl(0, 0%, 5%)',
+        overlay2: 'hsla(0, 0%, 0%, 0.5)',
         eerieBlack1: 'hsl(240, 2%, 13%)',
         eerieBlack2: 'hsl(240, 2%, 12%)',
         eerieBlack3: 'hsl(240, 2%, 20%)',
+        // hsla(0, 0%, 0%, 0.5)
         smokyBlack: 'hsl(0, 0%, 7%)',
         white1: 'hsl(0, 0%, 100%)',
         white2: 'hsl(0, 0%, 98%)',
@@ -96,6 +98,9 @@ const config: Config = {
         '1': '1',
         '2': '2',
         '5': '5',
+      },
+      scale: {
+        '80': '0.8',
       },
       transitionTimingFunction: {
         default: 'ease',
