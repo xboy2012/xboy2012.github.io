@@ -2,7 +2,6 @@ import { ArticleTitle } from '../../../../components/ArticleTitle';
 import { formatDateTime } from '../../../../src/utils/formatDateTime';
 import { blogs } from '../../../../src/blogs';
 import cx from 'classnames';
-import styles from './index.module.css';
 
 export default function Blog() {
   return (
@@ -12,10 +11,29 @@ export default function Blog() {
         <ul className="grid grid-cols-1fr gap-5 md:gap-7.5 lg:grid-cols-1fr1fr">
           {blogs.map(({ link, title, desc, image, datetime, category }, i) => {
             return (
-              <li key={i} className={styles.blogPostItem}>
-                <a href={link} target="_blank">
-                  <figure className={styles.blogBannerBox}>
-                    <img src={image} alt={title} loading="lazy" />
+              <li key={i} className="group">
+                <a
+                  href={link}
+                  target="_blank"
+                  className="relative bg-borderGradientOnyx h-full shadow-4 rounded-2xl z-1"
+                >
+                  <div className="absolute inset-px rounded-inherit bg-eerieBlack1 -z-1" />
+                  <figure
+                    className={cx(
+                      'overflow-hidden',
+                      'w-full h-[200px] sm:h-auto xl:h-[230px]',
+                      'rounded-xl md:rounded-2xl',
+                    )}
+                  >
+                    <img
+                      src={image}
+                      alt={title}
+                      loading="lazy"
+                      className={cx(
+                        'w-full h-full object-cover',
+                        'transition-all duration-250 ease-default group-hover:scale-110',
+                      )}
+                    />
                   </figure>
 
                   <div className="p-[15px] md:p-[25px]">
@@ -36,8 +54,8 @@ export default function Blog() {
 
                     <h3
                       className={cx(
-                        'text-white2 capitalize text-2',
-                        styles.blogItemTitle,
+                        'mb-2.5 leading-[1.3] text-white2 capitalize text-2',
+                        'transition-all duration-250 ease-default group-hover:text-orangeYellowCrayola',
                       )}
                     >
                       {title}
