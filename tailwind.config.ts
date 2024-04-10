@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss';
+import plugin from 'tailwindcss/plugin';
 
 const config: Config = {
   content: [
@@ -109,6 +110,13 @@ const config: Config = {
       // },
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(({ addVariant }) => {
+      addVariant('webkit-scrollbar', '&::-webkit-scrollbar');
+      addVariant('webkit-scrollbar-track', '&::-webkit-scrollbar-track');
+      addVariant('webkit-scrollbar-thumb', '&::-webkit-scrollbar-thumb');
+      addVariant('webkit-scrollbar-button', '&::-webkit-scrollbar-button');
+    }),
+  ],
 };
 export default config;

@@ -4,7 +4,6 @@ import cx from 'classnames';
 import { useCallback, useState } from 'react';
 import { TestimonialDialog } from './TestimonialDialog';
 import { testimonials } from '../../../../src/testimonials';
-import scrollBar from './scrollBar.module.css';
 
 export const Testimonials = () => {
   const [curTestNominal, setCurTestNominal] = useState(testimonials[0]);
@@ -19,7 +18,24 @@ export const Testimonials = () => {
           Testimonials
         </h3>
 
-        <ul className={cx('testimonials-list', scrollBar.hasScrollbar)}>
+        <ul
+          className={cx(
+            'flex justify-start items-start',
+            'gap-[15px] md:gap-[30px]',
+            'my-0 -mx-[15px] md:-mx-[30px]',
+            'pt-[25px] pb-[35px] px-[15px] md:pt-[30px] md:px-[30px]',
+            'overflow-x-auto scroll-smooth',
+            '[overscroll-behavior-inline:contain]',
+            '[scroll-snap-type:inline_mandatory]',
+            'webkit-scrollbar:w-[5px] webkit-scrollbar:h-[5px]',
+            'webkit-scrollbar-track:bg-onyx',
+            'webkit-scrollbar-track:rounded-[5px]',
+            'webkit-scrollbar-thumb:bg-orangeYellowCrayola',
+            'webkit-scrollbar-thumb:rounded-[5px]',
+            'webkit-scrollbar-button:w-[20px]',
+            'lg:webkit-scrollbar-button:w-[100px]',
+          )}
+        >
           {testimonials.map((item, index) => {
             const { name, avatar, text } = item;
             return (
@@ -37,7 +53,8 @@ export const Testimonials = () => {
                   <figure
                     className={cx(
                       'absolute top-0 left-0 rounded-[14px] md:rounded-[20px]',
-                      'translate-x-[15px] -translate-y-[25px] md:translate-x-[30px] md:-translate-y-[30px]',
+                      'translate-x-[15px] md:translate-x-[30px]',
+                      '-translate-y-[25px] md:-translate-y-[30px]',
                       'bg-bgGradientOnyx shadow-1',
                     )}
                   >

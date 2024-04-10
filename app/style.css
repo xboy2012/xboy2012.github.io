@@ -23,28 +23,6 @@
 }
 
 /*-----------------------------------*\
-  #ABOUT
-\*-----------------------------------*/
-
-/**
- * #testimonials 
- */
-
-.testimonials-list {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  gap: 15px;
-  margin: 0 -15px;
-  padding: 25px 15px;
-  padding-bottom: 35px;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  overscroll-behavior-inline: contain;
-  scroll-snap-type: inline mandatory;
-}
-
-/*-----------------------------------*\
   #PORTFOLIO
 \*-----------------------------------*/
 
@@ -122,13 +100,6 @@
  */
 
 @media (min-width: 580px) {
-  .testimonials-list {
-    gap: 30px;
-    margin: 0 -30px;
-    padding: 30px;
-    padding-bottom: 35px;
-  }
-
   .content-card {
     padding: 30px;
     padding-top: 25px;

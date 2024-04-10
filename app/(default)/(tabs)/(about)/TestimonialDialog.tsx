@@ -2,7 +2,6 @@ import cx from 'classnames';
 import type { TestimonialData } from '../../../../src/types';
 import { CloseOutline } from '../../../../components/Icons/CloseOutline';
 import { formatDateTime } from '../../../../src/utils/formatDateTime';
-import scrollBar from './scrollBar.module.css';
 
 export const TestimonialDialog = ({
   data,
@@ -19,7 +18,7 @@ export const TestimonialDialog = ({
       className={cx(
         'fixed top-0 left-0 w-full h-full md:p-[20px]',
         'flex justify-center items-center overflow-y-auto overscroll-contain z-20',
-        scrollBar.noScrollBar,
+        'webkit-scrollbar:hidden',
         visible ? 'visible' : 'invisible',
       )}
     >
