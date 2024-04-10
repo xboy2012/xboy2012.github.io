@@ -4,6 +4,7 @@ import cx from 'classnames';
 import { useCallback, useState } from 'react';
 import { TestimonialDialog } from './TestimonialDialog';
 import { testimonials } from '../../../../src/testimonials';
+import scrollBar from './scrollBar.module.css';
 
 export const Testimonials = () => {
   const [curTestNominal, setCurTestNominal] = useState(testimonials[0]);
@@ -13,12 +14,12 @@ export const Testimonials = () => {
   }, []);
   return (
     <>
-      <section className="testimonials">
-        <h3 className="text-white2 capitalize text-2 testimonials-title">
+      <section className="mb-[30px]">
+        <h3 className="text-white2 capitalize text-2 mb-5 md:mb-[25px]">
           Testimonials
         </h3>
 
-        <ul className="testimonials-list has-scrollbar">
+        <ul className={cx('testimonials-list', scrollBar.hasScrollbar)}>
           {testimonials.map((item, index) => {
             const { name, avatar, text } = item;
             return (

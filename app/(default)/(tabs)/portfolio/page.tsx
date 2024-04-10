@@ -43,9 +43,14 @@ export default function Portfolio() {
         <ul className="hidden lg:flex justify-start items-center gap-[25px] pl-[5px] mb-[30px]">
           {categories.map((category, i) => {
             return (
-              <li key={category} className="filter-item">
+              <li key={category}>
                 <button
-                  className={curCategory === category ? 'active' : ''}
+                  className={cx(
+                    'text-5 transition-all duration-250 ease-default',
+                    curCategory === category
+                      ? 'text-orangeYellowCrayola'
+                      : 'text-lightGray70 hover:text-lightGray70',
+                  )}
                   onClick={() => {
                     handleCategorySelect(category);
                   }}
@@ -88,8 +93,12 @@ export default function Portfolio() {
           >
             {categories.map((category, i) => {
               return (
-                <li key={category} className="select-item">
+                <li key={category}>
                   <button
+                    className={cx(
+                      'bg-eerieBlack2 hover:bg-eerieBlack3 text-lightGray',
+                      'text-6 font-300 capitalize w-full py-2 px-2.5 rounded-lg',
+                    )}
                     onClick={() => {
                       handleCategorySelect(category);
                     }}
@@ -112,7 +121,12 @@ export default function Portfolio() {
                       <EyeOutline />
                     </div>
 
-                    <img src={image} alt={title} loading="lazy" />
+                    <img
+                      src={image}
+                      alt={title}
+                      loading="lazy"
+                      className="w-full h-full object-cover transition-all duration-250 ease-default"
+                    />
                   </figure>
 
                   <h3 className="ml-2.5 text-white2 text-5 font-400 capitalize leading-[1.3]">

@@ -17,7 +17,7 @@
 
 @media (min-width: 580px) {
   .articleTitle {
-    font-weight: var(--fw-600);
+    font-weight: 600;
     padding-bottom: 15px;
     margin-bottom: 20px;
   }

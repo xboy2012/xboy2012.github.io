@@ -22,8 +22,10 @@ const config: Config = {
       colors: {
         jet: 'hsl(0, 0%, 22%)',
         onyx: 'hsl(240, 1%, 17%)',
+        overlay: 'hsl(0, 0%, 5%)',
         eerieBlack1: 'hsl(240, 2%, 13%)',
         eerieBlack2: 'hsl(240, 2%, 12%)',
+        eerieBlack3: 'hsl(240, 2%, 20%)',
         smokyBlack: 'hsl(0, 0%, 7%)',
         white1: 'hsl(0, 0%, 100%)',
         white2: 'hsl(0, 0%, 98%)',
@@ -91,7 +93,14 @@ const config: Config = {
       },
       zIndex: {
         '1': '1',
+        '2': '2',
         '5': '5',
+      },
+      transitionTimingFunction: {
+        default: 'ease',
+      },
+      transitionDuration: {
+        '250': '250ms',
       },
       // backgroundImage: {
       //   "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

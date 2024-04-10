@@ -51,7 +51,7 @@
 
 .timelineList span {
   color: var(--vegas-gold);
-  font-weight: var(--fw-400);
+  font-weight: 400;
   line-height: 1.6;
 }
 

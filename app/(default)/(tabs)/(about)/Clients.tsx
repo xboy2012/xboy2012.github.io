@@ -1,12 +1,14 @@
-import styles from './Clients.module.css';
+import cx from 'classnames';
 import { companies } from '../../../../src/companies';
+import styles from './Clients.module.css';
+import scrollBar from './scrollBar.module.css';
 
 export const Clients = () => {
   return (
     <section className="mb-[15px]">
       <h3 className="text-white2 capitalize text-2">Clients</h3>
 
-      <ul className={`${styles.clientsList} has-scrollbar`}>
+      <ul className={cx(styles.clientsList, scrollBar.hasScrollbar)}>
         {companies.map(({ name, link, Logo }, index) => {
           return (
             <li
