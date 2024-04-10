@@ -1,7 +1,7 @@
 import { useCallback, useMemo } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
-import { isSamePath } from './isSamePath';
 import cx from 'classnames';
+import { isSamePath } from '../src/utils/isSamePath';
 
 interface NavBarItemProps {
   path: '/' | '/resume' | '/portfolio' | '/blog';

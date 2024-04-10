@@ -73,6 +73,7 @@ const config: Config = {
         '3xl': '0 16px 40px hsla(0, 0%, 0%, 0.125)',
         '4': '0 25px 50px hsla(0, 0%, 0%, 0.15)',
         '5': '0 24px 80px hsla(0, 0%, 0%, 0.25)',
+        'timeline': '0 0 0 4px var(--jet)',
       },
       fontSize: {
         '1': 'var(--fs-1)',

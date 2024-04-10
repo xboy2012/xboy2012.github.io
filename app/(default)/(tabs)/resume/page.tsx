@@ -1,8 +1,8 @@
+import cx from 'classnames';
 import { userData } from '../../../../src/data';
 import { ArticleTitle } from '../../../../components/ArticleTitle';
 import { IconBox } from '../../../../components/IconBox';
-import cx from 'classnames';
-import styles from './index.module.css';
+import { TimelineList } from '../../../../components/TimelineList';
 
 export default function Resume() {
   return (
@@ -14,28 +14,7 @@ export default function Resume() {
           <IconBox />
           <h3 className="text-white2 capitalize text-2">Education</h3>
         </div>
-
-        <ol className={styles.timelineList}>
-          {userData.educations.map(({ from, to, school, desc }, index) => {
-            return (
-              <li key={index} className={styles.timelineItem}>
-                <h4 className="text-white2 text-6 leading-[1.3] mb-[7px]">
-                  {school}
-                </h4>
-
-                {!!(from && to) && (
-                  <span>
-                    {from} — {to}
-                  </span>
-                )}
-
-                <p className="text-lightGray font-300 leading-[1.6] 2xl:max-w-[700px]">
-                  {desc}
-                </p>
-              </li>
-            );
-          })}
-        </ol>
+        <TimelineList data={userData.educations} />
       </section>
 
       <section className="mb-[30px]">
@@ -43,37 +22,7 @@ export default function Resume() {
           <IconBox />
           <h3 className="text-white2 capitalize text-2">Experience</h3>
         </div>
-
-        <ol className={styles.timelineList}>
-          {userData.workExperiences.map((o, index) => {
-            const { from, to, position, desc: rawDesc } = o;
-            const desc = typeof rawDesc === 'string' ? [rawDesc] : rawDesc;
-
-            return (
-              <li key={index} className={styles.timelineItem}>
-                <h4 className="text-white2 text-6 leading-[1.3] mb-[7px]">
-                  {position}
-                </h4>
-
-                {!!(from && to) && (
-                  <span>
-                    {from} — {to}
-                  </span>
-                )}
-                {desc.map((text, i) => {
-                  return (
-                    <p
-                      className="text-lightGray font-300 leading-[1.6] 2xl:max-w-[700px]"
-                      key={i}
-                    >
-                      {text}
-                    </p>
-                  );
-                })}
-              </li>
-            );
-          })}
-        </ol>
+        <TimelineList data={userData.workExperiences} />
       </section>
 
       <section className="skill">

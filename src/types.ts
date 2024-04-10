@@ -1,5 +1,12 @@
 import type { ReactNode } from 'react';
 
+export interface TimelineItem {
+  from: string;
+  to: string;
+  title: string;
+  desc: string | string[];
+}
+
 export interface UserData {
   avatar: string;
   name: string;
@@ -12,13 +19,8 @@ export interface UserData {
   github: string;
   linkedin: string;
   intro: string[];
-  educations: { from: string; to: string; school: string; desc: string }[];
-  workExperiences: {
-    from: string;
-    to: string;
-    position: string;
-    desc: string | string[];
-  }[];
+  educations: TimelineItem[];
+  workExperiences: TimelineItem[];
   skills: { skill: string; percent: number }[];
 }
 

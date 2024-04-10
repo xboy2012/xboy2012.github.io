@@ -1,4 +1,4 @@
-import { BookOutline } from '../Icons/BookOutline';
+import { BookOutline } from './Icons/BookOutline';
 import cx from 'classnames';
 
 export const IconBox = () => {

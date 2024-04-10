@@ -1,5 +1,5 @@
 import { PhonePortraitOutline } from './Icons/PhonePortraitOutline';
-import { displayPhoneCA } from './utils/displayPhoneCA';
+import { displayPhoneCA } from '../../src/utils/displayPhoneCA';
 import { userData } from '../../src/data';
 import cx from 'classnames';
 
