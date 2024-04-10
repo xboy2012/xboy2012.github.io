@@ -1,68 +1,66 @@
-import styles from './Service.module.css';
+import cx from 'classnames';
+
+const services: {
+  name: string;
+  icon: string;
+  desc: string;
+}[] = [
+  {
+    name: 'Web design',
+    icon: '/assets/icon-design.svg',
+    desc: 'The most modern and high-quality design made at a professional level.',
+  },
+  {
+    name: 'Web development',
+    icon: '/assets/icon-dev.svg',
+    desc: 'High-quality development of sites at the professional level.',
+  },
+  {
+    name: 'Mobile apps',
+    icon: '/assets/icon-app.svg',
+    desc: 'Professional development of applications for iOS and Android.',
+  },
+  {
+    name: 'Photography',
+    icon: '/assets/icon-photo.svg',
+    desc: 'I make high-quality photos of any category at a professional level.',
+  },
+];
 
 export const Service = () => {
   return (
-    <section className={styles.service}>
-      <h3 className={styles.serviceTitle}>What i am doing</h3>
+    <section className="mb-[35px]">
+      <h3 className="mb-[20px] text-white2 capitalize text-2">
+        What i am doing
+      </h3>
 
-      <ul className={styles.serviceList}>
-        <li className={styles.serviceItem}>
-          <div className={styles.serviceIconBox}>
-            <img src="/assets/icon-design.svg" width="40" />
-          </div>
+      <ul className="grid grid-cols-1fr gap-[20px] xl:grid-cols-1fr1fr xl:gap-y-[20px] xl:gap-x-[25px]">
+        {services.map(({ name, icon, desc }, index) => {
+          return (
+            <li
+              key={index}
+              className={cx(
+                'relative bg-borderGradientOnyx p-5 rounded-[14px] shadow-2 z-1',
+                'md:flex md:justify-start md:items-start md:gap-[18px] md:p-[30px]',
+              )}
+            >
+              <div className="absolute inset-px bg-eerieBlack1 bg-bgGradientJet rounded-inherit -z-1" />
+              <div className="mb-2.5 md:mb-0 md:mt-[5px]">
+                <img className="m-auto" src={icon} alt={name} width="40" />
+              </div>
 
-          <div className={styles.serviceContentBox}>
-            <h4 className={styles.serviceItemTitle}>Web design</h4>
+              <div className="text-center md:text-left">
+                <h4 className="mb-[7px] text-white2 capitalize text-2">
+                  {name}
+                </h4>
 
-            <p className={styles.serviceItemText}>
-              The most modern and high-quality design made at a professional
-              level.
-            </p>
-          </div>
-        </li>
-
-        <li className={styles.serviceItem}>
-          <div className={styles.serviceIconBox}>
-            <img src="/assets/icon-dev.svg" width="40" />
-          </div>
-
-          <div className={styles.serviceContentBox}>
-            <h4 className={styles.serviceItemTitle}>Web development</h4>
-
-            <p className={styles.serviceItemText}>
-              High-quality development of sites at the professional level.
-            </p>
-          </div>
-        </li>
-
-        <li className={styles.serviceItem}>
-          <div className={styles.serviceIconBox}>
-            <img src="/assets/icon-app.svg" width="40" />
-          </div>
-
-          <div className={styles.serviceContentBox}>
-            <h4 className={styles.serviceItemTitle}>Mobile apps</h4>
-
-            <p className={styles.serviceItemText}>
-              Professional development of applications for iOS and Android.
-            </p>
-          </div>
-        </li>
-
-        <li className={styles.serviceItem}>
-          <div className={styles.serviceIconBox}>
-            <img src="/assets/icon-photo.svg" width="40" />
-          </div>
-
-          <div className={styles.serviceContentBox}>
-            <h4 className={styles.serviceItemTitle}>Photography</h4>
-
-            <p className={styles.serviceItemText}>
-              I make high-quality photos of any category at a professional
-              level.
-            </p>
-          </div>
-        </li>
+                <p className="text-lightGray text-6 font-300 leading-[1.6]">
+                  {desc}
+                </p>
+              </div>
+            </li>
+          );
+        })}
       </ul>
     </section>
   );

@@ -48,6 +48,8 @@ const config: Config = {
       backgroundImage: {
         bgGradientOnyx:
           'linear-gradient(to bottom right, hsl(240, 1%, 25%) 3%, hsl(0, 0%, 19%) 97%)',
+        bgGradientJet:
+          'linear-gradient(to bottom right, hsla(240, 1%, 18%, 0.251) 0%, hsla(240, 2%, 11%, 0) 100%)',
         borderGradientOnyx:
           'linear-gradient(to bottom right, hsl(0, 0%, 25%) 0%, hsla(0, 0%, 25%, 0) 50%)',
         textGradientYellow:

@@ -1,3 +1,5 @@
+import type { ReactNode } from 'react';
+
 export interface UserData {
   avatar: string;
   name: string;
@@ -9,6 +11,7 @@ export interface UserData {
   twitter: string;
   github: string;
   linkedin: string;
+  intro: string[];
   educations: { from: string; to: string; school: string; desc: string }[];
   workExperiences: {
     from: string;
@@ -43,4 +46,10 @@ export interface TestimonialData {
   avatar: string;
   datetime: `${string}-${string}-${string}`;
   text: string;
+}
+
+export interface CompanyData {
+  name: string;
+  link: string;
+  Logo: () => ReactNode;
 }

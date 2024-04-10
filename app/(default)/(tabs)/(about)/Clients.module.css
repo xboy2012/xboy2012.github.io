@@ -23,9 +23,6 @@
 
 .clientsItem {
   min-width: 50%;
-  scroll-snap-align: start;
-  background: white;
-  aspect-ratio: 1.63;
 }
 
 @media (min-width: 450px) {
