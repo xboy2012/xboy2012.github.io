@@ -1,18 +1,18 @@
 import { AboutText } from './AboutText';
 import { Service } from './Service';
 import { Testimonials } from './Testimonials';
-import { TestimonialDialog } from './TestimonialDialog';
 import { Clients } from './Clients';
 import { ArticleTitle } from '../../../../components/ArticleTitle';
+import { Article } from '../../../../components/Article';
 
 export default function About() {
   return (
-    <article className="animate-fade">
+    <Article>
       <ArticleTitle title="About Me" />
       <AboutText />
       <Service />
       <Testimonials />
       <Clients />
-    </article>
+    </Article>
   );
 }
