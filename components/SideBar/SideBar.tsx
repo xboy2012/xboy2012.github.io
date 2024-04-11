@@ -1,6 +1,7 @@
 'use client';
 
 import { useCallback, useState } from 'react';
+import cx from 'classnames';
 import { ContactItemEmail } from './ContactItemEmail';
 import { ContactItemPhone } from './ContactItemPhone';
 import { ContactItemLocation } from './ContactItemLocation';
@@ -9,8 +10,8 @@ import { LogoTwitter } from './Icons/LogoTwitter';
 import { LogoGithub } from './Icons/LogoGithub';
 import { LogoLinkedin } from './Icons/LogoLinkedin';
 import { InfoCard } from './InfoCard';
+import { Separator } from './Separator';
 import { userData } from '../../src/data';
-import styles from './SideBar.module.css';
 
 export const SideBar = () => {
   const { facebook, twitter, github, linkedin } = userData;
@@ -21,27 +22,49 @@ export const SideBar = () => {
   }, []);
 
   return (
-    <aside className={`${styles.sideBar} ${showSideBar ? styles.active : ''}`}>
+    <aside
+      className={cx(
+        'bg-eerieBlack2 border border-solid border-jet rounded-[20px] p-[15px]',
+        'shadow-1 z-1 mb-[15px] overflow-hidden transition-all duration-500 ease-in-out',
+        'md:w-[520px] md:[margin-inline:auto] md:p-[30px] md:mb-[30px]',
+        'lg:w-[700px]',
+        'xl:w-[950px] xl:shadow-5',
+        '2xl:w-auto 2xl:sticky 2xl:top-[60px] 2xl:h-full 2xl:mb-0 2xl:pt-[60px] 2xl:z-1',
+        showSideBar
+          ? 'max-h-[405px] md:max-h-[584px] 2xl:max-h-[initial]'
+          : 'max-h-[112px] md:max-h-[180px] 2xl:max-h-max',
+      )}
+    >
       <InfoCard onMoreClick={handleOpen} />
-      <div className={styles.sideBarInfoMore}>
-        <div className={styles.separator}></div>
+      <div
+        className={cx(
+          'transition-all duration-500 ease-in-out 2xl:opacity-100 2xl:visible',
+          showSideBar ? 'opacity-100 visible' : 'opacity-0 invisible',
+        )}
+      >
+        <Separator />
 
-        <ul className={styles.contactsList}>
+        <ul
+          className={cx(
+            'grid grid-cols-1fr gap-[16px] md:gap-[20px] lg:gap-x-[15px]',
+            'lg:grid-cols-1fr1fr lg:gap-y-[30px] 2xl:grid-cols-1fr',
+          )}
+        >
           <ContactItemEmail />
           <ContactItemPhone />
           <ContactItemLocation />
         </ul>
 
-        <div className={styles.separator} />
+        <Separator />
 
-        <ul className={styles.socialList}>
+        <ul className="flex justify-start 2xl:justify-center items-center gap-[15px] pb-1 pl-[7px]">
           {!!facebook && (
             <li>
               <a
                 title={`Facebook:${facebook}`}
                 href={`https://www.facebook.com/${facebook}`}
                 target="_blank"
-                className={styles.socialLink}
+                className="text-lightGray70 text-lg hover:text-lightGray"
               >
                 <LogoFacebook />
               </a>
@@ -54,7 +77,7 @@ export const SideBar = () => {
                 title={`Twitter:${twitter}`}
                 href={`https://twitter.com/${twitter}`}
                 target="_blank"
-                className={styles.socialLink}
+                className="text-lightGray70 text-lg hover:text-lightGray"
               >
                 <LogoTwitter />
               </a>
@@ -67,7 +90,7 @@ export const SideBar = () => {
                 title={`GitHub:${github}`}
                 href={`https://github.com/${github}`}
                 target="_blank"
-                className={styles.socialLink}
+                className="text-lightGray70 text-lg hover:text-lightGray"
               >
                 <LogoGithub />
               </a>
@@ -80,7 +103,7 @@ export const SideBar = () => {
                 title={`LinkedIn:${linkedin}`}
                 href={`https://linkedin.com/${linkedin}`}
                 target="_blank"
-                className={styles.socialLink}
+                className="text-lightGray70 text-lg hover:text-lightGray"
               >
                 <LogoLinkedin />
               </a>

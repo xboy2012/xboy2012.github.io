@@ -55,6 +55,10 @@ const config: Config = {
           'linear-gradient(to bottom right, hsl(240, 1%, 25%) 3%, hsl(0, 0%, 19%) 97%)',
         bgGradientJet:
           'linear-gradient(to bottom right, hsla(240, 1%, 18%, 0.251) 0%, hsla(240, 2%, 11%, 0) 100%)',
+        bgGradientYellow1:
+          'linear-gradient(to bottom right, hsl(45, 100%, 71%) 0%, hsla(36, 100%, 69%, 0) 50%)',
+        bgGradientYellow2:
+          'linear-gradient(135deg, hsla(45, 100%, 71%, 0.251) 0%, hsla(35, 100%, 68%, 0) 59.86%), hsl(240, 2%, 13%)',
         borderGradientOnyx:
           'linear-gradient(to bottom right, hsl(0, 0%, 25%) 0%, hsla(0, 0%, 25%, 0) 50%)',
         textGradientYellow:
@@ -73,7 +77,7 @@ const config: Config = {
         '3xl': '0 16px 40px hsla(0, 0%, 0%, 0.125)',
         '4': '0 25px 50px hsla(0, 0%, 0%, 0.15)',
         '5': '0 24px 80px hsla(0, 0%, 0%, 0.25)',
-        'timeline': '0 0 0 4px var(--jet)',
+        timeline: '0 0 0 4px var(--jet)',
       },
       fontSize: {
         '1': 'var(--fs-1)',
