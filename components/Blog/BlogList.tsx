@@ -18,18 +18,19 @@ export const BlogList = () => {
                 <figure
                   className={cx(
                     'overflow-hidden',
-                    'w-full h-[200px] sm:h-auto xl:h-[230px]',
+                    'w-full h-[200px] sm:h-auto sm:aspect-video xl:h-[230px] xl:aspect-auto',
                     'rounded-xl md:rounded-2xl',
                   )}
                 >
-                  <img
-                    src={image}
-                    alt={title}
-                    loading="lazy"
+                  <div
                     className={cx(
-                      'w-full h-full object-cover',
+                      'w-full h-full bg-cover bg-center bg-no-repeat',
                       'transition-all duration-250 ease-default group-hover:scale-110',
                     )}
+                    style={{
+                      backgroundImage: `url("${image}")`,
+                    }}
+                    title={title}
                   />
                 </figure>
 

@@ -46,7 +46,13 @@ export const Service = () => {
             >
               <div className="absolute inset-px bg-eerieBlack1 bg-bgGradientJet rounded-inherit -z-1" />
               <div className="mb-2.5 md:mb-0 md:mt-[5px]">
-                <img className="m-auto" src={icon} alt={name} width="40" />
+                <div
+                  className="aspect-square bg-contain bg-center bg-no-repeat w-[40px] h-[40px]"
+                  style={{
+                    backgroundImage: `url("${icon}")`,
+                  }}
+                  title={name}
+                />
               </div>
 
               <div className="text-center md:text-left">

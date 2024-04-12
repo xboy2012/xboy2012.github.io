@@ -63,11 +63,12 @@ export const Testimonials = () => {
                       'bg-bgGradientOnyx shadow-1',
                     )}
                   >
-                    <img
-                      src={avatar}
-                      alt={name}
-                      width="60"
-                      className="md:w-[80px]"
+                    <div
+                      className="aspect-square bg-contain bg-center bg-no-repeat w-[60px] md:w-[80px]"
+                      title={name}
+                      style={{
+                        backgroundImage: `url("${avatar}")`,
+                      }}
                     />
                   </figure>
 

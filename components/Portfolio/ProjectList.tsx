@@ -1,5 +1,5 @@
-import type { ProjectData } from '../../src/types';
 import cx from 'classnames';
+import type { ProjectData } from '../../src/types';
 import { EyeOutline } from '../Icons/EyeOutline';
 
 export const ProjectList = ({ data }: { data: ProjectData[] }) => {
@@ -12,7 +12,7 @@ export const ProjectList = ({ data }: { data: ProjectData[] }) => {
               <figure
                 className={cx(
                   'relative rounded-2xl overflow-hidden mb-[15px]',
-                  'w-full h-[200px] sm:h-auto',
+                  'w-full h-[200px] sm:h-auto sm:aspect-[4/3]',
                 )}
               >
                 <div
@@ -34,14 +34,15 @@ export const ProjectList = ({ data }: { data: ProjectData[] }) => {
                   <EyeOutline />
                 </div>
 
-                <img
-                  src={image}
-                  alt={title}
-                  loading="lazy"
+                <div
                   className={cx(
-                    'w-full h-full object-cover',
+                    'w-full h-full bg-cover bg-center bg-no-repeat',
                     'transition-all duration-250 ease-default group-hover:scale-110',
                   )}
+                  style={{
+                    backgroundImage: `url("${image}")`,
+                  }}
+                  title={title}
                 />
               </figure>
 

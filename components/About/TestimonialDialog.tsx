@@ -1,6 +1,7 @@
 import cx from 'classnames';
 import type { TestimonialData } from '../../src/types';
 import { CloseOutline } from '../Icons/CloseOutline';
+import { Quote } from '../Icons/Quote';
 import { formatDateTime } from '../../src/utils/formatDateTime';
 
 export const TestimonialDialog = ({
@@ -57,19 +58,18 @@ export const TestimonialDialog = ({
               'md:rounded-[18px] md:mb-0',
             )}
           >
-            <img
-              src={avatar}
-              alt={name}
-              width="80"
-              className="md:w-[65px] lg:w-[80px]"
+            <div
+              className={cx(
+                'aspect-square bg-contain bg-center bg-no-repeat',
+                'w-[80px] md:w-[65px] lg:w-[80px]',
+              )}
+              style={{
+                backgroundImage: `url("${avatar}")`,
+              }}
+              title={name}
             />
           </figure>
-
-          <img
-            src="/assets/icon-quote.svg"
-            alt="quote icon"
-            className="hidden md:block grow w-[35px]"
-          />
+          <Quote className="hidden md:block grow w-[35px]" />
         </div>
 
         <div>
