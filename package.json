@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prepare": "husky"
   },
   "dependencies": {
     "classnames": "^2.5.1",
@@ -16,6 +17,8 @@
   },
   "devDependencies": {
     "@microsoft/eslint-formatter-sarif": "^3.1.0",
+    "@types/lint-staged": "^13.3.0",
+    "@types/micromatch": "^4.0.6",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
@@ -23,6 +26,9 @@
     "eslint": "^8",
     "eslint-config-next": "14.1.4",
     "http-server": "^14.1.1",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
+    "micromatch": "^4.0.5",
     "postcss": "^8",
     "prettier": "^3.2.5",
     "tailwindcss": "^3.3.0",
