@@ -1,13 +1,11 @@
-import { ArticleTitle } from '../../../../components/ArticleTitle';
 import { Article } from '../../../../components/Article';
-import { Education } from './Education';
-import { Experience } from './Experience';
-import { Skill } from './Skill';
+import { Education } from '../../../../components/Resume/Education';
+import { Experience } from '../../../../components/Resume/Experience';
+import { Skill } from '../../../../components/Resume/Skill';
 
 export default function Resume() {
   return (
-    <Article>
-      <ArticleTitle title="Resume" />
+    <Article title="Resume">
       <Education />
       <Experience />
       <Skill />

@@ -1,4 +1,6 @@
-export const ChevronDown = ({ className }: { className?: string }) => {
+import { memo } from 'react';
+
+export const ChevronDown = memo(({ className }: { className?: string }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -15,4 +17,4 @@ export const ChevronDown = ({ className }: { className?: string }) => {
       ></path>
     </svg>
   );
-};
+});

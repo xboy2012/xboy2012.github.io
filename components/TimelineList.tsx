@@ -1,7 +1,8 @@
+import { memo } from 'react';
 import cx from 'classnames';
 import type { TimelineItem } from '../src/types';
 
-export const TimelineList = ({ data }: { data: TimelineItem[] }) => {
+export const TimelineList = memo(({ data }: { data: TimelineItem[] }) => {
   const lastIndex = data.length - 1;
   return (
     <ol className="text-6 ml-[45px] md:ml-[65px]">
@@ -61,4 +62,4 @@ export const TimelineList = ({ data }: { data: TimelineItem[] }) => {
       })}
     </ol>
   );
-};
+});

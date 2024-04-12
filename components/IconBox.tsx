@@ -1,7 +1,8 @@
-import { BookOutline } from './Icons/BookOutline';
+import { memo } from 'react';
 import cx from 'classnames';
+import { BookOutline } from './Icons/BookOutline';
 
-export const IconBox = () => {
+export const IconBox = memo(() => {
   return (
     <div
       className={cx(
@@ -15,4 +16,4 @@ export const IconBox = () => {
       <BookOutline />
     </div>
   );
-};
+});

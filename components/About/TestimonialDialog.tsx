@@ -1,7 +1,7 @@
 import cx from 'classnames';
-import type { TestimonialData } from '../../../../src/types';
-import { CloseOutline } from '../../../../components/Icons/CloseOutline';
-import { formatDateTime } from '../../../../src/utils/formatDateTime';
+import type { TestimonialData } from '../../src/types';
+import { CloseOutline } from '../Icons/CloseOutline';
+import { formatDateTime } from '../../src/utils/formatDateTime';
 
 export const TestimonialDialog = ({
   data,

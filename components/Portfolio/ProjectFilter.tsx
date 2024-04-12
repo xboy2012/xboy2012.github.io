@@ -1,7 +1,7 @@
 import { useCallback, useState } from 'react';
 import cx from 'classnames';
-import { ChevronDown } from '../../../../components/Icons/ChevronDown';
-import type { ProjectCategory } from '../../../../src/types';
+import { ChevronDown } from '../Icons/ChevronDown';
+import type { ProjectCategory } from '../../src/types';
 
 type Category = ProjectCategory | 'All';
 

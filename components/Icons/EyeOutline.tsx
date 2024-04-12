@@ -1,4 +1,6 @@
-export const EyeOutline = () => {
+import { memo } from 'react';
+
+export const EyeOutline = memo(() => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -24,4 +26,4 @@ export const EyeOutline = () => {
       ></circle>
     </svg>
   );
-};
+});

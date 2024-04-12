@@ -1,7 +1,7 @@
 'use client';
 import { useMemo, useState } from 'react';
-import type { ProjectCategory } from '../../../../src/types';
-import { projects } from '../../../../src/projects';
+import type { ProjectCategory } from '../../src/types';
+import { projects } from '../../src/projects';
 import { ProjectList } from './ProjectList';
 import { ProjectFilter } from './ProjectFilter';
 

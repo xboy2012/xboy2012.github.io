@@ -1,4 +1,4 @@
-import { userData } from '../../../../src/data';
+import { userData } from '../../src/data';
 
 export const AboutText = () => {
   return (

@@ -1,14 +1,12 @@
-import { AboutText } from './AboutText';
-import { Service } from './Service';
-import { Testimonials } from './Testimonials';
-import { Clients } from './Clients';
-import { ArticleTitle } from '../../../../components/ArticleTitle';
+import { AboutText } from '../../../../components/About/AboutText';
+import { Service } from '../../../../components/About/Service';
+import { Testimonials } from '../../../../components/About/Testimonials';
+import { Clients } from '../../../../components/About/Clients';
 import { Article } from '../../../../components/Article';
 
 export default function About() {
   return (
-    <Article>
-      <ArticleTitle title="About Me" />
+    <Article title="About Me">
       <AboutText />
       <Service />
       <Testimonials />

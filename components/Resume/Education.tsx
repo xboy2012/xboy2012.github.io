@@ -1,6 +1,6 @@
-import { userData } from '../../../../src/data';
-import { IconBox } from '../../../../components/IconBox';
-import { TimelineList } from '../../../../components/TimelineList';
+import { userData } from '../../src/data';
+import { IconBox } from '../IconBox';
+import { TimelineList } from '../TimelineList';
 
 export const Education = () => {
   return (

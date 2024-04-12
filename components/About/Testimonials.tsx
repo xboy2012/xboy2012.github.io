@@ -3,7 +3,7 @@
 import cx from 'classnames';
 import { useCallback, useState } from 'react';
 import { TestimonialDialog } from './TestimonialDialog';
-import { testimonials } from '../../../../src/testimonials';
+import { testimonials } from '../../src/testimonials';
 
 export const Testimonials = () => {
   const [curTestNominal, setCurTestNominal] = useState(testimonials[0]);

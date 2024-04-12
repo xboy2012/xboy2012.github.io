@@ -1,11 +1,9 @@
 import { Article } from '../../../../components/Article';
-import { ArticleTitle } from '../../../../components/ArticleTitle';
-import { BlogList } from './BlogList';
+import { BlogList } from '../../../../components/Blog/BlogList';
 
 export default function Blog() {
   return (
-    <Article>
-      <ArticleTitle title="Blog" />
+    <Article title="Blog">
       <BlogList />
     </Article>
   );

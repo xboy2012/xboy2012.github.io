@@ -1,6 +1,6 @@
 import cx from 'classnames';
-import { blogs } from '../../../../src/blogs';
-import { formatDateTime } from '../../../../src/utils/formatDateTime';
+import { blogs } from '../../src/blogs';
+import { formatDateTime } from '../../src/utils/formatDateTime';
 
 export const BlogList = () => {
   return (

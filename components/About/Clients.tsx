@@ -1,5 +1,5 @@
 import cx from 'classnames';
-import { companies } from '../../../../src/companies';
+import { companies } from '../../src/companies';
 
 export const Clients = () => {
   return (

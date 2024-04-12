@@ -1,4 +1,6 @@
-export const BookOutline = () => {
+import { memo } from 'react';
+
+export const BookOutline = memo(() => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -15,4 +17,4 @@ export const BookOutline = () => {
       ></path>
     </svg>
   );
-};
+});

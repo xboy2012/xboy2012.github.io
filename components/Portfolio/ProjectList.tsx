@@ -1,6 +1,6 @@
-import type { ProjectData } from '../../../../src/types';
+import type { ProjectData } from '../../src/types';
 import cx from 'classnames';
-import { EyeOutline } from '../../../../components/Icons/EyeOutline';
+import { EyeOutline } from '../Icons/EyeOutline';
 
 export const ProjectList = ({ data }: { data: ProjectData[] }) => {
   return (

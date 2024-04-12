@@ -1,5 +1,5 @@
 import cx from 'classnames';
-import { userData } from '../../../../src/data';
+import { userData } from '../../src/data';
 
 export const Skill = () => {
   return (

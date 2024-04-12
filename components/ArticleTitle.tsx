@@ -1,6 +1,7 @@
 import cx from 'classnames';
+import { memo } from 'react';
 
-export const ArticleTitle = ({ title }: { title: string }) => {
+export const ArticleTitle = memo(({ title }: { title: string }) => {
   return (
     <header>
       <h2
@@ -21,4 +22,4 @@ export const ArticleTitle = ({ title }: { title: string }) => {
       </h2>
     </header>
   );
-};
+});

@@ -1,7 +1,14 @@
 import type { ReactNode } from 'react';
 import cx from 'classnames';
+import { ArticleTitle } from './ArticleTitle';
 
-export const Article = ({ children }: { children: ReactNode }) => {
+export const Article = ({
+  title,
+  children,
+}: {
+  title: string;
+  children: ReactNode;
+}) => {
   return (
     <article
       className={cx(
@@ -11,6 +18,7 @@ export const Article = ({ children }: { children: ReactNode }) => {
         'lg:w-[700px] xl:w-[950px] xl:shadow-5 2xl:w-auto 2xl:min-h-full',
       )}
     >
+      <ArticleTitle title={title} />
       {children}
     </article>
   );
