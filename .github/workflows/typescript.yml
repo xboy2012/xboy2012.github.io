@@ -8,8 +8,8 @@ on:
     branches: [ "master" ]
 
 jobs:
-  eslint:
-    name: Run eslint scanning
+  typescript:
+    name: Run TypeScript building
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -46,5 +46,5 @@ jobs:
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
 
-      - name: Run ESLint
+      - name: Run TypeScript Build
         run: npx tsc --build
