@@ -1,9 +1,13 @@
-import { LocationOutline } from './Icons/LocationOutline';
+import { LocationOutline } from '../Icons/LocationOutline';
 import { userData } from '../../src/data';
 import cx from 'classnames';
 
 export const ContactItemLocation = () => {
   const { location } = userData;
+  if (!location) {
+    return null;
+  }
+
   return (
     <li className="max-w-full flex items-center gap-4">
       <div

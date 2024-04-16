@@ -1,9 +1,13 @@
-import { MailOutline } from './Icons/MailOutline';
+import { MailOutline } from '../Icons/MailOutline';
 import { userData } from '../../src/data';
 import cx from 'classnames';
 
 export const ContactItemEmail = () => {
   const { email } = userData;
+  if (!email) {
+    return null;
+  }
+
   return (
     <li className="max-w-full flex items-center gap-4">
       <div

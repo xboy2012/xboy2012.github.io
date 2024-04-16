@@ -5,16 +5,14 @@ import cx from 'classnames';
 import { ContactItemEmail } from './ContactItemEmail';
 import { ContactItemPhone } from './ContactItemPhone';
 import { ContactItemLocation } from './ContactItemLocation';
-import { LogoFacebook } from './Icons/LogoFacebook';
-import { LogoTwitter } from './Icons/LogoTwitter';
-import { LogoGithub } from './Icons/LogoGithub';
-import { LogoLinkedin } from './Icons/LogoLinkedin';
+import { LinkFacebook } from './LinkFacebook';
+import { LinkTwitter } from './LinkTwitter';
+import { LinkGithub } from './LinkGithub';
+import { LinkLinkedin } from './LinkLinkedin';
 import { InfoCard } from './InfoCard';
 import { Separator } from './Separator';
-import { userData } from '../../src/data';
 
 export const SideBar = () => {
-  const { facebook, twitter, github, linkedin } = userData;
   const [showSideBar, setShowSideBar] = useState(false);
 
   const handleOpen = useCallback(() => {
@@ -58,57 +56,10 @@ export const SideBar = () => {
         <Separator />
 
         <ul className="flex justify-start 2xl:justify-center items-center gap-[15px] pb-1 pl-[7px]">
-          {!!facebook && (
-            <li>
-              <a
-                title={`Facebook:${facebook}`}
-                href={`https://www.facebook.com/${facebook}`}
-                target="_blank"
-                className="block text-lightGray70 text-lg hover:text-lightGray"
-              >
-                <LogoFacebook />
-              </a>
-            </li>
-          )}
-
-          {!!twitter && (
-            <li>
-              <a
-                title={`Twitter:${twitter}`}
-                href={`https://twitter.com/${twitter}`}
-                target="_blank"
-                className="block text-lightGray70 text-lg hover:text-lightGray"
-              >
-                <LogoTwitter />
-              </a>
-            </li>
-          )}
-
-          {!!github && (
-            <li>
-              <a
-                title={`GitHub:${github}`}
-                href={`https://github.com/${github}`}
-                target="_blank"
-                className="block text-lightGray70 text-lg hover:text-lightGray"
-              >
-                <LogoGithub />
-              </a>
-            </li>
-          )}
-
-          {!!linkedin && (
-            <li>
-              <a
-                title={`LinkedIn:${linkedin}`}
-                href={`https://linkedin.com/${linkedin}`}
-                target="_blank"
-                className="block text-lightGray70 text-lg hover:text-lightGray"
-              >
-                <LogoLinkedin />
-              </a>
-            </li>
-          )}
+          <LinkFacebook />
+          <LinkTwitter />
+          <LinkGithub />
+          <LinkLinkedin />
         </ul>
       </div>
     </aside>
