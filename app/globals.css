@@ -79,30 +79,6 @@ li {
   list-style: none;
 }
 
-img,
-a,
-button,
-time,
-span {
-  display: block;
-}
-
-button {
-  font: inherit;
-  background: none;
-  border: none;
-  text-align: left;
-  cursor: pointer;
-}
-
-input,
-textarea {
-  display: block;
-  width: 100%;
-  background: none;
-  font: inherit;
-}
-
 ::selection {
   @apply bg-orangeYellowCrayola text-smokyBlack;
 }

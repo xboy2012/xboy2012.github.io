@@ -42,9 +42,9 @@ export const TestimonialDialog = ({
       >
         <button
           className={cx(
-            'absolute top-[15px] right-[15px] bg-onyx rounded-lg w-8 h-8',
+            'absolute top-[15px] right-[15px] bg-onyx border-none rounded-lg w-8 h-8',
             'flex justify-center items-center text-white2 text-lg opacity-70',
-            'hover:opacity-100 focus:opacity-100',
+            'cursor-pointer hover:opacity-100 focus:opacity-100',
           )}
           onClick={onClose}
         >
@@ -77,7 +77,7 @@ export const TestimonialDialog = ({
 
           <time
             dateTime={datetime}
-            className="text-6 text-lightGray70 font-300 mb-2.5"
+            className="block text-6 text-lightGray70 font-300 mb-2.5"
           >
             {formatDateTime(datetime)}
           </time>

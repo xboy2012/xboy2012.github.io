@@ -41,7 +41,7 @@ export const ProjectFilter = ({
             <li key={category}>
               <button
                 className={cx(
-                  'text-5 transition-all duration-250 ease-default',
+                  'block text-5 bg-none border-none cursor-pointer transition-all duration-250 ease-default',
                   curCategory === category
                     ? 'text-orangeYellowCrayola'
                     : 'text-lightGray70 hover:text-lightGray70',
@@ -61,7 +61,7 @@ export const ProjectFilter = ({
         <button
           className={cx(
             'flex justify-between items-center w-full py-3 px-4',
-            'bg-eerieBlack2 text-lightGray',
+            'bg-eerieBlack2 text-lightGray text-left cursor-pointer',
             'border border-solid border-jet rounded-[14px] text-6 font-300',
           )}
           onClick={handleSelectClick}
@@ -91,8 +91,8 @@ export const ProjectFilter = ({
               <li key={category}>
                 <button
                   className={cx(
-                    'bg-eerieBlack2 hover:bg-eerieBlack3 text-lightGray',
-                    'text-6 font-300 capitalize w-full py-2 px-2.5 rounded-lg',
+                    'block bg-eerieBlack2 border-none hover:bg-eerieBlack3 text-lightGray text-left',
+                    'cursor-pointer text-6 font-300 capitalize w-full py-2 px-2.5 rounded-lg',
                   )}
                   onClick={() => {
                     handleCategorySelect(category);

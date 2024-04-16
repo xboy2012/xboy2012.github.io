@@ -25,7 +25,7 @@ export const ContactItemPhone = () => {
         <a
           href={`tel:${phoneCA}`}
           className={cx(
-            'text-white2 text-[13px] md:text-[15px] 2xl:text-[14px] font-300',
+            'block text-white2 text-[13px] md:text-[15px] 2xl:text-[14px] font-300',
             '2xl:whitespace-nowrap 2xl:overflow-hidden 2xl:text-ellipsis',
           )}
         >

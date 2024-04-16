@@ -64,7 +64,7 @@ export const SideBar = () => {
                 title={`Facebook:${facebook}`}
                 href={`https://www.facebook.com/${facebook}`}
                 target="_blank"
-                className="text-lightGray70 text-lg hover:text-lightGray"
+                className="block text-lightGray70 text-lg hover:text-lightGray"
               >
                 <LogoFacebook />
               </a>
@@ -77,7 +77,7 @@ export const SideBar = () => {
                 title={`Twitter:${twitter}`}
                 href={`https://twitter.com/${twitter}`}
                 target="_blank"
-                className="text-lightGray70 text-lg hover:text-lightGray"
+                className="block text-lightGray70 text-lg hover:text-lightGray"
               >
                 <LogoTwitter />
               </a>
@@ -90,7 +90,7 @@ export const SideBar = () => {
                 title={`GitHub:${github}`}
                 href={`https://github.com/${github}`}
                 target="_blank"
-                className="text-lightGray70 text-lg hover:text-lightGray"
+                className="block text-lightGray70 text-lg hover:text-lightGray"
               >
                 <LogoGithub />
               </a>
@@ -103,7 +103,7 @@ export const SideBar = () => {
                 title={`LinkedIn:${linkedin}`}
                 href={`https://linkedin.com/${linkedin}`}
                 target="_blank"
-                className="text-lightGray70 text-lg hover:text-lightGray"
+                className="block text-lightGray70 text-lg hover:text-lightGray"
               >
                 <LogoLinkedin />
               </a>

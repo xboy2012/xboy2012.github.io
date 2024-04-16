@@ -12,7 +12,7 @@ export const BlogList = () => {
               <a
                 href={link}
                 target="_blank"
-                className="relative bg-borderGradientOnyx h-full shadow-4 rounded-2xl z-1"
+                className="block relative bg-borderGradientOnyx h-full shadow-4 rounded-2xl z-1"
               >
                 <div className="absolute inset-px rounded-inherit bg-eerieBlack1 -z-1" />
                 <figure
@@ -40,7 +40,7 @@ export const BlogList = () => {
                       {category}
                     </p>
 
-                    <span className="bg-lightGray70 w-1 h-1 rounded" />
+                    <div className="bg-lightGray70 w-1 h-1 rounded" />
 
                     <time
                       dateTime={datetime}

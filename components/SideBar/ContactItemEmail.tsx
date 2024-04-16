@@ -25,7 +25,7 @@ export const ContactItemEmail = () => {
         <a
           href={`mailto:${email}`}
           className={cx(
-            'text-white2 text-[13px] md:text-[15px] 2xl:text-[14px]',
+            'block text-white2 text-[13px] md:text-[15px] 2xl:text-[14px]',
             '2xl:whitespace-nowrap 2xl:overflow-hidden 2xl:text-ellipsis 2xl:font-300',
           )}
         >
