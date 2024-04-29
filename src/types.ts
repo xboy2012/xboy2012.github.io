@@ -25,7 +25,8 @@ export interface UserData {
 }
 
 export interface BlogData {
-  link: string;
+  id: string;
+  link?: string;
   title: string;
   desc: string;
   image: string;

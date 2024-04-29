@@ -2,7 +2,7 @@ import type { BlogData } from './types';
 
 export const blogs: BlogData[] = [
   {
-    link: '#',
+    id: 'design-conferences-2022',
     title: 'Design conferences in 2022',
     desc: 'Veritatis et quasi architecto beatae vitae dicta sunt, explicabo.',
     image: '/assets/blog-1.jpg',
@@ -10,7 +10,7 @@ export const blogs: BlogData[] = [
     category: 'Design',
   },
   {
-    link: '#',
+    id: 'best-fonts-every-designer',
     title: 'Best fonts every designer',
     desc: 'Sed ut perspiciatis, nam libero tempore, cum soluta nobis est eligendi.',
     image: '/assets/blog-2.jpg',
@@ -18,6 +18,7 @@ export const blogs: BlogData[] = [
     category: 'Design',
   },
   {
+    id: 'design-digest-80',
     link: '#',
     title: 'Design digest #80',
     desc: 'Excepteur sint occaecat cupidatat no proident, quis nostrum exercitationem ullam corporis suscipit.',
@@ -26,6 +27,7 @@ export const blogs: BlogData[] = [
     category: 'Design',
   },
   {
+    id: 'ui-interactions-of-the-week',
     link: '#',
     title: 'UI interactions of the week',
     desc: 'Optio cumque nihil impedit uo minus quod maxime placeat, velit esse cillum.',
@@ -34,6 +36,7 @@ export const blogs: BlogData[] = [
     category: 'Design',
   },
   {
+    id: 'the-forgotten-art-of-spacing',
     link: '#',
     title: 'The forgotten art of spacing',
     desc: 'Excepteur sint occaecat cupidatat no proident, quis nostrum exercitationem ullam corporis suscipit.',
@@ -42,6 +45,7 @@ export const blogs: BlogData[] = [
     category: 'Design',
   },
   {
+    id: 'design-digest-79',
     link: '#',
     title: 'Design digest #79',
     desc: 'Optio cumque nihil impedit uo minus quod maxime placeat, velit esse cillum.',

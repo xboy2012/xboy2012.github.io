@@ -11,7 +11,7 @@ const config = {
     if (otherFiles.length) {
       return `prettier --write --ignore-unknown '${otherFiles.join("' '")}'`;
     }
-    return null;
+    return '';
   },
 };
 
