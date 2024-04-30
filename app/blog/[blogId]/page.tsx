@@ -1,25 +1,13 @@
-import dynamic from 'next/dynamic';
-import type { ComponentType } from 'react';
-
 interface PageParam {
   blogId: string;
 }
 
-const mdxComponents = new Map<string, ComponentType>();
-
-const getCmp = (blogId: string) => {
-  let cmp = mdxComponents.get(blogId);
-  if (!cmp) {
-    cmp = dynamic(
-      async () => (await import(`../../../src/blogs/${blogId}.mdx`)).default,
-    );
-    mdxComponents.set(blogId, cmp);
-  }
-  return cmp;
+const getCmp = async (blogId: string) => {
+  return (await import(`../../../src/blogs/${blogId}.mdx`)).default;
 };
 
 const Page = async ({ params: { blogId } }: { params: PageParam }) => {
-  const Cmp = getCmp(blogId);
+  const Cmp = await getCmp(blogId);
   return (
     <div>
       <Cmp />
