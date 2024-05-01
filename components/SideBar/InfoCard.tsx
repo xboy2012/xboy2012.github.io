@@ -24,7 +24,7 @@ export const InfoCard = ({ onMoreClick }: Props) => {
         </h1>
         <p
           className={cx(
-            'text-white1 bg-onyx text-8 font-300 w-max py-[3px] px-3 rounded-lg',
+            'text-white bg-onyx text-8 font-300 w-max py-[3px] px-3 rounded-lg',
             'md:py-[5px] md:px-[18px] 2xl:m-auto',
           )}
         >

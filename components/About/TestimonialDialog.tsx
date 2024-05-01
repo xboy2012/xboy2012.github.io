@@ -25,7 +25,7 @@ export const TestimonialDialog = ({
     >
       <div
         className={cx(
-          'fixed top-0 left-0 w-full h-full bg-overlay z-1 transition-all duration-250 ease-default',
+          'fixed top-0 left-0 w-full h-full bg-[#0D0D0D] z-1 transition-all duration-250 ease-default',
           visible ? 'opacity-80 visible' : 'opacity-0 invisible',
         )}
       />

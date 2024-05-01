@@ -19,7 +19,7 @@ export const ProjectList = ({ data }: { data: ProjectData[] }) => {
                   className={cx(
                     'absolute top-0 left-0 w-full h-full bg-transparent z-1',
                     'transition-all duration-250 ease-default',
-                    'group-hover:bg-overlay2',
+                    'group-hover:bg-black group-hover:opacity-50',
                   )}
                 />
                 <div
