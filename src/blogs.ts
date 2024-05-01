@@ -1,6 +1,6 @@
 import type { BlogData } from './types';
 
-export const blogs: BlogData[] = [
+export const blogs: ReadonlyArray<Readonly<BlogData>> = [
   {
     id: 'design-conferences-2022',
     title: 'Design conferences in 2022',
