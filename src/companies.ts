@@ -15,7 +15,7 @@ export const companies: CompanyData[] = [
     Logo: Microsoft,
   },
   {
-    name: 'Tecent',
+    name: 'Tencent',
     link: 'https://www.tencent.com',
     Logo: Tencent,
   },
