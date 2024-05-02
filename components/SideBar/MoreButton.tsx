@@ -1,11 +1,22 @@
-import { ChevronDown } from '../Icons/ChevronDown';
+import { type MouseEvent, useCallback } from 'react';
 import cx from 'classnames';
+import { ChevronDown } from '../Icons/ChevronDown';
 
 interface Props {
   onClick?: () => void;
 }
 
 export const MoreButton = ({ onClick }: Props) => {
+  const handleClick = useCallback(
+    (e: MouseEvent<HTMLButtonElement>) => {
+      // auto blur the button to avoid UI inconsistency
+      e.currentTarget.blur();
+      if (onClick) {
+        onClick();
+      }
+    },
+    [onClick],
+  );
   return (
     <button
       className={cx(
@@ -18,7 +29,7 @@ export const MoreButton = ({ onClick }: Props) => {
         '2xl:hidden',
         'hover:bg-bgGradientYellow1 focus:bg-bgGradientYellow1',
       )}
-      onClick={onClick}
+      onClick={handleClick}
     >
       <div
         className={cx(

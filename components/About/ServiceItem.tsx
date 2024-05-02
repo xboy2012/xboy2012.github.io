@@ -19,7 +19,7 @@ export const ServiceItem = ({
       <div className="absolute inset-px bg-eerieBlack1 bg-bgGradientJet rounded-inherit -z-1" />
       <div className="mb-2.5 md:mb-0 md:mt-[5px]">
         <div
-          className="aspect-square bg-contain bg-center bg-no-repeat w-[40px] h-[40px]"
+          className="mx-auto aspect-square bg-contain bg-center bg-no-repeat w-[40px] h-[40px]"
           style={{
             backgroundImage: `url("${icon}")`,
           }}
