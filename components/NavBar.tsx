@@ -1,7 +1,9 @@
-import { NavBarItem } from './NavBarItem';
 import cx from 'classnames';
+import { NavBarItem } from './NavBarItem';
+import { useExperimental } from '../src/experimental';
 
 export const NavBar = () => {
+  const isExp = useExperimental();
   return (
     <nav
       className={cx(
@@ -15,8 +17,12 @@ export const NavBar = () => {
       <ul className="flex flex-wrap justify-center items-center md:gap-5 xl:gap-7.5 py-0 px-2.5 xl:px-7.5">
         <NavBarItem title="About" path="/" />
         <NavBarItem title="Resume" path="/resume" />
-        <NavBarItem title="Portfolio" path="/portfolio" />
-        <NavBarItem title="Blog" path="/blog" />
+        {isExp && (
+          <>
+            <NavBarItem title="Portfolio" path="/portfolio" />
+            <NavBarItem title="Blog" path="/blog" />
+          </>
+        )}
       </ul>
     </nav>
   );

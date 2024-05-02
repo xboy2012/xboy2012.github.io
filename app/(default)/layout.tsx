@@ -1,5 +1,4 @@
-'use client';
-import { ReactNode, useEffect, useState } from 'react';
+import type { ReactNode } from 'react';
 import { SideBar } from '../../components/SideBar';
 import cx from 'classnames';
 
@@ -8,13 +7,6 @@ export default function Layout({
 }: Readonly<{
   children: ReactNode;
 }>) {
-  const [enabled, setEnabled] = useState(false);
-  useEffect(() => {
-    // TODO: hide from public access
-    if (localStorage.getItem('exp') === '1') {
-      setEnabled(true);
-    }
-  }, []);
   return (
     <main
       className={cx(
@@ -23,7 +15,6 @@ export default function Layout({
         '2xl:max-w-[1200px] 2xl:[margin-inline:auto]',
         '2xl:flex 2xl:justify-center 2xl:items-stretch 2xl:gap-[25px]',
       )}
-      style={{ display: enabled ? '' : 'none' }}
     >
       <SideBar />
       <div
