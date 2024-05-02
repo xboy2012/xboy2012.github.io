@@ -1,6 +1,7 @@
-import { LocationOutline } from '../Icons/LocationOutline';
-import { userData } from '../../src/data';
 import cx from 'classnames';
+import { LocationOutline } from '../Icons/LocationOutline';
+import { getGoogleMapUrl } from '../../src/utils/getGoogleMapUrl';
+import { userData } from '../../src/data';
 
 export const ContactItemLocation = () => {
   const { location } = userData;
@@ -25,14 +26,16 @@ export const ContactItemLocation = () => {
 
       <div className="w-contact max-w-contact md:w-contact2 md:max-w-contact2">
         <p className="text-lightGray70 text-8 uppercase mb-0.5">Location</p>
-        <address
+        <a
           className={cx(
-            'text-white2 text-[13px] md:text-[15px] 2xl:text-[14px]',
-            'not-italic 2xl:font-300',
+            'block text-white2 text-[13px] md:text-[15px] 2xl:text-[14px]',
+            '2xl:whitespace-nowrap 2xl:overflow-hidden 2xl:text-ellipsis 2xl:font-300',
           )}
+          href={getGoogleMapUrl(location)}
+          target="_blank"
         >
-          {location}
-        </address>
+          <address className="not-italic">{location}</address>
+        </a>
       </div>
     </li>
   );
