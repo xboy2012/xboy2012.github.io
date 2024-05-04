@@ -3,8 +3,11 @@ export const buildQueryString = (
 ) => {
   const params = new URLSearchParams();
   for (const key of Object.keys(query)) {
+    if (key === '') {
+      continue;
+    }
     const value = query[key];
-    if (value === undefined || value === null) {
+    if (value === undefined || value === null || value === '') {
       continue;
     }
     params.append(key, value);

@@ -1,5 +1,3 @@
-import type { MouseEvent } from 'react';
-
-export const preventDefault = (e: MouseEvent) => {
+export const preventDefault = (e: { preventDefault: Function }) => {
   e.preventDefault();
 };
