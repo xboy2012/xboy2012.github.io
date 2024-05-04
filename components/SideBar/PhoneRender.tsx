@@ -1,0 +1,24 @@
+import { useEffect, useState } from 'react';
+import cx from 'classnames';
+import { Obfuscate } from '../Obfuscate';
+import { displayPhoneCA } from '../../src/utils/displayPhoneCA';
+import { preventDefault } from '../../src/utils/preventDefault';
+
+export const PhoneRender = ({ phoneCA }: { phoneCA: string }) => {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+  return (
+    <a
+      onClick={mounted ? undefined : preventDefault}
+      href={mounted ? `tel:${phoneCA}` : undefined}
+      className={cx(
+        'block cursor-pointer text-white2 text-[13px] md:text-[15px] 2xl:text-[14px] font-300',
+        '2xl:whitespace-nowrap 2xl:overflow-hidden 2xl:text-ellipsis',
+      )}
+    >
+      <Obfuscate text={displayPhoneCA(phoneCA)} />
+    </a>
+  );
+};
