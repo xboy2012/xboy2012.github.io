@@ -1,71 +1,38 @@
 import type { Config } from 'lint-staged';
-import { shouldRunPrettier } from './shouldRunPrettier';
-import { shouldRunESLint } from './shouldRunESLint';
-import { extname } from 'node:path';
+import { filterFilesRequiresESLint } from './filterFilesRequiresESLint';
+import { filterFilesRequiresPrettier } from './filterFilesRequiresPrettier';
+import { filterFilesExceptExtensions } from './filterFilesExceptExtensions';
+
+const JsTsExtensions = [
+  '.js',
+  '.jsx',
+  '.cjs',
+  '.mjs',
+  '.ts',
+  '.tsx',
+  '.mts',
+  '.cts',
+];
 
 const lintStagedConfig: Config = {
   '*.{ts,tsx,mts,cts}': () => 'tsc --noEmit',
   '*.{js,jsx,cjs,mjs,ts,tsx,mts,cts}': async (files) => {
-    const results = await Promise.all(
-      files.map(async (file) => {
-        const [runPrettier, runESLint] = await Promise.all([
-          shouldRunPrettier(file),
-          shouldRunESLint(file),
-        ]);
-        return { file, runPrettier, runESLint };
-      }),
-    );
-
-    const prettierFiles = results
-      .filter((o) => o.runPrettier)
-      .map((o) => o.file);
-    const eslintFiles = results.filter((o) => o.runESLint).map((o) => o.file);
-
-    const allFiles = results
-      .filter((o) => o.runPrettier || o.runESLint)
-      .map((o) => o.file);
-
-    const commands: string[] = [
-      prettierFiles.length
-        ? `prettier --write '${prettierFiles.join("' '")}'`
-        : '',
-      eslintFiles.length ? `eslint --fix '${eslintFiles.join("' '")}'` : '',
-      allFiles.length ? `git add '${allFiles.join("' '")}'` : '',
-    ].filter(Boolean);
-
-    return commands;
-  },
-  '*': async (files) => {
-    const extensionSet = new Set([
-      '.js',
-      '.jsx',
-      '.cjs',
-      '.mjs',
-      '.ts',
-      '.tsx',
-      '.mts',
-      '.cts',
-    ]);
-
-    const promises = files
-      .filter((file) => {
-        // skipped files that already processed in other rules
-        const extension = extname(file);
-        return !extensionSet.has(extension);
-      })
-      .map(async (file) => {
-        const runPrettier = await shouldRunPrettier(file);
-        return { file, runPrettier };
-      });
-
-    const results = await Promise.all(promises);
-
-    const otherFiles = results.filter((o) => o.runPrettier).map((o) => o.file);
-
-    if (otherFiles.length) {
+    const eslintFiles = await filterFilesRequiresESLint(files);
+    if (eslintFiles.length) {
       return [
-        `prettier --write '${otherFiles.join("' '")}'`,
-        `git add '${otherFiles.join("' '")}'`,
+        `eslint --fix '${eslintFiles.join("' '")}'`,
+        `git add '${eslintFiles.join("' '")}'`,
+      ];
+    }
+    return [];
+  },
+  '*': async (originalFiles) => {
+    const files = filterFilesExceptExtensions(originalFiles, JsTsExtensions);
+    const prettierFiles = await filterFilesRequiresPrettier(files);
+    if (prettierFiles.length) {
+      return [
+        `prettier --write '${prettierFiles.join("' '")}'`,
+        `git add '${prettierFiles.join("' '")}'`,
       ];
     }
     return [];
