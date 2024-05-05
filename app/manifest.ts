@@ -1,16 +1,17 @@
 import type { MetadataRoute } from 'next';
 import { colors } from '../src/config/colors';
-import { userData } from '../src/data';
+import { APP_DEFAULT_TITLE, APP_DESCRIPTION } from '../src/config/app';
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: userData.name,
-    short_name: userData.name,
-    description: userData.intro.join(''),
+    name: APP_DEFAULT_TITLE,
+    short_name: APP_DEFAULT_TITLE,
+    description: APP_DESCRIPTION,
     start_url: '/',
     display: 'standalone',
     background_color: colors.smokyBlack,
     theme_color: colors.smokyBlack,
+    orientation: 'portrait',
     icons: [
       {
         src: '/favicon.ico',
