@@ -14,4 +14,18 @@ describe('blogs data should follow some conventions', () => {
       });
     }
   }
+
+  for (const blog of blogs) {
+    const blogId = blog.id;
+    const image = blog.image;
+    test(`[${blogId}] should have a valid image`, async () => {
+      expect(image.startsWith('/')).toBe(true);
+      const filePath = pathJoin(
+        rootDir,
+        'public',
+        ...image.substring(1).split('/'),
+      );
+      await access(filePath, constants.R_OK);
+    });
+  }
 });
