@@ -3,16 +3,11 @@ import lintStagedConfig from './utils/lintstaged.config';
 
 (async () => {
   const success = await lintStaged({
-    allowEmpty: false,
     concurrent: true,
     config: lintStagedConfig,
     cwd: process.cwd(),
-    debug: false,
-    quiet: false,
-    relative: false,
-    shell: false,
+    relative: true,
     stash: true,
-    verbose: false,
   });
 
   if (!success) {
