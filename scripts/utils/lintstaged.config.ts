@@ -1,6 +1,6 @@
 import type { Config } from 'lint-staged';
-import { shouldRunPrettier } from './shouldRunPrettier.mjs';
-import { shouldRunESLint } from './shouldRunESLint.mjs';
+import { shouldRunPrettier } from './shouldRunPrettier';
+import { shouldRunESLint } from './shouldRunESLint';
 import { extname } from 'node:path';
 
 const lintStagedConfig: Config = {

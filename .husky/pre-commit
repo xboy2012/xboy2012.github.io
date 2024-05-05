@@ -1,4 +1,4 @@
 #!/usr/bin/env sh
 . "$(dirname "$0")/_/husky.sh"
 
-node --import './scripts/ts-loader.mjs' scripts/lintstaged.mts
+yarn tsx scripts/lintstaged.ts
