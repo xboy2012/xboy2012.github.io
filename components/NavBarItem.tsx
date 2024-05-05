@@ -2,15 +2,12 @@ import { useCallback, useMemo, type MouseEvent } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import cx from 'classnames';
 import { isSamePath } from '../src/utils/isSamePath';
+import { preventDefault } from '../src/utils/preventDefault';
 
 interface NavBarItemProps {
   path: '/' | '/resume' | '/portfolio' | '/blog';
   title: string;
 }
-
-const preventClick = (e: MouseEvent) => {
-  e.preventDefault();
-};
 
 export const NavBarItem = ({ path, title }: NavBarItemProps) => {
   const currentPath = usePathname() as `/${string}`;
@@ -35,7 +32,7 @@ export const NavBarItem = ({ path, title }: NavBarItemProps) => {
             ? 'text-orangeYellowCrayola'
             : 'text-lightGray hover:text-lightGray70 focus:text-lightGray70',
         )}
-        onClick={!isActive ? handleClick : preventClick}
+        onClick={!isActive ? handleClick : preventDefault}
         href={path}
       >
         {title}
