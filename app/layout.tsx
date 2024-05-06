@@ -6,6 +6,7 @@ import {
   APP_TITLE_TEMPLATE,
   APP_DESCRIPTION,
 } from '../src/config/app';
+import { ServiceWorkerRegister } from '../components/ServiceWorkerRegister';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -50,6 +51,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <ServiceWorkerRegister />
       <body className="bg-smokyBlack">{children}</body>
     </html>
   );
