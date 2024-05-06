@@ -11,6 +11,7 @@ const config: Config = {
   coverageDirectory: 'coverage',
   coverageProvider: 'v8',
   testEnvironment: 'jsdom',
+  roots: ['<rootDir>/components', '<rootDir>/src'],
 };
 
 export default createJestConfig(config);

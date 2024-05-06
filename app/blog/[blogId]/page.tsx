@@ -10,7 +10,8 @@ const loadBlogData = async (blogId: string) => {
   if (!meta) {
     throw Error('No blog found.');
   }
-  const Component = (await import(`../../../src/blogs/${blogId}.mdx`)).default;
+  const Component = (await import(`../../../src/blogs/mdx/${blogId}.mdx`))
+    .default;
   return {
     meta,
     Component,
