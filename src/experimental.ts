@@ -5,20 +5,34 @@ import { useEffect, useState } from 'react';
 export const useExperimental = () => {
   const [enabled, setEnabled] = useState(false);
   useEffect(() => {
-    if (localStorage.getItem('exp') === '1') {
+    if (isExperimental()) {
       setEnabled(true);
     }
-    const handler = (e: StorageEvent) => {
-      if (e.key === 'exp') {
-        setEnabled(e.newValue === '1');
-      }
-    };
-    window.addEventListener('storage', handler);
+    const dispose = listenExperimentalChange((enabled) => {
+      setEnabled(enabled);
+    });
+
     return () => {
-      window.removeEventListener('storage', handler);
+      dispose();
     };
   }, []);
   return enabled;
+};
+
+const listenExperimentalChange = (callback: (enabled: boolean) => void) => {
+  const handler = (e: StorageEvent) => {
+    if (e.key === 'exp') {
+      callback(e.newValue === '1');
+    }
+  };
+  window.addEventListener('storage', handler);
+  return () => {
+    window.removeEventListener('storage', handler);
+  };
+};
+
+export const isExperimental = () => {
+  return localStorage.getItem('exp') === '1';
 };
 
 export const enableExperimental = () => {
