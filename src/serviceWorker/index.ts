@@ -6,16 +6,49 @@
 declare var self: ServiceWorkerGlobalScope & Window;
 
 import { registerRoute } from 'workbox-routing';
-import { CacheFirst } from 'workbox-strategies';
+import { CacheFirst, NetworkFirst } from 'workbox-strategies';
+import { captureStaticBuiltAssets } from './utils/captureStaticBuiltAssets';
+import { capturePublicAssets } from './utils/capturePublicAssets';
+import { capturePageRoutes } from './utils/capturePageRoutes';
+import { capturePageRscRoutes } from './utils/capturePageRscRoutes';
+import { formatPage } from './utils/plugins/formatPage';
+import { removeSearch } from './utils/plugins/removeSearch';
 
 self.addEventListener('install', () => {
   self.skipWaiting();
 });
 
-// Next.js static assets can be always from cache
+// assets built with hash can be always from cache
 registerRoute(
-  new RegExp('/_next/static/.*\\.(js|css|jpg|png|svg)'),
+  captureStaticBuiltAssets,
   new CacheFirst({
     cacheName: '_next',
+    plugins: [removeSearch],
+  }),
+);
+
+// assets without hash should be network-first
+registerRoute(
+  capturePublicAssets,
+  new NetworkFirst({
+    cacheName: 'public',
+    plugins: [removeSearch],
+  }),
+);
+
+// page requests
+registerRoute(
+  capturePageRoutes,
+  new NetworkFirst({
+    cacheName: 'page',
+    plugins: [removeSearch, formatPage],
+  }),
+);
+
+// page rsc requests
+registerRoute(
+  capturePageRscRoutes,
+  new NetworkFirst({
+    cacheName: 'page',
   }),
 );
