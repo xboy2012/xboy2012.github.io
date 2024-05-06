@@ -1,7 +1,6 @@
 import type { UserData } from './types';
 
 export const userData: UserData = {
-  avatar: '/assets/my-avatar.jpg',
   name: 'Nex Liu',
   title: 'Staff Software Engineer',
   email: 'xboy2008@live.cn',

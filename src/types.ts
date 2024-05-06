@@ -8,7 +8,6 @@ export interface TimelineItem {
 }
 
 export interface UserData {
-  avatar: string;
   name: string;
   title: string;
   email: string;
