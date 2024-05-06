@@ -22,7 +22,6 @@ export const ServiceWorkerRegister = () => {
         const { Workbox } = await import('workbox-window');
         const wb = new Workbox('/serviceWorker.js');
         await wb.register();
-        wb.messageSkipWaiting();
       })();
     }
   }, []);
