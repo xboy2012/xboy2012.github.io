@@ -1,5 +1,5 @@
 import { type WorkboxPlugin } from 'workbox-core';
-import { formatPagePath } from '../formatPagePath';
+import { formatPagePath } from '../../../utils/formatPagePath';
 
 export const formatPage: WorkboxPlugin = {
   cacheKeyWillBeUsed: async ({ request }) => {

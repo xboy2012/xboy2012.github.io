@@ -6,6 +6,7 @@ import {
   APP_TITLE_TEMPLATE,
   APP_DESCRIPTION,
 } from '../src/config/app';
+import { FixPageUrl } from '../components/FixPageUrl';
 import { ServiceWorkerRegister } from '../components/ServiceWorkerRegister';
 import './globals.css';
 
@@ -51,8 +52,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <ServiceWorkerRegister />
-      <body className="bg-smokyBlack">{children}</body>
+      <body className="bg-smokyBlack">
+        <FixPageUrl />
+        <ServiceWorkerRegister />
+        {children}
+      </body>
     </html>
   );
 }
