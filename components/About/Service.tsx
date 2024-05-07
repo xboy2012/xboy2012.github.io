@@ -1,8 +1,5 @@
 import { ServiceItem } from './ServiceItem';
-import iconFrontend from './images/icon-frontend.svg';
-import iconFullstack from './images/icon-fullstack.svg';
-import iconArch from './images/icon-arch.svg';
-import iconDevOps from './images/icon-devops.svg';
+import src from '../../src/utils/getImageUrl';
 
 export const Service = () => {
   return (
@@ -14,22 +11,22 @@ export const Service = () => {
       <ul className="grid grid-cols-1fr gap-[20px] xl:grid-cols-1fr1fr xl:gap-y-[20px] xl:gap-x-[25px]">
         <ServiceItem
           name="Frontend Development"
-          icon={iconFrontend.src}
+          icon={src(require('./images/icon-frontend.svg'))}
           desc="High-quality frontend development using various frameworks"
         />
         <ServiceItem
           name="Full Stack Development"
-          icon={iconFullstack.src}
+          icon={src(require('./images/icon-fullstack.svg'))}
           desc="Isomorphic development for both frontend and backend"
         />
         <ServiceItem
           name="Software Architect"
-          icon={iconArch.src}
+          icon={src(require('./images/icon-arch.svg'))}
           desc="Design comprehensive and effective system architect for commercial software"
         />
         <ServiceItem
           name="DevOps"
-          icon={iconDevOps.src}
+          icon={src(require('./images/icon-devops.svg'))}
           desc="Leverage my expertise in CI/CD, improving efficiency and reducing errors"
         />
       </ul>

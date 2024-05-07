@@ -1,10 +1,13 @@
-import img from './images/logo-pdd.jpg';
+import cx from 'classnames';
+import styles from './index.module.css';
 
 export const Pdd = () => {
   return (
     <div
-      className="bg-center bg-no-repeat bg-cover h-full rounded overflow-hidden"
-      style={{ backgroundImage: `url("${img.src}")` }}
+      className={cx(
+        'bg-center bg-no-repeat bg-cover h-full rounded overflow-hidden',
+        styles.pdd,
+      )}
     />
   );
 };

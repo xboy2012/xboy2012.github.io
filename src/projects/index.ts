@@ -1,9 +1,5 @@
 import type { ProjectData } from '../types';
-
-const src = (obj: any): string => {
-  const defaultValue = (obj && obj.default) || obj;
-  return defaultValue.src;
-};
+import src from '../utils/getImageUrl';
 
 export const projects: ProjectData[] = [
   {

@@ -1,9 +1,5 @@
 import type { TestimonialData } from '../types';
-
-const src = (obj: any): string => {
-  const defaultValue = (obj && obj.default) || obj;
-  return defaultValue.src;
-};
+import src from '../utils/getImageUrl';
 
 // TODO: FAKE DATA
 export const testimonials: TestimonialData[] = [

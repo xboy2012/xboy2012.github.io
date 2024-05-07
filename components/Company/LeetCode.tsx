@@ -1,11 +1,14 @@
-import img from './images/logo-leetcode.svg';
+import cx from 'classnames';
+import styles from './index.module.css';
 
 export const LeetCode = () => {
   return (
     <div className="w-full h-full bg-white rounded">
       <div
-        className="bg-center bg-no-repeat bg-contain mx-3 h-full"
-        style={{ backgroundImage: `url("${img.src}")` }}
+        className={cx(
+          'bg-center bg-no-repeat bg-contain mx-3 h-full',
+          styles.leetcode,
+        )}
       />
     </div>
   );
