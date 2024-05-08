@@ -1,4 +1,4 @@
-import { blogs } from '../../../../src/blogs';
+import { getBlogs } from '../../../../src/blogs';
 import { getMetaByBlogId } from '../../../../src/utils/getMetaByBlogId';
 import { BlogDetail } from '../../../../components/Blog/BlogDetail';
 
@@ -25,7 +25,7 @@ const Page = async ({ params: { blogId } }: { params: PageParam }) => {
 };
 
 export const generateStaticParams = async (): Promise<PageParam[]> => {
-  return blogs
+  return getBlogs()
     .filter((blog) => !blog.link)
     .map((blog) => {
       return { blogId: blog.id };

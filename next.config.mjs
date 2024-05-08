@@ -13,6 +13,9 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  env: {
+    BUILD_TARGET: 'next',
+  },
 };
 
 const withMDX = createMDX({});

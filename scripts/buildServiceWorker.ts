@@ -7,6 +7,14 @@ import rollupTerser from '@rollup/plugin-terser';
 
 (async () => {
   const rootDir = process.cwd();
+
+  const PRE_BUILT_BLOG_IDS_FOR_PATH: string[] = (
+    await import(
+      // @ts-ignore the path should be resolved correctly after `next build`
+      '../out/temp/PRE_BUILT_BLOG_IDS_FOR_PATH'
+    )
+  ).PRE_BUILT_BLOG_IDS_FOR_PATH;
+
   const bundle = await rollup({
     input: pathJoin(rootDir, 'src', 'serviceWorker', 'index.ts'),
     plugins: [
@@ -18,10 +26,16 @@ import rollupTerser from '@rollup/plugin-terser';
         preventAssignment: true,
         values: {
           'process.env.NODE_ENV': JSON.stringify('production'),
+          'process.env.BUILD_TARGET': JSON.stringify('SERVICE_WORKER'),
+          PRE_BUILT_BLOG_IDS_FOR_PATH: JSON.stringify(
+            PRE_BUILT_BLOG_IDS_FOR_PATH,
+            null,
+            2,
+          ),
         },
       }),
-      rollupTerser(),
-    ],
+      process.env.NODE_ENV === 'production' && rollupTerser(),
+    ].filter(Boolean),
   });
   await bundle.write({
     file: pathJoin(rootDir, 'out', 'serviceWorker.js'),

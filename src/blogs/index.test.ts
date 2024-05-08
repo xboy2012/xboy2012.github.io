@@ -1,11 +1,11 @@
 import { access, constants } from 'node:fs/promises';
 import { join as pathJoin } from 'node:path';
-import { blogs } from './index';
+import { getBlogs } from './index';
 
 describe('blogs data should follow some conventions', () => {
   const rootDir = process.cwd();
 
-  for (const blog of blogs) {
+  for (const blog of getBlogs()) {
     if (!blog.link) {
       const blogId = blog.id;
       test(`[${blogId}] should have a matched mdx file`, async () => {
