@@ -1,5 +1,7 @@
 import type { ReactNode } from 'react';
 
+export type PathString = `/${string}`;
+
 export interface TimelineItem {
   from: string;
   to: string;

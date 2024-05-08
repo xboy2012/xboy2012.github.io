@@ -1,13 +1,15 @@
 import type { Metadata, Viewport } from 'next';
 import type { ReactNode } from 'react';
+import cx from 'classnames';
 import { colors } from '../src/config/colors';
 import {
   APP_DEFAULT_TITLE,
   APP_TITLE_TEMPLATE,
   APP_DESCRIPTION,
 } from '../src/config/app';
-import { FixPageUrl } from '../components/FixPageUrl';
+import { SideBar } from '../components/SideBar';
 import { ServiceWorkerRegister } from '../components/ServiceWorkerRegister';
+import { NavBar } from '../components/NavBar';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -53,9 +55,26 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-smokyBlack">
-        <FixPageUrl />
         <ServiceWorkerRegister />
-        {children}
+        <main
+          className={cx(
+            'mt-[15px] mb-[75px] mx-[12px] min-w-[259px]',
+            'md:mt-[60px] md:mb-[100px] xl:mb-[60px]',
+            '2xl:max-w-[1200px] 2xl:[margin-inline:auto]',
+            '2xl:flex 2xl:justify-center 2xl:items-stretch 2xl:gap-[25px]',
+          )}
+        >
+          <SideBar />
+          <div
+            className={cx(
+              'xl:relative xl:w-max xl:m-auto',
+              '2xl:min-w-[75%] 2xl:w-[75%] 2xl:m-0',
+            )}
+          >
+            <NavBar />
+            {children}
+          </div>
+        </main>
       </body>
     </html>
   );

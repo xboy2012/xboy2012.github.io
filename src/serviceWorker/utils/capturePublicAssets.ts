@@ -1,7 +1,10 @@
 import { type RouteMatchCallback } from 'workbox-core';
-
-const publicAssets = new Set<string>(['/manifest.webmanifest', '/favicon.ico']);
+import { getPublicAssets } from '../../utils/getPublicAssets';
+import type { PathString } from '../../types';
 
 export const capturePublicAssets: RouteMatchCallback = ({ url }) => {
-  return url.origin === self.location.origin && publicAssets.has(url.pathname);
+  return (
+    url.origin === self.location.origin &&
+    getPublicAssets().has(url.pathname as PathString)
+  );
 };

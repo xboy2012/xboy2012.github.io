@@ -1,3 +1,5 @@
+'use client';
+
 import cx from 'classnames';
 import { NavBarItem } from './NavBarItem';
 import { useExperimental } from '../src/experimental';

@@ -1,3 +1,5 @@
+'use client';
+
 import { useCallback, useMemo, type MouseEvent } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import cx from 'classnames';

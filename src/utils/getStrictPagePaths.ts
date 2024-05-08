@@ -1,6 +1,8 @@
-let strictPagePaths: Set<string> | undefined;
+import type { PathString } from '../types';
 
-export const getStrictPagePaths = (): Set<string> => {
+let strictPagePaths: Set<PathString> | undefined;
+
+export const getStrictPagePaths = (): Set<PathString> => {
   if (!strictPagePaths) {
     strictPagePaths = new Set(['/', '/resume', '/portfolio', '/blog']);
   }

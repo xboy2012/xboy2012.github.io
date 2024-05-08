@@ -5,6 +5,7 @@ describe('formatPagePath() should work as expected', () => {
     const expected = '/';
     expect(formatPagePath('/')).toBe(expected);
     expect(formatPagePath('/index')).toBe(expected);
+    expect(formatPagePath('/index/')).toBe(expected);
     expect(formatPagePath('/index.html')).toBe(expected);
   });
 
@@ -13,6 +14,7 @@ describe('formatPagePath() should work as expected', () => {
     expect(formatPagePath('/resume')).toBe(expected);
     expect(formatPagePath('/resume/')).toBe(expected);
     expect(formatPagePath('/resume/index')).toBe(expected);
+    expect(formatPagePath('/resume/index/')).toBe(expected);
     expect(formatPagePath('/resume/index.html')).toBe(expected);
   });
 
@@ -21,6 +23,7 @@ describe('formatPagePath() should work as expected', () => {
     expect(formatPagePath('/portfolio')).toBe(expected);
     expect(formatPagePath('/portfolio/')).toBe(expected);
     expect(formatPagePath('/portfolio/index')).toBe(expected);
+    expect(formatPagePath('/portfolio/index/')).toBe(expected);
     expect(formatPagePath('/portfolio/index.html')).toBe(expected);
   });
 
@@ -29,6 +32,7 @@ describe('formatPagePath() should work as expected', () => {
     expect(formatPagePath('/blog')).toBe(expected);
     expect(formatPagePath('/blog/')).toBe(expected);
     expect(formatPagePath('/blog/index')).toBe(expected);
+    expect(formatPagePath('/blog/index/')).toBe(expected);
     expect(formatPagePath('/blog/index.html')).toBe(expected);
   });
 });

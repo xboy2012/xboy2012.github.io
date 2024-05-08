@@ -1,11 +1,12 @@
 import { type WorkboxPlugin } from 'workbox-core';
 import { formatPagePath } from '../../../utils/formatPagePath';
+import type { PathString } from '../../../types';
 
 export const formatPage: WorkboxPlugin = {
   cacheKeyWillBeUsed: async ({ request }) => {
     const urlObj = new URL(request.url);
-    const pagePath = urlObj.pathname;
-    const formatedPath = formatPagePath(urlObj.pathname);
+    const pagePath = urlObj.pathname as PathString;
+    const formatedPath = formatPagePath(pagePath);
     if (pagePath === formatedPath) {
       // no need to modify the request
       return request;
@@ -17,7 +18,7 @@ export const formatPage: WorkboxPlugin = {
   },
   requestWillFetch: async ({ request }) => {
     const urlObj = new URL(request.url);
-    const pagePath = urlObj.pathname;
+    const pagePath = urlObj.pathname as PathString;
     const formatedPath = formatPagePath(pagePath);
     if (pagePath === formatedPath) {
       // there's no need to modify the request

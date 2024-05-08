@@ -1,4 +1,5 @@
 import { isPagePath } from './isPagePath';
+import { getValidBlogIdsForPath } from './getValidBlogIdsForPath';
 
 describe('isPagePath() should work as expected', () => {
   test('/', () => {
@@ -28,6 +29,22 @@ describe('isPagePath() should work as expected', () => {
     expect(isPagePath('/blog/index.html')).toBe(true);
   });
 
+  test('/blog/:blogId', () => {
+    const blogIds = getValidBlogIdsForPath();
+    for (const blogId of blogIds) {
+      expect(isPagePath(`/blog/${blogId}`)).toBe(true);
+      expect(isPagePath(`/blog/${blogId}/index`)).toBe(true);
+      expect(isPagePath(`/blog/${blogId}/index.html`)).toBe(true);
+      expect(isPagePath(`/blog/${blogId}/invalid`)).toBe(false);
+    }
+
+    const invalidBlogId = 'invalid-blog-id-not-exist';
+    expect(isPagePath(`/blog/${invalidBlogId}`)).toBe(false);
+    expect(isPagePath(`/blog/${invalidBlogId}/index`)).toBe(false);
+    expect(isPagePath(`/blog/${invalidBlogId}/index.html`)).toBe(false);
+    expect(isPagePath(`/blog/${invalidBlogId}/invalid`)).toBe(false);
+  });
+
   test('other', () => {
     const hash = Math.random().toString(36).substring(2);
     expect(isPagePath(`/_next/static/media/img.${hash}.jpg`)).toBe(false);
@@ -38,5 +55,6 @@ describe('isPagePath() should work as expected', () => {
     expect(isPagePath('/resume/index.txt')).toBe(false);
     expect(isPagePath('/portfolio/index.txt')).toBe(false);
     expect(isPagePath('/blog/index.txt')).toBe(false);
+    expect(isPagePath('/invalid-path')).toBe(false);
   });
 });

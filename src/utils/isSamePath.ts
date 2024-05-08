@@ -1,23 +1,12 @@
+import { formatPagePath } from './formatPagePath';
+import type { PathString } from '../types';
+
 /**
  * Determine whether two paths are the same, considering potential transforms
- * @param simplePath the simplePath, must start with /
- * @param path the actual path
+ * @param path1
+ * @param path2
  * @return {boolean} true if the same, false otherwise.
  */
-export const isSamePath = (
-  simplePath: `/${string}`,
-  path: `/${string}`,
-): boolean => {
-  if (simplePath === path) {
-    return true;
-  }
-  if (simplePath === '/') {
-    return path === '/index' || path === '/index.html';
-  }
-  return (
-    path === `${simplePath}/` ||
-    path === `${simplePath}/index` ||
-    path === `${simplePath}/index.html` ||
-    path === `${simplePath}.html`
-  );
+export const isSamePath = (path1: PathString, path2: PathString): boolean => {
+  return path1 === path2 || formatPagePath(path1) === formatPagePath(path2);
 };
