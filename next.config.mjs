@@ -1,24 +1,30 @@
 // @ts-check
+import { PHASE_DEVELOPMENT_SERVER } from 'next/constants.js';
 import createMDX from '@next/mdx';
-
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  output: 'export',
-  trailingSlash: true,
-  images: {
-    unoptimized: true,
-  },
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-  typescript: {
-    ignoreBuildErrors: true,
-  },
-  env: {
-    BUILD_TARGET: 'next',
-  },
-};
 
 const withMDX = createMDX({});
 
-export default withMDX(nextConfig);
+/** @type {import('./src/next').NextConfigFn} */
+const nextConfigFn = (phase) => {
+  const isDev = phase === PHASE_DEVELOPMENT_SERVER;
+  /** @type {import('next').NextConfig} */
+  const nextConfig = {
+    output: isDev ? undefined : 'export',
+    trailingSlash: true,
+    images: {
+      unoptimized: true,
+    },
+    eslint: {
+      ignoreDuringBuilds: true,
+    },
+    typescript: {
+      ignoreBuildErrors: true,
+    },
+    env: {
+      BUILD_TARGET: 'next',
+    },
+  };
+  return withMDX(nextConfig);
+};
+
+export default nextConfigFn;
