@@ -1,3 +1,4 @@
+// @ts-check
 import createMDX from '@next/mdx';
 
 /** @type {import('next').NextConfig} */
