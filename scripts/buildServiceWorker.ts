@@ -25,7 +25,7 @@ import rollupTerser from '@rollup/plugin-terser';
       rollupReplace({
         preventAssignment: true,
         values: {
-          'process.env.NODE_ENV': JSON.stringify('production'),
+          'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || ''),
           'process.env.BUILD_TARGET': JSON.stringify('SERVICE_WORKER'),
           PRE_BUILT_BLOG_IDS_FOR_PATH: JSON.stringify(
             PRE_BUILT_BLOG_IDS_FOR_PATH,
