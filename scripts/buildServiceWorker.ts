@@ -4,6 +4,7 @@ import rollupESBuild from 'rollup-plugin-esbuild';
 import rollupNodeResolve from '@rollup/plugin-node-resolve';
 import rollupReplace from '@rollup/plugin-replace';
 import rollupTerser from '@rollup/plugin-terser';
+import { rm } from 'node:fs/promises';
 
 (async () => {
   const rootDir = process.cwd();
@@ -41,4 +42,7 @@ import rollupTerser from '@rollup/plugin-terser';
     file: pathJoin(rootDir, 'out', 'serviceWorker.js'),
     format: 'esm',
   });
+
+  // remove the temporal directory of `out`
+  await rm(pathJoin(rootDir, 'out', 'temp'), { recursive: true });
 })();

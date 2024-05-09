@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && tsx scripts/buildServiceWorker.ts && rm -rf out/temp",
+    "build": "next build && tsx scripts/buildServiceWorker.ts",
     "start": "next start",
     "lint": "next lint",
     "prepare": "husky",
