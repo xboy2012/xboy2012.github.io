@@ -11,13 +11,10 @@ import { captureStaticBuiltAssets } from './utils/captureStaticBuiltAssets';
 import { capturePublicAssets } from './utils/capturePublicAssets';
 import { capturePageRoutes } from './utils/capturePageRoutes';
 import { capturePageRscRoutes } from './utils/capturePageRscRoutes';
+import { runPreCache } from './utils/runPreCache';
 import { formatPage } from './utils/plugins/formatPage';
 import { removeSearch } from './utils/plugins/removeSearch';
 import { addHashQuery } from './utils/plugins/addHashQuery';
-
-self.addEventListener('install', () => {
-  self.skipWaiting();
-});
 
 // assets built with hash can be always from cache
 registerRoute(
@@ -54,3 +51,8 @@ registerRoute(
     plugins: [removeSearch, addHashQuery],
   }),
 );
+
+self.addEventListener('install', () => {
+  self.skipWaiting();
+  runPreCache();
+});

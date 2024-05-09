@@ -7,6 +7,7 @@ import rollupTerser from '@rollup/plugin-terser';
 import { rm } from 'node:fs/promises';
 import { getPublicAssetsHash } from './utils/getPublicAssetsHash';
 import { getPreBuiltBlogIdsForPath } from './utils/getPreBuiltBlogIdsForPath';
+import { getNextStaticFiles } from './utils/getNextStaticFiles';
 
 (async () => {
   const rootDir = process.cwd();
@@ -29,6 +30,11 @@ import { getPreBuiltBlogIdsForPath } from './utils/getPreBuiltBlogIdsForPath';
             2,
           ),
           ASSETS_HASHES: JSON.stringify(await getPublicAssetsHash(), null, 2),
+          NEXT_STATIC_FILES: JSON.stringify(
+            await getNextStaticFiles(),
+            null,
+            2,
+          ),
         },
       }),
       process.env.NODE_ENV === 'production' && rollupTerser(),
