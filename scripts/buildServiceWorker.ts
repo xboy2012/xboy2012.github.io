@@ -5,16 +5,11 @@ import rollupNodeResolve from '@rollup/plugin-node-resolve';
 import rollupReplace from '@rollup/plugin-replace';
 import rollupTerser from '@rollup/plugin-terser';
 import { rm } from 'node:fs/promises';
+import { getPublicAssetsHash } from './utils/getPublicAssetsHash';
+import { getPreBuiltBlogIdsForPath } from './utils/getPreBuiltBlogIdsForPath';
 
 (async () => {
   const rootDir = process.cwd();
-
-  const PRE_BUILT_BLOG_IDS_FOR_PATH: string[] = (
-    await import(
-      // @ts-ignore the path should be resolved correctly after `next build`
-      '../out/temp/PRE_BUILT_BLOG_IDS_FOR_PATH'
-    )
-  ).PRE_BUILT_BLOG_IDS_FOR_PATH;
 
   const bundle = await rollup({
     input: pathJoin(rootDir, 'src', 'serviceWorker', 'index.ts'),
@@ -29,15 +24,22 @@ import { rm } from 'node:fs/promises';
           'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || ''),
           'process.env.BUILD_TARGET': JSON.stringify('SERVICE_WORKER'),
           PRE_BUILT_BLOG_IDS_FOR_PATH: JSON.stringify(
-            PRE_BUILT_BLOG_IDS_FOR_PATH,
+            await getPreBuiltBlogIdsForPath(),
             null,
             2,
           ),
+          ASSETS_HASHES: JSON.stringify(await getPublicAssetsHash(), null, 2),
         },
       }),
       process.env.NODE_ENV === 'production' && rollupTerser(),
     ].filter(Boolean),
   });
+
+  const result = await bundle.generate({
+    format: 'esm',
+  });
+  const code = result.output[0].code;
+
   await bundle.write({
     file: pathJoin(rootDir, 'out', 'serviceWorker.js'),
     format: 'esm',
