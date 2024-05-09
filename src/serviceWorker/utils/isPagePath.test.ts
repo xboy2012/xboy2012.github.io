@@ -1,7 +1,12 @@
 import { isPagePath } from './isPagePath';
-import { getValidBlogIdsForPath } from './getValidBlogIdsForPath';
+import { getValidBlogIdsForPath } from '../../utils/getValidBlogIdsForPath';
 
 describe('isPagePath() should work as expected', () => {
+  beforeAll(() => {
+    // @ts-expect-error mock inject value
+    global.PRE_BUILT_BLOG_IDS_FOR_PATH = Array.from(getValidBlogIdsForPath());
+  });
+
   test('/', () => {
     expect(isPagePath('/')).toBe(true);
     expect(isPagePath('/index')).toBe(true);

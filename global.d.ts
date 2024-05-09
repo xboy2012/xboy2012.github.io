@@ -1,6 +1,6 @@
 declare const PRE_BUILT_BLOG_IDS_FOR_PATH: string[];
 
-declare const ASSETS_HASHES: [import('./src/types').PathString, string][];
+declare const NON_HASHED_PATHS: [import('./src/types').PathString, string][];
 
 declare const NEXT_STATIC_FILES: string[];
 

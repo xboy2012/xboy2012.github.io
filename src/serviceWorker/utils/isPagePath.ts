@@ -1,7 +1,7 @@
-import { getStrictPagePaths } from './getStrictPagePaths';
-import { formatPagePath } from './formatPagePath';
-import { getValidBlogIdsForPath } from './getValidBlogIdsForPath';
-import type { PathString } from '../types';
+import { getStrictPagePaths } from '../../utils/getStrictPagePaths';
+import { formatPagePath } from '../../utils/formatPagePath';
+import { getPrebuiltBlogIdsForPath } from './getPrebuiltBlogIdsForPath';
+import type { PathString } from '../../types';
 
 export const isPagePath = (path: PathString): boolean => {
   path = formatPagePath(path);
@@ -33,7 +33,7 @@ export const isPagePath = (path: PathString): boolean => {
       return false;
     }
     const blogId = path.substring(6);
-    return getValidBlogIdsForPath().has(blogId);
+    return getPrebuiltBlogIdsForPath().has(blogId);
   }
 
   return false;

@@ -12,6 +12,10 @@ import { getNextStaticFiles } from './utils/getNextStaticFiles';
 (async () => {
   const rootDir = process.cwd();
 
+  const v = (value: any) => {
+    return JSON.stringify(value, null, 2);
+  };
+
   const bundle = await rollup({
     input: pathJoin(rootDir, 'src', 'serviceWorker', 'index.ts'),
     plugins: [
@@ -22,19 +26,10 @@ import { getNextStaticFiles } from './utils/getNextStaticFiles';
       rollupReplace({
         preventAssignment: true,
         values: {
-          'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || ''),
-          'process.env.BUILD_TARGET': JSON.stringify('SERVICE_WORKER'),
-          PRE_BUILT_BLOG_IDS_FOR_PATH: JSON.stringify(
-            await getPreBuiltBlogIdsForPath(),
-            null,
-            2,
-          ),
-          ASSETS_HASHES: JSON.stringify(await getPublicAssetsHash(), null, 2),
-          NEXT_STATIC_FILES: JSON.stringify(
-            await getNextStaticFiles(),
-            null,
-            2,
-          ),
+          'process.env.NODE_ENV': v(process.env.NODE_ENV || ''),
+          PRE_BUILT_BLOG_IDS_FOR_PATH: v(await getPreBuiltBlogIdsForPath()),
+          NON_HASHED_PATHS: v(await getPublicAssetsHash()),
+          NEXT_STATIC_FILES: v(await getNextStaticFiles()),
         },
       }),
       process.env.NODE_ENV === 'production' && rollupTerser(),

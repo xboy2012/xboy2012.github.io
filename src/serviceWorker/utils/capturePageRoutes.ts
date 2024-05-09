@@ -1,5 +1,5 @@
 import { type RouteMatchCallback } from 'workbox-core';
-import { isPagePath } from '../../utils/isPagePath';
+import { isPagePath } from './isPagePath';
 import type { PathString } from '../../types';
 
 export const capturePageRoutes: RouteMatchCallback = ({ url }) => {

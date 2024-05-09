@@ -1,5 +1,5 @@
 import { type RouteMatchCallback } from 'workbox-core';
-import { isPageRscPath } from '../../utils/isPageRscPath';
+import { isPageRscPath } from './isPageRscPath';
 import type { PathString } from '../../types';
 
 export const capturePageRscRoutes: RouteMatchCallback = ({ url }) => {

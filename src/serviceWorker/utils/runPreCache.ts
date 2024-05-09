@@ -1,9 +1,6 @@
-const staticFiles = NEXT_STATIC_FILES;
+import { preNextStaticPaths } from './preNextStaticPaths';
+import { preCacheNonHashedPaths } from './preCacheNonHashedPaths';
 
 export const runPreCache = async () => {
-  const urls = staticFiles.map((file) => {
-    return `${self.location.origin}/_next/static/${file}`;
-  });
-  const cache = await caches.open('_next');
-  await cache.addAll(urls);
+  await Promise.all([preCacheNonHashedPaths(), preNextStaticPaths()]);
 };

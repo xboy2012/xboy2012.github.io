@@ -1,6 +1,6 @@
-import { getStrictPagePaths } from './getStrictPagePaths';
-import { getValidBlogIdsForPath } from './getValidBlogIdsForPath';
-import type { PathString } from '../types';
+import { getStrictPagePaths } from '../../utils/getStrictPagePaths';
+import { getPrebuiltBlogIdsForPath } from './getPrebuiltBlogIdsForPath';
+import type { PathString } from '../../types';
 
 export const isPageRscPath = (path: PathString): boolean => {
   if (path === '/') {
@@ -30,7 +30,7 @@ export const isPageRscPath = (path: PathString): boolean => {
       return false;
     }
     const blogId = path.substring(6);
-    return getValidBlogIdsForPath().has(blogId);
+    return getPrebuiltBlogIdsForPath().has(blogId);
   }
 
   return false;

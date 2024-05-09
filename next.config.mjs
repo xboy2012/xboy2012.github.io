@@ -20,9 +20,6 @@ const nextConfigFn = (phase) => {
     typescript: {
       ignoreBuildErrors: true,
     },
-    env: {
-      BUILD_TARGET: 'next',
-    },
   };
   return withMDX(nextConfig);
 };

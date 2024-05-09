@@ -12,6 +12,7 @@ import { capturePublicAssets } from './utils/capturePublicAssets';
 import { capturePageRoutes } from './utils/capturePageRoutes';
 import { capturePageRscRoutes } from './utils/capturePageRscRoutes';
 import { runPreCache } from './utils/runPreCache';
+import { CACHE_NAME_HASH, CACHE_NAME_NO_HASH } from './utils/cacheNames';
 import { formatPage } from './utils/plugins/formatPage';
 import { removeSearch } from './utils/plugins/removeSearch';
 import { addHashQuery } from './utils/plugins/addHashQuery';
@@ -20,7 +21,7 @@ import { addHashQuery } from './utils/plugins/addHashQuery';
 registerRoute(
   captureStaticBuiltAssets,
   new CacheFirst({
-    cacheName: '_next',
+    cacheName: CACHE_NAME_HASH,
     plugins: [removeSearch],
   }),
 );
@@ -29,7 +30,7 @@ registerRoute(
 registerRoute(
   capturePublicAssets,
   new CacheFirst({
-    cacheName: 'public',
+    cacheName: CACHE_NAME_NO_HASH,
     plugins: [removeSearch, addHashQuery],
   }),
 );
@@ -38,7 +39,7 @@ registerRoute(
 registerRoute(
   capturePageRoutes,
   new CacheFirst({
-    cacheName: 'page',
+    cacheName: CACHE_NAME_NO_HASH,
     plugins: [removeSearch, formatPage, addHashQuery],
   }),
 );
@@ -47,7 +48,7 @@ registerRoute(
 registerRoute(
   capturePageRscRoutes,
   new CacheFirst({
-    cacheName: 'page',
+    cacheName: CACHE_NAME_NO_HASH,
     plugins: [removeSearch, addHashQuery],
   }),
 );

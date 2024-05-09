@@ -6,7 +6,7 @@ export const formatPagePath = (path: PathString): PathString => {
   if (p === length - 1) {
     if (path.endsWith('/index/')) {
       // "/index".length is 7
-      return (path.substring(0, path.length - 6) as PathString) || '/';
+      return path.substring(0, path.length - 6) as PathString;
     }
     return path;
   }

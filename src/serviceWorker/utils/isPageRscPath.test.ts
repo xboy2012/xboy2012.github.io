@@ -1,7 +1,12 @@
 import { isPageRscPath } from './isPageRscPath';
-import { getValidBlogIdsForPath } from './getValidBlogIdsForPath';
+import { getValidBlogIdsForPath } from '../../utils/getValidBlogIdsForPath';
 
 describe('isPageRscPath() should work as expected', () => {
+  beforeAll(() => {
+    // @ts-expect-error mock inject value
+    global.PRE_BUILT_BLOG_IDS_FOR_PATH = Array.from(getValidBlogIdsForPath());
+  });
+
   test('valid cases', () => {
     expect(isPageRscPath('/index.txt')).toBe(true);
     expect(isPageRscPath('/resume/index.txt')).toBe(true);
