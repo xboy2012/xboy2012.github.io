@@ -1,0 +1,34 @@
+# What are "service workers" and how do they work?
+
+A service worker is a Javascript process that runs in the browser background.
+The service worker runs in the background and acts as a kind of proxy between the website and the Internet and can intercept and manipulate network requests.
+
+Service workers have (almost) "only" influence on the files requested on the website. For example, JS and CSS files can be delivered directly from a cache, even if the server outputs different headers.
+When a second page of pagination is requested, a service worker can also return the stored HTML of the first page and only exchange the products there. The service worker can then request the data of the products via a smaller, faster Ajax call.
+
+Another option is to return an optimized version from the server under the same image URL instead of an original image on mobile devices.
+
+# What is the purpose of service workers?
+
+The areas of application for service workers are diverse. The most common areas of application are:
+
+- Storage of content to make it available offline (e.g. as part of a PWA)
+- Optimization of loading times
+- Receive push notifications
+
+# When are service workers active?
+
+Service workers are installed via Javascript. With the first request for a domain (although this must not have been called before) they cannot be active. As soon as the service worker has been installed, it is available for further calls to the domain.
+There is also the possibility (which we also used in the example) that service workers can influence assets the first time they call up a page after they have been activated.
+
+# What influence do service workers then have on the work of an SEO?
+
+Service workers can make changes to the HTML of the page called up in the background (from the second call).
+For example, title tags, canonicals or robots tags can be removed or changed for caching reasons.
+If you then call up the source text of the page, it looks as if that was the case in the response from the server.
+But Google sees something completely different here.
+
+Martin Splitt from Google also reported on a problem case at Ryte’s “Better Together” conference in which the entire site would not work without service workers.
+More information on this can be found in a blog post by Demir Jasarevic
+
+You can resolve the issue yourself by calling up the page in the “fresh” incognito mode and checking it, or by deactivating the service worker via the Chrome Extension during a check.

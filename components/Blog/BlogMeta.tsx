@@ -12,9 +12,8 @@ export const BlogMeta = ({
   datetime: `${string}-${string}-${string}`;
 }) => {
   return (
-    <div className="mb-2">
-      <h1 className="text-xl text-orangeYellowCrayola">{title}</h1>
-      <p>{desc}</p>
+    <div className="mb-8">
+      <h1 className="mb-2 text-1 text-orangeYellowCrayola">{title}</h1>
       <span className="mr-1 p-1 rounded bg-orangeYellowCrayola text-eerieBlack3">
         {category}
       </span>

@@ -1,4 +1,5 @@
 import type { MDXComponents } from 'mdx/types';
+import { getMdxComponents } from '../components/mdx';
 
 // This file allows you to provide custom React components
 // to be used in MDX files. You can import and use any
@@ -8,5 +9,6 @@ import type { MDXComponents } from 'mdx/types';
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
     ...components,
+    ...getMdxComponents(),
   };
 }
