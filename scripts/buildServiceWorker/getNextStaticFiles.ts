@@ -1,17 +1,19 @@
 import { readdir } from 'node:fs/promises';
 import { join as pathJoin, relative as pathRelative, sep } from 'node:path';
 
-export const getNextStaticFiles = async (): Promise<string[]> => {
-  const rootDir = pathJoin(process.cwd(), 'out', '_next', 'static');
+export const getNextStaticFiles = async (
+  rootDir: string,
+): Promise<string[]> => {
+  const staticDir = pathJoin(rootDir, 'out', '_next', 'static');
   const files = (
-    await readdir(rootDir, {
+    await readdir(staticDir, {
       recursive: true,
       withFileTypes: true,
     })
   )
     .filter((o) => o.isFile())
     .map((o) => {
-      const dir = pathRelative(rootDir, o.path);
+      const dir = pathRelative(staticDir, o.path);
       return pathJoin(dir, o.name);
     });
 

@@ -1,13 +1,11 @@
 import { join as pathJoin } from 'node:path';
-import { getFileMD5 } from './getFileMD5';
+import { getFileMD5 } from '../utils/getFileMD5';
 import type { PathString } from '../../src/types';
-import { getPreBuiltBlogIdsForPath } from './getPreBuiltBlogIdsForPath';
+import { getBuiltBlogIds } from './getBuiltBlogIds';
 
-export const getPublicAssetsHash = async (): Promise<
-  [PathString, string][]
-> => {
-  const rootDir = process.cwd();
-
+export const getPublicAssetsHash = async (
+  rootDir: string,
+): Promise<[PathString, string][]> => {
   const paths: PathString[] = [
     '/manifest.webmanifest',
     '/favicon.ico',
@@ -19,7 +17,7 @@ export const getPublicAssetsHash = async (): Promise<
     '/portfolio/index.txt',
     '/blog/',
     '/blog/index.txt',
-    ...(await getPreBuiltBlogIdsForPath()).flatMap((blogId): PathString[] => [
+    ...(await getBuiltBlogIds(rootDir)).flatMap((blogId): PathString[] => [
       `/blog/${blogId}/`,
       `/blog/${blogId}/index.txt`,
     ]),
