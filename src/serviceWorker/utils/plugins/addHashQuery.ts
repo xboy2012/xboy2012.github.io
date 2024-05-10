@@ -1,11 +1,11 @@
 import { type WorkboxPlugin } from 'workbox-core';
 import type { PathString } from '../../../types';
-import { getNoneHashedPaths } from '../getNoneHashedPaths';
+import { getNonHashedPaths } from '../getNonHashedPaths';
 
 let hashMap: Map<PathString, string> | undefined;
 const getHashMap = () => {
   if (!hashMap) {
-    hashMap = new Map(getNoneHashedPaths());
+    hashMap = new Map(getNonHashedPaths());
   }
   return hashMap;
 };

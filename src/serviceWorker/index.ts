@@ -3,6 +3,8 @@
 /// <reference lib="dom" />
 /// <reference lib="webworker" />
 
+import { preCacheUrls } from './utils/preCacheUrls';
+
 declare var self: ServiceWorkerGlobalScope & Window;
 
 import { registerRoute } from 'workbox-routing';
@@ -11,11 +13,12 @@ import { captureStaticBuiltAssets } from './utils/captureStaticBuiltAssets';
 import { capturePublicAssets } from './utils/capturePublicAssets';
 import { capturePageRoutes } from './utils/capturePageRoutes';
 import { capturePageRscRoutes } from './utils/capturePageRscRoutes';
-import { runPreCache } from './utils/runPreCache';
 import { CACHE_NAME_HASH, CACHE_NAME_NO_HASH } from './utils/cacheNames';
 import { formatPage } from './utils/plugins/formatPage';
 import { removeSearch } from './utils/plugins/removeSearch';
 import { addHashQuery } from './utils/plugins/addHashQuery';
+import { getNonHashedUrlsToPreCache } from './utils/getNonHashedUrlsToPreCache';
+import { getNextStaticUrlsToPreCache } from './utils/getNextStaticUrlsToPreCache';
 
 // assets built with hash can be always from cache
 registerRoute(
@@ -55,5 +58,6 @@ registerRoute(
 
 self.addEventListener('install', () => {
   self.skipWaiting();
-  runPreCache();
+  preCacheUrls(CACHE_NAME_NO_HASH, getNonHashedUrlsToPreCache());
+  preCacheUrls(CACHE_NAME_HASH, getNextStaticUrlsToPreCache());
 });
