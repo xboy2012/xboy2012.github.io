@@ -1,7 +1,7 @@
 import type { BlogData } from '../types';
 import src from '../utils/getImageUrl';
 
-let _blogs: ReadonlyArray<Readonly<BlogData>>;
+let _blogs: ReadonlyArray<BlogData>;
 
 export const getBlogs = () => {
   if (!_blogs) {

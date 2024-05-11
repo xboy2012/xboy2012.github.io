@@ -25,7 +25,7 @@ export interface UserData {
   skills: { skill: string; percent: number }[];
 }
 
-export interface BlogData {
+export type BlogData = Readonly<{
   id: string;
   link?: string;
   title: string;
@@ -33,7 +33,7 @@ export interface BlogData {
   image: string;
   datetime: `${string}-${string}-${string}`;
   category: string;
-}
+}>;
 
 export type ProjectCategory =
   | 'Applications'

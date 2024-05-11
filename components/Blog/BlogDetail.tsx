@@ -8,7 +8,7 @@ export const BlogDetail = ({
   meta,
   Component,
 }: {
-  meta: Readonly<BlogData>;
+  meta: BlogData;
   Component: ComponentType;
 }) => {
   const { title, desc, category, datetime } = meta;
