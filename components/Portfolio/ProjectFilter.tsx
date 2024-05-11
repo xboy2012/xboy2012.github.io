@@ -1,9 +1,7 @@
 import { useCallback, useState } from 'react';
 import cx from 'classnames';
 import { ChevronDown } from '../Icons/ChevronDown';
-import type { ProjectCategory } from '../../src/types';
-
-type Category = ProjectCategory | 'All';
+import type { Category } from './types';
 
 const categories: Category[] = [
   'All',
@@ -88,7 +86,7 @@ export const ProjectFilter = ({
             transition: '0.15s ease-in-out',
           }}
         >
-          {categories.map((category, i) => {
+          {categories.map((category) => {
             return (
               <li key={category}>
                 <button
