@@ -3,7 +3,8 @@ import { useMemo, useState } from 'react';
 import type { Category } from './types';
 import { projects } from '../../src/projects';
 import { ProjectList } from './ProjectList';
-import { ProjectFilter } from './ProjectFilter';
+import { ProjectFilterFlat } from './ProjectFilterFlat';
+import { ProjectFilterDropDown } from './ProjectFilterDropDown';
 
 export const Projects = () => {
   const [curCategory, setCurCategory] = useState<Category>('All');
@@ -17,7 +18,8 @@ export const Projects = () => {
 
   return (
     <section className="projects">
-      <ProjectFilter category={curCategory} onChange={setCurCategory} />
+      <ProjectFilterFlat category={curCategory} onChange={setCurCategory} />
+      <ProjectFilterDropDown category={curCategory} onChange={setCurCategory} />
       <ProjectList data={filteredProjects} />
     </section>
   );
