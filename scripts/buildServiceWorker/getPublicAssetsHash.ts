@@ -1,5 +1,5 @@
 import { join as pathJoin } from 'node:path';
-import { getFileMD5 } from '../utils/getFileMD5';
+import { getFileMD5 } from './getFileMD5';
 import type { PathString } from '../../src/types';
 import { getBuiltBlogIds } from './getBuiltBlogIds';
 

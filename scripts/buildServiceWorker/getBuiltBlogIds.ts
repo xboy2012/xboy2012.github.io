@@ -1,6 +1,6 @@
 import { readdir } from 'node:fs/promises';
 import { join as pathJoin } from 'node:path';
-import { pathExists } from '../utils/pathExists';
+import { pathExists } from './pathExists';
 
 const caches = new Map<string, Promise<string[]>>();
 

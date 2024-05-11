@@ -1,5 +1,5 @@
-import { lintStaged } from './utils/lintStaged';
-import lintStagedConfig from './utils/lintstaged.config';
+import { lintStaged } from './lintStaged';
+import lintStagedConfig from './lintstaged.config';
 
 (async () => {
   const success = await lintStaged({
