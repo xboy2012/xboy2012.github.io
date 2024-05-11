@@ -7,9 +7,11 @@ type Category = ProjectCategory | 'All';
 
 const categories: Category[] = [
   'All',
-  'Web design',
-  'Applications',
   'Web development',
+  'Business',
+  'Game',
+  'AI',
+  'Applications',
 ];
 
 export const ProjectFilter = ({

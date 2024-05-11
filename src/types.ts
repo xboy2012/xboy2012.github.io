@@ -35,7 +35,12 @@ export interface BlogData {
   category: string;
 }
 
-export type ProjectCategory = 'Web design' | 'Applications' | 'Web development';
+export type ProjectCategory =
+  | 'Applications'
+  | 'Web development'
+  | 'Game'
+  | 'AI'
+  | 'Business';
 
 export interface ProjectData {
   id: number;

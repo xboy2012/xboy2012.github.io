@@ -8,7 +8,7 @@ export const ProjectList = ({ data }: { data: ProjectData[] }) => {
       {data.map(({ id, category, link, title, image }) => {
         return (
           <li key={id} className="group animate-scaleUp">
-            <a href={link} className="block w-full">
+            <a href={link} className="block w-full" target="_blank">
               <figure
                 className={cx(
                   'relative rounded-2xl overflow-hidden mb-[15px]',
