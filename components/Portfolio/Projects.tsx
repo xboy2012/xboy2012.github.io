@@ -1,7 +1,8 @@
 'use client';
 import { useMemo, useState } from 'react';
 import type { Category } from './types';
-import { projects } from '../../src/projects';
+import type { ProjectData } from '../../src/types';
+import { getProjects } from '../../src/projects';
 import { ProjectList } from './ProjectList';
 import { ProjectFilterFlat } from './ProjectFilterFlat';
 import { ProjectFilterDropDown } from './ProjectFilterDropDown';
@@ -9,11 +10,11 @@ import { ProjectFilterDropDown } from './ProjectFilterDropDown';
 export const Projects = () => {
   const [curCategory, setCurCategory] = useState<Category>('All');
 
-  const filteredProjects = useMemo(() => {
+  const filteredProjects = useMemo<ReadonlyArray<ProjectData>>(() => {
     if (curCategory === 'All') {
-      return projects;
+      return getProjects();
     }
-    return projects.filter((project) => project.category === curCategory);
+    return getProjects().filter((project) => project.category === curCategory);
   }, [curCategory]);
 
   return (

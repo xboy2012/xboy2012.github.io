@@ -42,13 +42,13 @@ export type ProjectCategory =
   | 'AI'
   | 'Business';
 
-export interface ProjectData {
-  id: number;
+export type ProjectData = Readonly<{
+  id: string;
   category: ProjectCategory;
   link: string;
   title: string;
   image: string;
-}
+}>;
 
 export interface TestimonialData {
   name: string;
