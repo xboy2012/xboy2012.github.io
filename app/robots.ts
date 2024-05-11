@@ -7,7 +7,7 @@ const robots = (): MetadataRoute.Robots => {
         userAgent: '*',
         // crawlDelay: 120,
         // allow: ['/'],
-        disallow: ['/_next/', '/*/index.txt?_rsc=*'],
+        disallow: ['/_next', '*/index.txt'],
       },
     ],
     sitemap: 'https://xboy2012.github.io/sitemap.xml',
