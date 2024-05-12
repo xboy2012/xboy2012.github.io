@@ -12,7 +12,7 @@ export const ContactItem = ({
 }) => {
   return (
     <li className="max-w-full flex items-center gap-4">
-      <div
+      <i
         className={cx(
           'relative bg-borderGradientOnyx flex justify-center items-center',
           'text-orangeYellowCrayola shadow-1 z-1',
@@ -21,14 +21,16 @@ export const ContactItem = ({
           'text-base md:text-lg',
         )}
       >
-        <div className="absolute inset-px bg-eerieBlack1 rounded-inherit -z-1" />
+        <span className="absolute block inset-px bg-eerieBlack1 rounded-inherit -z-1" />
         <Icon />
-      </div>
+      </i>
 
-      <div className="w-contact max-w-contact md:w-contact2 md:max-w-contact2">
-        <p className="text-lightGray70 text-8 uppercase mb-0.5">{title}</p>
+      <span className="block w-contact max-w-contact md:w-contact2 md:max-w-contact2">
+        <label className="block text-lightGray70 text-8 uppercase mb-0.5">
+          {title}
+        </label>
         {children}
-      </div>
+      </span>
     </li>
   );
 };

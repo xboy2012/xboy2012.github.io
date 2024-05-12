@@ -7,15 +7,18 @@ export const LinkFacebook = () => {
     return null;
   }
 
+  const title = `Facebook:${facebook}`;
+
   return (
     <li>
       <a
-        title={`Facebook:${facebook}`}
+        title={title}
         href={`https://www.facebook.com/${facebook}`}
         target="_blank"
         className="block text-lightGray70 text-lg hover:text-lightGray"
       >
         <LogoFacebook />
+        <span style={{ display: 'none' }}>{title}</span>
       </a>
     </li>
   );

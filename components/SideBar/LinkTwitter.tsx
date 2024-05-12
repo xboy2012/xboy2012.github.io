@@ -7,15 +7,18 @@ export const LinkTwitter = () => {
     return null;
   }
 
+  const title = `Twitter:${twitter}`;
+
   return (
     <li>
       <a
-        title={`Twitter:${twitter}`}
+        title={title}
         href={`https://twitter.com/${twitter}`}
         target="_blank"
         className="block text-lightGray70 text-lg hover:text-lightGray"
       >
         <LogoTwitter />
+        <span style={{ display: 'none' }}>{title}</span>
       </a>
     </li>
   );

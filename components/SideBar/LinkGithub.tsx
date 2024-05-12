@@ -7,15 +7,18 @@ export const LinkGithub = () => {
     return null;
   }
 
+  const title = `GitHub:${github}`;
+
   return (
     <li>
       <a
-        title={`GitHub:${github}`}
+        title={title}
         href={`https://github.com/${github}`}
         target="_blank"
         className="block text-lightGray70 text-lg hover:text-lightGray"
       >
         <LogoGithub />
+        <span style={{ display: 'none' }}>{title}</span>
       </a>
     </li>
   );

@@ -12,6 +12,7 @@ export const ProjectFilterFlat = ({
 }) => {
   return (
     <ul
+      hidden
       className={cx(
         'hidden no-js:!hidden lg:flex',
         'justify-start items-center gap-[25px] pl-[5px] mb-[30px]',

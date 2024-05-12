@@ -19,9 +19,10 @@ export const MoreButton = ({ onClick }: Props) => {
   );
   return (
     <button
+      hidden
       className={cx(
         'no-js:!hidden', // hide the button when javascript is disabled
-        'group absolute -top-[15px] -right-[15px] border-none',
+        'group block absolute -top-[15px] -right-[15px] border-none',
         'rounded-tl-0 rounded-br-0 rounded-tr-[15px] rounded-bl-[15px]',
         'text-[13px] text-orangeYellowCrayola cursor-pointer',
         'cursor-pointer bg-borderGradientOnyx shadow-2',

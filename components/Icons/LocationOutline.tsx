@@ -3,7 +3,8 @@ export const LocationOutline = () => {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 512 512"
-      className="w-4 h-4"
+      width="16"
+      height="16"
       stroke="currentcolor"
     >
       <path

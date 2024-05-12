@@ -7,15 +7,18 @@ export const LinkLinkedin = () => {
     return null;
   }
 
+  const title = `LinkedIn:${linkedin}`;
+
   return (
     <li>
       <a
-        title={`LinkedIn:${linkedin}`}
+        title={title}
         href={`https://linkedin.com/${linkedin}`}
         target="_blank"
         className="block text-lightGray70 text-lg hover:text-lightGray"
       >
         <LogoLinkedin />
+        <span style={{ display: 'none' }}>{title}</span>
       </a>
     </li>
   );

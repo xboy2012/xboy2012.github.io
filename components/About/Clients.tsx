@@ -41,6 +41,7 @@ export const Clients = () => {
                 className="relative block w-full h-full"
               >
                 <Logo />
+                <span style={{ display: 'none' }}>{name}</span>
               </a>
             </li>
           );
