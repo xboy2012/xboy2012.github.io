@@ -24,7 +24,7 @@ export const Clients = () => {
           'lg:webkit-scrollbar-button:w-[100px]',
         )}
       >
-        {companies.map(({ name, link, Logo }, index) => {
+        {companies.map(({ name, link, Logo }) => {
           return (
             <li
               key={name}

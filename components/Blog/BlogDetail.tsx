@@ -11,16 +11,11 @@ export const BlogDetail = ({
   meta: BlogData;
   Component: ComponentType;
 }) => {
-  const { title, desc, category, datetime } = meta;
+  const { title, category, datetime } = meta;
   return (
     <Article>
       <ArticleTitle title="Blog" />
-      <BlogMeta
-        title={title}
-        desc={desc}
-        category={category}
-        datetime={datetime}
-      />
+      <BlogMeta title={title} category={category} datetime={datetime} />
       <div>
         <Component />
       </div>

@@ -2,12 +2,10 @@ import { formatDateTime } from '../../src/utils/formatDateTime';
 
 export const BlogMeta = ({
   title,
-  desc,
   category,
   datetime,
 }: {
   title: string;
-  desc: string;
   category: string;
   datetime: `${string}-${string}-${string}`;
 }) => {
