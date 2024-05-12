@@ -1,6 +1,7 @@
 import type { Config } from 'tailwindcss';
 import plugin from 'tailwindcss/plugin';
 import { colors } from './src/config/colors';
+import { NO_JS_CLASS_NAME } from './src/noJs';
 
 const config: Config = {
   content: [
@@ -105,6 +106,9 @@ const config: Config = {
       addVariant('webkit-scrollbar-track', '&::-webkit-scrollbar-track');
       addVariant('webkit-scrollbar-thumb', '&::-webkit-scrollbar-thumb');
       addVariant('webkit-scrollbar-button', '&::-webkit-scrollbar-button');
+
+      // styles that only applies when javascript is disabled
+      addVariant('no-js', `.${NO_JS_CLASS_NAME} &`);
     }),
   ],
 };

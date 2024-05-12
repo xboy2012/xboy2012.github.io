@@ -31,6 +31,8 @@ export const SideBar = () => {
         showSideBar
           ? 'max-h-[405px] md:max-h-[584px] 2xl:max-h-[initial]'
           : 'max-h-[112px] md:max-h-[180px] 2xl:max-h-max',
+        // always expand the area when javascript is disabled
+        'no-js:!max-h-[405px] no-js:md:!max-h-[584px] no-js:2xl:!max-h-[initial]',
       )}
     >
       <InfoCard onMoreClick={handleOpen} />
@@ -38,6 +40,7 @@ export const SideBar = () => {
         className={cx(
           'transition-all duration-500 ease-in-out 2xl:opacity-100 2xl:visible',
           showSideBar ? 'opacity-100 visible' : 'opacity-0 invisible',
+          'no-js:!opacity-100 no-js:!visible',
         )}
       >
         <Separator />

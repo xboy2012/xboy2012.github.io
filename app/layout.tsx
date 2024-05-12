@@ -10,6 +10,7 @@ import {
 import { SideBar } from '../components/SideBar';
 import { ServiceWorkerRegister } from '../components/ServiceWorkerRegister';
 import { NavBar } from '../components/NavBar';
+import { useNoJs } from '../src/hooks/useNoJs';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -52,9 +53,12 @@ export default function RootLayout({
 }: Readonly<{
   children: ReactNode;
 }>) {
+  const { noJsClassName, noJsScript } = useNoJs();
+
   return (
-    <html lang="en">
+    <html lang="en" className={noJsClassName} suppressHydrationWarning>
       <body className="bg-smokyBlack">
+        {noJsScript}
         <ServiceWorkerRegister />
         <main
           className={cx(
@@ -64,6 +68,7 @@ export default function RootLayout({
             '2xl:flex 2xl:justify-center 2xl:items-stretch 2xl:gap-[25px]',
           )}
         >
+          {/*<div className="hidden no-js:!block">NO JAVASCRIPT</div>*/}
           <SideBar />
           <div
             className={cx(

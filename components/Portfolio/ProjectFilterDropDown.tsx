@@ -27,7 +27,7 @@ export const ProjectFilterDropDown = ({
   );
 
   return (
-    <div className="relative mb-[25px] lg:hidden">
+    <div className="relative mb-[25px] lg:hidden no-js:!hidden">
       <button
         className={cx(
           'flex justify-between items-center w-full py-3 px-4',
