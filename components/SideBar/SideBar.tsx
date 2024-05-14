@@ -22,6 +22,7 @@ export const SideBar = () => {
   return (
     <aside
       className={cx(
+        'order-1',
         'bg-eerieBlack2 border border-solid border-jet rounded-[20px] p-[15px]',
         'shadow-1 z-1 mb-[15px] overflow-hidden transition-all duration-500 ease-in-out',
         'md:w-[520px] md:[margin-inline:auto] md:p-[30px] md:mb-[30px]',
