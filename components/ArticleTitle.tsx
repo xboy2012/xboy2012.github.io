@@ -18,6 +18,7 @@ export const ArticleTitle = memo(({ title }: { title: string }) => {
             'absolute bottom-0 left-0 bg-textGradientYellow rounded-[3px]',
             'w-[30px] h-[3px] md:w-[40px] md:h-[5px]',
           )}
+          aria-hidden
         />
       </h2>
     </header>

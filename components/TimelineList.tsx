@@ -5,7 +5,7 @@ import type { TimelineItem } from '../src/types';
 export const TimelineList = memo(({ data }: { data: TimelineItem[] }) => {
   const lastIndex = data.length - 1;
   return (
-    <ol className="text-6 ml-[45px] md:ml-[65px]">
+    <ul className="text-6 ml-[45px] md:ml-[65px]">
       {data.map((o, index) => {
         const isFirst = index === 0;
         const isLast = index === lastIndex;
@@ -20,6 +20,7 @@ export const TimelineList = memo(({ data }: { data: TimelineItem[] }) => {
                   'absolute -top-[50px] h-[60px] -left-[30px] md:-left-[40px]',
                   'w-px bg-jet',
                 )}
+                aria-hidden
               />
             )}
             {!isLast && (
@@ -28,6 +29,7 @@ export const TimelineList = memo(({ data }: { data: TimelineItem[] }) => {
                   'absolute top-[8px] -bottom-[30px] -left-[30px] md:-left-[40px]',
                   'w-px bg-jet',
                 )}
+                aria-hidden
               />
             )}
             <h4 className="text-white2 text-6 leading-[1.3] mb-[7px]">
@@ -56,10 +58,11 @@ export const TimelineList = memo(({ data }: { data: TimelineItem[] }) => {
                 'md:h-2 md:w-2 md:-left-[43px]',
                 'bg-textGradientYellow rounded-full shadow-timeline',
               )}
+              aria-hidden
             />
           </li>
         );
       })}
-    </ol>
+    </ul>
   );
 });

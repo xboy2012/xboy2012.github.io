@@ -20,6 +20,7 @@ export const ContactItem = ({
           'rounded-lg md:rounded-xl',
           'text-base md:text-lg',
         )}
+        aria-hidden
       >
         <span className="absolute block inset-px bg-eerieBlack1 rounded-inherit -z-1" />
         <Icon />

@@ -12,6 +12,7 @@ export const IconBox = memo(() => {
         'w-[30px] h-[30px] rounded-lg text-base',
         'md:w-[48px] md:h-[48px] md:rounded-xl md:text-lg',
       )}
+      aria-hidden
     >
       <i
         className={cx(

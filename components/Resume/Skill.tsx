@@ -21,14 +21,15 @@ export const Skill = () => {
                 <h5 className="text-white2 capitalize text-7 font-500">
                   {skill}
                 </h5>
-                <data
-                  value={percent}
-                  className="text-lightGray text-7 font-300"
-                >
-                  {percent}%
-                </data>
+                <p>
+                  <data
+                    value={percent}
+                    className="text-lightGray text-7 font-300"
+                  >
+                    {percent}%
+                  </data>
+                </p>
               </div>
-
               <div className="bg-jet w-full h-2 rounded-[10px]">
                 <div
                   className="bg-textGradientYellow h-full rounded-inherit"

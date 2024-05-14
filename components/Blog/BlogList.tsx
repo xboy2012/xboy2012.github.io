@@ -46,9 +46,9 @@ const BlogItem = (props: BlogItemProps) => {
 
         <div className="p-[15px] md:p-[25px]">
           <div className="flex justify-start items-center gap-[7px] mb-2.5">
-            <p className="text-lightGray70 text-6 font-300">{category}</p>
+            <span className="text-lightGray70 text-6 font-300">{category}</span>
 
-            <div className="bg-lightGray70 w-1 h-1 rounded" />
+            <div className="bg-lightGray70 w-1 h-1 rounded" aria-hidden />
 
             <time
               dateTime={datetime}
