@@ -9,6 +9,7 @@ export const userData: UserData = {
   facebook: 'xboy2012',
   twitter: 'xboy2012',
   github: 'xboy2012',
+  npm: 'xboy2012',
   linkedin: 'xboy2012',
 
   intro: [

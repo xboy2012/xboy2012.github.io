@@ -8,6 +8,7 @@ import { ContactItemLocation } from './ContactItemLocation';
 import { LinkFacebook } from './LinkFacebook';
 import { LinkTwitter } from './LinkTwitter';
 import { LinkGithub } from './LinkGithub';
+import { LinkNpm } from './LinkNpm';
 import { LinkLinkedin } from './LinkLinkedin';
 import { InfoCard } from './InfoCard';
 import { Separator } from './Separator';
@@ -63,6 +64,7 @@ export const SideBar = () => {
           <LinkFacebook />
           <LinkTwitter />
           <LinkGithub />
+          <LinkNpm />
           <LinkLinkedin />
         </ul>
       </div>

@@ -18,6 +18,7 @@ export interface UserData {
   facebook: string;
   twitter: string;
   github: string;
+  npm: string;
   linkedin: string;
   intro: string[];
   educations: TimelineItem[];
