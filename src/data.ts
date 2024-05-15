@@ -43,7 +43,7 @@ export const userData: UserData = {
     {
       from: '2022',
       to: '2023',
-      title: 'Senior Software Engineer (Level 64) at Microsoft',
+      title: 'Senior Software Engineer at Microsoft',
       desc: [
         '• Contributed to the daily iteration of Bing.com, increased key metrics for revenue by 1%',
         '• Conducted A/B tests on experimental features to determine the most revenue-generating option, diving deep to identify the best-performing variant',
