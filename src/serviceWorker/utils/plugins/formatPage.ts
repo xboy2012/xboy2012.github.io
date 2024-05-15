@@ -24,6 +24,7 @@ export const formatPage: WorkboxPlugin = {
       // there's no need to modify the request
       return request;
     }
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars -- exclude url
     const { url, ...options } = request.clone();
 
     urlObj.pathname = formatedPath;

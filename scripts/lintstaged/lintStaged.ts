@@ -1,6 +1,9 @@
 import lintStagedAPI, { type Config } from 'lint-staged';
 
-export type LogFunction = (...args: any[]) => void;
+export type LogFunction = (
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any -- generic value
+  ...args: any[]
+) => void;
 
 export interface Logger {
   error: LogFunction;
@@ -40,5 +43,6 @@ export const lintStaged = async (opt: {
   if (!options.maxArgLength) {
     options.maxArgLength = getMaxArgLength();
   }
-  return (lintStagedAPI as any)(options);
+  // @ts-expect-error types for lint-staged does not include definitions of node.js API
+  return lintStagedAPI(options);
 };

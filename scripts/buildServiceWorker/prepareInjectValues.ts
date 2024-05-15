@@ -3,7 +3,10 @@ import { getPublicAssetsHash } from './getPublicAssetsHash';
 import { getNextStaticFiles } from './getNextStaticFiles';
 import type { RollupReplaceOptions } from '@rollup/plugin-replace';
 
-const wrapJSON = (values: Record<string, any>) => {
+const wrapJSON = (
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any -- generic value
+  values: Record<string, any>,
+) => {
   const result: Record<string, string> = {};
   for (const key of Object.keys(values)) {
     result[key] = JSON.stringify(values[key], null, 2);

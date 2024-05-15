@@ -1,6 +1,6 @@
 import { interopRequireDefault } from './interopRequireDefault';
 
-const getImageUrl = (value: any): string => {
+const getImageUrl = (value: unknown): string => {
   const defaultValue = interopRequireDefault(value);
   if (!defaultValue) {
     return '';

@@ -1,4 +1,7 @@
-export const interopRequireDefault = (value: any) => {
+export const interopRequireDefault = (
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any -- generic value
+  value: any,
+) => {
   if (!value || typeof value !== 'object') {
     return value;
   }

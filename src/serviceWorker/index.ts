@@ -4,9 +4,6 @@
 /// <reference lib="webworker" />
 
 import { preCacheUrls } from './utils/preCacheUrls';
-
-declare var self: ServiceWorkerGlobalScope & Window;
-
 import { registerRoute } from 'workbox-routing';
 import { CacheFirst } from 'workbox-strategies';
 import { captureStaticBuiltAssets } from './utils/captureStaticBuiltAssets';
@@ -19,6 +16,8 @@ import { removeSearch } from './utils/plugins/removeSearch';
 import { addHashQuery } from './utils/plugins/addHashQuery';
 import { getNonHashedUrlsToPreCache } from './utils/getNonHashedUrlsToPreCache';
 import { getNextStaticUrlsToPreCache } from './utils/getNextStaticUrlsToPreCache';
+
+declare const self: ServiceWorkerGlobalScope & Window;
 
 // assets built with hash can be always from cache
 registerRoute(

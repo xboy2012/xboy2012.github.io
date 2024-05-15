@@ -25,7 +25,7 @@ export const preCacheUrls = async (
     ignoreMethod: true,
   };
 
-  const promises: Promise<any>[] = [
+  const promises: Promise<unknown>[] = [
     // add necessary new cache
     cache.addAll(urlToAddSet),
     // delete useless old cache

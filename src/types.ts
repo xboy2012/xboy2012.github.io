@@ -51,13 +51,6 @@ export type ProjectData = Readonly<{
   image: string;
 }>;
 
-export interface TestimonialData {
-  name: string;
-  avatar: string;
-  datetime: `${string}-${string}-${string}`;
-  text: string;
-}
-
 export interface CompanyData {
   name: string;
   link: string;
