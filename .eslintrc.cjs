@@ -7,20 +7,18 @@ module.exports = {
     'plugin:import/typescript',
     'plugin:@typescript-eslint/recommended',
   ],
-  rules: {
-    'react/display-name': 'off',
-    'prettier/prettier': 'error',
-    'unicorn/prefer-node-protocol': 'error',
-  },
   settings: {
-    'import/parsers': {
-      '@typescript-eslint/parser': ['.ts', '.tsx', '.mts', '.cts'],
-    },
     'import/resolver': {
       typescript: {
         alwaysTryTypes: true,
       },
     },
+  },
+  rules: {
+    'react/display-name': 'off',
+    'prettier/prettier': 'error',
+    'unicorn/prefer-node-protocol': 'error',
+    'import/first': 'error',
   },
   overrides: [
     {

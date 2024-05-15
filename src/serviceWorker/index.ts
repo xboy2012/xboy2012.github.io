@@ -14,8 +14,8 @@ import { CACHE_NAME_HASH, CACHE_NAME_NO_HASH } from './utils/cacheNames';
 import { formatPage } from './utils/plugins/formatPage';
 import { removeSearch } from './utils/plugins/removeSearch';
 import { addHashQuery } from './utils/plugins/addHashQuery';
-import { getNonHashedUrlsToPreCache } from './utils/getNonHashedUrlsToPreCache';
-import { getNextStaticUrlsToPreCache } from './utils/getNextStaticUrlsToPreCache';
+import { getNonHashedPaths } from './utils/getNonHashedPaths';
+import { getNextStaticFiles } from './utils/getNextStaticFiles';
 
 declare const self: ServiceWorkerGlobalScope & Window;
 
@@ -57,6 +57,16 @@ registerRoute(
 
 self.addEventListener('install', () => {
   self.skipWaiting();
-  preCacheUrls(CACHE_NAME_NO_HASH, getNonHashedUrlsToPreCache());
-  preCacheUrls(CACHE_NAME_HASH, getNextStaticUrlsToPreCache());
+  preCacheUrls(
+    CACHE_NAME_NO_HASH,
+    getNonHashedPaths().map(([path, hash]) => {
+      return `${self.location.origin}${path}?_=${hash}`;
+    }),
+  );
+  preCacheUrls(
+    CACHE_NAME_HASH,
+    getNextStaticFiles().map((file) => {
+      return `${self.location.origin}/_next/static/${file}`;
+    }),
+  );
 });

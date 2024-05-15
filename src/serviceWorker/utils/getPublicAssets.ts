@@ -1,4 +1,4 @@
-import type { PathString } from '../types';
+import type { PathString } from '../../types';
 
 let publicAssets: Set<PathString> | undefined;
 

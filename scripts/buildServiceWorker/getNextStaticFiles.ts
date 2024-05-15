@@ -13,7 +13,7 @@ export const getNextStaticFiles = async (
   )
     .filter((o) => o.isFile())
     .map((o) => {
-      const dir = pathRelative(staticDir, o.path);
+      const dir = pathRelative(staticDir, o.parentPath);
       return pathJoin(dir, o.name);
     });
 
