@@ -9,7 +9,16 @@ const config: Config = {
   clearMocks: true,
   collectCoverage: true,
   coverageDirectory: 'coverage',
-  coverageProvider: 'v8',
+  coverageProvider: 'babel',
+  coveragePathIgnorePatterns: ['__test__'],
+  coverageThreshold: {
+    global: {
+      branches: 100,
+      functions: 100,
+      lines: 100,
+      statements: 100,
+    },
+  },
   testEnvironment: 'jsdom',
   roots: ['<rootDir>/components', '<rootDir>/src'],
 };
