@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { getFixedPageUrl } from '../utils/getFixedPageUrl';
+import { replaceBrowserUrl } from '../utils/replaceBrowserUrl';
 
 export type FixPageUrlStatus = 'pending' | 'ok' | 'redirecting';
 
@@ -13,7 +14,7 @@ export const useFixPageUrl = (): FixPageUrlStatus => {
     }
     // automatically replace irregular page url
     setStatus('redirecting');
-    location.replace(urlObj.toString());
+    replaceBrowserUrl(urlObj.toString());
   }, []);
   return status;
 };

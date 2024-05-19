@@ -1,6 +1,7 @@
 import { type WorkboxPlugin } from 'workbox-core';
 import { formatPagePath } from '../../../utils/formatPagePath';
 import type { PathString } from '../../../types';
+import { replaceRequestUrl } from '../replaceRequestUrl';
 
 export const formatPage: WorkboxPlugin = {
   cacheKeyWillBeUsed: async ({ request }) => {
@@ -24,12 +25,7 @@ export const formatPage: WorkboxPlugin = {
       // there's no need to modify the request
       return request;
     }
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars -- exclude url
-    const { url, ...options } = request.clone();
-
     urlObj.pathname = formatedPath;
-    const newUrl = urlObj.toString();
-
-    return new Request(newUrl, options);
+    return replaceRequestUrl(request, urlObj.toString());
   },
 };

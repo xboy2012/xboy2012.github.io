@@ -1,12 +1,3 @@
-import { Article } from '../../../../components/Article';
-import { ArticleTitle } from '../../../../components/ArticleTitle';
-import { Projects } from '../../../../components/Portfolio/Projects';
+import { Portfolio } from '../../../../components/Portfolio';
 
-export default function Portfolio() {
-  return (
-    <Article>
-      <ArticleTitle title="Portfolio" />
-      <Projects />
-    </Article>
-  );
-}
+export default Portfolio;

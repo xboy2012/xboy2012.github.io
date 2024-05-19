@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
-import { Obfuscate } from './Obfuscate';
+import { Obfuscate } from '.';
 
 describe('<Obfuscate /> should work as expected', () => {
   test('should secure string >= 4 correctly', () => {

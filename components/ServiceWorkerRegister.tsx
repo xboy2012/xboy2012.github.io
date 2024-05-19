@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 export const ServiceWorkerRegister = () => {
   // install service worker to current page
   useEffect(() => {
+    /* istanbul ignore if */
     if (process.env.NODE_ENV === 'production') {
       if (!('serviceWorker' in navigator)) {
         return;

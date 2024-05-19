@@ -35,8 +35,9 @@ export const ProjectFilterDropDown = ({
           'border border-solid border-jet rounded-[14px] text-6 font-300',
         )}
         onClick={handleSelectClick}
+        title="Click to select category"
       >
-        <div className="select-value">{curCategory}</div>
+        <div>{curCategory}</div>
 
         <div className={isSelecting ? 'rotate-180' : ''}>
           <ChevronDown />

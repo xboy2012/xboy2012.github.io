@@ -1,8 +1,9 @@
 export const preCacheUrls = async (
+  self: ServiceWorkerGlobalScope,
   cacheName: string,
   urls: string[],
 ): Promise<void> => {
-  const cache = await caches.open(cacheName);
+  const cache = await self.caches.open(cacheName);
   const requests = await cache.keys();
 
   const urlSet = new Set<string>(urls);

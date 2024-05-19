@@ -1,4 +1,5 @@
 import { type WorkboxPlugin } from 'workbox-core';
+import { replaceRequestUrl } from '../replaceRequestUrl';
 
 export const removeSearch: WorkboxPlugin = {
   cacheKeyWillBeUsed: async ({ request }) => {
@@ -17,9 +18,6 @@ export const removeSearch: WorkboxPlugin = {
       return request;
     }
     urlObj.search = '';
-    const newUrl = urlObj.toString();
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars -- exclude url
-    const { url, ...options } = request.clone();
-    return new Request(newUrl, options);
+    return replaceRequestUrl(request, urlObj.toString());
   },
 };

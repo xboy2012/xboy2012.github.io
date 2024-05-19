@@ -1,7 +1,7 @@
 import { join as pathJoin } from 'node:path';
-import { globDirContentOccurrence } from './__test__/globDirContentOccurrence';
+import { globDirContentOccurrence } from './globDirContentOccurrence';
 
-describe('ServiceWorker related tests', () => {
+describe('preBuild related tests', () => {
   for (const varName of [
     'PRE_BUILT_BLOG_IDS_FOR_PATH',
     'NON_HASHED_PATHS',

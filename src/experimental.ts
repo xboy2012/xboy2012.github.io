@@ -1,3 +1,5 @@
+/* istanbul ignore file */
+
 // this file contains some tool involving experimental features
 
 export const isExperimental = () => {

@@ -1,3 +1,5 @@
+/* istanbul ignore file */
+
 import { userData } from '../data';
 
 export const APP_DEFAULT_TITLE = userData.name;

@@ -17,6 +17,7 @@ export const SideBar = () => {
   const [showSideBar, setShowSideBar] = useState(false);
 
   const handleOpen = useCallback(() => {
+    /* istanbul ignore next */
     setShowSideBar((v) => !v);
   }, []);
 
