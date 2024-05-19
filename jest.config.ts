@@ -8,6 +8,11 @@ const createJestConfig = nextJest({
 const config: Config = {
   clearMocks: true,
   collectCoverage: true,
+  collectCoverageFrom: [
+    // 'app/**/*.{ts,tsx}',
+    'components/**/*.{ts,tsx}',
+    'src/**/*.{ts,tsx}',
+  ],
   coverageDirectory: 'coverage',
   coverageProvider: 'babel',
   coveragePathIgnorePatterns: ['__test__'],
