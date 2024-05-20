@@ -4,4 +4,3 @@ node_modules
 
 /next-env.d.ts
 !/.eslintrc.cjs
-!/.prettierrc.js
