@@ -7,15 +7,27 @@ const mockParam = (url: string) => {
 };
 
 describe('addHashQuery test', () => {
+  const indexHtmlHash = Math.random().toString(36).substring(2, 10);
+  const indexTxtHash = Math.random().toString(36).substring(2, 10);
+
   beforeAll(() => {
     // @ts-expect-error mock inject value
-    global.NON_HASHED_PATHS = [['/', 'abc']];
+    global.HASH_INFO = [
+      [['/', indexHtmlHash, indexTxtHash]],
+      [['/favicon.ico', 'ccc']],
+    ];
   });
 
-  test('add hash tags', async () => {
+  test('add hash tags for index.html', async () => {
     const param = mockParam('https://www.example.com/');
     const result = await addHashQuery.cacheKeyWillBeUsed!(param);
-    expect(result).toBe('https://www.example.com/?_=abc');
+    expect(result).toBe(`https://www.example.com/?_=${indexHtmlHash}`);
+  });
+
+  test('add hash tags for index.txt', async () => {
+    const param = mockParam('https://www.example.com/index.txt');
+    const result = await addHashQuery.cacheKeyWillBeUsed!(param);
+    expect(result).toBe(`https://www.example.com/index.txt?_=${indexTxtHash}`);
   });
 
   test('skip processing', async () => {

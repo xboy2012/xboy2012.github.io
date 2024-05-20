@@ -2,6 +2,11 @@ import type { ReactNode } from 'react';
 
 export type PathString = `/${string}`;
 
+export type PageHashInfo = [PathString, string, string];
+export type AssetHashInfo = [PathString, string];
+
+export type HashInfo = [PageHashInfo[], AssetHashInfo[]];
+
 export interface TimelineItem {
   from: string;
   to: string;

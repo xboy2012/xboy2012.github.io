@@ -1,11 +1,9 @@
 import type { MetadataRoute } from 'next';
-import { getValidBlogIdsForPath } from '../src/utils/getValidBlogIdsForPath';
+import { getBlogs } from '../src/blogs';
 
 const BASE_URL = 'https://xboy2012.github.io';
 
 const sitemap = async (): Promise<MetadataRoute.Sitemap> => {
-  const blogIds = Array.from(getValidBlogIdsForPath());
-
   // TODO: just refresh lastModified for every build
   const time = new Date();
 
@@ -16,9 +14,11 @@ const sitemap = async (): Promise<MetadataRoute.Sitemap> => {
     { url: `${BASE_URL}/blog/`, lastModified: time },
 
     // all blogs
-    ...blogIds.map((blogId) => {
-      return { url: `${BASE_URL}/blog/${blogId}/`, lastModified: time };
-    }),
+    ...getBlogs()
+      .filter((blog) => !blog.link)
+      .map((blog) => {
+        return { url: `${BASE_URL}/blog/${blog.id}/`, lastModified: time };
+      }),
   ];
 };
 

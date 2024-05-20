@@ -13,10 +13,10 @@ import { CACHE_NAME_HASH, CACHE_NAME_NO_HASH } from './cacheNames';
 import { formatPage } from './plugins/formatPage';
 import { removeSearch } from './plugins/removeSearch';
 import { addHashQuery } from './plugins/addHashQuery';
-import { getNonHashedPaths } from './getNonHashedPaths';
 import { getNextStaticFiles } from './getNextStaticFiles';
 import { preCacheUrls } from './preCacheUrls';
 import { selfOrigin } from './consts';
+import { getPrecacheUrlsForNonHash } from './getPrecacheUrlsForNonHash';
 
 export const initialize = (self: ServiceWorkerGlobalScope) => {
   // assets built with hash can be always from cache
@@ -57,13 +57,7 @@ export const initialize = (self: ServiceWorkerGlobalScope) => {
 
   self.addEventListener('install', () => {
     self.skipWaiting();
-    preCacheUrls(
-      self,
-      CACHE_NAME_NO_HASH,
-      getNonHashedPaths().map(([path, hash]) => {
-        return `${selfOrigin}${path}?_=${hash}`;
-      }),
-    );
+    preCacheUrls(self, CACHE_NAME_NO_HASH, getPrecacheUrlsForNonHash());
     preCacheUrls(
       self,
       CACHE_NAME_HASH,

@@ -10,6 +10,8 @@ describe('capture test', () => {
   });
 
   test('should fall through path check', () => {
+    // @ts-expect-error mock inject value
+    global.HASH_INFO = [[['/', 'aaa', 'bbb']], [['/favicon.ico', 'ccc']]];
     const event = {} as unknown as ExtendableEvent;
     const url = new URL('https://www.example.com/index.txt');
     const request = {} as unknown as Request;

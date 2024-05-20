@@ -1,4 +1,4 @@
-import { type WorkboxPlugin } from 'workbox-core';
+import type { WorkboxPlugin } from 'workbox-core';
 import { formatPagePath } from '../../../utils/formatPagePath';
 import type { PathString } from '../../../types';
 import { replaceRequestUrl } from '../replaceRequestUrl';

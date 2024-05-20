@@ -1,7 +1,5 @@
-import { getBuiltBlogIds } from './getBuiltBlogIds';
-import { getPublicAssetsHash } from './getPublicAssetsHash';
 import { getNextStaticFiles } from './getNextStaticFiles';
-import type { RollupReplaceOptions } from '@rollup/plugin-replace';
+import { getHashInfo } from './getHashInfo';
 
 const wrapJSON = (
   // eslint-disable-next-line @typescript-eslint/no-explicit-any -- generic value
@@ -15,18 +13,14 @@ const wrapJSON = (
 };
 
 export const prepareInjectValues = async (rootDir: string) => {
-  const [PRE_BUILT_BLOG_IDS_FOR_PATH, NON_HASHED_PATHS, NEXT_STATIC_FILES] =
-    await Promise.all([
-      getBuiltBlogIds(rootDir),
-      getPublicAssetsHash(rootDir),
-      getNextStaticFiles(rootDir),
-    ]);
+  const [NEXT_STATIC_FILES, HASH_INFO] = await Promise.all([
+    getNextStaticFiles(rootDir),
+    getHashInfo(rootDir),
+  ]);
 
-  const values: RollupReplaceOptions['values'] = wrapJSON({
-    'process.env.NODE_ENV': process.env.NODE_ENV || '',
-    PRE_BUILT_BLOG_IDS_FOR_PATH,
-    NON_HASHED_PATHS,
+  return wrapJSON({
+    'process.env.NODE_ENV': 'production',
     NEXT_STATIC_FILES,
+    HASH_INFO,
   });
-  return values;
 };

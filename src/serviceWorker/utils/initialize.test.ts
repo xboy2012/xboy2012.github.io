@@ -17,9 +17,9 @@ jest.mock('workbox-strategies', () => {
 describe('service worker initialize test', () => {
   test('should be able to initialize', () => {
     // @ts-expect-error mock inject value
-    global.NON_HASHED_PATHS = [['/', 'abc']];
-    // @ts-expect-error mock inject value
     global.NEXT_STATIC_FILES = ['a.js'];
+    // @ts-expect-error mock inject value
+    global.HASH_INFO = [[['/', 'aaa', 'bbb']], [['/favicon.ico', 'ccc']]];
 
     let installHandler: (() => void) | undefined;
 

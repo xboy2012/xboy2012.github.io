@@ -1,4 +1,4 @@
-import { type WorkboxPlugin } from 'workbox-core';
+import type { WorkboxPlugin } from 'workbox-core';
 import { replaceRequestUrl } from '../replaceRequestUrl';
 
 export const removeSearch: WorkboxPlugin = {
