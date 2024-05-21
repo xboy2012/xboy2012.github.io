@@ -8,16 +8,20 @@ const sitemap = async (): Promise<MetadataRoute.Sitemap> => {
   const time = new Date();
 
   return [
-    { url: `${BASE_URL}/`, lastModified: time },
-    { url: `${BASE_URL}/resume/`, lastModified: time },
-    { url: `${BASE_URL}/portfolio/`, lastModified: time },
-    { url: `${BASE_URL}/blog/`, lastModified: time },
+    { url: `${BASE_URL}/`, lastModified: time, priority: 1 },
+    { url: `${BASE_URL}/resume/`, lastModified: time, priority: 0.8 },
+    { url: `${BASE_URL}/portfolio/`, lastModified: time, priority: 0.8 },
+    { url: `${BASE_URL}/blog/`, lastModified: time, priority: 0.8 },
 
     // all blogs
     ...getBlogs()
       .filter((blog) => !blog.link)
       .map((blog) => {
-        return { url: `${BASE_URL}/blog/${blog.id}/`, lastModified: time };
+        return {
+          url: `${BASE_URL}/blog/${blog.id}/`,
+          lastModified: time,
+          priority: 0.64,
+        };
       }),
   ];
 };
