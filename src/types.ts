@@ -41,6 +41,12 @@ export type BlogData = Readonly<{
   category: string;
 }>;
 
+export type ServiceData = Readonly<{
+  name: string;
+  image: string;
+  desc: string;
+}>;
+
 export type ProjectCategory =
   | 'Applications'
   | 'Web development'

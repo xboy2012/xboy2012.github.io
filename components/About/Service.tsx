@@ -1,5 +1,5 @@
 import { ServiceItem } from './ServiceItem';
-import src from '../../src/utils/getImageUrl';
+import { services } from '../../src/services';
 
 export const Service = () => {
   return (
@@ -9,26 +9,11 @@ export const Service = () => {
       </h3>
 
       <ul className="grid grid-cols-1fr gap-[20px] xl:grid-cols-1fr1fr xl:gap-y-[20px] xl:gap-x-[25px]">
-        <ServiceItem
-          name="Frontend Development"
-          icon={src(require('./images/icon-frontend.svg'))}
-          desc="High-quality frontend development using various frameworks"
-        />
-        <ServiceItem
-          name="Full Stack Development"
-          icon={src(require('./images/icon-fullstack.svg'))}
-          desc="Isomorphic development for both frontend and backend"
-        />
-        <ServiceItem
-          name="Software Architect"
-          icon={src(require('./images/icon-arch.svg'))}
-          desc="Design comprehensive and effective system architect for commercial software"
-        />
-        <ServiceItem
-          name="DevOps"
-          icon={src(require('./images/icon-devops.svg'))}
-          desc="Leverage my expertise in CI/CD, improving efficiency and reducing errors"
-        />
+        {services.map(({ name, image, desc }) => {
+          return (
+            <ServiceItem key={name} name={name} icon={image} desc={desc} />
+          );
+        })}
       </ul>
     </section>
   );
