@@ -19,8 +19,8 @@ export const userData: UserData = {
 
   educations: [
     {
-      from: '', // 2007
-      to: '', // 2008
+      from: '2008',
+      to: '2012',
       title: 'East China University of Science & Technology',
       desc: "Bachelor's Degree of Computer Science & Technology",
     },
@@ -30,7 +30,9 @@ export const userData: UserData = {
     {
       from: '2023',
       to: '2024',
-      title: 'Staff Software Engineer at NIO',
+      title: 'Staff Software Engineer',
+      company: 'NIO',
+      location: 'Shanghai',
       desc: [
         '• Designed and developed the supply chain system, increasing business capacity',
         '• Rewrite the core low-code rendering engine, gaining better performance, reducing bugs and improving building\n' +
@@ -43,7 +45,9 @@ export const userData: UserData = {
     {
       from: '2022',
       to: '2023',
-      title: 'Senior Software Engineer at Microsoft',
+      title: 'Senior Software Engineer',
+      company: 'Microsoft',
+      location: 'Suzhou',
       desc: [
         '• Contributed to the daily iteration of Bing.com, increased key metrics for revenue by 1%',
         '• Conducted A/B tests on experimental features to determine the most revenue-generating option, diving deep to identify the best-performing variant',
@@ -54,7 +58,9 @@ export const userData: UserData = {
     {
       from: '2018',
       to: '2022',
-      title: 'Front-end Lead at Temu',
+      title: 'Front-end Lead',
+      company: 'Temu',
+      location: 'Shanghai',
       desc: [
         '• Led the full-stack system design for low-code platform, with standard SDKs and detailed documents',
         '• Built a SSR framework, implementing stream rendering, benchmarking 30% higher than Next.js',
@@ -68,6 +74,8 @@ export const userData: UserData = {
       from: '2012',
       to: '2018',
       title: 'Senior Full-stack Developer at Tencent',
+      company: 'Tencent',
+      location: 'Shanghai',
       desc: [
         '• Engineered distributed web applications, employing Database sharding, integrating Cache Layer',
         '• Refactored and migrated multiple projects into using latest tech-stacks, improving maintenance',

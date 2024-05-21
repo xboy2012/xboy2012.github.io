@@ -14,6 +14,15 @@ export interface TimelineItem {
   desc: string | string[];
 }
 
+export interface WorkExperienceItem {
+  from: string;
+  to: string;
+  title: string;
+  desc: string | string[];
+  location: string;
+  company: string;
+}
+
 export interface UserData {
   name: string;
   title: string;
@@ -27,7 +36,7 @@ export interface UserData {
   linkedin: string;
   intro: string[];
   educations: TimelineItem[];
-  workExperiences: TimelineItem[];
+  workExperiences: WorkExperienceItem[];
   skills: { skill: string; percent: number }[];
 }
 
