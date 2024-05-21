@@ -1,4 +1,4 @@
-import { type ComponentType } from 'react';
+import type { ComponentType } from 'react';
 import type { BlogData } from '../../src/types';
 import { Article } from '../Article';
 import { ArticleTitle } from '../ArticleTitle';
