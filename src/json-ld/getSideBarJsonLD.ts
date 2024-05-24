@@ -1,13 +1,13 @@
+import type { Person } from 'schema-dts';
 import { userData } from '../data';
-import type { Person, WithContext } from 'schema-dts';
 
-let json: WithContext<Person> | undefined;
+let json: Person | undefined;
 
-export const getSideBarJsonLD = (): WithContext<Person> => {
+export const getSideBarJsonLD = (): Person => {
   if (!json) {
     const { facebook, github, linkedin, npm, twitter } = userData;
     json = {
-      '@context': 'https://schema.org',
+      // '@context': 'https://schema.org',
       '@type': 'Person',
       '@id': 'https://xboy2012.github.io/#person',
       name: userData.name,
@@ -37,5 +37,5 @@ export const getSideBarJsonLD = (): WithContext<Person> => {
       ].filter(Boolean),
     };
   }
-  return json;
+  return json!;
 };

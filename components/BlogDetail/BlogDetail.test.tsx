@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
-import { BlogDetail } from './BlogDetail';
+import { BlogDetail } from '.';
 import { formatDateTime } from '../../src/utils/formatDateTime';
 import type { BlogData } from '../../src/types';
 

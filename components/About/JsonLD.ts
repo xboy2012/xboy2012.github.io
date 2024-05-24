@@ -1,6 +1,9 @@
 'use client';
 
-import { defineJsonLD } from '../../src/utils/defineJsonLD';
 import { getAboutJsonLD } from '../../src/json-ld/getAboutJsonLD';
+import { useJsonLD } from '../../src/hooks/useJsonLD';
 
-export const JsonLD = defineJsonLD(getAboutJsonLD);
+export const JsonLD = () => {
+  useJsonLD(getAboutJsonLD);
+  return null;
+};

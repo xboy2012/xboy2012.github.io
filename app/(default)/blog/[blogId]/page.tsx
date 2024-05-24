@@ -1,6 +1,6 @@
 import { getBlogs } from '../../../../src/blogs';
 import { getMetaByBlogId } from '../../../../src/utils/getMetaByBlogId';
-import { BlogDetail } from '../../../../components/Blog/BlogDetail';
+import { BlogDetail } from '../../../../components/BlogDetail';
 
 interface PageParam {
   blogId: string;
