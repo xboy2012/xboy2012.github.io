@@ -38,7 +38,7 @@ export const TimelineList = memo(({ data }: { data: TimelineItem[] }) => {
 
             {!!(from && to) && (
               <span className="block text-vegasGold font-400 leading-[1.6]">
-                {from} — {to}
+                {`${from} — ${to}`}
               </span>
             )}
             {desc.map((text, i) => {

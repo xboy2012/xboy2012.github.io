@@ -26,7 +26,7 @@ export const Skill = () => {
                     value={percent}
                     className="text-lightGray text-7 font-300"
                   >
-                    {percent}%
+                    {`${percent}%`}
                   </data>
                 </p>
               </div>
