@@ -26,7 +26,7 @@ export const getPortfolioJsonLD = () => {
             // description:
             //   'An e-commerce site developed for selling products online.',
 
-            image: project.image,
+            image: getFullUrl(project.image),
             creator: {
               '@type': 'Person',
               name: userData.name,
