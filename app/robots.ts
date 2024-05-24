@@ -1,4 +1,5 @@
 import type { MetadataRoute } from 'next';
+import { BASE_URL } from '../src/config/app';
 
 const robots = (): MetadataRoute.Robots => {
   return {
@@ -10,7 +11,7 @@ const robots = (): MetadataRoute.Robots => {
         disallow: ['/_next', '*/index.txt'],
       },
     ],
-    sitemap: 'https://xboy2012.github.io/sitemap.xml',
+    sitemap: `${BASE_URL}/sitemap.xml`,
   };
 };
 

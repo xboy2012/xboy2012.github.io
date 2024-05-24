@@ -1,7 +1,9 @@
+import { BASE_URL } from '../config/app';
+
 export const getFullUrl = (url: string) => {
   if (url.startsWith('https://')) {
     return url;
   }
   const path = url.startsWith('/') ? url : `/${url}`;
-  return `https://xboy2012.github.io${path}`;
+  return `${BASE_URL}${path}`;
 };

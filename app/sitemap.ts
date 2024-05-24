@@ -1,7 +1,6 @@
 import type { MetadataRoute } from 'next';
 import { getBlogs } from '../src/blogs';
-
-const BASE_URL = 'https://xboy2012.github.io';
+import { BASE_URL } from '../src/config/app';
 
 const sitemap = async (): Promise<MetadataRoute.Sitemap> => {
   // TODO: just refresh lastModified for every build

@@ -1,5 +1,7 @@
 import type { Person } from 'schema-dts';
 import { userData } from '../data';
+import { getFullUrl } from '../utils/getFullUrl';
+import { PERSON_ID } from '../config/json-ld';
 
 let json: Person | undefined;
 
@@ -9,7 +11,7 @@ export const getSideBarJsonLD = (): Person => {
     json = {
       // '@context': 'https://schema.org',
       '@type': 'Person',
-      '@id': 'https://xboy2012.github.io/#person',
+      '@id': PERSON_ID,
       name: userData.name,
       email: /* istanbul ignore next */ userData.email || undefined,
       telephone: /* istanbul ignore next */ userData.phoneCA || undefined,
@@ -21,7 +23,7 @@ export const getSideBarJsonLD = (): Person => {
       },
       jobTitle: userData.title,
       description: userData.intro,
-      url: 'https://xboy2012.github.io',
+      url: getFullUrl('/'),
       sameAs: [
         /* istanbul ignore next */ facebook
           ? `https://www.facebook.com/${facebook}`

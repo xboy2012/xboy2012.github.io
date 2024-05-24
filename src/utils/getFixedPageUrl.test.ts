@@ -1,8 +1,9 @@
 import { getFixedPageUrl } from './getFixedPageUrl';
+import { BASE_URL } from '../config/app';
 import type { PathString } from '../types';
 
 const p = (pathname: PathString) => {
-  return { pathname, href: `https://xboy2012.github.io/${pathname}` };
+  return { pathname, href: `${BASE_URL}${pathname}` };
 };
 
 describe('getFixedPageUrl() should work as expected', () => {

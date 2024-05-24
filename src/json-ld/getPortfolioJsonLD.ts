@@ -1,6 +1,8 @@
 import type { ItemList, ListItem } from 'schema-dts';
 import { userData } from '../data';
 import { getProjects } from '../projects';
+import { getFullUrl } from '../utils/getFullUrl';
+import { PERSON_ID } from '../config/json-ld';
 
 let json: ItemList | undefined;
 
@@ -10,7 +12,7 @@ export const getPortfolioJsonLD = () => {
       '@type': 'ItemList',
       name: `${userData.name}'s Portfolio`,
       description: `A list of projects developed by ${userData.name}.`,
-      url: 'https://xboy2012.github.io/portfolio/',
+      url: getFullUrl('/portfolio/'),
       itemListElement: getProjects().map((project, index): ListItem => {
         return {
           '@type': 'ListItem',
@@ -28,7 +30,7 @@ export const getPortfolioJsonLD = () => {
             creator: {
               '@type': 'Person',
               name: userData.name,
-              '@id': 'https://xboy2012.github.io/#person',
+              '@id': PERSON_ID,
             },
           },
         };
