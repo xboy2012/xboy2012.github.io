@@ -1,11 +1,12 @@
 import type { Person, WithContext } from 'schema-dts';
 import { userData } from '../data';
+import { getSideBarJsonLD } from './getSideBarJsonLD';
 
 let json: WithContext<Person> | undefined;
 
 export const getResumeJsonLD = (): WithContext<Person> => {
   if (!json) {
-    json = {
+    json = Object.assign({}, getSideBarJsonLD(), <WithContext<Person>>{
       '@context': 'https://schema.org',
       '@type': 'Person',
       name: userData.name,
@@ -33,7 +34,7 @@ export const getResumeJsonLD = (): WithContext<Person> => {
           },
         };
       }),
-    };
+    });
   }
   return json;
 };
