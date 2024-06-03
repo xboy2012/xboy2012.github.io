@@ -40,6 +40,16 @@ export interface UserData {
   skills: { skill: string; percent: number }[];
 }
 
+export interface BlogDataLazy {
+  id: string;
+  link?: string;
+  title: string;
+  desc: string;
+  image: () => string;
+  datetime: `${string}-${string}-${string}`;
+  category: string;
+}
+
 export type BlogData = Readonly<{
   id: string;
   link?: string;
