@@ -21,7 +21,7 @@ export const getResumeJsonLD = (): Person => {
           return {
             '@type': 'EmployeeRole',
             startDate: o.from,
-            endDate: o.to,
+            endDate: o.to === 'Present' ? undefined : o.to,
             name: o.title,
             description: o.desc,
             hasOccupation: {

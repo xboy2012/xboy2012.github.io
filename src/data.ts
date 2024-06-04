@@ -28,6 +28,20 @@ export const userData: UserData = {
 
   workExperiences: [
     {
+      from: '2024',
+      to: 'Present',
+      title: 'Senior Software Engineer',
+      company: 'Microsoft',
+      location: 'Vancouver',
+      desc: [
+        '• The Framework CoreUX team focuses on providing common software components used throughout the Teams ecosystem',
+        '• Develop and maintain front end web framework features',
+        '• Contribute to the Teams UI through improvements and new features',
+        '• Drive architectural changes by profiling and improving UX performance and frontend architecture, together with design and leadership',
+        '• Invest in the growth of an inclusive and capable environment by mentoring and training team members within the team and across the org',
+      ],
+    },
+    {
       from: '2023',
       to: '2024',
       title: 'Staff Software Engineer',
