@@ -128,34 +128,34 @@ html {
 
 @layer components {
   .bg-leetcode {
-    background-image: url('./images/logo-leetcode.svg');
+    background-image: url('./images/company/leetcode.svg');
   }
 
   .bg-microsoft {
-    background-image: url('./images/logo-microsoft.svg');
+    background-image: url('./images/company/microsoft.svg');
   }
 
   .bg-myshell {
-    background-image: url('./images/logo-myshell.jpg');
+    background-image: url('./images/company/myshell.jpg');
   }
 
   .bg-nio {
-    background-image: url('./images/logo-nio.svg');
+    background-image: url('./images/company/nio.svg');
   }
 
   .bg-pdd {
-    background-image: url('./images/logo-pdd.jpg');
+    background-image: url('./images/company/pdd.jpg');
   }
 
   .bg-temu {
-    background-image: url('./images/logo-temu.jpg');
+    background-image: url('./images/company/temu.jpg');
   }
 
   .bg-tencent {
-    background-image: url('./images/logo-tencent.svg');
+    background-image: url('./images/company/tencent.svg');
   }
 
   .bg-wacai {
-    background-image: url('./images/logo-wacai.png');
+    background-image: url('./images/company/wacai.png');
   }
 }
