@@ -125,3 +125,37 @@ li {
 html {
   font-family: 'Poppins', sans-serif;
 }
+
+@layer components {
+  .bg-leetcode {
+    background-image: url('./images/logo-leetcode.svg');
+  }
+
+  .bg-microsoft {
+    background-image: url('./images/logo-microsoft.svg');
+  }
+
+  .bg-myshell {
+    background-image: url('./images/logo-myshell.jpg');
+  }
+
+  .bg-nio {
+    background-image: url('./images/logo-nio.svg');
+  }
+
+  .bg-pdd {
+    background-image: url('./images/logo-pdd.jpg');
+  }
+
+  .bg-temu {
+    background-image: url('./images/logo-temu.jpg');
+  }
+
+  .bg-tencent {
+    background-image: url('./images/logo-tencent.svg');
+  }
+
+  .bg-wacai {
+    background-image: url('./images/logo-wacai.png');
+  }
+}
