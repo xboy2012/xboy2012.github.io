@@ -1,6 +1,7 @@
 import { memo } from 'react';
-import styles from './EyeOutline.module.css';
 
 export const EyeOutline = memo(() => {
-  return <i className={styles.icon} />;
+  return (
+    <i className="block w-4 h-4 bg-contain bg-center bg-no-repeat bg-eye" />
+  );
 });
