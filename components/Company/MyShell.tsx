@@ -1,5 +1,5 @@
 export const MyShell = () => {
   return (
-    <div className="bg-center bg-cover bg-no-repeat h-full rounded overflow-hidden bg-myshell" />
+    <div className="h-full rounded bg-center bg-no-repeat bg-cover bg-myshell" />
   );
 };
