@@ -1,6 +1,5 @@
 import type { Person } from 'schema-dts';
 import { userData } from '../data';
-import { services } from '../services';
 import { companies } from '../companies';
 import { getSideBarJsonLD } from './getSideBarJsonLD';
 
@@ -12,7 +11,7 @@ export const getAboutJsonLD = (): Person => {
       <Person>{
         '@type': 'Person',
         'name': userData.name,
-        'hasOccupation': services.map((service) => {
+        'hasOccupation': userData.services.map((service) => {
           return {
             '@type': 'Occupation',
             'name': service.name,

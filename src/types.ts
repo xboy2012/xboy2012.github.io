@@ -33,6 +33,7 @@ export interface UserData {
   npm: string;
   linkedin: string;
   intro: string[];
+  services: ServiceData[];
   educations: TimelineItem[];
   workExperiences: WorkExperienceItem[];
   skills: { skill: string; percent: number }[];
