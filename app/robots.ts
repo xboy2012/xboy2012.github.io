@@ -1,5 +1,5 @@
 import type { MetadataRoute } from 'next';
-import { BASE_URL } from '../src/config/app';
+import { PROD_BASE_URL } from '../src/config/app';
 
 const robots = (): MetadataRoute.Robots => {
   return {
@@ -11,7 +11,7 @@ const robots = (): MetadataRoute.Robots => {
         // disallow: [],
       },
     ],
-    sitemap: `${BASE_URL}/sitemap.xml`,
+    sitemap: `${PROD_BASE_URL}/sitemap.xml`,
   };
 };
 

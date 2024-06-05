@@ -1,9 +1,9 @@
 import { getFixedPageUrl } from './getFixedPageUrl';
-import { BASE_URL } from '../config/app';
+import { PROD_BASE_URL } from '../config/app';
 import type { PathString } from '../types';
 
 const p = (pathname: PathString) => {
-  return { pathname, href: `${BASE_URL}${pathname}` };
+  return { pathname, href: `${PROD_BASE_URL}${pathname}` };
 };
 
 describe('getFixedPageUrl() should work as expected', () => {

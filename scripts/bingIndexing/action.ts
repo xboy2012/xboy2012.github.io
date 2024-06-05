@@ -1,5 +1,5 @@
 import sitemap from '../../app/sitemap';
-import { BASE_DOMAIN, BASE_URL } from '../../src/config/app';
+import { PROD_BASE_URL, PROD_DOMAIN } from '../../src/config/app';
 
 export const action = async () => {
   // see https://www.bing.com/indexnow/getstarted#
@@ -18,9 +18,9 @@ export const action = async () => {
       'Content-Type': 'application/json; charset=utf-8',
     },
     body: JSON.stringify({
-      host: BASE_DOMAIN,
+      host: PROD_DOMAIN,
       key: key,
-      keyLocation: `${BASE_URL}/${key}.txt`,
+      keyLocation: `${PROD_BASE_URL}/${key}.txt`,
       urlList: urls,
     }),
   });
