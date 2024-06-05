@@ -15,7 +15,7 @@ interface BlogItemProps {
 const BlogItem = (props: BlogItemProps) => {
   const { id, title, desc, image, datetime, category } = props;
 
-  const link = props.link || `/blog/${id}`;
+  const link = props.link || `/blog/${id}/`;
 
   return (
     <li className="group">
