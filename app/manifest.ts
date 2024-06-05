@@ -42,12 +42,12 @@ export default function manifest(): MetadataRoute.Manifest {
     orientation: 'portrait',
     icons: makeAbsoluteSrc<Icon>([
       {
-        src: src(require('./images/icon/256.png')),
+        src: src(require('./images/icon/ns-256.png')),
         type: 'image/png',
         sizes: '256x256',
       },
       {
-        src: src(require('./images/icon/128.png')),
+        src: src(require('./images/icon/ns-128.png')),
         type: 'image/png',
         sizes: '128x128',
       },
@@ -70,28 +70,28 @@ export default function manifest(): MetadataRoute.Manifest {
     screenshots: makeAbsoluteSrc<ScreenShot>([
       // desktop screenshots
       {
-        src: src(require('./images/screenshots/desktop/1.jpg')),
+        src: src(require('./images/screenshots/desktop/ns-1.jpg')),
         type: 'image/jpeg',
         sizes: '1280x640',
         form_factor: 'wide',
         label: 'About',
       },
       {
-        src: src(require('./images/screenshots/desktop/2.jpg')),
+        src: src(require('./images/screenshots/desktop/ns-2.jpg')),
         type: 'image/jpeg',
         sizes: '1280x640',
         form_factor: 'wide',
         label: 'Resume',
       },
       {
-        src: src(require('./images/screenshots/desktop/3.jpg')),
+        src: src(require('./images/screenshots/desktop/ns-3.jpg')),
         type: 'image/jpeg',
         sizes: '1280x640',
         form_factor: 'wide',
         label: 'Portfolio',
       },
       {
-        src: src(require('./images/screenshots/desktop/4.jpg')),
+        src: src(require('./images/screenshots/desktop/ns-4.jpg')),
         type: 'image/jpeg',
         sizes: '1280x640',
         form_factor: 'wide',
@@ -100,28 +100,28 @@ export default function manifest(): MetadataRoute.Manifest {
 
       // mobile screenshots
       {
-        src: src(require('./images/screenshots/mobile/1.jpg')),
+        src: src(require('./images/screenshots/mobile/ns-1.jpg')),
         type: 'image/jpeg',
         sizes: '640x1385',
         form_factor: 'narrow',
         label: 'About',
       },
       {
-        src: src(require('./images/screenshots/mobile/2.jpg')),
+        src: src(require('./images/screenshots/mobile/ns-2.jpg')),
         type: 'image/jpeg',
         sizes: '640x1385',
         form_factor: 'narrow',
         label: 'Resume',
       },
       {
-        src: src(require('./images/screenshots/mobile/3.jpg')),
+        src: src(require('./images/screenshots/mobile/ns-3.jpg')),
         type: 'image/jpeg',
         sizes: '640x1385',
         form_factor: 'narrow',
         label: 'Portfolio',
       },
       {
-        src: src(require('./images/screenshots/mobile/4.jpg')),
+        src: src(require('./images/screenshots/mobile/ns-4.jpg')),
         type: 'image/jpeg',
         sizes: '640x1385',
         form_factor: 'narrow',

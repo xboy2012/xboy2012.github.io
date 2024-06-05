@@ -56,12 +56,12 @@ export const metadata: Metadata = {
   icons: makeAbsoluteUrl([
     // universal icons
     {
-      url: src(require('./images/icon/256.png')),
+      url: src(require('./images/icon/ns-256.png')),
       type: 'image/png',
       sizes: '256x256',
     },
     {
-      url: src(require('./images/icon/128.png')),
+      url: src(require('./images/icon/ns-128.png')),
       type: 'image/png',
       sizes: '128x128',
     },
@@ -83,25 +83,25 @@ export const metadata: Metadata = {
 
     // apple icons
     {
-      url: src(require('./images/icon/180.png')),
+      url: src(require('./images/icon/ns-180.png')),
       type: 'image/png',
       sizes: '180x180',
       rel: 'apple-touch-icon',
     },
     {
-      url: src(require('./images/icon/152.png')),
+      url: src(require('./images/icon/ns-152.png')),
       type: 'image/png',
       sizes: '152x152',
       rel: 'apple-touch-icon',
     },
     {
-      url: src(require('./images/icon/120.png')),
+      url: src(require('./images/icon/ns-120.png')),
       type: 'image/png',
       sizes: '120x120',
       rel: 'apple-touch-icon',
     },
     {
-      url: src(require('./images/icon/76.png')),
+      url: src(require('./images/icon/ns-76.png')),
       type: 'image/png',
       sizes: '76x76',
       rel: 'apple-touch-icon',

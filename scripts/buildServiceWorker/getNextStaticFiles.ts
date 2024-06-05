@@ -1,25 +1,38 @@
 import { readdir } from 'node:fs/promises';
 import { join as pathJoin, relative as pathRelative, sep } from 'node:path';
 
+const formatPath = (path: string): string => {
+  if (sep === '/') {
+    return path;
+  }
+  // handle path format for windows
+  return path.split(sep).join('/');
+};
+
 export const getNextStaticFiles = async (
   rootDir: string,
-): Promise<string[]> => {
+): Promise<{ skippedFiles: string[]; files: string[] }> => {
   const staticDir = pathJoin(rootDir, 'out', '_next', 'static');
-  const files = (
+
+  const entries = (
     await readdir(staticDir, {
       recursive: true,
       withFileTypes: true,
     })
-  )
-    .filter((o) => o.isFile())
-    .map((o) => {
-      const dir = pathRelative(staticDir, o.parentPath);
-      return pathJoin(dir, o.name);
-    });
+  ).filter((o) => o.isFile());
 
-  if (sep != '/') {
-    // handle path format for windows
-    return files.map((path) => path.split(sep).join('/'));
+  const skippedFiles: string[] = [];
+  const files: string[] = [];
+
+  for (const o of entries) {
+    const dir = pathRelative(staticDir, o.parentPath);
+    const file = formatPath(pathJoin(dir, o.name));
+    if (o.name.startsWith('ns-')) {
+      skippedFiles.push(file);
+    } else {
+      files.push(file);
+    }
   }
-  return files;
+
+  return { skippedFiles, files };
 };
