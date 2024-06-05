@@ -12,19 +12,19 @@ export const getSideBarJsonLD = (): Person => {
       // '@context': 'https://schema.org',
       '@type': 'Person',
       '@id': PERSON_ID,
-      name: userData.name,
-      email: /* istanbul ignore next */ userData.email || undefined,
-      telephone: /* istanbul ignore next */ userData.phoneCA || undefined,
-      address: {
+      'name': userData.name,
+      'email': /* istanbul ignore next */ userData.email || undefined,
+      'telephone': /* istanbul ignore next */ userData.phoneCA || undefined,
+      'address': {
         '@type': 'PostalAddress',
-        addressLocality: 'Richmond',
-        addressRegion: 'BC',
-        addressCountry: 'CA',
+        'addressLocality': 'Richmond',
+        'addressRegion': 'BC',
+        'addressCountry': 'CA',
       },
-      jobTitle: userData.title,
-      description: userData.intro,
-      url: getFullUrl('/'),
-      sameAs: [
+      'jobTitle': userData.title,
+      'description': userData.intro,
+      'url': getFullUrl('/'),
+      'sameAs': [
         /* istanbul ignore next */ facebook
           ? `https://www.facebook.com/${facebook}`
           : '',

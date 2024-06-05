@@ -10,26 +10,26 @@ export const getPortfolioJsonLD = () => {
   if (!json) {
     json = {
       '@type': 'ItemList',
-      name: `${userData.name}'s Portfolio`,
-      description: `A list of projects developed by ${userData.name}.`,
-      url: getFullUrl('/portfolio/'),
-      itemListElement: getProjects().map((project, index): ListItem => {
+      'name': `${userData.name}'s Portfolio`,
+      'description': `A list of projects developed by ${userData.name}.`,
+      'url': getFullUrl('/portfolio/'),
+      'itemListElement': getProjects().map((project, index): ListItem => {
         return {
           '@type': 'ListItem',
-          position: index + 1,
-          item: {
+          'position': index + 1,
+          'item': {
             '@type': 'WebSite',
-            name: project.title,
-            url: project.link,
+            'name': project.title,
+            'url': project.link,
 
             // TODO:
             // description:
             //   'An e-commerce site developed for selling products online.',
 
-            image: getFullUrl(project.image),
-            creator: {
+            'image': getFullUrl(project.image),
+            'creator': {
               '@type': 'Person',
-              name: userData.name,
+              'name': userData.name,
               '@id': PERSON_ID,
             },
           },

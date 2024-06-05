@@ -3,6 +3,7 @@
 const config = {
   semi: true,
   singleQuote: true,
+  quoteProps: 'consistent',
   useTabs: false,
   tabWidth: 2,
 };

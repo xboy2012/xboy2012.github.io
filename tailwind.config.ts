@@ -11,10 +11,10 @@ const config: Config = {
   ],
   theme: {
     screens: {
-      sm: '450px',
-      md: '580px',
-      lg: '768px',
-      xl: '1024px',
+      'sm': '450px',
+      'md': '580px',
+      'lg': '768px',
+      'xl': '1024px',
       '2xl': '1250px',
     },
     extend: {
@@ -26,12 +26,12 @@ const config: Config = {
       gridTemplateColumns: {
         '1fr': '1fr',
         '1fr1fr': '1fr 1fr',
-        r3_1fr: 'repeat(3, 1fr)',
+        'r3_1fr': 'repeat(3, 1fr)',
       },
       spacing: {
         '7.5': '30px',
-        contact: 'calc(100% - 46px)',
-        contact2: 'calc(100% - 64px)',
+        'contact': 'calc(100% - 46px)',
+        'contact2': 'calc(100% - 64px)',
       },
       backgroundImage: {
         bgGradientOnyx:
@@ -49,7 +49,7 @@ const config: Config = {
       },
       borderRadius: {
         '2.5xl': '20px',
-        inherit: 'inherit',
+        'inherit': 'inherit',
       },
       boxShadow: {
         '1': 'var(--shadow-1)',
@@ -57,7 +57,7 @@ const config: Config = {
         '3': 'var(--shadow-3)',
         '4': 'var(--shadow-4)',
         '5': 'var(--shadow-5)',
-        timeline: '0 0 0 4px hsl(0, 0%, 22%)',
+        'timeline': '0 0 0 4px hsl(0, 0%, 22%)',
       },
       fontSize: {
         '1': 'var(--fs-1)',

@@ -55,8 +55,8 @@ export const generateServiceWorker = async (rootDir: string) => {
     entry: pathJoin(rootDir, 'src', 'serviceWorker', 'index.ts'),
     inject: wrapJSON({
       'process.env.NODE_ENV': 'production',
-      NEXT_STATIC_FILES: staticFiles,
-      HASH_INFO: hashInfo,
+      'NEXT_STATIC_FILES': staticFiles,
+      'HASH_INFO': hashInfo,
     }),
   });
 

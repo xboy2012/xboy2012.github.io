@@ -9,27 +9,27 @@ export const getResumeJsonLD = (): Person => {
     json = Object.assign(
       <Person>{
         '@type': 'Person',
-        name: userData.name,
-        alumniOf: userData.educations.map((education) => {
+        'name': userData.name,
+        'alumniOf': userData.educations.map((education) => {
           return {
             '@type': 'CollegeOrUniversity',
-            name: education.title,
+            'name': education.title,
             // sameAs: 'https://www.universityofexample.com',
           };
         }),
-        hasOccupation: userData.workExperiences.map((o) => {
+        'hasOccupation': userData.workExperiences.map((o) => {
           return {
             '@type': 'EmployeeRole',
-            startDate: o.from,
-            endDate: o.to === 'Present' ? undefined : o.to,
-            name: o.title,
-            description: o.desc,
-            hasOccupation: {
+            'startDate': o.from,
+            'endDate': o.to === 'Present' ? undefined : o.to,
+            'name': o.title,
+            'description': o.desc,
+            'hasOccupation': {
               '@type': 'Occupation',
-              occupationLocation: {
+              'occupationLocation': {
                 '@type': 'OrganizationRole',
-                name: o.company,
-                occupationLocation: o.location,
+                'name': o.company,
+                'occupationLocation': o.location,
               },
             },
           };

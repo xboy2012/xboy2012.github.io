@@ -2,14 +2,14 @@ import cx from 'classnames';
 import type { CompanyName } from '../../src/types';
 
 const classNames: Record<CompanyName, string> = {
-  Microsoft: 'bg-cover bg-microsoft bg-white',
-  Tencent: 'bg-contain bg-tencent bg-white',
-  NIO: 'bg-contain bg-nio bg-white',
-  LeetCode: 'bg-contain bg-leetcode bg-white',
-  Temu: 'bg-cover bg-temu',
-  Pinduoduo: 'bg-cover bg-pdd',
+  'Microsoft': 'bg-cover bg-microsoft bg-white',
+  'Tencent': 'bg-contain bg-tencent bg-white',
+  'NIO': 'bg-contain bg-nio bg-white',
+  'LeetCode': 'bg-contain bg-leetcode bg-white',
+  'Temu': 'bg-cover bg-temu',
+  'Pinduoduo': 'bg-cover bg-pdd',
   'MyShell.ai': 'bg-cover bg-myshell',
-  Wacai: 'bg-cover bg-wacai',
+  'Wacai': 'bg-cover bg-wacai',
 };
 
 export const ClientItem = ({

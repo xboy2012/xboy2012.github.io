@@ -13,9 +13,9 @@ describe('buildQueryString', () => {
   test('should handle undefined, null values and empty string correctly', () => {
     const query = {
       '': 'abc',
-      emptyStringValue: '',
-      undefinedValue: undefined,
-      nullValue: null,
+      'emptyStringValue': '',
+      'undefinedValue': undefined,
+      'nullValue': null,
     };
     const queryString = buildQueryString(query);
     expect(queryString).toBe('');
@@ -28,9 +28,9 @@ describe('buildQueryString', () => {
   test('should handle special characters in values correctly', () => {
     const query = {
       'ID Number': '123',
-      name: 'John Doe',
-      email: 'john.doe@example.com',
-      role: 'admin',
+      'name': 'John Doe',
+      'email': 'john.doe@example.com',
+      'role': 'admin',
     };
     const queryString = buildQueryString(query);
     expect(queryString).toBe(

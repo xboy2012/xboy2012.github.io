@@ -11,19 +11,19 @@ export const getAboutJsonLD = (): Person => {
     json = Object.assign(
       <Person>{
         '@type': 'Person',
-        name: userData.name,
-        hasOccupation: services.map((service) => {
+        'name': userData.name,
+        'hasOccupation': services.map((service) => {
           return {
             '@type': 'Occupation',
-            name: service.name,
-            description: service.desc,
+            'name': service.name,
+            'description': service.desc,
           };
         }),
-        worksFor: companies.map((company) => {
+        'worksFor': companies.map((company) => {
           return {
             '@type': 'Organization',
-            name: company.name,
-            url: company.link,
+            'name': company.name,
+            'url': company.link,
           };
         }),
       },

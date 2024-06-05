@@ -5,7 +5,7 @@ export const requestIndexing = async (accessToken: string, url: string) => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${accessToken}`,
+        'Authorization': `Bearer ${accessToken}`,
       },
       body: JSON.stringify({
         url: url,

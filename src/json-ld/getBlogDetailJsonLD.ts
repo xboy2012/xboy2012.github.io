@@ -23,14 +23,14 @@ export const getBlogDetailJsonLD = (
 
     json = {
       '@type': 'BlogPosting',
-      headline: meta.title,
-      image: getFullUrl(meta.image),
-      author: getSideBarJsonLD(),
-      datePublished: meta.datetime,
+      'headline': meta.title,
+      'image': getFullUrl(meta.image),
+      'author': getSideBarJsonLD(),
+      'datePublished': meta.datetime,
       // dateModified: '2023-05-01',
-      mainEntityOfPage: blogUrl,
-      url: blogUrl,
-      description: meta.desc,
+      'mainEntityOfPage': blogUrl,
+      'url': blogUrl,
+      'description': meta.desc,
       // keywords: ['blog', 'introduction', 'first post'],
     };
     map.set(blogId, json);
