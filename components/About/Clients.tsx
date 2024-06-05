@@ -1,5 +1,17 @@
 import cx from 'classnames';
 import { companies } from '../../src/companies';
+import type { CompanyName } from '../../src/types';
+
+const classNames: Record<CompanyName, string> = {
+  Microsoft: 'bg-cover bg-microsoft bg-white',
+  Tencent: 'bg-contain bg-tencent bg-white',
+  NIO: 'bg-contain bg-nio bg-white',
+  LeetCode: 'bg-contain bg-leetcode bg-white',
+  Temu: 'bg-cover bg-temu',
+  Pinduoduo: 'bg-cover bg-pdd',
+  'MyShell.ai': 'bg-cover bg-myshell',
+  Wacai: 'bg-cover bg-wacai',
+};
 
 export const Clients = () => {
   return (
@@ -24,7 +36,7 @@ export const Clients = () => {
           'lg:webkit-scrollbar-button:w-[100px]',
         )}
       >
-        {companies.map(({ name, link, Logo }) => {
+        {companies.map(({ name, link }) => {
           return (
             <li
               key={name}
@@ -40,7 +52,12 @@ export const Clients = () => {
                 title={name}
                 className="relative block w-full h-full"
               >
-                <Logo />
+                <div
+                  className={cx(
+                    'h-full rounded bg-center bg-no-repeat',
+                    classNames[name],
+                  )}
+                />
                 <p className="absolute -left-[1000px] -top-[1000px]">{name}</p>
               </a>
             </li>

@@ -1,5 +1,3 @@
-import type { ReactNode } from 'react';
-
 export type PathString = `/${string}`;
 
 export type PageHashInfo = [PathString, string, string];
@@ -81,8 +79,17 @@ export type ProjectData = Readonly<{
   image: string;
 }>;
 
+export type CompanyName =
+  | 'Microsoft'
+  | 'Tencent'
+  | 'NIO'
+  | 'LeetCode'
+  | 'Temu'
+  | 'Pinduoduo'
+  | 'MyShell.ai'
+  | 'Wacai';
+
 export interface CompanyData {
-  name: string;
+  name: CompanyName;
   link: string;
-  Logo: () => ReactNode;
 }
