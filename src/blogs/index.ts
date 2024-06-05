@@ -29,7 +29,7 @@ export const getBlogs = () => {
         id: 'intro-to-service-worker',
         title: 'Service Worker – What SEOs Need to Know',
         desc: 'A service worker is a Javascript process that runs in the browser background. The service worker runs in the background and acts as a kind of proxy between the website and the Internet and can intercept and manipulate network requests.',
-        image: () => src(require('./images/service-worker.png')),
+        image: () => src(require('./images/service-worker.jpg')),
         datetime: '2024-05-10',
         category: 'Development',
       },
