@@ -9,10 +9,8 @@ export const Service = () => {
       </h3>
 
       <ul className="grid grid-cols-1fr gap-[20px] xl:grid-cols-1fr1fr xl:gap-y-[20px] xl:gap-x-[25px]">
-        {services.map(({ name, image, desc }) => {
-          return (
-            <ServiceItem key={name} name={name} icon={image} desc={desc} />
-          );
+        {services.map(({ id, name, desc }) => {
+          return <ServiceItem key={id} id={id} name={name} desc={desc} />;
         })}
       </ul>
     </section>

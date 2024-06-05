@@ -1,12 +1,20 @@
 import cx from 'classnames';
+import type { ServiceId } from '../../src/types';
+
+const classNames: Record<ServiceId, string> = {
+  frontend: 'bg-icon-frontend',
+  fullstack: 'bg-icon-fullstack',
+  arch: 'bg-icon-arch',
+  devops: 'bg-icon-devops',
+};
 
 export const ServiceItem = ({
+  id,
   name,
-  icon,
   desc,
 }: {
+  id: ServiceId;
   name: string;
-  icon: string;
   desc: string;
 }) => {
   return (
@@ -19,17 +27,16 @@ export const ServiceItem = ({
       <div className="absolute inset-px bg-eerieBlack1 bg-bgGradientJet rounded-inherit -z-1" />
       <div className="mb-2.5 md:mb-0 md:mt-[5px]">
         <div
-          className="mx-auto aspect-square bg-contain bg-center bg-no-repeat w-[40px] h-[40px]"
-          style={{
-            backgroundImage: `url("${icon}")`,
-          }}
+          className={cx(
+            'mx-auto aspect-square bg-contain bg-center bg-no-repeat w-[40px] h-[40px]',
+            classNames[id],
+          )}
           title={name}
         />
       </div>
 
       <div className="text-center md:text-left">
         <h4 className="mb-[7px] text-white2 capitalize text-2">{name}</h4>
-
         <p className="text-lightGray text-6 font-300 leading-[1.6]">{desc}</p>
       </div>
     </li>

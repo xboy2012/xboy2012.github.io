@@ -58,9 +58,11 @@ export type BlogData = Readonly<{
   category: string;
 }>;
 
+export type ServiceId = 'frontend' | 'fullstack' | 'devops' | 'arch';
+
 export type ServiceData = Readonly<{
+  id: ServiceId;
   name: string;
-  image: string;
   desc: string;
 }>;
 
