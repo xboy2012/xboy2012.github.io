@@ -7,8 +7,8 @@ const robots = (): MetadataRoute.Robots => {
       {
         userAgent: '*',
         // crawlDelay: 120,
-        // allow: ['/'],
-        disallow: ['/_next', '*/index.txt'],
+        allow: ['/'],
+        // disallow: [],
       },
     ],
     sitemap: `${BASE_URL}/sitemap.xml`,
