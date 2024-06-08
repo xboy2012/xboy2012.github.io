@@ -1,3 +1,6 @@
+export type WithLooseDefault<T> = T | { default: T };
+export type ImportedImage = { src: string } | string;
+
 export type PathString = `/${string}`;
 
 export type PageHashInfo = [PathString, string, string];

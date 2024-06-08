@@ -13,16 +13,36 @@ import { NavBar } from '../components/NavBar';
 import { useNoJs } from '../src/hooks/useNoJs';
 import src from '../src/utils/getImageUrl';
 import { getFullUrl } from '../src/utils/getFullUrl';
+import type { WithLooseDefault, ImportedImage } from '../src/types';
 import './globals.css';
 
-const makeAbsoluteUrl = <T extends { url: string }>(items: T[]): T[] => {
-  return items.map((item): T => {
-    return {
-      ...item,
-      // convert to absolute url to avoid relative path issues
-      url: getFullUrl(item.url),
-    };
+const defineIcons = (
+  icons: {
+    url:
+      | WithLooseDefault<ImportedImage>
+      | Promise<WithLooseDefault<ImportedImage>>
+      | (() =>
+          | WithLooseDefault<ImportedImage>
+          | Promise<WithLooseDefault<ImportedImage>>);
+    type: string;
+    sizes: string;
+    rel?: string;
+  }[],
+): Promise<
+  {
+    url: string;
+    type: string;
+    sizes: string;
+    rel?: string;
+  }[]
+> => {
+  const promises = icons.map(async (icon) => {
+    const url = icon.url;
+    const urlObj = await (typeof url === 'function' ? url() : url);
+    const fullUrl = getFullUrl(src(urlObj));
+    return { ...icon, url: fullUrl };
   });
+  return Promise.all(promises);
 };
 
 export const generateMetadata = async (): Promise<Metadata> => {
@@ -54,55 +74,55 @@ export const generateMetadata = async (): Promise<Metadata> => {
       },
       description: APP_DESCRIPTION,
     },
-    icons: makeAbsoluteUrl([
+    icons: await defineIcons([
       // universal icons
       {
-        url: src(require('./images/icon/ns-256.png')),
+        url: import('./images/icon/ns-256.png'),
         type: 'image/png',
         sizes: '256x256',
       },
       {
-        url: src(require('./images/icon/ns-128.png')),
+        url: import('./images/icon/ns-128.png'),
         type: 'image/png',
         sizes: '128x128',
       },
       {
-        url: src(require('./images/icon/64.png')),
+        url: import('./images/icon/64.png'),
         type: 'image/png',
         sizes: '64x64',
       },
       {
-        url: src(require('./images/icon/32.png')),
+        url: import('./images/icon/32.png'),
         type: 'image/png',
         sizes: '32x32',
       },
       {
-        url: src(require('./images/icon/16.png')),
+        url: import('./images/icon/16.png'),
         type: 'image/png',
         sizes: '16x16',
       },
 
       // apple icons
       {
-        url: src(require('./images/icon/ns-180.png')),
+        url: import('./images/icon/ns-180.png'),
         type: 'image/png',
         sizes: '180x180',
         rel: 'apple-touch-icon',
       },
       {
-        url: src(require('./images/icon/ns-152.png')),
+        url: import('./images/icon/ns-152.png'),
         type: 'image/png',
         sizes: '152x152',
         rel: 'apple-touch-icon',
       },
       {
-        url: src(require('./images/icon/ns-120.png')),
+        url: import('./images/icon/ns-120.png'),
         type: 'image/png',
         sizes: '120x120',
         rel: 'apple-touch-icon',
       },
       {
-        url: src(require('./images/icon/ns-76.png')),
+        url: import('./images/icon/ns-76.png'),
         type: 'image/png',
         sizes: '76x76',
         rel: 'apple-touch-icon',
