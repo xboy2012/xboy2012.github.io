@@ -25,95 +25,97 @@ const makeAbsoluteUrl = <T extends { url: string }>(items: T[]): T[] => {
   });
 };
 
-export const metadata: Metadata = {
-  description: APP_DESCRIPTION,
-  title: {
-    default: APP_DEFAULT_TITLE,
-    template: APP_TITLE_TEMPLATE,
-  },
-  appleWebApp: {
-    capable: true,
-    statusBarStyle: 'black',
-    title: APP_DEFAULT_TITLE,
-  },
-  openGraph: {
-    type: 'website',
-    siteName: APP_DEFAULT_TITLE,
+export const generateMetadata = async (): Promise<Metadata> => {
+  return {
+    description: APP_DESCRIPTION,
     title: {
       default: APP_DEFAULT_TITLE,
       template: APP_TITLE_TEMPLATE,
     },
-    description: APP_DESCRIPTION,
-  },
-  twitter: {
-    card: 'summary',
-    title: {
-      default: APP_DEFAULT_TITLE,
-      template: APP_TITLE_TEMPLATE,
+    appleWebApp: {
+      capable: true,
+      statusBarStyle: 'black',
+      title: APP_DEFAULT_TITLE,
     },
-    description: APP_DESCRIPTION,
-  },
-  icons: makeAbsoluteUrl([
-    // universal icons
-    {
-      url: src(require('./images/icon/ns-256.png')),
-      type: 'image/png',
-      sizes: '256x256',
+    openGraph: {
+      type: 'website',
+      siteName: APP_DEFAULT_TITLE,
+      title: {
+        default: APP_DEFAULT_TITLE,
+        template: APP_TITLE_TEMPLATE,
+      },
+      description: APP_DESCRIPTION,
     },
-    {
-      url: src(require('./images/icon/ns-128.png')),
-      type: 'image/png',
-      sizes: '128x128',
+    twitter: {
+      card: 'summary',
+      title: {
+        default: APP_DEFAULT_TITLE,
+        template: APP_TITLE_TEMPLATE,
+      },
+      description: APP_DESCRIPTION,
     },
-    {
-      url: src(require('./images/icon/64.png')),
-      type: 'image/png',
-      sizes: '64x64',
-    },
-    {
-      url: src(require('./images/icon/32.png')),
-      type: 'image/png',
-      sizes: '32x32',
-    },
-    {
-      url: src(require('./images/icon/16.png')),
-      type: 'image/png',
-      sizes: '16x16',
-    },
+    icons: makeAbsoluteUrl([
+      // universal icons
+      {
+        url: src(require('./images/icon/ns-256.png')),
+        type: 'image/png',
+        sizes: '256x256',
+      },
+      {
+        url: src(require('./images/icon/ns-128.png')),
+        type: 'image/png',
+        sizes: '128x128',
+      },
+      {
+        url: src(require('./images/icon/64.png')),
+        type: 'image/png',
+        sizes: '64x64',
+      },
+      {
+        url: src(require('./images/icon/32.png')),
+        type: 'image/png',
+        sizes: '32x32',
+      },
+      {
+        url: src(require('./images/icon/16.png')),
+        type: 'image/png',
+        sizes: '16x16',
+      },
 
-    // apple icons
-    {
-      url: src(require('./images/icon/ns-180.png')),
-      type: 'image/png',
-      sizes: '180x180',
-      rel: 'apple-touch-icon',
-    },
-    {
-      url: src(require('./images/icon/ns-152.png')),
-      type: 'image/png',
-      sizes: '152x152',
-      rel: 'apple-touch-icon',
-    },
-    {
-      url: src(require('./images/icon/ns-120.png')),
-      type: 'image/png',
-      sizes: '120x120',
-      rel: 'apple-touch-icon',
-    },
-    {
-      url: src(require('./images/icon/ns-76.png')),
-      type: 'image/png',
-      sizes: '76x76',
-      rel: 'apple-touch-icon',
-    },
+      // apple icons
+      {
+        url: src(require('./images/icon/ns-180.png')),
+        type: 'image/png',
+        sizes: '180x180',
+        rel: 'apple-touch-icon',
+      },
+      {
+        url: src(require('./images/icon/ns-152.png')),
+        type: 'image/png',
+        sizes: '152x152',
+        rel: 'apple-touch-icon',
+      },
+      {
+        url: src(require('./images/icon/ns-120.png')),
+        type: 'image/png',
+        sizes: '120x120',
+        rel: 'apple-touch-icon',
+      },
+      {
+        url: src(require('./images/icon/ns-76.png')),
+        type: 'image/png',
+        sizes: '76x76',
+        rel: 'apple-touch-icon',
+      },
 
-    // default favicon
-    {
-      url: '/favicon.ico',
-      type: 'image/x-icon',
-      sizes: '16x16 32x32 48x48 64x64 128x128',
-    },
-  ]),
+      // default favicon
+      {
+        url: '/favicon.ico',
+        type: 'image/x-icon',
+        sizes: '16x16 32x32 48x48 64x64 128x128',
+      },
+    ]),
+  };
 };
 
 export const viewport: Viewport = {
