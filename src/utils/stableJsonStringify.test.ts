@@ -1,4 +1,4 @@
-import { stableJsonStringify } from './stabelJsonStringify';
+import { stableJsonStringify } from './stableJsonStringify';
 
 describe('stableJsonStringify test', () => {
   test('should work as expected', () => {

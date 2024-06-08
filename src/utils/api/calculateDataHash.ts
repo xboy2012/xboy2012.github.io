@@ -1,5 +1,5 @@
 import { createHash } from 'node:crypto';
-import { stableJsonStringify } from '../stabelJsonStringify';
+import { stableJsonStringify } from '../stableJsonStringify';
 
 export const calculateDataHash = (data: unknown) => {
   const json = stableJsonStringify(data);
