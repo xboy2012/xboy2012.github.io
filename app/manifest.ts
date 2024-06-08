@@ -3,6 +3,7 @@ import src from '../src/utils/getImageUrl';
 import { colors } from '../src/config/colors';
 import { userData } from '../src/data';
 import { getFullUrl } from '../src/utils/getFullUrl';
+import type { ImportedImage, WithLooseDefault } from '../src/types';
 
 interface Icon {
   src: string;
@@ -10,6 +11,15 @@ interface Icon {
   sizes?: string;
   purpose?: 'any' | 'maskable' | 'monochrome' | 'badge';
 }
+
+type Def<T extends { src: string }> = Omit<T, 'src'> & {
+  src:
+    | WithLooseDefault<ImportedImage>
+    | Promise<WithLooseDefault<ImportedImage>>
+    | (() =>
+        | WithLooseDefault<ImportedImage>
+        | Promise<WithLooseDefault<ImportedImage>>);
+};
 
 // FIXME: temporary hack fix, as Next.js is missing some necessary typings
 interface ScreenShot {
@@ -20,17 +30,19 @@ interface ScreenShot {
   label: string;
 }
 
-const makeAbsoluteSrc = <T extends { src: string }>(items: T[]): T[] => {
-  return items.map((item): T => {
-    return {
-      ...item,
-      // convert to absolute url to avoid relative path issues
-      src: getFullUrl(item.src),
-    };
+const makeAbsoluteSrc = <T extends { src: string }>(
+  icons: Def<T>[],
+): Promise<T[]> => {
+  const promises = icons.map(async (icon) => {
+    const url = icon.src;
+    const urlObj = await (typeof url === 'function' ? url() : url);
+    const fullUrl = getFullUrl(src(urlObj));
+    return { ...icon, src: fullUrl } as T;
   });
+  return Promise.all(promises);
 };
 
-export default function manifest(): MetadataRoute.Manifest {
+const generateManifest = async (): Promise<MetadataRoute.Manifest> => {
   return {
     name: `${userData.name}'s Personal Website`,
     short_name: userData.name,
@@ -40,58 +52,58 @@ export default function manifest(): MetadataRoute.Manifest {
     background_color: colors.smokyBlack,
     theme_color: colors.smokyBlack,
     orientation: 'portrait',
-    icons: makeAbsoluteSrc<Icon>([
+    icons: await makeAbsoluteSrc<Icon>([
       {
-        src: src(require('./images/icon/ns-256.png')),
+        src: import('./images/icon/ns-256.png'),
         type: 'image/png',
         sizes: '256x256',
       },
       {
-        src: src(require('./images/icon/ns-128.png')),
+        src: import('./images/icon/ns-128.png'),
         type: 'image/png',
         sizes: '128x128',
       },
       {
-        src: src(require('./images/icon/64.png')),
+        src: import('./images/icon/64.png'),
         type: 'image/png',
         sizes: '64x64',
       },
       {
-        src: src(require('./images/icon/32.png')),
+        src: import('./images/icon/32.png'),
         type: 'image/png',
         sizes: '32x32',
       },
       {
-        src: src(require('./images/icon/16.png')),
+        src: import('./images/icon/16.png'),
         type: 'image/png',
         sizes: '16x16',
       },
     ]),
-    screenshots: makeAbsoluteSrc<ScreenShot>([
+    screenshots: await makeAbsoluteSrc<ScreenShot>([
       // desktop screenshots
       {
-        src: src(require('./images/screenshots/desktop/ns-1.jpg')),
+        src: import('./images/screenshots/desktop/ns-1.jpg'),
         type: 'image/jpeg',
         sizes: '1280x640',
         form_factor: 'wide',
         label: 'About',
       },
       {
-        src: src(require('./images/screenshots/desktop/ns-2.jpg')),
+        src: import('./images/screenshots/desktop/ns-2.jpg'),
         type: 'image/jpeg',
         sizes: '1280x640',
         form_factor: 'wide',
         label: 'Resume',
       },
       {
-        src: src(require('./images/screenshots/desktop/ns-3.jpg')),
+        src: import('./images/screenshots/desktop/ns-3.jpg'),
         type: 'image/jpeg',
         sizes: '1280x640',
         form_factor: 'wide',
         label: 'Portfolio',
       },
       {
-        src: src(require('./images/screenshots/desktop/ns-4.jpg')),
+        src: import('./images/screenshots/desktop/ns-4.jpg'),
         type: 'image/jpeg',
         sizes: '1280x640',
         form_factor: 'wide',
@@ -100,28 +112,28 @@ export default function manifest(): MetadataRoute.Manifest {
 
       // mobile screenshots
       {
-        src: src(require('./images/screenshots/mobile/ns-1.jpg')),
+        src: import('./images/screenshots/mobile/ns-1.jpg'),
         type: 'image/jpeg',
         sizes: '640x1385',
         form_factor: 'narrow',
         label: 'About',
       },
       {
-        src: src(require('./images/screenshots/mobile/ns-2.jpg')),
+        src: import('./images/screenshots/mobile/ns-2.jpg'),
         type: 'image/jpeg',
         sizes: '640x1385',
         form_factor: 'narrow',
         label: 'Resume',
       },
       {
-        src: src(require('./images/screenshots/mobile/ns-3.jpg')),
+        src: import('./images/screenshots/mobile/ns-3.jpg'),
         type: 'image/jpeg',
         sizes: '640x1385',
         form_factor: 'narrow',
         label: 'Portfolio',
       },
       {
-        src: src(require('./images/screenshots/mobile/ns-4.jpg')),
+        src: import('./images/screenshots/mobile/ns-4.jpg'),
         type: 'image/jpeg',
         sizes: '640x1385',
         form_factor: 'narrow',
@@ -129,4 +141,6 @@ export default function manifest(): MetadataRoute.Manifest {
       },
     ]),
   };
-}
+};
+
+export default generateManifest;
