@@ -2,20 +2,19 @@
 import { useMemo, useState } from 'react';
 import type { Category } from './types';
 import type { ProjectData } from '../../src/types';
-import { getProjects } from '../../src/projects';
 import { ProjectList } from './ProjectList';
 import { ProjectFilterFlat } from './ProjectFilterFlat';
 import { ProjectFilterDropDown } from './ProjectFilterDropDown';
 
-export const Projects = () => {
+export const Projects = ({ projects }: { projects: ProjectData[] }) => {
   const [curCategory, setCurCategory] = useState<Category>('All');
 
   const filteredProjects = useMemo<ReadonlyArray<ProjectData>>(() => {
     if (curCategory === 'All') {
-      return getProjects();
+      return projects;
     }
-    return getProjects().filter((project) => project.category === curCategory);
-  }, [curCategory]);
+    return projects.filter((project) => project.category === curCategory);
+  }, [curCategory, projects]);
 
   return (
     <section className="projects">

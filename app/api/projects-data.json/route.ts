@@ -1,10 +1,10 @@
-import { getProjects } from '../../../src/projects';
+import { getProjects } from '../../../src/projects/getProjects';
 import { getFullUrl } from '../../../src/utils/getFullUrl';
 import { outputJSON } from '../../../src/utils/api/outputJSON';
 import type { ProjectData } from '../../../src/types';
 
 export const GET = async () => {
-  const projects = getProjects();
+  const projects = await getProjects();
   const result: ProjectData[] = projects.map((project) => {
     const image = getFullUrl(project.image);
     return { ...project, image };

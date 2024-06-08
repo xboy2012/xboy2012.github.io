@@ -1,19 +1,19 @@
 import type { ItemList, ListItem } from 'schema-dts';
 import { userData } from '../data';
-import { getProjects } from '../projects';
 import { getFullUrl } from '../utils/getFullUrl';
 import { PERSON_ID } from '../config/json-ld';
+import type { ProjectData } from '../types';
 
 let json: ItemList | undefined;
 
-export const getPortfolioJsonLD = () => {
+export const getPortfolioJsonLD = (projects: ProjectData[]) => {
   if (!json) {
     json = {
       '@type': 'ItemList',
       'name': `${userData.name}'s Portfolio`,
       'description': `A list of projects developed by ${userData.name}.`,
       'url': getFullUrl('/portfolio/'),
-      'itemListElement': getProjects().map((project, index): ListItem => {
+      'itemListElement': projects.map((project, index): ListItem => {
         return {
           '@type': 'ListItem',
           'position': index + 1,
