@@ -1,15 +1,20 @@
 import type { BlogData } from '../types';
-import { getBlogs } from '../blogs';
+import { getBlogs } from '../blogs/getBlogs';
 
-let blogMap: Readonly<Map<string, BlogData>>;
+let promise: Promise<Readonly<Map<string, BlogData>>> | undefined;
 
-export const getBlogMap = (): Readonly<Map<string, BlogData>> => {
-  if (!blogMap) {
-    const map = new Map<string, BlogData>();
-    for (const blog of getBlogs()) {
-      map.set(blog.id, blog);
-    }
-    blogMap = map;
+const _getBlogMap = async (): Promise<Readonly<Map<string, BlogData>>> => {
+  const blogs = await getBlogs();
+  const map = new Map<string, BlogData>();
+  for (const blog of blogs) {
+    map.set(blog.id, blog);
   }
-  return blogMap;
+  return map;
+};
+
+export const getBlogMap = (): Promise<Readonly<Map<string, BlogData>>> => {
+  if (!promise) {
+    promise = _getBlogMap();
+  }
+  return promise;
 };

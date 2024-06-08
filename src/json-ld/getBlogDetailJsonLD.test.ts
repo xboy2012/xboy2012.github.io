@@ -1,18 +1,13 @@
 import { getBlogDetailJsonLD } from './getBlogDetailJsonLD';
-import { getBlogs } from '../blogs';
+import { getBlogs } from '../blogs/getBlogs';
 
 describe('JsonLD test', () => {
-  test('should return as expected', () => {
-    const blog = getBlogs().find((blog) => !blog.link)!;
-    const blogId = blog.id;
-    const result1 = getBlogDetailJsonLD(blogId);
-    const result2 = getBlogDetailJsonLD(blogId);
+  test('should return as expected', async () => {
+    const blogs = await getBlogs();
+    const blog = blogs.find((blog) => !blog.link)!;
+    const result1 = getBlogDetailJsonLD(blog);
+    const result2 = getBlogDetailJsonLD(blog);
     expect(result1).toBe(result2);
     expect(result1).toBeTruthy();
-  });
-
-  test('invalid blogId', () => {
-    const result = getBlogDetailJsonLD('invalid-blog-id');
-    expect(result).toBeUndefined();
   });
 });

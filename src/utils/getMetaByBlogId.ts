@@ -1,6 +1,9 @@
 import type { BlogData } from '../types';
 import { getBlogMap } from './getBlogMap';
 
-export const getMetaByBlogId = (blogId: string): BlogData | undefined => {
-  return getBlogMap().get(blogId);
+export const getMetaByBlogId = async (
+  blogId: string,
+): Promise<BlogData | undefined> => {
+  const map = await getBlogMap();
+  return map.get(blogId);
 };

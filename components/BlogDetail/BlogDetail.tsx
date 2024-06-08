@@ -13,11 +13,10 @@ export const BlogDetail = ({
   Component: ComponentType;
 }) => {
   const { title, category, datetime } = meta;
-  const blogId = meta.id;
 
   return (
     <Article>
-      <JsonLD blogId={blogId} />
+      <JsonLD meta={meta} />
       <ArticleTitle title="Blog" />
       <BlogMeta title={title} category={category} datetime={datetime} />
       <div>

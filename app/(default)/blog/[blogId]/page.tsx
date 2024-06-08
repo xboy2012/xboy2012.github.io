@@ -1,4 +1,4 @@
-import { getBlogs } from '../../../../src/blogs';
+import { getBlogs } from '../../../../src/blogs/getBlogs';
 import { getMetaByBlogId } from '../../../../src/utils/getMetaByBlogId';
 import { BlogDetail } from '../../../../components/BlogDetail';
 
@@ -7,7 +7,7 @@ interface PageParam {
 }
 
 const loadBlogData = async (blogId: string) => {
-  const meta = getMetaByBlogId(blogId);
+  const meta = await getMetaByBlogId(blogId);
   if (!meta) {
     throw Error('No blog found.');
   }
@@ -25,7 +25,8 @@ const Page = async ({ params: { blogId } }: { params: PageParam }) => {
 };
 
 export const generateStaticParams = async (): Promise<PageParam[]> => {
-  return getBlogs()
+  const blogs = await getBlogs();
+  return blogs
     .filter((blog) => !blog.link)
     .map((blog) => {
       return { blogId: blog.id };

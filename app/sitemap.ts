@@ -1,5 +1,5 @@
 import type { MetadataRoute } from 'next';
-import { getBlogs } from '../src/blogs';
+import { getBlogsBasic } from '../src/blogs/getBlogsBasic';
 import { PROD_BASE_URL } from '../src/config/app';
 
 const sitemap = async (): Promise<MetadataRoute.Sitemap> => {
@@ -13,7 +13,7 @@ const sitemap = async (): Promise<MetadataRoute.Sitemap> => {
     { url: `${PROD_BASE_URL}/blog/`, lastModified: time, priority: 0.8 },
 
     // all blogs
-    ...getBlogs()
+    ...getBlogsBasic()
       .filter((blog) => !blog.link)
       .map((blog) => {
         return {

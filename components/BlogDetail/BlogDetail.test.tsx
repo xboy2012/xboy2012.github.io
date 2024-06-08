@@ -3,6 +3,13 @@ import { render, screen } from '@testing-library/react';
 import { BlogDetail } from '.';
 import { formatDateTime } from '../../src/utils/formatDateTime';
 import type { BlogData } from '../../src/types';
+import type { Thing } from 'schema-dts';
+
+jest.mock('../../src/hooks/useJsonLD', () => {
+  return {
+    useJsonLD: <T extends Thing>(getJson: () => T) => getJson(),
+  };
+});
 
 describe('should render as expected', () => {
   test('should render the component', () => {

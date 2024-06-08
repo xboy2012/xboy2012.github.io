@@ -1,24 +1,19 @@
 import type { BlogPosting } from 'schema-dts';
-import { getMetaByBlogId } from '../utils/getMetaByBlogId';
 import { getSideBarJsonLD } from './getSideBarJsonLD';
 import { getFullUrl } from '../utils/getFullUrl';
+import type { BlogData } from '../types';
 
 let map: Map<string, BlogPosting> | undefined;
 
 export const getBlogDetailJsonLD = (
-  blogId: string,
+  meta: BlogData,
 ): BlogPosting | undefined => {
   if (!map) {
     map = new Map();
   }
+  const blogId = meta.id;
   let json = map.get(blogId);
   if (!json) {
-    const meta = getMetaByBlogId(blogId);
-    // in case of invalid blogId, return empty
-    if (!meta) {
-      return undefined;
-    }
-
     const blogUrl = getFullUrl(`/blog/${blogId}`);
 
     json = {
