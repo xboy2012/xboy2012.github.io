@@ -31,7 +31,6 @@ module.exports = {
             prefer: 'type-imports',
           },
         ],
-        '@typescript-eslint/no-var-requires': 'off',
       },
     },
   ],
