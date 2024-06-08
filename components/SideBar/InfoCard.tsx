@@ -2,7 +2,6 @@ import cx from 'classnames';
 import { AvatarBox } from './AvatarBox';
 import { MoreButton } from './MoreButton';
 import { userData } from '../../src/data';
-import src from '../../src/utils/getImageUrl';
 
 interface Props {
   onMoreClick?: () => void;
@@ -12,7 +11,7 @@ export const InfoCard = ({ onMoreClick }: Props) => {
   const { name, title } = userData;
   return (
     <div className="relative flex justify-start items-center gap-[15px] md:gap-[25px] 2xl:flex-col">
-      <AvatarBox avatar={src(require('./images/my-avatar.jpg'))} alt={name} />
+      <AvatarBox alt={name} />
       <div>
         <h1
           className={cx(
