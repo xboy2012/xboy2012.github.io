@@ -1,5 +1,5 @@
 module.exports = {
-  plugins: ['prettier', 'import', 'unicorn'],
+  plugins: ['prettier', 'unicorn'],
   extends: [
     'next/core-web-vitals',
     'prettier',
@@ -7,13 +7,6 @@ module.exports = {
     'plugin:import/typescript',
     'plugin:@typescript-eslint/recommended',
   ],
-  settings: {
-    'import/resolver': {
-      typescript: {
-        alwaysTryTypes: true,
-      },
-    },
-  },
   rules: {
     'react/display-name': 'off',
     'prettier/prettier': 'error',
