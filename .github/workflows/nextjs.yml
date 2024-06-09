@@ -71,7 +71,7 @@ jobs:
       - name: Install dependencies
         run: yarn install
       - name: Run ESLint
-        run: yarn eslint . --ext .js,.jsx,.cjs,.mjs,.ts,.tsx,.mts,.cts
+        run: yarn lint
   typescript:
     name: Run TypeScript building
     runs-on: ubuntu-latest

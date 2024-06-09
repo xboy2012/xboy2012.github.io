@@ -12,6 +12,11 @@ module.exports = {
     'prettier/prettier': 'error',
     'unicorn/prefer-node-protocol': 'error',
     'import/first': 'error',
+
+    // FIXME: eslint 9 incompatible
+    'import/no-named-as-default': 'off',
+    'import/no-named-as-default-member': 'off',
+    '@next/next/no-duplicate-head': 'off',
   },
   overrides: [
     {
@@ -27,5 +32,6 @@ module.exports = {
       },
     },
   ],
+  ignorePatterns: ['.next', '.swc', 'coverage', 'node_modules', 'out'],
   root: true,
 };
