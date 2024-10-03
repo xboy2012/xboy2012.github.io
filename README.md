@@ -4,7 +4,7 @@
 ![Prettier](https://img.shields.io/badge/prettier-^3.2.5-ff69b4.svg?logo=prettier)
 ![ESLint](https://img.shields.io/badge/eslint-^8.57.0-341bab.svg?logo=eslint)
 
-![Next.js](https://img.shields.io/badge/next.js-14.2.3-black.svg?logo=next.js)
+![Next.js](https://img.shields.io/badge/next.js-14.2.3-20232a.svg?logo=next.js)
 ![React](https://img.shields.io/badge/react-^18.3.1-20232a.svg?logo=react)
 ![TailwindCSS](https://img.shields.io/badge/tailwindcss-^3.3.0-38b2ac.svg?logo=tailwind-css)
 ![Yarn](https://img.shields.io/badge/yarn-1.22.22-2c8ebb.svg?logo=yarn)
@@ -32,7 +32,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## TypeScript
 
-The whole project is embracing the TypeScript ecosystem, with over 90% coverage of TypeScript.
+The whole project is embracing the TypeScript ecosystem, with over 95% coverage of TypeScript.
 See the `Languages` section of the GitHub repository page for more details.
 
 # CSS & Styles
