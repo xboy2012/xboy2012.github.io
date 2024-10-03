@@ -19,10 +19,17 @@ export const getProjectsBasic = () => {
   if (!_projects) {
     _projects = [
       {
+        id: 'teams',
+        category: 'Business',
+        link: 'https://www.microsoft.com/en-ca/microsoft-teams/group-chat-software',
+        title: 'Microsoft Teams',
+        image: () => import('./images/teams.jpg'),
+      },
+      {
         id: 'bing',
         category: 'Business',
         link: 'https://www.bing.com/search?q=adventure+books&qs=n&form=QBRE&sp=-1&lq=0&pq=adventure+books',
-        title: 'Bing',
+        title: 'Microsoft Bing',
         image: () => import('./images/bing.jpg'),
       },
       {
