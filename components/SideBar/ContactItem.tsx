@@ -1,5 +1,5 @@
 import { type ComponentType, type ReactNode } from 'react';
-import cx from 'classnames';
+import { cx } from '../../src/utils/cx';
 
 export const ContactItem = ({
   Icon,

@@ -1,4 +1,4 @@
-import cx from 'classnames';
+import { cx } from '../../src/utils/cx';
 import type { CompanyName } from '../../src/types';
 
 const classNames: Record<CompanyName, string> = {

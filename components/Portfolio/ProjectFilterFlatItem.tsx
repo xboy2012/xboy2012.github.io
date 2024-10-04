@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import cx from 'classnames';
+import { cx } from '../../src/utils/cx';
 import type { Category } from './types';
 
 export const ProjectFilterFlatItem = ({

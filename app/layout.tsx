@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import type { ReactNode } from 'react';
-import cx from 'classnames';
+import { cx } from '../src/utils/cx';
 import { colors } from '../src/config/colors';
 import {
   APP_DEFAULT_TITLE,

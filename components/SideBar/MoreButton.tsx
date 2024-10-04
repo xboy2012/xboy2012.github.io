@@ -1,5 +1,5 @@
 import { type MouseEvent, useCallback } from 'react';
-import cx from 'classnames';
+import { cx } from '../../src/utils/cx';
 import { ChevronDown } from '../Icons/ChevronDown';
 
 interface Props {

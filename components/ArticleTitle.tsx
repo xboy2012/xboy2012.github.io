@@ -1,4 +1,4 @@
-import cx from 'classnames';
+import { cx } from '../src/utils/cx';
 import { memo } from 'react';
 
 export const ArticleTitle = memo(({ title }: { title: string }) => {

@@ -1,4 +1,4 @@
-import cx from 'classnames';
+import { cx } from '../../src/utils/cx';
 import { ProjectFilterFlatItem } from './ProjectFilterFlatItem';
 import type { Category } from './types';
 import { categories } from './categories';

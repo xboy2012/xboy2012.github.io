@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import cx from 'classnames';
+import { cx } from '../src/utils/cx';
 
 export const IconBox = memo(() => {
   return (

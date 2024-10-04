@@ -1,4 +1,4 @@
-import cx from 'classnames';
+import { cx } from '../../src/utils/cx';
 import { getGoogleMapUrl } from '../../src/utils/getGoogleMapUrl';
 
 export const LocationRender = ({ location }: { location: string }) => {

@@ -1,4 +1,4 @@
-import cx from 'classnames';
+import { cx } from '../../src/utils/cx';
 import { companies } from '../../src/companies';
 import { ClientItem } from './ClientItem';
 

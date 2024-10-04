@@ -1,4 +1,4 @@
-import cx from 'classnames';
+import { cx } from '../../src/utils/cx';
 import { EyeOutline } from '../Icons/EyeOutline';
 import type { ProjectCategory } from '../../src/types';
 

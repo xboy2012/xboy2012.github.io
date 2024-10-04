@@ -1,4 +1,4 @@
-import cx from 'classnames';
+import { cx } from '../../src/utils/cx';
 import { AvatarBox } from './AvatarBox';
 import { MoreButton } from './MoreButton';
 import { userData } from '../../src/data';

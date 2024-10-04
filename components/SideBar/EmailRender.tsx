@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import cx from 'classnames';
+import { cx } from '../../src/utils/cx';
 import { Obfuscate } from '../Obfuscate';
 import { preventDefault } from '../../src/utils/preventDefault';
 

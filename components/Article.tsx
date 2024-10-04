@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import cx from 'classnames';
+import { cx } from '../src/utils/cx';
 
 export const Article = ({ children }: { children?: ReactNode }) => {
   return (

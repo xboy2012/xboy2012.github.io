@@ -1,5 +1,5 @@
 import { useCallback, useState } from 'react';
-import cx from 'classnames';
+import { cx } from '../../src/utils/cx';
 import { ChevronDown } from '../Icons/ChevronDown';
 import { ProjectFilterDropDownItem } from './ProjectFilterDropDownItem';
 import type { Category } from './types';

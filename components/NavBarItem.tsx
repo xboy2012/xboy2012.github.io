@@ -2,7 +2,7 @@
 
 import { useCallback, useMemo, type MouseEvent } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
-import cx from 'classnames';
+import { cx } from '../src/utils/cx';
 import { isSamePath } from '../src/utils/isSamePath';
 import { preventDefault } from '../src/utils/preventDefault';
 

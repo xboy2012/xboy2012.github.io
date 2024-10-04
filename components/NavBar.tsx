@@ -1,4 +1,4 @@
-import cx from 'classnames';
+import { cx } from '../src/utils/cx';
 import { NavBarItem } from './NavBarItem';
 
 export const NavBar = () => {

@@ -1,4 +1,4 @@
-import cx from 'classnames';
+import { cx } from '../../src/utils/cx';
 
 export const AvatarBox = ({ alt }: { alt: string }) => {
   return (

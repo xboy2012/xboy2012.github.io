@@ -1,4 +1,4 @@
-import cx from 'classnames';
+import { cx } from '../../src/utils/cx';
 import { userData } from '../../src/data';
 import { SkillItem } from './SkillItem';
 

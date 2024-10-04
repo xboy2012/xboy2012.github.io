@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import cx from 'classnames';
+import { cx } from '../src/utils/cx';
 import type { TimelineItem } from '../src/types';
 
 export const TimelineList = memo(({ data }: { data: TimelineItem[] }) => {

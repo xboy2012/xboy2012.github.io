@@ -1,7 +1,7 @@
 'use client';
 
 import { useCallback, useState } from 'react';
-import cx from 'classnames';
+import { cx } from '../../src/utils/cx';
 import { ContactItemEmail } from './ContactItemEmail';
 import { ContactItemPhone } from './ContactItemPhone';
 import { ContactItemLocation } from './ContactItemLocation';
