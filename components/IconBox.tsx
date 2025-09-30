@@ -9,6 +9,7 @@ export const IconBox = memo(() => {
         'bg-borderGradientOnyx text-orangeYellowCrayola shadow-1 z-1',
         'w-[30px] h-[30px] rounded-lg text-base',
         'md:w-[48px] md:h-[48px] md:rounded-xl md:text-lg',
+        'print:hidden',
       )}
       aria-hidden
     >

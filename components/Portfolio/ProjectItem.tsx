@@ -14,12 +14,13 @@ export const ProjectItem = ({
   image: string;
 }) => {
   return (
-    <li className="group animate-scaleUp">
+    <li className="group animate-scaleUp break-inside-avoid">
       <a href={link} className="block w-full" target="_blank">
         <figure
           className={cx(
             'relative rounded-2xl overflow-hidden mb-[15px]',
             'w-full h-[200px] sm:h-auto sm:aspect-[4/3]',
+            'print:border-solid print:border-[1px] print:border-black',
           )}
         >
           <div
@@ -53,11 +54,13 @@ export const ProjectItem = ({
           />
         </figure>
 
-        <h3 className="ml-2.5 text-white2 text-5 font-400 capitalize leading-[1.3]">
+        <h3 className="ml-2.5 text-white2 text-5 font-400 capitalize leading-[1.3] print:text-inherit">
           {title}
         </h3>
 
-        <p className="ml-2.5 text-lightGray70 text-6 font-300">{category}</p>
+        <p className="ml-2.5 text-lightGray70 text-6 font-300 print:text-inherit">
+          {category}
+        </p>
       </a>
     </li>
   );

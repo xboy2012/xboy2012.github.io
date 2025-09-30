@@ -10,6 +10,7 @@ export const ArticleTitle = memo(({ title }: { title: string }) => {
           'pb-[7px] mb-[15px]',
           'md:font-600 md:pb-[15px] md:mb-[20px]',
           'lg:pb-[20px]',
+          'print:hidden',
         )}
       >
         {title}
@@ -17,6 +18,7 @@ export const ArticleTitle = memo(({ title }: { title: string }) => {
           className={cx(
             'absolute bottom-0 left-0 bg-textGradientYellow rounded-[3px]',
             'w-[30px] h-[3px] md:w-[40px] md:h-[5px]',
+            'print:hidden',
           )}
           aria-hidden
         />

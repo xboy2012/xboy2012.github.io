@@ -36,6 +36,8 @@ export const SideBar = () => {
           : 'max-h-[112px] md:max-h-[180px] 2xl:max-h-max',
         // always expand the area when javascript is disabled
         'no-js:!max-h-[405px] no-js:md:!max-h-[584px] no-js:2xl:!max-h-[initial]',
+        'print:!w-full',
+        'print:max-h-none print:bg-inherit print:border-none print:shadow-none print:!mx-auto print:!mb-4 print:!p-0 print:rounded-none',
       )}
     >
       <InfoCard onMoreClick={handleOpen} />
@@ -43,6 +45,7 @@ export const SideBar = () => {
         className={cx(
           'transition-all duration-500 ease-in-out 2xl:opacity-100 2xl:visible',
           showSideBar ? 'opacity-100 visible' : 'opacity-0 invisible',
+          'print:visible print:opacity-100',
           'no-js:!opacity-100 no-js:!visible',
         )}
       >
@@ -52,6 +55,7 @@ export const SideBar = () => {
           className={cx(
             'grid grid-cols-1fr gap-[16px] md:gap-[20px] lg:gap-x-[15px]',
             'lg:grid-cols-1fr1fr lg:gap-y-[30px] 2xl:grid-cols-1fr',
+            'print:flex print:flex-col print:gap-0',
           )}
         >
           <ContactItemEmail />
@@ -61,7 +65,7 @@ export const SideBar = () => {
 
         <Separator />
 
-        <ul className="flex justify-start 2xl:justify-center items-center gap-[15px] pb-1 pl-[7px]">
+        <ul className="flex justify-start 2xl:justify-center items-center gap-[15px] pb-1 pl-[7px] print:hidden">
           <LinkFacebook />
           <LinkTwitter />
           <LinkGithub />

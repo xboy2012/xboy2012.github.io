@@ -16,6 +16,7 @@ export const ProjectFilterFlat = ({
       className={cx(
         'hidden no-js:!hidden lg:flex',
         'justify-start items-center gap-[25px] pl-[5px] mb-[30px]',
+        'print:flex',
       )}
     >
       {categories.map((category) => {

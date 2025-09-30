@@ -9,6 +9,7 @@ export const Article = ({ children }: { children?: ReactNode }) => {
         'bg-eerieBlack2 border border-solid border-jet rounded-[20px] p-[15px] shadow-1 z-1',
         'md:w-[520px] md:[margin-inline:auto] md:p-[30px]',
         'lg:w-[700px] xl:w-[950px] xl:shadow-5 2xl:w-auto 2xl:min-h-full',
+        'print:!w-full print:bg-inherit print:border-none print:shadow-none print:p-0',
       )}
     >
       {children}

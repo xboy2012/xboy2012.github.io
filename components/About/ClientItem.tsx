@@ -25,6 +25,7 @@ export const ClientItem = ({
         'min-w-[calc(50%-8px)] sm:min-w-[calc(33.33%-10px)]',
         'md:min-w-[calc(33.33%-35px)] xl:min-w-[calc(25%-38px)]',
         'snap-start aspect-[1.63] overflow-hidden',
+        'print:min-w-0 print:aspect-auto',
       )}
     >
       <a
@@ -37,9 +38,17 @@ export const ClientItem = ({
           className={cx(
             'h-full rounded bg-center bg-no-repeat',
             classNames[name],
+            'print:hidden',
           )}
         />
-        <p className="absolute -left-[1000px] -top-[1000px]">{name}</p>
+        <p
+          className={cx(
+            'absolute -left-[1000px] -top-[1000px]',
+            'print:relative print:left-auto print:top-auto print:font-300',
+          )}
+        >
+          {name}
+        </p>
       </a>
     </li>
   );

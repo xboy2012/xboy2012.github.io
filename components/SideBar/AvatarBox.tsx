@@ -2,7 +2,7 @@ import { cx } from '../../src/utils/cx';
 
 export const AvatarBox = ({ alt }: { alt: string }) => {
   return (
-    <figure className="bg-bgGradientOnyx rounded-[20px] md:rounded-[30px] overflow-hidden">
+    <figure className="bg-bgGradientOnyx rounded-[20px] md:rounded-[30px] overflow-hidden print:hidden">
       <div
         className={cx(
           'aspect-square bg-center bg-contain bg-no-repeat bg-avatar',

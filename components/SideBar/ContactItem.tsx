@@ -19,6 +19,7 @@ export const ContactItem = ({
           'w-[30px] h-[30px] md:w-[48px] md:h-[48px]',
           'rounded-lg md:rounded-xl',
           'text-base md:text-lg',
+          'print:hidden',
         )}
         aria-hidden
       >
@@ -26,8 +27,18 @@ export const ContactItem = ({
         <Icon />
       </i>
 
-      <span className="block w-contact max-w-contact md:w-contact2 md:max-w-contact2">
-        <label className="block text-lightGray70 text-8 uppercase mb-0.5">
+      <span
+        className={cx(
+          'block w-contact max-w-contact md:w-contact2 md:max-w-contact2 text-white2',
+          'print:w-auto print:max-w-none print:flex print:flex-row print:items-center print:justify-center print:text-inherit',
+        )}
+      >
+        <label
+          className={cx(
+            'block text-lightGray70 text-8 uppercase mb-0.5',
+            'print:mb-0 print:mr-2 print:text-inherit',
+          )}
+        >
           {title}
         </label>
         {children}

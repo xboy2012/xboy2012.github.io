@@ -30,6 +30,7 @@ export const MoreButton = ({ onClick }: Props) => {
         'md:-top-[30px] md:-right-[30px] md:py-[10px] md:px-[15px]',
         '2xl:hidden',
         'hover:bg-bgGradientYellow1 focus:bg-bgGradientYellow1',
+        'print:hidden',
       )}
       onClick={handleClick}
     >

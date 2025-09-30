@@ -151,16 +151,21 @@ export default function RootLayout({
   const { noJsClassName, noJsScript } = useNoJs();
 
   return (
-    <html lang="en" className={noJsClassName} suppressHydrationWarning>
-      <body className="bg-smokyBlack">
+    <html
+      lang="en"
+      className={cx(noJsClassName, 'print:bg-white')}
+      suppressHydrationWarning
+    >
+      <body className="bg-smokyBlack print:bg-white">
         {noJsScript}
         <ServiceWorkerRegister />
         <main
           className={cx(
-            'mt-[15px] mb-[75px] mx-[12px] min-w-[259px]',
+            'mt-[15px] mb-[75px] mx-[12px] min-w-[259px] text-white2',
             'md:mt-[60px] md:mb-[100px] xl:mb-[60px]',
             '2xl:max-w-[1200px] 2xl:[margin-inline:auto]',
             'flex flex-col 2xl:flex-row 2xl:justify-center 2xl:items-stretch 2xl:gap-[25px]',
+            'print:text-black print:!m-0',
           )}
         >
           <div

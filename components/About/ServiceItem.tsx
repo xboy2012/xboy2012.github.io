@@ -22,10 +22,11 @@ export const ServiceItem = ({
       className={cx(
         'relative bg-borderGradientOnyx p-5 rounded-[14px] shadow-2 z-1',
         'md:flex md:justify-start md:items-start md:gap-[18px] md:p-[30px]',
+        'print:bg-none print:border-none print:shadow-none print:p-0 print:!gap-0',
       )}
     >
-      <div className="absolute inset-px bg-eerieBlack1 bg-bgGradientJet rounded-inherit -z-1" />
-      <div className="mb-2.5 md:mb-0 md:mt-[5px]">
+      <div className="absolute inset-px bg-eerieBlack1 bg-bgGradientJet rounded-inherit -z-1 print:hidden" />
+      <div className="mb-2.5 md:mb-0 md:mt-[5px] print:hidden">
         <div
           className={cx(
             'mx-auto aspect-square bg-contain bg-center bg-no-repeat w-[40px] h-[40px]',
@@ -36,8 +37,17 @@ export const ServiceItem = ({
       </div>
 
       <div className="text-center md:text-left">
-        <h4 className="mb-[7px] text-white2 capitalize text-2">{name}</h4>
-        <p className="text-lightGray text-6 font-300 leading-[1.6]">{desc}</p>
+        <h4
+          className={cx(
+            'mb-[7px] text-white2 capitalize text-2',
+            'print:text-inherit print:text-4 print:mb-0',
+          )}
+        >
+          {name}
+        </h4>
+        <p className="text-lightGray text-6 font-300 leading-[1.6] print:text-inherit">
+          {desc}
+        </p>
       </div>
     </li>
   );

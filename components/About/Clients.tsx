@@ -4,8 +4,10 @@ import { ClientItem } from './ClientItem';
 
 export const Clients = () => {
   return (
-    <section className="mb-[15px]">
-      <h3 className="text-white2 capitalize text-2">Who I work for</h3>
+    <section className="mb-[15px] break-inside-avoid">
+      <h3 className="text-white2 capitalize text-2 print:text-inherit print:mb-2">
+        Who I work for
+      </h3>
 
       <ul
         className={cx(
@@ -23,6 +25,7 @@ export const Clients = () => {
           'webkit-scrollbar-thumb:rounded-[5px]',
           'webkit-scrollbar-button:w-[20px]',
           'lg:webkit-scrollbar-button:w-[100px]',
+          'print:flex-col print:m-0 print:p-0 print:gap-0',
         )}
       >
         {companies.map(({ name, link }) => {

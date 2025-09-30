@@ -13,7 +13,7 @@ export const EmailRender = ({ email }: { email: string }) => {
       onClick={mounted ? undefined : preventDefault}
       href={mounted ? `mailto:${email}` : undefined}
       className={cx(
-        'block cursor-pointer text-white2 text-[13px] md:text-[15px] 2xl:text-[14px]',
+        'block cursor-pointer text-[13px] md:text-[15px] 2xl:text-[14px]',
         '2xl:whitespace-nowrap 2xl:overflow-hidden 2xl:text-ellipsis 2xl:font-300',
       )}
     >

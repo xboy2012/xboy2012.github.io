@@ -10,6 +10,7 @@ export const NavBar = () => {
         'rounded-t-xl',
         'md:rounded-t-2.5xl',
         'xl:rounded-tr-2.5xl xl:rounded-bl-2.5xl xl:rounded-tl-none xl:rounded-br-none',
+        'print:hidden',
       )}
     >
       <ul className="flex flex-wrap justify-center items-center md:gap-5 xl:gap-7.5 py-0 px-2.5 xl:px-7.5">

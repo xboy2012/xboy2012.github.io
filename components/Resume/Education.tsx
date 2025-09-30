@@ -7,7 +7,7 @@ export const Education = () => {
     <section className="mb-[30px]">
       <div className="flex items-center gap-[15px] mb-[25px]">
         <IconBox />
-        <h3 className="text-white2 capitalize text-2">Education</h3>
+        <h3 className="capitalize text-2">Education</h3>
       </div>
       <TimelineList data={userData.educations} />
     </section>
