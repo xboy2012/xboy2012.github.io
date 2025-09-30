@@ -1,20 +1,28 @@
-import { render } from '@testing-library/react';
-import { userData } from '../../src/data';
+import { render, screen } from '@testing-library/react';
 import { ContactItemEmail } from './ContactItemEmail';
 
-describe('render test', () => {
-  const _userData = { ...userData };
-  afterEach(async () => {
-    Object.assign(userData, _userData);
-  });
+jest.mock('./EmailRender', () => ({
+  EmailRender: ({ email }: { email: string }) => <div>{email}</div>,
+}));
 
+let email: string;
+jest.mock('../../src/data', () => ({
+  userData: {
+    get email() {
+      return email;
+    },
+  },
+}));
+
+describe('render test', () => {
   test('should render correctly', () => {
-    const { container } = render(<ContactItemEmail />);
-    expect(container.innerHTML).toBeTruthy();
+    email = 'example@example.com';
+    render(<ContactItemEmail />);
+    expect(screen.getByText(email)).toBeInTheDocument();
   });
 
   test('should render empty', () => {
-    userData.email = '';
+    email = '';
     const { container } = render(<ContactItemEmail />);
     expect(container.innerHTML).toBeFalsy();
   });

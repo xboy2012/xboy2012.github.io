@@ -1,20 +1,28 @@
-import { render } from '@testing-library/react';
-import { userData } from '../../src/data';
+import { render, screen } from '@testing-library/react';
 import { ContactItemPhone } from './ContactItemPhone';
 
-describe('render test', () => {
-  const _userData = { ...userData };
-  afterEach(async () => {
-    Object.assign(userData, _userData);
-  });
+jest.mock('./PhoneRender', () => ({
+  PhoneRender: ({ phoneCA }: { phoneCA: string }) => <div>{phoneCA}</div>,
+}));
 
+let phoneCA: string;
+jest.mock('../../src/data', () => ({
+  userData: {
+    get phoneCA() {
+      return phoneCA;
+    },
+  },
+}));
+
+describe('render test', () => {
   test('should render correctly', () => {
-    const { container } = render(<ContactItemPhone />);
-    expect(container.innerHTML).toBeTruthy();
+    phoneCA = '123456';
+    render(<ContactItemPhone />);
+    expect(screen.getByText(phoneCA)).toBeInTheDocument();
   });
 
   test('should render empty', () => {
-    userData.phoneCA = '';
+    phoneCA = '';
     const { container } = render(<ContactItemPhone />);
     expect(container.innerHTML).toBeFalsy();
   });

@@ -1,6 +1,6 @@
 import type { UserData } from './types';
 
-export const userData: UserData = {
+export const userData = {
   name: 'Nex Liu',
   title: 'Staff Software Engineer',
   email: 'xboy2008@live.cn',
@@ -134,4 +134,4 @@ export const userData: UserData = {
     { skill: 'Team Management', percent: 60 },
     { skill: 'Recruitment', percent: 60 },
   ],
-};
+} as const satisfies UserData;

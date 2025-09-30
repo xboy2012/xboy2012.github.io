@@ -1,20 +1,24 @@
 import { render } from '@testing-library/react';
-import { userData } from '../../src/data';
 import { LinkTwitter } from './LinkTwitter';
 
-describe('render test', () => {
-  const _userData = { ...userData };
-  afterEach(async () => {
-    Object.assign(userData, _userData);
-  });
+let twitter: string;
+jest.mock('../../src/data', () => ({
+  userData: {
+    get twitter() {
+      return twitter;
+    },
+  },
+}));
 
+describe('render test', () => {
   test('should render correctly', () => {
+    twitter = 'abcd';
     const { container } = render(<LinkTwitter />);
     expect(container.innerHTML).toBeTruthy();
   });
 
   test('should render empty', () => {
-    userData.twitter = '';
+    twitter = '';
     const { container } = render(<LinkTwitter />);
     expect(container.innerHTML).toBeFalsy();
   });

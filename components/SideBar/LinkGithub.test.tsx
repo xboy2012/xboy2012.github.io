@@ -1,20 +1,24 @@
 import { render } from '@testing-library/react';
-import { userData } from '../../src/data';
 import { LinkGithub } from './LinkGithub';
 
-describe('render test', () => {
-  const _userData = { ...userData };
-  afterEach(async () => {
-    Object.assign(userData, _userData);
-  });
+let github: string;
+jest.mock('../../src/data', () => ({
+  userData: {
+    get github() {
+      return github;
+    },
+  },
+}));
 
+describe('render test', () => {
   test('should render correctly', () => {
+    github = 'abcd';
     const { container } = render(<LinkGithub />);
     expect(container.innerHTML).toBeTruthy();
   });
 
   test('should render empty', () => {
-    userData.github = '';
+    github = '';
     const { container } = render(<LinkGithub />);
     expect(container.innerHTML).toBeFalsy();
   });

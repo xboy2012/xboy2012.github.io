@@ -1,20 +1,28 @@
-import { render } from '@testing-library/react';
-import { userData } from '../../src/data';
+import { render, screen } from '@testing-library/react';
 import { ContactItemLocation } from './ContactItemLocation';
 
-describe('render test', () => {
-  const _userData = { ...userData };
-  afterEach(async () => {
-    Object.assign(userData, _userData);
-  });
+jest.mock('./LocationRender', () => ({
+  LocationRender: ({ location }: { location: string }) => <div>{location}</div>,
+}));
 
+let location: string;
+jest.mock('../../src/data', () => ({
+  userData: {
+    get location() {
+      return location;
+    },
+  },
+}));
+
+describe('render test', () => {
   test('should render correctly', () => {
-    const { container } = render(<ContactItemLocation />);
-    expect(container.innerHTML).toBeTruthy();
+    location = 'TestLocation';
+    render(<ContactItemLocation />);
+    expect(screen.getByText(location)).toBeInTheDocument();
   });
 
   test('should render empty', () => {
-    userData.location = '';
+    location = '';
     const { container } = render(<ContactItemLocation />);
     expect(container.innerHTML).toBeFalsy();
   });

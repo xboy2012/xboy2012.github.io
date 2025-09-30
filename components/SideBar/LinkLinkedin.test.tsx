@@ -1,20 +1,24 @@
 import { render } from '@testing-library/react';
-import { userData } from '../../src/data';
 import { LinkLinkedin } from './LinkLinkedin';
 
-describe('render test', () => {
-  const _userData = { ...userData };
-  afterEach(async () => {
-    Object.assign(userData, _userData);
-  });
+let linkedin: string;
+jest.mock('../../src/data', () => ({
+  userData: {
+    get linkedin() {
+      return linkedin;
+    },
+  },
+}));
 
+describe('render test', () => {
   test('should render correctly', () => {
+    linkedin = 'abcd';
     const { container } = render(<LinkLinkedin />);
     expect(container.innerHTML).toBeTruthy();
   });
 
   test('should render empty', () => {
-    userData.linkedin = '';
+    linkedin = '';
     const { container } = render(<LinkLinkedin />);
     expect(container.innerHTML).toBeFalsy();
   });

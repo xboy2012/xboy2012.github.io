@@ -25,6 +25,7 @@ const config: Config = {
     },
   },
   testEnvironment: 'jsdom',
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
   roots: ['<rootDir>/components', '<rootDir>/src'],
 };
 
