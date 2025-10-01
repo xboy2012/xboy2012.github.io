@@ -1,4 +1,14 @@
 export type WithLooseDefault<T> = T | { default: T };
+
+export type JsonSerializable =
+  | string
+  | number
+  | boolean
+  | undefined
+  | null
+  | JsonSerializable[]
+  | { [key: string]: JsonSerializable };
+
 export type ImportedImage = { src: string } | string;
 
 export type PathString = `/${string}`;

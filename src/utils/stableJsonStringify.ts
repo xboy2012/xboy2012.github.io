@@ -1,5 +1,6 @@
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const replacer = (_: string, value: any) => {
+import type { JsonSerializable } from '../types';
+
+const replacer = (_key: string, value: JsonSerializable): JsonSerializable => {
   if (!value || typeof value !== 'object' || Array.isArray(value)) {
     return value;
   }
@@ -7,8 +8,7 @@ const replacer = (_: string, value: any) => {
   const keys = Object.keys(value);
   keys.sort((a, b) => (a < b ? -1 : 1));
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const result: any = {};
+  const result: JsonSerializable = {};
   for (const key of keys) {
     result[key] = value[key];
   }
@@ -16,7 +16,6 @@ const replacer = (_: string, value: any) => {
   return result;
 };
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const stableJsonStringify = (obj: any): string => {
+export const stableJsonStringify = (obj: JsonSerializable): string => {
   return JSON.stringify(obj, replacer, 2);
 };

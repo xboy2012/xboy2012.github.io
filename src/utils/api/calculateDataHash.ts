@@ -1,7 +1,8 @@
 import { createHash } from 'node:crypto';
+import type { JsonSerializable } from '../../types';
 import { stableJsonStringify } from '../stableJsonStringify';
 
-export const calculateDataHash = (data: unknown) => {
+export const calculateDataHash = (data: JsonSerializable) => {
   const json = stableJsonStringify(data);
   const hash = createHash('md5');
   hash.update(json);
