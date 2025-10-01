@@ -1,7 +1,10 @@
-import '@testing-library/jest-dom';
-import { createElement, type ReactElement } from 'react';
-import { render } from '@testing-library/react';
+/* @jest-environment node */
+// avoid define global window to simulate behavior in Node.js Server
+import { type ReactNode } from 'react';
+import { renderToString } from 'react-dom/server';
+import type { Thing } from 'schema-dts';
 import { useServerInsertedHTML } from 'next/navigation';
+import { useJsonLD } from './useJsonLD';
 
 jest.mock('next/navigation', () => {
   return {
@@ -10,62 +13,58 @@ jest.mock('next/navigation', () => {
 });
 
 describe('useJsonLD test in node.js server', () => {
-  let useJsonLD: typeof import('./useJsonLD').useJsonLD;
+  let injectedScriptJSX: ReactNode;
 
-  beforeAll(async () => {
-    // temporarily make window undefined to run server-only logic
-    const windowSpy = jest.spyOn(global, 'window', 'get');
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any -- for testing purpose
-    windowSpy.mockImplementation(() => undefined as any);
-    useJsonLD = (await import('./useJsonLD')).useJsonLD;
-    windowSpy.mockRestore();
+  beforeAll(() => {
+    jest.mocked(useServerInsertedHTML).mockImplementation((callback) => {
+      injectedScriptJSX = callback() as ReactNode;
+    });
+  });
+
+  beforeEach(() => {
+    injectedScriptJSX = null;
+  });
+
+  test('should invoke fn', () => {
+    const fn = jest.fn(() => ({}) as Thing);
+    const App = () => {
+      useJsonLD(fn);
+      return null;
+    };
+    renderToString(<App />);
+
+    expect(fn).toHaveBeenCalledTimes(1);
   });
 
   test('should do nothing for empty json', () => {
     const fn = jest.fn(() => null);
 
-    let injectedScriptJSX: ReactElement;
-    jest.mocked(useServerInsertedHTML).mockImplementation((callback) => {
-      injectedScriptJSX = callback() as ReactElement;
-    });
-
     const App = () => {
       useJsonLD(fn);
       return null;
     };
-    render(<App />);
+    renderToString(<App />);
 
-    expect(fn).toHaveBeenCalledTimes(1);
-
-    const resultHTML = render(createElement(() => injectedScriptJSX)).container
-      .innerHTML;
+    const resultHTML = renderToString(injectedScriptJSX);
 
     expect(resultHTML).toBe('');
   });
 
   test('should work as expected for normal json', () => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any -- for testing purpose
-    const json: any = { _: Math.random().toString(36).substring(2) };
+    const json = { _: Math.random().toString(36).substring(2) };
 
-    const fn = jest.fn(() => json);
-
-    let injectedScriptJSX: ReactElement;
-    jest.mocked(useServerInsertedHTML).mockImplementation((callback) => {
-      injectedScriptJSX = callback() as ReactElement;
-    });
+    const fn = jest.fn(() => json as unknown as Thing);
 
     const App = () => {
       useJsonLD(fn);
       return null;
     };
-    render(<App />);
 
-    expect(fn).toHaveBeenCalledTimes(1);
+    renderToString(<App />);
 
     const jsonWithContext = { '@context': 'https://schema.org', ...json };
     const expectHTML = `<script type="application/ld+json">${JSON.stringify(jsonWithContext)}</script>`;
-    const resultHTML = render(createElement(() => injectedScriptJSX)).container
-      .innerHTML;
+    const resultHTML = renderToString(injectedScriptJSX);
     expect(resultHTML).toBe(expectHTML);
   });
 });
