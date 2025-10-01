@@ -110,7 +110,7 @@ export const userData = {
     {
       from: '2012',
       to: '2018',
-      title: 'Senior Full-stack Developer at Tencent',
+      title: 'Senior Full-stack Developer',
       company: 'Tencent',
       location: 'Shanghai',
       desc: [
