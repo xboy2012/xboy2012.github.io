@@ -9,7 +9,7 @@ interface Icon {
   src: string;
   type?: string;
   sizes?: string;
-  purpose?: 'any' | 'maskable' | 'monochrome' | 'badge';
+  purpose?: 'any' | 'maskable' | 'monochrome';
 }
 
 type Def<T extends { src: string }> = Omit<T, 'src'> & {
@@ -142,5 +142,7 @@ const generateManifest = async (): Promise<MetadataRoute.Manifest> => {
     ]),
   };
 };
+
+export const dynamic = 'force-static';
 
 export default generateManifest;

@@ -2,6 +2,8 @@ import type { MetadataRoute } from 'next';
 import { getBlogsBasic } from '../src/blogs/getBlogsBasic';
 import { PROD_BASE_URL } from '../src/config/app';
 
+export const dynamic = 'force-static';
+
 const sitemap = async (): Promise<MetadataRoute.Sitemap> => {
   // TODO: just refresh lastModified for every build
   const time = new Date();

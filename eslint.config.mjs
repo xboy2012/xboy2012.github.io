@@ -1,9 +1,8 @@
-// eslint.config.js
 import { FlatCompat } from '@eslint/eslintrc';
 import legacyConfig from './.eslintrc.cjs';
 
 const compat = new FlatCompat({
-  baseDirectory: process.cwd(), // 设置为你的项目根目录
+  baseDirectory: import.meta.dirname, // project root directory
 });
 
 const config = [

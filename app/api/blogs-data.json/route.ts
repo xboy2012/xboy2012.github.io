@@ -3,6 +3,8 @@ import { getFullUrl } from '../../../src/utils/getFullUrl';
 import { outputJSON } from '../../../src/utils/api/outputJSON';
 import type { BlogData } from '../../../src/types';
 
+export const dynamic = 'force-static';
+
 export const GET = async () => {
   const blogs = await getBlogs();
   const result: BlogData[] = blogs.map((blog) => {

@@ -1,8 +1,8 @@
 import { extname } from 'node:path';
 
 export const filterFilesExceptExtensions = (
-  files: string[],
-  extensions: string[],
+  files: readonly string[],
+  extensions: readonly string[],
 ): string[] => {
   const extensionSet = new Set(extensions);
 

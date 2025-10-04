@@ -19,7 +19,8 @@ const loadBlogData = async (blogId: string) => {
   };
 };
 
-const Page = async ({ params: { blogId } }: { params: PageParam }) => {
+const Page = async ({ params }: { params: Promise<PageParam> }) => {
+  const { blogId } = await params;
   const { meta, Component } = await loadBlogData(blogId);
   return <BlogDetail meta={meta} Component={Component} />;
 };

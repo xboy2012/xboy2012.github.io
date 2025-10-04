@@ -31,6 +31,13 @@ module.exports = {
         ],
       },
     },
+    {
+      // prevent eslint error as it's auto-generated
+      files: ['next-env.d.ts'],
+      rules: {
+        '@typescript-eslint/triple-slash-reference': 'off',
+      },
+    },
   ],
   ignorePatterns: ['.next', '.swc', 'coverage', 'node_modules', 'out'],
   root: true,

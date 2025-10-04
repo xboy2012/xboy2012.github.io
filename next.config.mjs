@@ -9,6 +9,9 @@ const nextConfigFn = (phase) => {
   const isDev = phase === PHASE_DEVELOPMENT_SERVER;
   /** @type {import('next').NextConfig} */
   const nextConfig = {
+    // Configure pageExtensions to include md and mdx
+    pageExtensions: ['ts', 'tsx', 'mdx'],
+    reactStrictMode: true,
     output: isDev ? undefined : 'export',
     trailingSlash: true,
     images: {

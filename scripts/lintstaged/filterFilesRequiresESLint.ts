@@ -1,7 +1,7 @@
 import { ESLint } from 'eslint';
 
 export const filterFilesRequiresESLint = async (
-  files: string[],
+  files: readonly string[],
 ): Promise<string[]> => {
   const eslint = new ESLint();
   const ignores = await Promise.all(

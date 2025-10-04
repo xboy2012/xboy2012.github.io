@@ -1,7 +1,7 @@
 import { getFileInfo } from 'prettier';
 
 export const filterFilesRequiresPrettier = async (
-  files: string[],
+  files: readonly string[],
 ): Promise<string[]> => {
   const ignores = await Promise.all(
     files.map(async (file) => {

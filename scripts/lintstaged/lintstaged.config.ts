@@ -1,4 +1,4 @@
-import type { Config } from 'lint-staged';
+import type { Configuration } from 'lint-staged';
 import { filterFilesRequiresESLint } from './filterFilesRequiresESLint';
 import { filterFilesRequiresPrettier } from './filterFilesRequiresPrettier';
 import { filterFilesExceptExtensions } from './filterFilesExceptExtensions';
@@ -14,7 +14,7 @@ const JsTsExtensions = [
   '.cts',
 ];
 
-const lintStagedConfig: Config = {
+const lintStagedConfig: Configuration = {
   '*.{ts,tsx,mts,cts}': () => 'tsc --noEmit',
   '*.{js,jsx,cjs,mjs,ts,tsx,mts,cts}': async (files) => {
     const eslintFiles = await filterFilesRequiresESLint(files);

@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { Article } from './Article';
 import { useFixPageUrl } from '../src/hooks/useFixPageUrl';
 import { ArticleTitle } from './ArticleTitle';
@@ -18,9 +19,9 @@ export const NotFound = () => {
         <p className="mb-3">Could not find requested resource.</p>
         <p>
           Please go to{' '}
-          <a className="text-orangeYellowCrayola" href="/">
+          <Link className="text-orangeYellowCrayola" href="/">
             Home Page
-          </a>{' '}
+          </Link>{' '}
           for other pages.
         </p>
       </div>
