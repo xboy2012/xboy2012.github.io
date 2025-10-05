@@ -3,6 +3,6 @@ import { getPagePaths } from './getPagePaths';
 import type { PathString } from '../../types';
 
 export const isPagePath = (path: PathString): boolean => {
-  path = formatPagePath(path);
-  return getPagePaths().has(path);
+  const formatedPath = formatPagePath(path);
+  return getPagePaths().has(formatedPath);
 };
