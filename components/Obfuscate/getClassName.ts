@@ -2,6 +2,9 @@ let classCount = 0;
 let classCache: Map<string, string> | undefined;
 
 export const getClassName = (text: string) => {
+  if (!text) {
+    return '';
+  }
   if (!classCache) {
     classCache = new Map();
   }
@@ -16,7 +19,20 @@ export const getClassName = (text: string) => {
     const p = length >> 1;
     const leftText = text.substring(0, p);
     const rightText = text.substring(p);
-    style.innerHTML = `.${className}::before{content:${JSON.stringify(leftText)};display:inline}.${className}::after{content:${JSON.stringify(rightText)};display:inline}`;
+
+    const rules: string[] = [];
+    if (leftText) {
+      rules.push(
+        `.${className}::before{content:${JSON.stringify(leftText)};display:inline}`,
+      );
+    }
+
+    // rightText will always be non-empty
+    rules.push(
+      `.${className}::after{content:${JSON.stringify(rightText)};display:inline}`,
+    );
+
+    style.innerHTML = rules.join('');
     document.head.appendChild(style);
   }
   return className;
