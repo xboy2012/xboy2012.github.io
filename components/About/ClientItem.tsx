@@ -1,7 +1,7 @@
 import { cx } from '../../src/utils/cx';
-import type { CompanyName } from '../../src/types';
+import type { CompanyName } from '../../src/companies';
 
-const classNames: Record<CompanyName, string> = {
+const classNames: Record<string, string> = {
   'Microsoft': 'bg-cover bg-microsoft bg-white',
   'Tencent': 'bg-contain bg-tencent bg-white',
   'NIO': 'bg-contain bg-nio bg-white',
@@ -10,15 +10,9 @@ const classNames: Record<CompanyName, string> = {
   'Pinduoduo': 'bg-cover bg-pdd',
   'MyShell.ai': 'bg-cover bg-myshell',
   'Wacai': 'bg-cover bg-wacai',
-};
+} satisfies Record<CompanyName, string>;
 
-export const ClientItem = ({
-  name,
-  link,
-}: {
-  name: CompanyName;
-  link: string;
-}) => {
+export const ClientItem = ({ name, link }: { name: string; link: string }) => {
   return (
     <li
       className={cx(

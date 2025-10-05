@@ -85,17 +85,7 @@ export type ProjectData = Readonly<{
   image: string;
 }>;
 
-export type CompanyName =
-  | 'Microsoft'
-  | 'Tencent'
-  | 'NIO'
-  | 'LeetCode'
-  | 'Temu'
-  | 'Pinduoduo'
-  | 'MyShell.ai'
-  | 'Wacai';
-
 export interface CompanyData {
-  name: CompanyName;
+  name: string;
   link: string;
 }

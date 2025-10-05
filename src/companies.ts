@@ -1,6 +1,6 @@
 import type { CompanyData } from './types';
 
-export const companies: CompanyData[] = [
+export const companies = [
   { name: 'Microsoft', link: 'https://www.microsoft.com' },
   { name: 'Tencent', link: 'https://www.tencent.com' },
   { name: 'NIO', link: 'https://www.nio.com' },
@@ -9,4 +9,6 @@ export const companies: CompanyData[] = [
   { name: 'Pinduoduo', link: 'https://m.pinduoduo.com' },
   { name: 'MyShell.ai', link: 'https://myshell.ai' },
   { name: 'Wacai', link: 'https://www.wacai.com' },
-];
+] as const satisfies readonly CompanyData[];
+
+export type CompanyName = (typeof companies)[number]['name'];
