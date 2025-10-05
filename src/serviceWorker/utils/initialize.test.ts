@@ -1,6 +1,5 @@
 import type { RouteMatchCallback, RouteHandlerObject } from 'workbox-core';
 import { registerRoute } from 'workbox-routing';
-import { CacheFirst } from 'workbox-strategies';
 import { initialize } from './initialize';
 import { CACHE_NAME_HASH, CACHE_NAME_NO_HASH } from './cacheNames';
 
@@ -9,7 +8,19 @@ jest.mock('workbox-routing', () => {
 });
 
 jest.mock('workbox-strategies', () => {
-  return { CacheFirst: jest.fn() };
+  // Mock the CacheFirst implementation
+  function MockCacheFirst(
+    this: { handle: () => string },
+    { cacheName }: { cacheName: string },
+  ) {
+    this.handle = function () {
+      return cacheName;
+    };
+  }
+
+  return {
+    CacheFirst: MockCacheFirst,
+  };
 });
 
 describe('service worker initialize test', () => {
@@ -75,18 +86,9 @@ describe('service worker initialize test', () => {
       ]);
     };
 
-    const mockCacheFirst = ({ cacheName }: { cacheName: string }) => {
-      return {
-        handle: async () => {
-          return cacheName;
-        },
-      };
-    };
-
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    jest.mocked(registerRoute).mockImplementation(mockRegisterRoute as any);
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    jest.mocked(CacheFirst).mockImplementation(mockCacheFirst as any);
+    jest
+      .mocked(registerRoute)
+      .mockImplementation(mockRegisterRoute as typeof registerRoute);
 
     initialize(self);
 
