@@ -3,7 +3,7 @@ import { cx } from '../../src/utils/cx';
 import { ChevronDown } from '../Icons/ChevronDown';
 
 interface Props {
-  onClick?: () => void;
+  onClick: () => void;
 }
 
 export const MoreButton = ({ onClick }: Props) => {
@@ -11,9 +11,7 @@ export const MoreButton = ({ onClick }: Props) => {
     (e: MouseEvent<HTMLButtonElement>) => {
       // auto blur the button to avoid UI inconsistency
       e.currentTarget.blur();
-      if (onClick) {
-        onClick();
-      }
+      onClick();
     },
     [onClick],
   );

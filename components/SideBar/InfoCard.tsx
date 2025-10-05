@@ -4,7 +4,7 @@ import { MoreButton } from './MoreButton';
 import { userData } from '../../src/data';
 
 interface Props {
-  onMoreClick?: () => void;
+  onMoreClick: () => void;
 }
 
 export const InfoCard = ({ onMoreClick }: Props) => {
