@@ -1,0 +1,58 @@
+@layer base {
+  html {
+    font-family: 'Poppins', sans-serif;
+  }
+
+  *,
+  *::before,
+  *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  li {
+    list-style: none;
+  }
+
+  ::selection {
+    @apply bg-orangeYellowCrayola text-smokyBlack;
+  }
+
+  :focus {
+    @apply outline-orangeYellowCrayola;
+  }
+
+  /**
+   * responsive larger than 1250px screen 2xl
+   */
+
+  @media (min-width: 1250px) {
+    body::-webkit-scrollbar {
+      width: 20px;
+    }
+
+    body::-webkit-scrollbar-track {
+      @apply bg-smokyBlack;
+    }
+
+    body::-webkit-scrollbar-thumb {
+      @apply shadow-scroll-bar;
+      background: hsla(0, 0%, 100%, 0.1);
+      border-radius: 20px;
+      border: 5px solid var(--color-smokyBlack);
+    }
+
+    body::-webkit-scrollbar-thumb:hover {
+      background: hsla(0, 0%, 100%, 0.15);
+    }
+
+    body::-webkit-scrollbar-button {
+      height: 60px;
+    }
+  }
+}

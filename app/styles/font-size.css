@@ -1,0 +1,49 @@
+@utility text-1 {
+  font-size: var(--fs-1);
+}
+@utility text-2 {
+  font-size: var(--fs-2);
+}
+@utility text-3 {
+  font-size: var(--fs-3);
+}
+@utility text-4 {
+  font-size: var(--fs-4);
+}
+@utility text-5 {
+  font-size: var(--fs-5);
+}
+@utility text-6 {
+  font-size: var(--fs-6);
+}
+@utility text-7 {
+  font-size: var(--fs-7);
+}
+@utility text-8 {
+  font-size: var(--fs-8);
+}
+
+@layer base {
+  :root {
+    --fs-1: 24px;
+    --fs-2: 18px;
+    --fs-3: 17px;
+    --fs-4: 16px;
+    --fs-5: 15px;
+    --fs-6: 14px;
+    --fs-7: 13px;
+    --fs-8: 11px;
+  }
+
+  @media (min-width: 580px) {
+    :root {
+      --fs-1: 32px;
+      --fs-2: 24px;
+      --fs-3: 26px;
+      --fs-4: 18px;
+      --fs-6: 15px;
+      --fs-7: 15px;
+      --fs-8: 12px;
+    }
+  }
+}

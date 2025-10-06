@@ -1,0 +1,23 @@
+@utility rounded-inherit {
+  border-radius: inherit;
+}
+
+@utility grid-cols-1fr {
+  grid-template-columns: 1fr;
+}
+
+@utility grid-cols-1fr1fr {
+  grid-template-columns: 1fr 1fr;
+}
+
+@utility grid-cols-r3_1fr {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+@custom-variant webkit-scrollbar &::-webkit-scrollbar;
+@custom-variant webkit-scrollbar-track &::-webkit-scrollbar-track;
+@custom-variant webkit-scrollbar-thumb &::-webkit-scrollbar-thumb;
+@custom-variant webkit-scrollbar-button &::-webkit-scrollbar-button;
+
+/* styles that only applies when javascript is disabled */
+@custom-variant no-js (.no-js &);
