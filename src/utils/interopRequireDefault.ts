@@ -1,4 +1,4 @@
-type Interoped<T> = T extends null | undefined
+export type Interoped<T> = T extends null | undefined
   ? T
   : T extends { default: infer U }
     ? U
