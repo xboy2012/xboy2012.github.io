@@ -1,7 +1,7 @@
 /* istanbul ignore file */
 
 export const replaceRequestUrl = (request: Request, newUrl: string) => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars -- exclude url
-  const { url, ...options } = request.clone();
+  const options = { ...request.clone() } as RequestInit & { url?: string };
+  delete options.url;
   return new Request(newUrl, options);
 };
