@@ -1,12 +1,18 @@
-export const interopRequireDefault = (
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any -- generic value
-  value: any,
-) => {
+type Interoped<T> = T extends null | undefined
+  ? T
+  : T extends { default: infer U }
+    ? U
+    : T extends { default?: infer U }
+      ? U | undefined | Exclude<T, { default?: unknown }>
+      : T;
+
+export const interopRequireDefault = <T>(value: T): Interoped<T> => {
   if (!value || typeof value !== 'object') {
-    return value;
+    return value as Interoped<T>;
   }
   if ('default' in value) {
-    return value.default;
+    return value.default as Interoped<T>;
   }
-  return value.default || value;
+  return ((value as unknown as { default?: unknown }).default ||
+    value) as Interoped<T>;
 };

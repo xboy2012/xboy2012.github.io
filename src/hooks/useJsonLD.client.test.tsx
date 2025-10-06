@@ -1,12 +1,12 @@
 import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
+import type { Thing } from 'schema-dts';
 import { useJsonLD } from './useJsonLD';
 
 describe('useJsonLD test in browser', () => {
   test('should do nothing', () => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any -- for testing purpose
-    const json: any = { _: Math.random().toString(36).substring(2) };
-    const fn = jest.fn(() => json);
+    const json = { _: Math.random().toString(36).substring(2) };
+    const fn = jest.fn(() => json as unknown as Thing);
 
     const App = () => {
       useJsonLD(fn);

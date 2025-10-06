@@ -11,8 +11,7 @@ describe('mdx components should work as expected', () => {
     }
     test(`[${tagName}]'s implement should work as expected`, () => {
       const Component = mdxComponents[tagName] as ComponentType<
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any -- for test
-        PropsWithChildren<any>
+        PropsWithChildren<{ className: string }>
       >;
       const className = `className-${Math.random().toString(36).substring(2)}`;
       const text = Math.random().toString(36).substring(2);

@@ -5,11 +5,9 @@ import { compressCode } from './compressCode';
 import { prettierCode } from './prettierCode';
 import { getNextStaticFiles } from './getNextStaticFiles';
 import { getHashInfo } from './getHashInfo';
+import type { JsonSerializable } from '../../src/types';
 
-const wrapJSON = (
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any -- generic value
-  values: Record<string, any>,
-) => {
+const wrapJSON = (values: Record<string, JsonSerializable>) => {
   const result: Record<string, string> = {};
   for (const key of Object.keys(values)) {
     result[key] = JSON.stringify(values[key], null, 2);

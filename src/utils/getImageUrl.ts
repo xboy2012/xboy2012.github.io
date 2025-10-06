@@ -11,7 +11,7 @@ const getImageUrl = (value: unknown): string => {
   if (typeof defaultValue !== 'object') {
     return '';
   }
-  return defaultValue.src || '';
+  return (defaultValue as { src?: string }).src || '';
 };
 
 export default getImageUrl;
