@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { cx } from '../../src/utils/cx';
 import { ChevronDown } from '../Icons/ChevronDown';
 import { ProjectFilterDropDownItem } from './ProjectFilterDropDownItem';
@@ -12,7 +12,12 @@ export const ProjectFilterDropDown = ({
   category: Category;
   onChange: (category: Category) => void;
 }) => {
+  const [hidden, setHidden] = useState(true);
   const [isSelecting, setIsSelecting] = useState(false);
+
+  useEffect(() => {
+    setHidden(false);
+  }, []);
 
   const handleSelectClick = useCallback(() => {
     setIsSelecting((isSelecting) => !isSelecting);
@@ -28,7 +33,7 @@ export const ProjectFilterDropDown = ({
 
   return (
     <div
-      hidden
+      hidden={hidden}
       className="relative mb-[25px] block lg:hidden no-js:!hidden print:hidden"
     >
       <button

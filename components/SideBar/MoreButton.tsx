@@ -1,4 +1,4 @@
-import { type MouseEvent, useCallback } from 'react';
+import { type MouseEvent, useCallback, useEffect, useState } from 'react';
 import { cx } from '../../src/utils/cx';
 import { ChevronDown } from '../Icons/ChevronDown';
 
@@ -7,6 +7,12 @@ interface Props {
 }
 
 export const MoreButton = ({ onClick }: Props) => {
+  const [hidden, setHidden] = useState(true);
+
+  useEffect(() => {
+    setHidden(false);
+  }, []);
+
   const handleClick = useCallback(
     (e: MouseEvent<HTMLButtonElement>) => {
       // auto blur the button to avoid UI inconsistency
@@ -15,9 +21,10 @@ export const MoreButton = ({ onClick }: Props) => {
     },
     [onClick],
   );
+
   return (
     <button
-      hidden
+      hidden={hidden}
       className={cx(
         'no-js:!hidden', // hide the button when javascript is disabled
         'group block absolute -top-[15px] -right-[15px] border-none',

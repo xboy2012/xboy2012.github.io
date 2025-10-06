@@ -27,6 +27,7 @@
     "@next/mdx": "^15.5.4",
     "@rollup/plugin-node-resolve": "^16.0.2",
     "@rollup/plugin-replace": "^6.0.2",
+    "@tailwindcss/postcss": "^4.1.14",
     "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.0",
@@ -54,7 +55,7 @@
     "rollup": "^4.52.4",
     "rollup-plugin-esbuild": "^6.2.1",
     "schema-dts": "^1.1.5",
-    "tailwindcss": "^3.4.18",
+    "tailwindcss": "^4.1.14",
     "terser": "^5.44.0",
     "ts-jest": "^29.4.4",
     "ts-node": "^10.9.2",
@@ -62,6 +63,9 @@
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.45.0",
     "whatwg-fetch": "^3.6.20"
+  },
+  "resolutions": {
+    "postcss": "^8.5.6"
   },
   "engineStrict": true,
   "engines": {
