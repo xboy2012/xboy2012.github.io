@@ -12,4 +12,4 @@ export const colors = {
   vegasGold: 'hsl(45, 54%, 58%)',
   lightGray: 'hsl(0, 0%, 84%)',
   lightGray70: 'hsla(0, 0%, 84%, 0.7)',
-};
+} as const satisfies Record<string, string>;
