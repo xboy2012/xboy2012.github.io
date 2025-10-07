@@ -2,10 +2,10 @@
 @import './styles/colors.css';
 @import './styles/breakpoints.css';
 @import './styles/variables.css';
+@import './styles/utils.css';
 @import './styles/shadow.css';
 @import './styles/font-size.css';
 @import './styles/animation.css';
-@import './styles/utils.css';
 @import './styles/images.css';
 @import './styles/reset.css';
 @import './styles/printer.css';
