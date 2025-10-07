@@ -1,5 +1,3 @@
-/* istanbul ignore file */
-
 export const colors = {
   jet: 'hsl(0, 0%, 22%)',
   onyx: 'hsl(240, 1%, 17%)',
