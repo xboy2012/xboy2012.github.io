@@ -8,6 +8,6 @@ describe('getTwitterUrl', () => {
   });
 
   test('should return correctly', () => {
-    expect(getTwitterUrl('XYZ')).toBe('https://twitter.com/XYZ');
+    expect(getTwitterUrl('XYZ')).toBe('https://x.com/XYZ');
   });
 });
