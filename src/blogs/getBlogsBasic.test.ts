@@ -1,9 +1,10 @@
 import { access, constants } from 'node:fs/promises';
 import { join as pathJoin } from 'node:path';
 import { getBlogsBasic } from './getBlogsBasic';
+import { getRootDir } from '../utils/getRootDir';
 
 describe('blogs data should follow some conventions', () => {
-  const rootDir = process.cwd();
+  const rootDir = getRootDir();
 
   test('blogs should have distinct ids', () => {
     const set = new Set<string>();

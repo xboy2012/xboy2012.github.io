@@ -1,5 +1,6 @@
 import { writeFile } from 'node:fs/promises';
 import { join as pathJoin } from 'node:path';
+import { getRootDir } from '../../../src/utils/getRootDir';
 
 (async () => {
   if (process.env.NODE_ENV !== 'production') {
@@ -16,7 +17,7 @@ import { join as pathJoin } from 'node:path';
     throw Error('could not found BING_INDEX_NOW_KEY');
   }
 
-  const rootDir = process.cwd();
+  const rootDir = getRootDir();
 
   const keyFilePath = pathJoin(rootDir, 'out', `${key}.txt`);
   await writeFile(keyFilePath, key, 'utf-8');

@@ -1,11 +1,13 @@
 import { lintStaged } from './lintStaged';
 import lintStagedConfig from './lintstaged.config';
+import { getRootDir } from '../../src/utils/getRootDir';
 
 (async () => {
+  const rootDir = getRootDir();
   const success = await lintStaged({
     concurrent: true,
     config: lintStagedConfig,
-    cwd: process.cwd(),
+    cwd: rootDir,
     relative: true,
     stash: true,
   });

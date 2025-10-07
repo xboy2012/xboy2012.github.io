@@ -1,9 +1,10 @@
 import { action } from './action';
 import { filesToClean } from './filesToClean';
+import { getRootDir } from '../../src/utils/getRootDir';
 
 (async () => {
   try {
-    const rootDir = process.cwd();
+    const rootDir = getRootDir();
     await action(rootDir);
     console.log('Successfully cleaned files:');
     for (const file of filesToClean) {
