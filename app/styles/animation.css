@@ -1,3 +1,22 @@
+@theme {
+  @keyframes fade {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @keyframes scaleUp {
+    0% {
+      transform: scale(0.5);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+}
+
 @utility ease-default {
   transition-timing-function: ease;
 }
@@ -12,24 +31,4 @@
 
 @utility animate-scaleUp {
   animation: scaleUp 0.25s ease forwards;
-}
-
-@layer base {
-  @keyframes fade {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-
-  @keyframes scaleUp {
-    0% {
-      transform: scale(0.5);
-    }
-    100% {
-      transform: scale(1);
-    }
-  }
 }
