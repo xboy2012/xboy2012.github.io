@@ -41,7 +41,9 @@
     }
 
     body::-webkit-scrollbar-thumb {
-      @apply shadow-scroll-bar;
+      box-shadow:
+        inset 1px 1px 0 hsla(0, 0%, 100%, 0.11),
+        inset -1px -1px 0 hsla(0, 0%, 100%, 0.11);
       background: hsla(0, 0%, 100%, 0.1);
       border-radius: 20px;
       border: 5px solid var(--color-smokyBlack);

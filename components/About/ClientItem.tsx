@@ -37,7 +37,7 @@ export const ClientItem = ({ name, link }: { name: string; link: string }) => {
         />
         <p
           className={cx(
-            'absolute -left-[1000px] -top-[1000px]',
+            'absolute -left-1000 -top-1000',
             'print:relative print:left-auto print:top-auto print:font-300',
           )}
         >

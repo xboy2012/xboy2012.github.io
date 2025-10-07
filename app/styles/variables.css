@@ -31,9 +31,9 @@
     hsl(45, 100%, 72%),
     hsl(35, 100%, 68%)
   );
+}
 
-  --shadow-timeline: 0 0 0 4px hsl(0, 0%, 22%);
-
+@theme inline {
   --radius-2_5xl: 20px;
 
   --font-weight-200: 200;
@@ -49,6 +49,7 @@
   --scale-80: 0.8;
 
   --spacing-7_5: 30px;
+  --spacing-1000: 1000px;
   --spacing-contact: calc(100% - 46px);
   --spacing-contact2: calc(100% - 64px);
 }
