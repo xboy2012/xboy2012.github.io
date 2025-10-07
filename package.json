@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "clean": "tsx scripts/clean",
     "dev": "next dev",
     "build": "next build && tsx scripts/buildServiceWorker && tsx scripts/bingIndexing/postbuild",
     "start": "next start",
