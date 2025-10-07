@@ -7,27 +7,25 @@ let json: Person | undefined;
 
 export const getAboutJsonLD = (): Person => {
   if (!json) {
-    json = Object.assign(
-      <Person>{
-        '@type': 'Person',
-        'name': userData.name,
-        'hasOccupation': userData.services.map((service) => {
-          return {
-            '@type': 'Occupation',
-            'name': service.name,
-            'description': service.desc,
-          };
-        }),
-        'worksFor': companies.map((company) => {
-          return {
-            '@type': 'Organization',
-            'name': company.name,
-            'url': company.link,
-          };
-        }),
-      },
-      getSideBarJsonLD(),
-    );
+    const person: Person = {
+      '@type': 'Person',
+      'name': userData.name,
+      'hasOccupation': userData.services.map((service) => {
+        return {
+          '@type': 'Occupation',
+          'name': service.name,
+          'description': service.desc,
+        };
+      }),
+      'worksFor': companies.map((company) => {
+        return {
+          '@type': 'Organization',
+          'name': company.name,
+          'url': company.link,
+        };
+      }),
+    };
+    json = Object.assign(person, getSideBarJsonLD());
   }
   return json!;
 };

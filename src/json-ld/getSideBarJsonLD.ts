@@ -2,12 +2,16 @@ import type { Person } from 'schema-dts';
 import { userData } from '../data';
 import { getFullUrl } from '../utils/getFullUrl';
 import { PERSON_ID } from '../config/json-ld';
+import { getFaceBookUrl } from '../utils/getFaceBookUrl';
+import { getGitHubUrl } from '../utils/getGitHubUrl';
+import { getLinkedinUrl } from '../utils/getLinkedinUrl';
+import { getNpmUrl } from '../utils/getNpmUrl';
+import { getTwitterUrl } from '../utils/getTwitterUrl';
 
 let json: Person | undefined;
 
 export const getSideBarJsonLD = (): Person => {
   if (!json) {
-    const { facebook, github, linkedin, npm, twitter } = userData;
     json = {
       // '@context': 'https://schema.org',
       '@type': 'Person',
@@ -25,17 +29,11 @@ export const getSideBarJsonLD = (): Person => {
       'description': userData.intro,
       'url': getFullUrl('/'),
       'sameAs': [
-        /* istanbul ignore next */ facebook
-          ? `https://www.facebook.com/${facebook}`
-          : '',
-        /* istanbul ignore next */ github ? `https://github.com/${github}` : '',
-        /* istanbul ignore next */ linkedin
-          ? `https://linkedin.com/${linkedin}`
-          : '',
-        /* istanbul ignore next */ npm ? `https://www.npmjs.com/~${npm}` : '',
-        /* istanbul ignore next */ twitter
-          ? `https://twitter.com/${twitter}`
-          : '',
+        getFaceBookUrl(userData.facebook),
+        getGitHubUrl(userData.github),
+        getLinkedinUrl(userData.linkedin),
+        getNpmUrl(userData.npm),
+        getTwitterUrl(userData.twitter),
       ].filter(Boolean),
     };
   }
