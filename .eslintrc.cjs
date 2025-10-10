@@ -1,4 +1,7 @@
-module.exports = {
+// @ts-check
+
+/** @type {import('eslint').Linter.LegacyConfig} */
+const config = {
   plugins: ['prettier', 'unicorn'],
   extends: [
     'next/core-web-vitals',
@@ -11,12 +14,6 @@ module.exports = {
     'react/display-name': 'off',
     'prettier/prettier': 'error',
     'unicorn/prefer-node-protocol': 'error',
-    'import/first': 'error',
-
-    // FIXME: eslint 9 incompatible
-    'import/no-named-as-default': 'off',
-    'import/no-named-as-default-member': 'off',
-    '@next/next/no-duplicate-head': 'off',
   },
   overrides: [
     {
@@ -42,3 +39,5 @@ module.exports = {
   ignorePatterns: ['.next', '.swc', 'coverage', 'node_modules', 'out'],
   root: true,
 };
+
+module.exports = config;

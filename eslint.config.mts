@@ -1,4 +1,5 @@
 import { FlatCompat } from '@eslint/eslintrc';
+import type { Linter } from 'eslint';
 import legacyConfig from './.eslintrc.cjs';
 
 const compat = new FlatCompat({
@@ -9,14 +10,7 @@ const config = [
   {
     ignores: ['.next', '.swc', 'coverage', 'node_modules', 'out'],
   },
-  ...compat.config(legacyConfig),
-  {
-    rules: {
-      // FIXME: eslint 9 incompatible
-      'import/namespace': 'off',
-      'import/default': 'off',
-    },
-  },
+  ...compat.config(legacyConfig as Linter.LegacyConfig),
 ];
 
 export default config;
