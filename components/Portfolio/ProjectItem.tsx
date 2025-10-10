@@ -19,7 +19,7 @@ export const ProjectItem = ({
         <figure
           className={cx(
             'relative rounded-2xl overflow-hidden mb-4',
-            'w-full h-50 sm:h-auto sm:aspect-[4/3]',
+            'w-full h-50 sm:h-auto sm:aspect-4/3',
             'print:border-solid print:border-px print:border-black',
           )}
         >

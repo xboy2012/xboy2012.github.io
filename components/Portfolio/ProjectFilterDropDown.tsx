@@ -54,7 +54,7 @@ export const ProjectFilterDropDown = ({
 
       <ul
         className={cx(
-          'bg-eerieBlack2 absolute w-full p-1.5 z-[2]',
+          'bg-eerieBlack2 absolute w-full p-1.5 z-2',
           'border border-solid border-jet rounded-3.5',
           isSelecting
             ? 'opacity-100 visible pointer-events-auto'

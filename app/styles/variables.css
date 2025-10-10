@@ -115,4 +115,7 @@
   --spacing-300: 1200px;
   --spacing-contact: calc(100% - 46px);
   --spacing-contact2: calc(100% - 64px);
+
+  --aspect-4\/3: 4/3;
+  --aspect-5\/3: 5/3;
 }
