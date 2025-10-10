@@ -39,12 +39,12 @@ export const TimelineList = memo(({ data }: { data: TimelineItem[] }) => {
             )}
 
             <div className="print:flex">
-              <h4 className="text-white2 text-3.5 md:text-4 leading-[1.3] mb-2 print:text-inherit print:flex-grow">
+              <h4 className="text-white2 text-3.5 md:text-4 leading-x1.3 mb-2 print:text-inherit print:flex-grow">
                 {title}
               </h4>
 
               {!!(from && to) && (
-                <span className="block text-vegasGold font-400 leading-[1.6] print:text-inherit">
+                <span className="block text-vegasGold font-400 leading-x1.6 print:text-inherit">
                   {`${from} — ${to}`}
                 </span>
               )}
@@ -53,7 +53,7 @@ export const TimelineList = memo(({ data }: { data: TimelineItem[] }) => {
             {desc.map((text, i) => {
               return (
                 <p
-                  className="text-lightGray font-300 leading-[1.6] 2xl:max-w-175 print:text-inherit"
+                  className="text-lightGray font-300 leading-x1.6 2xl:max-w-175 print:text-inherit"
                   key={i}
                 >
                   {text}

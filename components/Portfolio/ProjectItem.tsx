@@ -54,7 +54,7 @@ export const ProjectItem = ({
           />
         </figure>
 
-        <h3 className="ml-2.5 text-white2 text-4 font-400 capitalize leading-[1.3] print:text-inherit">
+        <h3 className="ml-2.5 text-white2 text-4 font-400 capitalize leading-x1.3 print:text-inherit">
           {title}
         </h3>
 

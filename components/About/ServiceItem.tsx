@@ -45,7 +45,7 @@ export const ServiceItem = ({
         >
           {name}
         </h4>
-        <p className="text-lightGray text-3.5 md:text-4 font-300 leading-[1.6] print:text-inherit">
+        <p className="text-lightGray text-3.5 md:text-4 font-300 leading-x1.6 print:text-inherit">
           {desc}
         </p>
       </div>

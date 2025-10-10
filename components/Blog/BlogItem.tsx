@@ -68,7 +68,7 @@ export const BlogItem = (props: BlogItemProps) => {
 
           <h3
             className={cx(
-              'mb-2.5 leading-[1.3] text-white2 capitalize text-4.5 md:text-6',
+              'mb-2.5 leading-x1.3 text-white2 capitalize text-4.5 md:text-6',
               'transition-all duration-250 ease-default group-hover:text-orangeYellowCrayola',
               'print:text-inherit',
             )}
@@ -76,7 +76,7 @@ export const BlogItem = (props: BlogItemProps) => {
             {title}
           </h3>
 
-          <p className="text-lightGray text-3.5 md:text-4 font-300 leading-[1.6] print:text-inherit">
+          <p className="text-lightGray text-3.5 md:text-4 font-300 leading-x1.6 print:text-inherit">
             {desc}
           </p>
         </div>

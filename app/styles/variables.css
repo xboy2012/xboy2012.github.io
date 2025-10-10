@@ -73,6 +73,10 @@
 
   --scale-80: 0.8;
 
+  /* for line-height */
+  --spacing-x1_3: 1.3;
+  --spacing-x1_6: 1.6;
+
   --spacing-0: 0;
   --spacing-1: 4px;
   --spacing-1_25: 5px;
