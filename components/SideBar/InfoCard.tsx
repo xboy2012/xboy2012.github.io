@@ -15,7 +15,7 @@ export const InfoCard = ({ onMoreClick }: Props) => {
       <div className="print:flex print:flex-col">
         <h1
           className={cx(
-            'text-white2 text-3 font-500 mb-2.5',
+            'text-white2 text-4.5 md:text-6.5 font-500 mb-2.5',
             'md:mb-4 2xl:whitespace-nowrap 2xl:text-center',
             'print:mb-0 print:text-inherit',
           )}
@@ -25,9 +25,9 @@ export const InfoCard = ({ onMoreClick }: Props) => {
         </h1>
         <p
           className={cx(
-            'text-white bg-onyx text-8 font-300 w-max py-1 px-3 rounded-lg',
+            'text-white bg-onyx text-3 font-300 w-max py-1 px-3 rounded-lg',
             'md:py-1.25 md:px-5 2xl:m-auto',
-            'print:text-inherit print:bg-inherit print:!mt-0 print:!p-0 print:mb-4 print:text-4',
+            'print:text-inherit print:bg-inherit print:!mt-0 print:!p-0 print:mb-4 print:text-4.5',
           )}
         >
           {title}

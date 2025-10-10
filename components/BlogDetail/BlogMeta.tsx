@@ -12,7 +12,7 @@ export const BlogMeta = ({
 }) => {
   return (
     <div className="mb-10">
-      <h1 className="mb-2 text-1 text-orangeYellowCrayola print:text-inherit">
+      <h1 className="mb-2 text-6 md:text-8 text-orangeYellowCrayola print:text-inherit">
         {title}
       </h1>
       <span

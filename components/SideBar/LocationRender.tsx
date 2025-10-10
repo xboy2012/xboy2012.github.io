@@ -5,7 +5,7 @@ export const LocationRender = ({ location }: { location: string }) => {
   return (
     <a
       className={cx(
-        'block text-7 font-300',
+        'block text-3.5 md:text-4 font-300',
         '2xl:whitespace-nowrap 2xl:overflow-hidden 2xl:text-ellipsis',
       )}
       href={getGoogleMapUrl(location)}

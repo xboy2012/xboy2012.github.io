@@ -39,13 +39,13 @@ export const ServiceItem = ({
       <div className="text-center md:text-left">
         <h4
           className={cx(
-            'mb-2 text-white2 capitalize text-2',
-            'print:text-inherit print:text-4 print:mb-0',
+            'mb-2 text-white2 capitalize text-4.5 md:text-6',
+            'print:text-inherit print:text-4.5 print:mb-0',
           )}
         >
           {name}
         </h4>
-        <p className="text-lightGray text-6 font-300 leading-[1.6] print:text-inherit">
+        <p className="text-lightGray text-3.5 md:text-4 font-300 leading-[1.6] print:text-inherit">
           {desc}
         </p>
       </div>

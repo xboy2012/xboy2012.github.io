@@ -29,7 +29,7 @@ export const MoreButton = ({ onClick }: Props) => {
         'no-js:!hidden', // hide the button when javascript is disabled
         'group block absolute -top-4 -right-4 border-none',
         'rounded-tl-0 rounded-br-0 rounded-tr-4 rounded-bl-4',
-        'text-7 text-orangeYellowCrayola cursor-pointer',
+        'text-3.5 md:text-4 text-orangeYellowCrayola cursor-pointer',
         'cursor-pointer bg-borderGradientOnyx shadow-2',
         'p-2.5 z-1 transition-all duration-250 ease-default',
         'md:-top-7.5 md:-right-7.5 md:py-2.5 md:px-4',
@@ -46,7 +46,7 @@ export const MoreButton = ({ onClick }: Props) => {
           'group-hover:bg-bgGradientYellow2 group-focus:bg-bgGradientYellow2',
         )}
       />
-      <span className="hidden md:block md:text-8">Show Contacts</span>
+      <span className="hidden md:block md:text-3">Show Contacts</span>
       <ChevronDown className="md:hidden" />
     </button>
   );

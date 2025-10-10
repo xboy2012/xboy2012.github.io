@@ -5,7 +5,7 @@ import { ClientItem } from './ClientItem';
 export const Clients = () => {
   return (
     <section className="mb-4 break-inside-avoid">
-      <h3 className="text-white2 capitalize text-2 print:text-inherit print:mb-2">
+      <h3 className="text-white2 capitalize text-4.5 md:text-6 print:text-inherit print:mb-2">
         Who I work for
       </h3>
 

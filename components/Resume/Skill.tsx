@@ -5,7 +5,7 @@ import { SkillItem } from './SkillItem';
 export const Skill = () => {
   return (
     <section className="skill break-inside-avoid">
-      <h3 className="text-white2 capitalize text-2 mb-5 print:mb-4 print:text-inherit">
+      <h3 className="text-white2 capitalize text-4.5 md:text-6 mb-5 print:mb-4 print:text-inherit">
         My skills
       </h3>
 

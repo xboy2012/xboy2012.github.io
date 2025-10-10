@@ -5,7 +5,7 @@ import type { TimelineItem } from '../src/types';
 export const TimelineList = memo(({ data }: { data: TimelineItem[] }) => {
   const lastIndex = data.length - 1;
   return (
-    <ul className={cx('text-6 ml-11 md:ml-16', 'print:!ml-0')}>
+    <ul className={cx('text-3.5 md:text-4 ml-11 md:ml-16', 'print:!ml-0')}>
       {data.map((o, index) => {
         const isFirst = index === 0;
         const isLast = index === lastIndex;
@@ -39,7 +39,7 @@ export const TimelineList = memo(({ data }: { data: TimelineItem[] }) => {
             )}
 
             <div className="print:flex">
-              <h4 className="text-white2 text-6 leading-[1.3] mb-2 print:text-inherit print:flex-grow">
+              <h4 className="text-white2 text-3.5 md:text-4 leading-[1.3] mb-2 print:text-inherit print:flex-grow">
                 {title}
               </h4>
 

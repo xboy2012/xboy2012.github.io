@@ -5,7 +5,7 @@ import { userData } from '../../src/data';
 export const Service = () => {
   return (
     <section className="mb-9 print:mb-4">
-      <h3 className="mb-5 text-white2 capitalize text-2 print:text-inherit print:mb-2">
+      <h3 className="mb-5 text-white2 capitalize text-4.5 md:text-6 print:text-inherit print:mb-2">
         What I Am Doing
       </h3>
 

@@ -54,11 +54,11 @@ export const ProjectItem = ({
           />
         </figure>
 
-        <h3 className="ml-2.5 text-white2 text-5 font-400 capitalize leading-[1.3] print:text-inherit">
+        <h3 className="ml-2.5 text-white2 text-4 font-400 capitalize leading-[1.3] print:text-inherit">
           {title}
         </h3>
 
-        <p className="ml-2.5 text-lightGray70 text-6 font-300 print:text-inherit">
+        <p className="ml-2.5 text-lightGray70 text-3.5 md:text-4 font-300 print:text-inherit">
           {category}
         </p>
       </a>

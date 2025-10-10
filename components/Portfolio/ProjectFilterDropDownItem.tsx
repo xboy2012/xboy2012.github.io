@@ -18,7 +18,7 @@ export const ProjectFilterDropDownItem = ({
       <button
         className={cx(
           'block bg-eerieBlack2 border-none hover:bg-eerieBlack3 text-lightGray text-left',
-          'cursor-pointer text-6 font-300 capitalize w-full py-2 px-2.5 rounded-lg',
+          'cursor-pointer text-3.5 md:text-4 font-300 capitalize w-full py-2 px-2.5 rounded-lg',
         )}
         onClick={handleSelect}
       >

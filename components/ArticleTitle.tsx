@@ -6,7 +6,7 @@ export const ArticleTitle = memo(({ title }: { title: string }) => {
     <header>
       <h2
         className={cx(
-          'relative text-white2 capitalize text-1',
+          'relative text-white2 capitalize text-6 md:text-8',
           'pb-2 mb-4',
           'md:font-600 md:pb-4 md:mb-5',
           'lg:pb-5',

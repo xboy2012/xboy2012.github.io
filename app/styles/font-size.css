@@ -1,35 +1,13 @@
 @theme inline {
-  --text-1: var(--fs-1);
-  --text-2: var(--fs-2);
-  --text-3: var(--fs-3);
-  --text-4: var(--fs-4);
-  --text-5: var(--fs-5);
-  --text-6: var(--fs-6);
-  --text-7: var(--fs-7);
-  --text-8: var(--fs-8);
-}
-
-@layer base {
-  :root {
-    --fs-1: 24px;
-    --fs-2: 18px;
-    --fs-3: 17px;
-    --fs-4: 16px;
-    --fs-5: 15px;
-    --fs-6: 14px;
-    --fs-7: 13px;
-    --fs-8: 11px;
-  }
-
-  @media (min-width: 580px) {
-    :root {
-      --fs-1: 32px;
-      --fs-2: 24px;
-      --fs-3: 26px;
-      --fs-4: 18px;
-      --fs-6: 15px;
-      --fs-7: 15px;
-      --fs-8: 12px;
-    }
-  }
+  --text-1: 4px;
+  --text-2: 8px;
+  --text-3: 12px;
+  --text-3_5: 14px;
+  --text-4: 16px;
+  --text-4_5: 18px;
+  --text-5: 20px;
+  --text-6: 24px;
+  --text-6_5: 26px;
+  --text-7: 28px;
+  --text-8: 32px;
 }

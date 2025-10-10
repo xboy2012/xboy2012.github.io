@@ -40,7 +40,7 @@ export const ProjectFilterDropDown = ({
         className={cx(
           'flex justify-between items-center w-full py-3 px-4',
           'bg-eerieBlack2 text-lightGray text-left cursor-pointer',
-          'border border-solid border-jet rounded-3.5 text-6 font-300',
+          'border border-solid border-jet rounded-3.5 text-3.5 md:text-4 font-300',
         )}
         onClick={handleSelectClick}
         title="Click to select category"

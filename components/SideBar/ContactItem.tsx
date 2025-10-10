@@ -35,7 +35,7 @@ export const ContactItem = ({
       >
         <label
           className={cx(
-            'block text-lightGray70 text-8 uppercase mb-0.5',
+            'block text-lightGray70 text-3 uppercase mb-0.5',
             'print:mb-0 print:mr-2 print:text-inherit',
           )}
         >
