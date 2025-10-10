@@ -28,7 +28,6 @@
     "**/*.cts",
     "**/*.mts",
     ".next/types/**/*.ts",
-    "next.config.mjs",
     "postcss.config.mjs",
     "prettier.config.mjs"
   ],
