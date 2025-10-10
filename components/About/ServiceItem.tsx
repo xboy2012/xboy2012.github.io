@@ -20,16 +20,16 @@ export const ServiceItem = ({
   return (
     <li
       className={cx(
-        'relative bg-borderGradientOnyx p-5 rounded-[14px] shadow-2 z-1',
-        'md:flex md:justify-start md:items-start md:gap-[18px] md:p-[30px]',
+        'relative bg-borderGradientOnyx p-5 rounded-3.5 shadow-2 z-1',
+        'md:flex md:justify-start md:items-start md:gap-5 md:p-7.5',
         'print:bg-none print:border-none print:shadow-none print:p-0 print:!gap-0',
       )}
     >
       <div className="absolute inset-px bg-eerieBlack1 bg-bgGradientJet rounded-inherit -z-1 print:hidden" />
-      <div className="mb-2.5 md:mb-0 md:mt-[5px] print:hidden">
+      <div className="mb-2.5 md:mb-0 md:mt-1.25 print:hidden">
         <div
           className={cx(
-            'mx-auto aspect-square bg-contain bg-center bg-no-repeat w-[40px] h-[40px]',
+            'mx-auto aspect-square bg-contain bg-center bg-no-repeat w-10 h-10',
             classNames[id],
           )}
           title={name}
@@ -39,7 +39,7 @@ export const ServiceItem = ({
       <div className="text-center md:text-left">
         <h4
           className={cx(
-            'mb-[7px] text-white2 capitalize text-2',
+            'mb-2 text-white2 capitalize text-2',
             'print:text-inherit print:text-4 print:mb-0',
           )}
         >

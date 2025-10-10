@@ -5,7 +5,7 @@ import type { TimelineItem } from '../src/types';
 export const TimelineList = memo(({ data }: { data: TimelineItem[] }) => {
   const lastIndex = data.length - 1;
   return (
-    <ul className={cx('text-6 ml-[45px] md:ml-[65px]', 'print:!ml-0')}>
+    <ul className={cx('text-6 ml-11 md:ml-16', 'print:!ml-0')}>
       {data.map((o, index) => {
         const isFirst = index === 0;
         const isLast = index === lastIndex;
@@ -20,7 +20,7 @@ export const TimelineList = memo(({ data }: { data: TimelineItem[] }) => {
             {isFirst && (
               <div
                 className={cx(
-                  'absolute -top-[50px] h-[60px] -left-[30px] md:-left-[40px]',
+                  'absolute -top-12.5 h-15 -left-7.5 md:-left-10',
                   'w-px bg-jet',
                   'print:hidden',
                 )}
@@ -30,7 +30,7 @@ export const TimelineList = memo(({ data }: { data: TimelineItem[] }) => {
             {!isLast && (
               <div
                 className={cx(
-                  'absolute top-[8px] -bottom-[30px] -left-[30px] md:-left-[40px]',
+                  'absolute top-2 -bottom-7.5 -left-7.5 md:-left-10',
                   'w-px bg-jet',
                   'print:hidden',
                 )}
@@ -39,7 +39,7 @@ export const TimelineList = memo(({ data }: { data: TimelineItem[] }) => {
             )}
 
             <div className="print:flex">
-              <h4 className="text-white2 text-6 leading-[1.3] mb-[7px] print:text-inherit print:flex-grow">
+              <h4 className="text-white2 text-6 leading-[1.3] mb-2 print:text-inherit print:flex-grow">
                 {title}
               </h4>
 
@@ -53,7 +53,7 @@ export const TimelineList = memo(({ data }: { data: TimelineItem[] }) => {
             {desc.map((text, i) => {
               return (
                 <p
-                  className="text-lightGray font-300 leading-[1.6] 2xl:max-w-[700px] print:text-inherit"
+                  className="text-lightGray font-300 leading-[1.6] 2xl:max-w-175 print:text-inherit"
                   key={i}
                 >
                   {text}
@@ -63,8 +63,8 @@ export const TimelineList = memo(({ data }: { data: TimelineItem[] }) => {
 
             <div
               className={cx(
-                'absolute top-[5px] h-1.5 w-1.5 -left-[33px]',
-                'md:h-2 md:w-2 md:-left-[43px]',
+                'absolute top-1.25 h-1.5 w-1.5 -left-8',
+                'md:h-2 md:w-2 md:-left-11',
                 'bg-textGradientYellow rounded-full shadow-timeline',
                 'print:hidden',
               )}

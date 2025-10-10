@@ -4,14 +4,14 @@ import { userData } from '../../src/data';
 
 export const Service = () => {
   return (
-    <section className="mb-[35px] print:mb-4">
-      <h3 className="mb-[20px] text-white2 capitalize text-2 print:text-inherit print:mb-2">
+    <section className="mb-9 print:mb-4">
+      <h3 className="mb-5 text-white2 capitalize text-2 print:text-inherit print:mb-2">
         What I Am Doing
       </h3>
 
       <ul
         className={cx(
-          'grid grid-cols-1fr gap-[20px] xl:grid-cols-1fr1fr xl:gap-y-[20px] xl:gap-x-[25px]',
+          'grid grid-cols-1fr gap-5 xl:grid-cols-1fr1fr xl:gap-y-5 xl:gap-x-6',
           'print:!gap-0',
         )}
       >

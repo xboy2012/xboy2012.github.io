@@ -25,17 +25,17 @@ export const SideBar = () => {
     <aside
       className={cx(
         'order-1',
-        'bg-eerieBlack2 border border-solid border-jet rounded-[20px] p-[15px]',
-        'shadow-1 z-1 mb-[15px] overflow-hidden transition-all duration-500 ease-in-out',
-        'md:w-[520px] md:[margin-inline:auto] md:p-[30px] md:mb-[30px]',
-        'lg:w-[700px]',
-        'xl:w-[950px] xl:shadow-5',
-        '2xl:w-auto 2xl:sticky 2xl:top-[60px] 2xl:h-full 2xl:mb-0 2xl:pt-[60px] 2xl:z-1',
+        'bg-eerieBlack2 border border-solid border-jet rounded-5 p-4',
+        'shadow-1 z-1 mb-4 overflow-hidden transition-all duration-500 ease-in-out',
+        'md:w-130 md:[margin-inline:auto] md:p-7.5 md:mb-7.5',
+        'lg:w-175',
+        'xl:w-237.5 xl:shadow-5',
+        '2xl:w-auto 2xl:sticky 2xl:top-15 2xl:h-full 2xl:mb-0 2xl:pt-15 2xl:z-1',
         showSideBar
-          ? 'max-h-[405px] md:max-h-[584px] 2xl:max-h-[initial]'
-          : 'max-h-[112px] md:max-h-[180px] 2xl:max-h-max',
+          ? 'max-h-101 md:max-h-146 2xl:max-h-[initial]'
+          : 'max-h-28 md:max-h-45 2xl:max-h-max',
         // always expand the area when javascript is disabled
-        'no-js:!max-h-[405px] no-js:md:!max-h-[584px] no-js:2xl:!max-h-[initial]',
+        'no-js:!max-h-101 no-js:md:!max-h-146 no-js:2xl:!max-h-[initial]',
         'print:!w-full',
         'print:max-h-none print:bg-inherit print:border-none print:shadow-none print:!mx-auto print:!mb-4 print:!p-0 print:rounded-none',
       )}
@@ -53,8 +53,8 @@ export const SideBar = () => {
 
         <ul
           className={cx(
-            'grid grid-cols-1fr gap-[16px] md:gap-[20px] lg:gap-x-[15px]',
-            'lg:grid-cols-1fr1fr lg:gap-y-[30px] 2xl:grid-cols-1fr',
+            'grid grid-cols-1fr gap-4 md:gap-5 lg:gap-x-4',
+            'lg:grid-cols-1fr1fr lg:gap-y-7.5 2xl:grid-cols-1fr',
             'print:flex print:flex-col print:gap-0',
           )}
         >
@@ -65,7 +65,7 @@ export const SideBar = () => {
 
         <Separator />
 
-        <ul className="flex justify-start 2xl:justify-center items-center gap-[15px] pb-1 pl-[7px] print:hidden">
+        <ul className="flex justify-start 2xl:justify-center items-center gap-4 pb-1 pl-2 print:hidden">
           <LinkFacebook />
           <LinkTwitter />
           <LinkGithub />

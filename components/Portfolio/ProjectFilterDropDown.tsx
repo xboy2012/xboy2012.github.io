@@ -34,13 +34,13 @@ export const ProjectFilterDropDown = ({
   return (
     <div
       hidden={hidden}
-      className="relative mb-[25px] block lg:hidden no-js:!hidden print:hidden"
+      className="relative mb-6 block lg:hidden no-js:!hidden print:hidden"
     >
       <button
         className={cx(
           'flex justify-between items-center w-full py-3 px-4',
           'bg-eerieBlack2 text-lightGray text-left cursor-pointer',
-          'border border-solid border-jet rounded-[14px] text-6 font-300',
+          'border border-solid border-jet rounded-3.5 text-6 font-300',
         )}
         onClick={handleSelectClick}
         title="Click to select category"
@@ -55,7 +55,7 @@ export const ProjectFilterDropDown = ({
       <ul
         className={cx(
           'bg-eerieBlack2 absolute w-full p-1.5 z-[2]',
-          'border border-solid border-jet rounded-[14px]',
+          'border border-solid border-jet rounded-3.5',
           isSelecting
             ? 'opacity-100 visible pointer-events-auto'
             : 'opacity-0 invisible pointer-events-none',

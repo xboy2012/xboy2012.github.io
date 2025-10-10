@@ -34,7 +34,14 @@
 }
 
 @theme inline {
+  --radius-1: 4px;
+  --radius-1_25: 5px;
+  --radius-2_5: 10px;
   --radius-2_5xl: 20px;
+  --radius-3_5: 14px;
+  --radius-4: 16px;
+  --radius-5: 20px;
+  --radius-7_5: 30px;
 
   --font-weight-200: 200;
   --font-weight-300: 300;
@@ -48,8 +55,46 @@
 
   --scale-80: 0.8;
 
+  --spacing-0: 0;
+  --spacing-1: 4px;
+  --spacing-1_25: 5px;
+  --spacing-2: 8px;
+  --spacing-2_5: 10px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-5: 20px;
+  --spacing-6: 24px;
+  --spacing-7: 28px;
   --spacing-7_5: 30px;
-  --spacing-1000: 1000px;
+  --spacing-8: 32px;
+  --spacing-9: 36px;
+  --spacing-10: 40px;
+  --spacing-11: 44px;
+  --spacing-12: 48px;
+  --spacing-12_5: 50px;
+  --spacing-13: 52px;
+  --spacing-14: 56px;
+  --spacing-15: 60px;
+  --spacing-16: 64px;
+  --spacing-17: 68px;
+  --spacing-18: 72px;
+  --spacing-19: 76px;
+  --spacing-20: 80px;
+  --spacing-25: 100px;
+  --spacing-28: 112px;
+  --spacing-30: 120px;
+  --spacing-37_5: 150px;
+  --spacing-45: 180px;
+  --spacing-50: 200px;
+  --spacing-57_5: 230px;
+  --spacing-65: 260px;
+  --spacing-101: 404px;
+  --spacing-130: 520px;
+  --spacing-146: 584px;
+  --spacing-175: 700px;
+  --spacing-237_5: 950px;
+  --spacing-250: 1000px;
+  --spacing-300: 1200px;
   --spacing-contact: calc(100% - 46px);
   --spacing-contact2: calc(100% - 64px);
 }

@@ -7,17 +7,17 @@ export const ArticleTitle = memo(({ title }: { title: string }) => {
       <h2
         className={cx(
           'relative text-white2 capitalize text-1',
-          'pb-[7px] mb-[15px]',
-          'md:font-600 md:pb-[15px] md:mb-[20px]',
-          'lg:pb-[20px]',
+          'pb-2 mb-4',
+          'md:font-600 md:pb-4 md:mb-5',
+          'lg:pb-5',
           'print:hidden',
         )}
       >
         {title}
         <div
           className={cx(
-            'absolute bottom-0 left-0 bg-textGradientYellow rounded-[3px]',
-            'w-[30px] h-[3px] md:w-[40px] md:h-[5px]',
+            'absolute bottom-0 left-0 bg-textGradientYellow rounded-1',
+            'w-7.5 h-1 md:w-10 md:h-1.25',
             'print:hidden',
           )}
           aria-hidden

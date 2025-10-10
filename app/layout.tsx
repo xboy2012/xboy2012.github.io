@@ -161,10 +161,10 @@ export default function RootLayout({
         <ServiceWorkerRegister />
         <main
           className={cx(
-            'mt-[15px] mb-[75px] mx-[12px] min-w-[259px] text-white2',
-            'md:mt-[60px] md:mb-[100px] xl:mb-[60px]',
-            '2xl:max-w-[1200px] 2xl:[margin-inline:auto]',
-            'flex flex-col 2xl:flex-row 2xl:justify-center 2xl:items-stretch 2xl:gap-[25px]',
+            'mt-4 mb-19 mx-3 min-w-65 text-white2',
+            'md:mt-15 md:mb-25 xl:mb-15',
+            '2xl:max-w-300 2xl:[margin-inline:auto]',
+            'flex flex-col 2xl:flex-row 2xl:justify-center 2xl:items-stretch 2xl:gap-6',
             'print:text-black print:!m-0',
           )}
         >

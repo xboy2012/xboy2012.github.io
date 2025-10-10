@@ -16,7 +16,7 @@ export const ContactItem = ({
         className={cx(
           'relative bg-borderGradientOnyx flex justify-center items-center',
           'text-orangeYellowCrayola shadow-1 z-1',
-          'w-[30px] h-[30px] md:w-[48px] md:h-[48px]',
+          'w-7.5 h-7.5 md:w-12 md:h-12',
           'rounded-lg md:rounded-xl',
           'text-base md:text-lg',
           'print:hidden',

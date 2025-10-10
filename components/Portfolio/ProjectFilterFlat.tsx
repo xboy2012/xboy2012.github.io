@@ -15,7 +15,7 @@ export const ProjectFilterFlat = ({
       hidden
       className={cx(
         'hidden no-js:!hidden lg:flex',
-        'justify-start items-center gap-[25px] pl-[5px] mb-[30px]',
+        'justify-start items-center gap-6 pl-1.25 mb-7.5',
         'print:flex',
       )}
     >

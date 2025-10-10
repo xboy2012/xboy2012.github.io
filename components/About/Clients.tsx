@@ -4,27 +4,27 @@ import { ClientItem } from './ClientItem';
 
 export const Clients = () => {
   return (
-    <section className="mb-[15px] break-inside-avoid">
+    <section className="mb-4 break-inside-avoid">
       <h3 className="text-white2 capitalize text-2 print:text-inherit print:mb-2">
         Who I work for
       </h3>
 
       <ul
         className={cx(
-          'flex justify-start items-start gap-[15px] md:gap-[50px]',
-          'my-0 -mx-[15px] md:-mx-[30px] p-[25px] md:p-[45px]',
+          'flex justify-start items-start gap-4 md:gap-8',
+          'my-0 -mx-4 md:-mx-7.5 p-6 md:p-11',
           'flex-wrap sm:flex-nowrap',
           'sm:overflow-x-auto scroll-smooth',
           '[overscroll-behavior-inline:contain]',
           '[scroll-snap-type:inline_mandatory]',
-          '[scroll-padding-inline:25px] md:[scroll-padding-inline:45px]',
-          'webkit-scrollbar:w-[5px] webkit-scrollbar:h-[5px]',
+          'scroll-px-6 md:scroll-px-11',
+          'webkit-scrollbar:w-1.25 webkit-scrollbar:h-1.25',
           'webkit-scrollbar-track:bg-onyx',
-          'webkit-scrollbar-track:rounded-[5px]',
+          'webkit-scrollbar-track:rounded-1.25',
           'webkit-scrollbar-thumb:bg-orangeYellowCrayola',
-          'webkit-scrollbar-thumb:rounded-[5px]',
-          'webkit-scrollbar-button:w-[20px]',
-          'lg:webkit-scrollbar-button:w-[100px]',
+          'webkit-scrollbar-thumb:rounded-1.25',
+          'webkit-scrollbar-button:w-5',
+          'lg:webkit-scrollbar-button:w-25',
           'print:flex-col print:m-0 print:p-0 print:gap-0',
         )}
       >

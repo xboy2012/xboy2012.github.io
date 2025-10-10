@@ -5,7 +5,7 @@ export const NavBar = () => {
   return (
     <nav
       className={cx(
-        'fixed bottom-0 left-0 w-full bg-[#2B2B2CBF] backdrop-blur-[10px] border border-solid border-jet shadow-2 xl:shadow-none z-5',
+        'fixed bottom-0 left-0 w-full bg-[#2B2B2CBF] backdrop-blur-2.5 border border-solid border-jet shadow-2 xl:shadow-none z-5',
         'xl:absolute xl:bottom-auto xl:top-0 xl:left-auto xl:right-0 xl:w-max xl:px-5',
         'rounded-t-xl',
         'md:rounded-t-2.5xl',

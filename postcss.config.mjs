@@ -3,6 +3,7 @@
 const config = {
   plugins: {
     '@tailwindcss/postcss': {},
+    'postcss-calc': {},
   },
 };
 export default config;

@@ -30,9 +30,9 @@ export const BlogItem = (props: BlogItemProps) => {
         <figure
           className={cx(
             'overflow-hidden',
-            'w-full h-[200px] sm:h-auto sm:aspect-video xl:h-[230px] xl:aspect-auto',
+            'w-full h-50 sm:h-auto sm:aspect-video xl:h-57.5 xl:aspect-auto',
             'rounded-xl md:rounded-2xl',
-            'print:w-[200px] print:h-[200px] print:mr-4 print:border-black print:border-[1px] print:border-solid',
+            'print:w-50 print:h-50 print:mr-4 print:border-black print:border-px print:border-solid',
           )}
         >
           <div
@@ -47,8 +47,8 @@ export const BlogItem = (props: BlogItemProps) => {
           />
         </figure>
 
-        <div className="p-[15px] md:p-[25px] print:flex-1 print:!p-0">
-          <div className="flex justify-start items-center gap-[7px] mb-2.5">
+        <div className="p-4 md:p-6 print:flex-1 print:!p-0">
+          <div className="flex justify-start items-center gap-2 mb-2.5">
             <span className="text-lightGray70 text-6 font-300 print:text-inherit">
               {category}
             </span>

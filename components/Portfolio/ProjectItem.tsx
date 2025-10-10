@@ -18,9 +18,9 @@ export const ProjectItem = ({
       <a href={link} className="block w-full" target="_blank">
         <figure
           className={cx(
-            'relative rounded-2xl overflow-hidden mb-[15px]',
-            'w-full h-[200px] sm:h-auto sm:aspect-[4/3]',
-            'print:border-solid print:border-[1px] print:border-black',
+            'relative rounded-2xl overflow-hidden mb-4',
+            'w-full h-50 sm:h-auto sm:aspect-[4/3]',
+            'print:border-solid print:border-px print:border-black',
           )}
         >
           <div
@@ -33,7 +33,7 @@ export const ProjectItem = ({
           <div
             className={cx(
               'bg-jet text-orangeYellowCrayola',
-              'absolute top-1/2 left-1/2 text-xl p-[18px] rounded-xl z-1',
+              'absolute top-1/2 left-1/2 text-xl p-5 rounded-xl z-1',
               'transition-all duration-250 ease-default',
               '-translate-x-1/2 -translate-y-1/2 scale-80 opacity-0',
               'group-hover:scale-100 group-hover:opacity-100',

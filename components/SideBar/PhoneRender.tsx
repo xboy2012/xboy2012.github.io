@@ -14,7 +14,7 @@ export const PhoneRender = ({ phoneCA }: { phoneCA: string }) => {
       onClick={mounted ? undefined : preventDefault}
       href={mounted ? `tel:${phoneCA}` : undefined}
       className={cx(
-        'block cursor-pointer text-[13px] md:text-[15px] 2xl:text-[14px] font-300',
+        'block cursor-pointer text-7 font-300',
         '2xl:whitespace-nowrap 2xl:overflow-hidden 2xl:text-ellipsis',
       )}
     >

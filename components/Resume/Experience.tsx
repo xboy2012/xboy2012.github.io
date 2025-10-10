@@ -16,8 +16,8 @@ export const Experience = () => {
     });
   }, []);
   return (
-    <section className="mb-[30px]">
-      <div className="flex items-center gap-[15px] mb-[25px]">
+    <section className="mb-7.5">
+      <div className="flex items-center gap-4 mb-6">
         <IconBox />
         <h3 className="capitalize text-2">Experience</h3>
       </div>
