@@ -8,7 +8,6 @@
     "build": "next build && tsx scripts/buildServiceWorker && tsx scripts/bingIndexing/postbuild",
     "start": "next start",
     "lint": "eslint",
-    "lint-legacy": "ESLINT_USE_FLAT_CONFIG=false eslint . --ext .js,.jsx,.cjs,.mjs,.ts,.tsx,.mts,.cts",
     "typecheck": "tsc --noEmit",
     "prepare": "husky",
     "test": "jest"
