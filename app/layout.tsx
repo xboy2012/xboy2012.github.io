@@ -163,7 +163,7 @@ export default function RootLayout({
           className={cx(
             'mt-4 mb-19 mx-3 min-w-65 text-white2',
             'md:mt-15 md:mb-25 xl:mb-15',
-            '2xl:max-w-300 2xl:[margin-inline:auto]',
+            '2xl:max-w-300 2xl:mx-auto',
             'flex flex-col 2xl:flex-row 2xl:justify-center 2xl:items-stretch 2xl:gap-6',
             'print:text-black print:!m-0',
           )}

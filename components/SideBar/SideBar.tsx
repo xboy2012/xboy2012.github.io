@@ -27,7 +27,7 @@ export const SideBar = () => {
         'order-1',
         'bg-eerieBlack2 border border-solid border-jet rounded-5 p-4',
         'shadow-1 z-1 mb-4 overflow-hidden transition-all duration-500 ease-in-out',
-        'md:w-130 md:[margin-inline:auto] md:p-7.5 md:mb-7.5',
+        'md:w-130 md:mx-auto md:p-7.5 md:mb-7.5',
         'lg:w-175',
         'xl:w-237.5 xl:shadow-5',
         '2xl:w-auto 2xl:sticky 2xl:top-15 2xl:h-full 2xl:mb-0 2xl:pt-15 2xl:z-1',
