@@ -1,6 +1,6 @@
-// @ts-check
-/** @type {import("prettier").Config} */
-const config = {
+import type { Config } from 'prettier';
+
+const config: Config = {
   semi: true,
   singleQuote: true,
   quoteProps: 'consistent',

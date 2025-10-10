@@ -29,8 +29,7 @@
     "**/*.mts",
     ".next/types/**/*.ts",
     ".eslintrc.cjs",
-    "postcss.config.mjs",
-    "prettier.config.mjs"
+    "postcss.config.mjs"
   ],
   "exclude": [
     "node_modules",
