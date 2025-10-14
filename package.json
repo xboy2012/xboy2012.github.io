@@ -36,7 +36,7 @@
     "@types/eslint": "^9.6.1",
     "@types/jest": "^30.0.0",
     "@types/mdx": "^2.0.13",
-    "@types/node": "^22.18.10",
+    "@types/node": "^24.7.2",
     "@types/react": "^19.2.2",
     "@types/react-dom": "^19.2.2",
     "autoprefixer": "^10.4.21",
@@ -76,6 +76,6 @@
   },
   "engineStrict": true,
   "engines": {
-    "node": "^22.20.0"
+    "node": "^24.10.0"
   }
 }

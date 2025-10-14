@@ -1,6 +1,6 @@
 ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/xboy2012/xboy2012.github.io/nextjs.yml?branch=master&logo=github)
 ![TypeScript](https://img.shields.io/badge/typescript-%5E5.9.3-blue?logo=typescript)
-![Node.js](https://img.shields.io/badge/node.js-%3E=22.20.0-green?logo=nodedotjs)
+![Node.js](https://img.shields.io/badge/node.js-%3E=24.10.0-green?logo=nodedotjs)
 ![Prettier](https://img.shields.io/badge/prettier-^3.6.2-ff69b4.svg?logo=prettier)
 ![ESLint](https://img.shields.io/badge/eslint-^9.37.0-341bab.svg?logo=eslint)
 
