@@ -21,6 +21,7 @@ export const BlogItem = (props: BlogItemProps) => {
       <a
         href={link}
         target="_blank"
+        rel="noreferrer noopener"
         className={cx(
           'block relative bg-borderGradientOnyx h-full shadow-4 rounded-2xl z-1',
           'print:flex print:relative print:bg-none print:shadow-none',

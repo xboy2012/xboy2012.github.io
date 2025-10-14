@@ -15,6 +15,7 @@ export const LinkLinkedin = () => {
         title={title}
         href={`https://linkedin.com/${linkedin}`}
         target="_blank"
+        rel="noreferrer noopener"
         className="block text-lightGray70 text-lg hover:text-lightGray"
       >
         <LogoLinkedin />

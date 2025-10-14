@@ -15,6 +15,7 @@ export const LinkNpm = () => {
         title={title}
         href={`https://www.npmjs.com/~${npm}`}
         target="_blank"
+        rel="noreferrer noopener"
         className="block text-lightGray70 text-lg hover:text-lightGray"
       >
         <LogoNpm />

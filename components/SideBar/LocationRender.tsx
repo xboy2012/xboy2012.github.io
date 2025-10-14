@@ -10,6 +10,7 @@ export const LocationRender = ({ location }: { location: string }) => {
       )}
       href={getGoogleMapUrl(location)}
       target="_blank"
+      rel="noreferrer noopener"
     >
       <address className="not-italic">{location}</address>
     </a>

@@ -25,6 +25,7 @@ export const ClientItem = ({ name, link }: { name: string; link: string }) => {
       <a
         href={link}
         target="_blank"
+        rel="noreferrer noopener"
         title={name}
         className="relative block w-full h-full"
       >

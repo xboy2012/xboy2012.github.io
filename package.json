@@ -21,9 +21,11 @@
     "workbox-window": "^7.3.0"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3.3.1",
+    "@eslint/core": "^0.16.0",
+    "@eslint/js": "^9.37.0",
     "@mdx-js/loader": "^3.1.1",
     "@mdx-js/react": "^3.1.1",
+    "@next/eslint-plugin-next": "^15.5.5",
     "@next/mdx": "^15.5.5",
     "@rollup/plugin-node-resolve": "^16.0.3",
     "@rollup/plugin-replace": "^6.0.2",
@@ -40,10 +42,13 @@
     "autoprefixer": "^10.4.21",
     "esbuild": ">=0.25.0",
     "eslint": "^9.37.0",
-    "eslint-config-next": "^15.5.5",
     "eslint-config-prettier": "^10.1.8",
+    "eslint-import-resolver-typescript": "^4.4.4",
+    "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-prettier": "^5.5.4",
-    "eslint-plugin-unicorn": "^56.0.1",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.0.0",
+    "eslint-plugin-unicorn": "^61.0.2",
     "husky": "^9.1.7",
     "jest": "^30.2.0",
     "jest-environment-jsdom": "^30.2.0",
@@ -66,7 +71,8 @@
     "whatwg-fetch": "^3.6.20"
   },
   "resolutions": {
-    "postcss": "^8.5.6"
+    "postcss": "^8.5.6",
+    "@eslint/plugin-kit": "^0.4.0"
   },
   "engineStrict": true,
   "engines": {

@@ -15,7 +15,12 @@ export const ProjectItem = ({
 }) => {
   return (
     <li className="group animate-scaleUp break-inside-avoid">
-      <a href={link} className="block w-full" target="_blank">
+      <a
+        href={link}
+        className="block w-full"
+        target="_blank"
+        rel="noreferrer noopener"
+      >
         <figure
           className={cx(
             'relative rounded-2xl overflow-hidden mb-4',

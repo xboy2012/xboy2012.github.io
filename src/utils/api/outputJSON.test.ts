@@ -1,4 +1,3 @@
-import 'whatwg-fetch';
 import { outputJSON } from './outputJSON';
 import { calculateDataHash } from './calculateDataHash';
 
