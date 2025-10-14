@@ -16,6 +16,12 @@ export default defineConfig([
   eslintPluginReact.configs.flat.recommended,
   eslintPluginReact.configs.flat['jsx-runtime'],
   {
+    rules: {
+      'react/display-name': 'off',
+      'react/prop-types': 'off',
+    },
+  },
+  {
     plugins: {
       'react-hooks': eslintPluginReactHooks,
       'rules': {
@@ -29,15 +35,6 @@ export default defineConfig([
     },
     rules: {
       'unicorn/prefer-node-protocol': 'error',
-    },
-  },
-  {
-    plugins: {
-      react: eslintPluginReact,
-    },
-    rules: {
-      'react/display-name': 'off',
-      'react/prop-types': 'off',
     },
   },
   {
@@ -67,6 +64,43 @@ export default defineConfig([
     },
   },
   {
+    rules: {
+      'import/no-extraneous-dependencies': [
+        'error',
+        {
+          devDependencies: false,
+          optionalDependencies: false,
+          peerDependencies: false,
+          bundledDependencies: false,
+        },
+      ],
+    },
+  },
+  {
+    files: [
+      '**/*.test.{ts,tsx,js,jsx}',
+      'scripts/**',
+      'eslint.config.mts',
+      'jest.config.ts',
+      'jest.setup.ts',
+      'next.config.ts',
+      'postcss.config.mts',
+      'postcss.config.mjs',
+      'prettier.config.mts',
+    ],
+    rules: {
+      'import/no-extraneous-dependencies': [
+        'error',
+        {
+          devDependencies: true,
+          optionalDependencies: true,
+          peerDependencies: true,
+          bundledDependencies: true,
+        },
+      ],
+    },
+  },
+  {
     languageOptions: {
       globals: {
         ...globals.node,
@@ -88,9 +122,6 @@ export default defineConfig([
   tseslint.configs.recommended,
   {
     files: ['*.{ts,tsx,mts,cts}'],
-    plugins: {
-      '@typescript-eslint': tseslint.plugin,
-    },
     rules: {
       '@typescript-eslint/consistent-type-imports': [
         'error',
@@ -103,9 +134,6 @@ export default defineConfig([
   },
   {
     files: ['next-env.d.ts'],
-    plugins: {
-      '@typescript-eslint': tseslint.plugin,
-    },
     rules: {
       '@typescript-eslint/triple-slash-reference': 'off',
     },
