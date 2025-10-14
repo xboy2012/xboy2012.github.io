@@ -115,7 +115,7 @@ export default defineConfig([
   eslintPluginPrettierRecommended,
   tseslint.configs.recommended,
   {
-    files: ['*.{ts,tsx,mts,cts}'],
+    files: ['**/*.{ts,tsx,mts,cts}'],
     rules: {
       '@typescript-eslint/consistent-type-imports': [
         'error',
