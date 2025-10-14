@@ -9,7 +9,7 @@
     "start": "next start",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
-    "prepare": "husky",
+    "prepare": "husky && tsx scripts/prepare",
     "test": "jest"
   },
   "dependencies": {
