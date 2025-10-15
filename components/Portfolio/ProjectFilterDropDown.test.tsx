@@ -1,4 +1,3 @@
-import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { ProjectFilterDropDown } from './ProjectFilterDropDown';
 import { categories } from './categories';

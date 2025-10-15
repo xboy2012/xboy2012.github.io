@@ -1,4 +1,3 @@
-import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import { BlogDetail } from '.';
 import { formatDateTime } from '../../src/utils/formatDateTime';

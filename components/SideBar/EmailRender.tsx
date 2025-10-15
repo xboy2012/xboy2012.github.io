@@ -8,7 +8,7 @@ export const EmailRender = ({ email }: { email: string }) => {
   return (
     <a
       onClick={mounted ? undefined : preventDefault}
-      href={mounted ? `mailto:${email}` : undefined}
+      href={mounted ? `mailto:${email}` : '#'}
       className={cx(
         'block cursor-pointer text-3.5 md:text-4 font-300',
         '2xl:whitespace-nowrap 2xl:overflow-hidden 2xl:text-ellipsis',

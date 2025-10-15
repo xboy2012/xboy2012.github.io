@@ -1,5 +1,4 @@
-import '@testing-library/jest-dom';
-import { render } from '@testing-library/react';
+import { renderHook } from '@testing-library/react';
 import { useFixPageUrl } from './useFixPageUrl';
 import { replaceBrowserUrl } from '../utils/replaceBrowserUrl';
 
@@ -17,21 +16,20 @@ jest.mock('../utils/getFixedPageUrl', () => {
   };
 });
 
-const App = () => {
-  useFixPageUrl();
-  return null;
-};
-
 describe('useFixPageUrl should work as expected', () => {
   test('should not redirect', () => {
     mockFixedPageUrl = undefined;
-    render(<App />);
+    renderHook(() => {
+      useFixPageUrl();
+    });
     expect(replaceBrowserUrl).not.toHaveBeenCalled();
   });
 
   test('should redirect', () => {
     mockFixedPageUrl = new URL('https://www.example.com/a');
-    render(<App />);
+    renderHook(() => {
+      useFixPageUrl();
+    });
     expect(replaceBrowserUrl).toHaveBeenCalled();
   });
 });

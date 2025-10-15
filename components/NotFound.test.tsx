@@ -1,4 +1,3 @@
-import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
 import { NotFound } from './NotFound';
 import type { FixPageUrlStatus } from '../src/hooks/useFixPageUrl';

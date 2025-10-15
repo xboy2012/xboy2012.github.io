@@ -1,4 +1,3 @@
-import '@testing-library/jest-dom';
 import type { ComponentType, PropsWithChildren } from 'react';
 import { render, screen } from '@testing-library/react';
 import { getMdxComponents } from '.';

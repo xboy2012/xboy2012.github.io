@@ -1,4 +1,3 @@
-import '@testing-library/jest-dom';
 import { useNoJs } from './useNoJs';
 
 describe('useNoJs should work as expected in Browser', () => {

@@ -1,4 +1,3 @@
-import '@testing-library/jest-dom';
 import { render } from '@testing-library/react';
 import { Portfolio } from '.';
 import type { Thing } from 'schema-dts';
