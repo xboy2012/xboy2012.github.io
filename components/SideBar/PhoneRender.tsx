@@ -1,14 +1,11 @@
-import { useEffect, useState } from 'react';
 import { cx } from '../../src/utils/cx';
 import { Obfuscate } from '../Obfuscate';
 import { displayPhoneCA } from '../../src/utils/displayPhoneCA';
 import { preventDefault } from '../../src/utils/preventDefault';
+import { useMounted } from '../../src/hooks/useMounted';
 
 export const PhoneRender = ({ phoneCA }: { phoneCA: string }) => {
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const mounted = useMounted();
   return (
     <a
       onClick={mounted ? undefined : preventDefault}

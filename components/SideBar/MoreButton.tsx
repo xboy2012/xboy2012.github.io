@@ -1,17 +1,14 @@
-import { type MouseEvent, useCallback, useEffect, useState } from 'react';
+import { type MouseEvent, useCallback } from 'react';
 import { cx } from '../../src/utils/cx';
 import { ChevronDown } from '../Icons/ChevronDown';
+import { useMounted } from '../../src/hooks/useMounted';
 
 interface Props {
   onClick: () => void;
 }
 
 export const MoreButton = ({ onClick }: Props) => {
-  const [hidden, setHidden] = useState(true);
-
-  useEffect(() => {
-    setHidden(false);
-  }, []);
+  const mounted = useMounted();
 
   const handleClick = useCallback(
     (e: MouseEvent<HTMLButtonElement>) => {
@@ -24,7 +21,7 @@ export const MoreButton = ({ onClick }: Props) => {
 
   return (
     <button
-      hidden={hidden}
+      hidden={!mounted}
       className={cx(
         'no-js:!hidden', // hide the button when javascript is disabled
         'group block absolute -top-4 -right-4 border-none',

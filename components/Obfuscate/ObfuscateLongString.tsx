@@ -1,15 +1,12 @@
-import { memo, useEffect, useState } from 'react';
+import { memo } from 'react';
 import { InitialObfuscateLongString } from './InitialObfuscateLongString';
 import { CssObfuscateLongString } from './CssObfuscateLongString';
+import { useMounted } from '../../src/hooks/useMounted';
 
 export const ObfuscateLongString = memo(({ text }: { text: string }) => {
-  const [cssObfuscate, setCssObfuscate] = useState(false);
+  const mounted = useMounted();
 
-  useEffect(() => {
-    setCssObfuscate(true);
-  }, []);
-
-  if (!cssObfuscate) {
+  if (!mounted) {
     return <InitialObfuscateLongString text={text} />;
   }
 

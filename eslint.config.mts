@@ -1,18 +1,20 @@
+import { defineConfig } from '@eslint/config-helpers';
 import type { Plugin, RulesConfig } from '@eslint/core';
 import js from '@eslint/js';
-import nextPlugin from '@next/eslint-plugin-next';
-import { defineConfig } from 'eslint/config';
-import importPlugin from 'eslint-plugin-import';
+import eslintPluginNext from '@next/eslint-plugin-next';
+import eslintPluginImport from 'eslint-plugin-import';
 import eslintConfigPrettier from 'eslint-config-prettier/flat';
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
 import eslintPluginUnicorn from 'eslint-plugin-unicorn';
 import eslintPluginReact from 'eslint-plugin-react';
 import eslintPluginReactHooks from 'eslint-plugin-react-hooks';
 import globals from 'globals';
-import tseslint from 'typescript-eslint';
+import { configs as typeScriptEslintConfigs } from 'typescript-eslint';
 
 export default defineConfig([
   js.configs.recommended,
+
+  // react configs
   eslintPluginReact.configs.flat.recommended,
   eslintPluginReact.configs.flat['jsx-runtime'],
   {
@@ -21,14 +23,9 @@ export default defineConfig([
       'react/prop-types': 'off',
     },
   },
-  {
-    plugins: {
-      'react-hooks': eslintPluginReactHooks,
-      'rules': {
-        ...eslintPluginReactHooks.configs.recommended.rules,
-      },
-    },
-  },
+  eslintPluginReactHooks.configs.flat.recommended,
+
+  // prefer-node-protocol
   {
     plugins: {
       unicorn: eslintPluginUnicorn,
@@ -37,9 +34,11 @@ export default defineConfig([
       'unicorn/prefer-node-protocol': 'error',
     },
   },
+
+  // import configs
+  eslintPluginImport.flatConfigs.recommended,
+  eslintPluginImport.flatConfigs.typescript,
   {
-    ...importPlugin.flatConfigs.recommended,
-    ...importPlugin.flatConfigs.typescript,
     settings: {
       'react': {
         version: 'detect',
@@ -54,6 +53,12 @@ export default defineConfig([
         ['eslint-import-resolver-typescript']: {
           alwaysTryTypes: true,
         },
+      },
+    },
+    languageOptions: {
+      globals: {
+        ...globals.node,
+        ...globals.browser,
       },
     },
   },
@@ -94,26 +99,24 @@ export default defineConfig([
       ],
     },
   },
-  {
-    languageOptions: {
-      globals: {
-        ...globals.node,
-        ...globals.browser,
-      },
-    },
-  },
+
+  // next.js configs
   {
     plugins: {
-      '@next/next': nextPlugin as Plugin,
+      '@next/next': eslintPluginNext as Plugin,
     },
     rules: {
-      ...(nextPlugin.configs.recommended.rules as RulesConfig),
-      ...(nextPlugin.configs['core-web-vitals'].rules as RulesConfig),
+      ...(eslintPluginNext.configs.recommended.rules as RulesConfig),
+      ...(eslintPluginNext.configs['core-web-vitals'].rules as RulesConfig),
     },
   },
+
+  // prettier configs
   eslintConfigPrettier,
   eslintPluginPrettierRecommended,
-  tseslint.configs.recommended,
+
+  // typescript-eslint configs
+  typeScriptEslintConfigs.recommended,
   {
     files: ['**/*.{ts,tsx,mts,cts}'],
     rules: {

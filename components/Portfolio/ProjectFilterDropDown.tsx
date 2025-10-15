@@ -1,9 +1,10 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { cx } from '../../src/utils/cx';
 import { ChevronDown } from '../Icons/ChevronDown';
 import { ProjectFilterDropDownItem } from './ProjectFilterDropDownItem';
 import type { Category } from './types';
 import { categories } from './categories';
+import { useMounted } from '../../src/hooks/useMounted';
 
 export const ProjectFilterDropDown = ({
   category: curCategory,
@@ -12,12 +13,8 @@ export const ProjectFilterDropDown = ({
   category: Category;
   onChange: (category: Category) => void;
 }) => {
-  const [hidden, setHidden] = useState(true);
+  const mounted = useMounted();
   const [isSelecting, setIsSelecting] = useState(false);
-
-  useEffect(() => {
-    setHidden(false);
-  }, []);
 
   const handleSelectClick = useCallback(() => {
     setIsSelecting((isSelecting) => !isSelecting);
@@ -33,7 +30,7 @@ export const ProjectFilterDropDown = ({
 
   return (
     <div
-      hidden={hidden}
+      hidden={!mounted}
       className="relative mb-6 block lg:hidden no-js:!hidden print:hidden"
     >
       <button

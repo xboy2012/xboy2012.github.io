@@ -9,6 +9,7 @@ export const useFixPageUrl = (): FixPageUrlStatus => {
   useEffect(() => {
     const urlObj = getFixedPageUrl(location);
     if (!urlObj) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- expected effect to ensure correct redirect
       setStatus('ok');
       return;
     }

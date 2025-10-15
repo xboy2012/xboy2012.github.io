@@ -1,13 +1,10 @@
-import { useEffect, useState } from 'react';
 import { cx } from '../../src/utils/cx';
 import { Obfuscate } from '../Obfuscate';
 import { preventDefault } from '../../src/utils/preventDefault';
+import { useMounted } from '../../src/hooks/useMounted';
 
 export const EmailRender = ({ email }: { email: string }) => {
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const mounted = useMounted();
   return (
     <a
       onClick={mounted ? undefined : preventDefault}
