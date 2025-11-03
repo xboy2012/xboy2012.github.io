@@ -7,7 +7,7 @@ export const colors = {
   smokyBlack: 'hsl(0, 0%, 7%)',
   white2: 'hsl(0, 0%, 98%)',
   orangeYellowCrayola: 'hsl(45, 100%, 72%)',
-  vegasGold: 'hsl(45, 54%, 58%)',
+  vegasGold: '#ceb15a',
   lightGray: 'hsl(0, 0%, 84%)',
   lightGray70: 'hsla(0, 0%, 84%, 0.7)',
   navbar: '#2b2b2cbf',

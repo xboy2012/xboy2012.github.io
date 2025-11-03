@@ -21,4 +21,7 @@
   --background-image-icon-devops: url('../images/services/devops.svg');
   --background-image-icon-frontend: url('../images/services/frontend.svg');
   --background-image-icon-fullstack: url('../images/services/fullstack.svg');
+
+  /* BuyMeACoffee Icon */
+  --background-image-coffee: url('../images/coffee.svg');
 }

@@ -70,6 +70,7 @@
   --z-index-1: 1;
   --z-index-2: 2;
   --z-index-5: 5;
+  --z-index-1000: 1000;
 
   --scale-80: 0.8;
 
@@ -111,8 +112,10 @@
   --spacing-57_5: 230px;
   --spacing-65: 260px;
   --spacing-101: 404px;
+  --spacing-105: 420px;
   --spacing-130: 520px;
   --spacing-146: 584px;
+  --spacing-150: 600px;
   --spacing-175: 700px;
   --spacing-237_5: 950px;
   --spacing-250: 1000px;

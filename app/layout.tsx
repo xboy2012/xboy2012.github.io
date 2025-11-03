@@ -15,6 +15,7 @@ import src from '../src/utils/getImageUrl';
 import { getFullUrl } from '../src/utils/getFullUrl';
 import type { WithLooseDefault, ImportedImage } from '../src/types';
 import './globals.css';
+import { BuyMeACoffee } from '../components/BuyMeACoffee';
 
 const defineIcons = (
   icons: {
@@ -179,6 +180,7 @@ export default function RootLayout({
             {children}
           </div>
           <SideBar />
+          <BuyMeACoffee />
         </main>
       </body>
     </html>
