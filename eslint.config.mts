@@ -3,7 +3,6 @@ import type { Plugin, RulesConfig } from '@eslint/core';
 import js from '@eslint/js';
 import eslintPluginNext from '@next/eslint-plugin-next';
 import eslintPluginImport from 'eslint-plugin-import';
-import eslintConfigPrettier from 'eslint-config-prettier/flat';
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
 import eslintPluginUnicorn from 'eslint-plugin-unicorn';
 import eslintPluginReact from 'eslint-plugin-react';
@@ -112,7 +111,6 @@ export default defineConfig([
   },
 
   // prettier configs
-  eslintConfigPrettier,
   eslintPluginPrettierRecommended,
 
   // typescript-eslint configs
