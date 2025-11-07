@@ -30,7 +30,7 @@ export const getAccessToken = async (key: {
   const data = await response.json();
   const accessToken = data?.access_token;
   if (!accessToken) {
-    throw Error('Failed to get Access Token');
+    throw new Error('Failed to get Access Token');
   }
   return accessToken;
 };

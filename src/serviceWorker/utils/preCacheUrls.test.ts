@@ -35,7 +35,7 @@ describe('preCacheUrls test', () => {
       newUrls,
     );
 
-    const array = Array.from(resultUrls).sort((a, b) => (a < b ? -1 : 1));
+    const array = [...resultUrls].sort((a, b) => (a < b ? -1 : 1));
     expect(array).toEqual(newUrls);
   });
 });

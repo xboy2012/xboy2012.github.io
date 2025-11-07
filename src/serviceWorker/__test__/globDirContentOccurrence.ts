@@ -3,7 +3,7 @@ import { createReadStream } from 'node:fs';
 import { createInterface } from 'node:readline';
 import { extname, basename, relative, join as pathJoin } from 'node:path';
 
-const extSet = new Set([
+const extensionSet = new Set([
   '.ts',
   '.tsx',
   '.mts',
@@ -17,23 +17,25 @@ const extSet = new Set([
 export const globDirContentOccurrence = async (
   rootDir: string,
   dir: string,
-  varName: string,
+  variableName: string,
 ) => {
-  const entries = (
-    await readdir(dir, { withFileTypes: true, recursive: true })
-  ).filter((entry) => {
+  const allDirectories = await readdir(dir, {
+    withFileTypes: true,
+    recursive: true,
+  });
+  const entries = allDirectories.filter((entry) => {
     // skip none files
     if (!entry.isFile()) {
       return false;
     }
     const fileName = entry.name;
-    const ext = extname(fileName);
+    const extension = extname(fileName);
     // skip none js/ts files
-    if (!extSet.has(ext)) {
+    if (!extensionSet.has(extension)) {
       return false;
     }
     // skip test files
-    if (basename(fileName, ext).endsWith('.test')) {
+    if (basename(fileName, extension).endsWith('.test')) {
       return false;
     }
     // finally it's the file we want to process
@@ -52,7 +54,7 @@ export const globDirContentOccurrence = async (
       if (!line) {
         continue;
       }
-      count += line.split(varName).length - 1;
+      count += line.split(variableName).length - 1;
       if (count > 1) {
         return 2;
       }

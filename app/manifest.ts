@@ -12,7 +12,7 @@ interface Icon {
   purpose?: 'any' | 'maskable' | 'monochrome';
 }
 
-type Def<T extends { src: string }> = Omit<T, 'src'> & {
+type ImageDefinition<T extends { src: string }> = Omit<T, 'src'> & {
   src:
     | WithLooseDefault<ImportedImage>
     | Promise<WithLooseDefault<ImportedImage>>
@@ -31,7 +31,7 @@ interface ScreenShot {
 }
 
 const makeAbsoluteSrc = <T extends { src: string }>(
-  icons: Def<T>[],
+  icons: ImageDefinition<T>[],
 ): Promise<T[]> => {
   const promises = icons.map(async (icon) => {
     const url = icon.src;

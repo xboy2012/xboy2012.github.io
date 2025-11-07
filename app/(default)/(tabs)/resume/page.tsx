@@ -1,3 +1,1 @@
-import { Resume } from '../../../../components/Resume';
-
-export default Resume;
+export { Resume as default } from '../../../../components/Resume';

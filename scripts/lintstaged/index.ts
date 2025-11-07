@@ -2,7 +2,8 @@ import { lintStaged } from './lintStaged';
 import lintStagedConfig from './lintstaged.config';
 import { getRootDir } from '../../src/utils/getRootDir';
 
-(async () => {
+// entry: LintStaged
+const main = async () => {
   const rootDir = getRootDir();
   const success = await lintStaged({
     concurrent: true,
@@ -13,6 +14,9 @@ import { getRootDir } from '../../src/utils/getRootDir';
   });
 
   if (!success) {
+    // eslint-disable-next-line unicorn/no-process-exit -- intended usage
     process.exit(1);
   }
-})();
+};
+
+main();

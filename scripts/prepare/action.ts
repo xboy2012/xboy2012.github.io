@@ -10,8 +10,8 @@ const jiti = createJiti(import.meta.url);
 export default jiti('./postcss.config.mts').default;
 `;
 
-const isNodeError = (err: unknown): err is NodeJS.ErrnoException => {
-  return !!err && err instanceof Error;
+const isNodeError = (error: unknown): error is NodeJS.ErrnoException => {
+  return !!error && error instanceof Error;
 };
 
 export const action = async (rootDir: string): Promise<void> => {
@@ -20,14 +20,14 @@ export const action = async (rootDir: string): Promise<void> => {
   let oldContent = '';
 
   try {
-    oldContent = await readFile(filePath, 'utf-8');
-  } catch (err) {
-    if (!isNodeError(err) || err.code !== 'ENOENT') {
-      throw err;
+    oldContent = await readFile(filePath, 'utf8');
+  } catch (error) {
+    if (!isNodeError(error) || error.code !== 'ENOENT') {
+      throw error;
     }
   }
 
   if (oldContent !== fileContent) {
-    await writeFile(filePath, fileContent, 'utf-8');
+    await writeFile(filePath, fileContent, 'utf8');
   }
 };

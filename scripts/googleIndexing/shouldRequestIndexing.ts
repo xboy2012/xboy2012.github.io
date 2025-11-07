@@ -33,7 +33,7 @@ export const shouldRequestIndexing = async (
     if (!latestUpdate) {
       return true;
     }
-    const nowTimeStamp = new Date().getTime();
+    const nowTimeStamp = Date.now();
     const lastUpdateTimestamp = new Date(latestUpdate).getTime();
     // if last update is 1 hour ago or earlier, request indexing
     return nowTimeStamp - lastUpdateTimestamp >= 3600_000;

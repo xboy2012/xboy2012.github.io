@@ -6,7 +6,7 @@ export const action = async () => {
 
   const key = process.env.BING_INDEX_NOW_KEY;
   if (!key) {
-    throw Error('No key provided');
+    throw new Error('No key provided');
   }
 
   const sitemapObjs = await sitemap();
@@ -26,6 +26,6 @@ export const action = async () => {
   });
 
   if (response.status >= 400) {
-    throw Error('Failed to request indexing');
+    throw new Error('Failed to request indexing');
   }
 };

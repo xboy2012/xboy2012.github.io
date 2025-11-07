@@ -13,7 +13,7 @@ describe('getRootDir', () => {
   };
 
   const findRootDirOnce = async (): Promise<string> => {
-    let currentDir = __dirname;
+    let currentDir = import.meta.dirname;
     while (true) {
       const pkgJsonFile = resolve(currentDir, './package.json');
       if (await pathExists(pkgJsonFile)) {
@@ -25,7 +25,7 @@ describe('getRootDir', () => {
       }
       currentDir = nextDir;
     }
-    throw Error('no root directory found');
+    throw new Error('no root directory found');
   };
 
   let findDirRootPromise: Promise<string> | undefined;

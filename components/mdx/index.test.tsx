@@ -19,7 +19,7 @@ describe('mdx components should work as expected', () => {
       );
       const container = result.container;
       expect(screen.getByText(text)).toBeInTheDocument();
-      expect(container.getElementsByClassName(className)[0]).toBeTruthy();
+      expect(container.querySelector(`.${className}`)).toBeInTheDocument();
     });
   }
 });

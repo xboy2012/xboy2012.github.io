@@ -14,11 +14,11 @@ export const BuyMeACoffeeButton = () => {
   const handleClick: AnchorHTMLAttributes<unknown>['onClick'] = useMemo(() => {
     if (showAsLink) {
       // should do nothing to prevent click
-      return undefined;
+      return;
     }
     // should prevent default behavior and open dialog instead
-    return (e) => {
-      e.preventDefault();
+    return (event) => {
+      event.preventDefault();
       setDialogVisible((visible) => !visible);
     };
   }, [showAsLink, setDialogVisible]);

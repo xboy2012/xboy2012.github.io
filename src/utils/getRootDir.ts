@@ -10,11 +10,13 @@ const getSelfPath = () => {
     // silent fail
   }
 
+  /* eslint-disable unicorn/prefer-module -- intended usage for CommonJS env */
   if (typeof __filename === 'string' && __filename) {
     return __filename;
   }
+  /* eslint-enable unicorn/prefer-module */
 
-  throw Error('cannot detect self path');
+  throw new Error('cannot detect self path');
 };
 
 let rootDir: string | undefined;

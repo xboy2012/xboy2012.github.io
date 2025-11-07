@@ -16,5 +16,5 @@ export const getPrecacheUrlsForNonHash = (): string[] => {
     return `${selfOrigin}${pagePath}index.txt?_=${indexTxtHash}`;
   });
 
-  return assetUrls.concat(indexHtmlUrls, indexTxtUrls);
+  return [...assetUrls, ...indexHtmlUrls, ...indexTxtUrls];
 };

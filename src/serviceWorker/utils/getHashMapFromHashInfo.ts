@@ -12,6 +12,6 @@ export const getHashMapFromHashInfo = (
     return [rscPath, hash] as const;
   });
 
-  const result = htmlHashes.concat(rscHashes, assetHashes);
+  const result = [...htmlHashes, ...rscHashes, ...assetHashes];
   return new Map(result);
 };

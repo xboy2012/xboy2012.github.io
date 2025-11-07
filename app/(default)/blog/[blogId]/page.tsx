@@ -9,10 +9,10 @@ interface PageParam {
 const loadBlogData = async (blogId: string) => {
   const meta = await getMetaByBlogId(blogId);
   if (!meta) {
-    throw Error('No blog found.');
+    throw new Error('No blog found.');
   }
-  const Component = (await import(`../../../../src/blogs/mdx/${blogId}.mdx`))
-    .default;
+  const loadedModule = await import(`../../../../src/blogs/mdx/${blogId}.mdx`);
+  const Component = loadedModule.default;
   return {
     meta,
     Component,

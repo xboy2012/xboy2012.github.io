@@ -30,9 +30,7 @@ export const preCacheUrls = async (
     // add necessary new cache
     cache.addAll(urlToAddSet),
     // delete useless old cache
-    ...Array.from(urlToDeleteSet).map((url) =>
-      cache.delete(url, deleteOptions),
-    ),
+    ...[...urlToDeleteSet].map((url) => cache.delete(url, deleteOptions)),
   ];
 
   await Promise.all(promises);

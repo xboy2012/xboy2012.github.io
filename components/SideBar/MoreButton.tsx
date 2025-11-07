@@ -11,9 +11,9 @@ export const MoreButton = ({ onClick }: Props) => {
   const mounted = useMounted();
 
   const handleClick = useCallback(
-    (e: MouseEvent<HTMLButtonElement>) => {
+    (event: MouseEvent<HTMLButtonElement>) => {
       // auto blur the button to avoid UI inconsistency
-      e.currentTarget.blur();
+      event.currentTarget.blur();
       onClick();
     },
     [onClick],

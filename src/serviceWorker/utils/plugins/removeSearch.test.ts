@@ -17,17 +17,17 @@ const mockParam = (url: string) => {
 describe('formatPage test', () => {
   test('should keep original url if no search param', async () => {
     const param = mockParam('https://www.example.com/');
-    expect(await removeSearch.cacheKeyWillBeUsed!(param)).toBe(param.request);
-    expect(await removeSearch.requestWillFetch!(param)).toBe(param.request);
+    const result1 = await removeSearch.cacheKeyWillBeUsed!(param);
+    expect(result1).toBe(param.request);
+    const result2 = await removeSearch.requestWillFetch!(param);
+    expect(result2).toBe(param.request);
   });
 
   test('should remove search param', async () => {
     const param = mockParam('https://www.example.com/?a=123');
-    expect(await removeSearch.cacheKeyWillBeUsed!(param)).toBe(
-      'https://www.example.com/',
-    );
-    expect((await removeSearch.requestWillFetch!(param)).url).toBe(
-      'https://www.example.com/',
-    );
+    const result1 = await removeSearch.cacheKeyWillBeUsed!(param);
+    expect(result1).toBe('https://www.example.com/');
+    const result2 = await removeSearch.requestWillFetch!(param);
+    expect(result2.url).toBe('https://www.example.com/');
   });
 });

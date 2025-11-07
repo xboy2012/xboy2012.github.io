@@ -24,13 +24,70 @@ export default defineConfig([
   },
   eslintPluginReactHooks.configs.flat.recommended,
 
-  // prefer-node-protocol
+  eslintPluginUnicorn.configs.recommended,
   {
-    plugins: {
-      unicorn: eslintPluginUnicorn,
-    },
     rules: {
-      'unicorn/prefer-node-protocol': 'error',
+      'unicorn/filename-case': 'off',
+      'unicorn/no-null': 'off',
+      'unicorn/prevent-abbreviations': [
+        'error',
+        {
+          replacements: {
+            arg: false,
+            args: false,
+            cur: false,
+            dev: false,
+            dir: false,
+            dirs: false,
+            env: false,
+            fn: false,
+            i: false,
+            obj: false,
+            props: false,
+            req: false,
+            res: false,
+            src: false,
+            str: false,
+            param: false,
+            params: false,
+            pkg: false,
+          },
+        },
+      ],
+      'unicorn/prefer-number-properties': 'off',
+      'unicorn/no-useless-undefined': ['error', { checkArguments: false }],
+      'unicorn/import-style': [
+        'error',
+        {
+          extendDefaultStyles: false,
+          styles: {
+            // internal modules
+            crypto: { named: true },
+            path: { named: true },
+            fs: { named: true },
+            readline: { named: true },
+            url: { named: true },
+
+            // node modules
+            react: { named: true },
+          },
+        },
+      ],
+      'unicorn/prefer-string-slice': 'off',
+      'unicorn/no-array-sort': 'off',
+      'unicorn/prefer-global-this': 'off',
+      'unicorn/explicit-length-check': 'off',
+      'unicorn/numeric-separators-style': 'off',
+      'unicorn/switch-case-braces': 'off',
+      'unicorn/prefer-string-replace-all': 'off',
+      'unicorn/prefer-dom-node-append': 'off',
+    },
+  },
+  {
+    files: ['**/*.test.{ts,tsx,js,jsx}'],
+    rules: {
+      // some functions are put in smaller scope for better readability
+      'unicorn/consistent-function-scoping': 'off',
     },
   },
 
@@ -131,6 +188,7 @@ export default defineConfig([
     files: ['next-env.d.ts'],
     rules: {
       '@typescript-eslint/triple-slash-reference': 'off',
+      'unicorn/prevent-abbreviations': 'off',
     },
   },
   {

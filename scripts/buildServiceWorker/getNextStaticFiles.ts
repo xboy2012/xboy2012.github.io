@@ -14,12 +14,11 @@ export const getNextStaticFiles = async (
 ): Promise<{ skippedFiles: string[]; files: string[] }> => {
   const staticDir = pathJoin(rootDir, 'out', '_next', 'static');
 
-  const entries = (
-    await readdir(staticDir, {
-      recursive: true,
-      withFileTypes: true,
-    })
-  ).filter((o) => o.isFile());
+  const allEntries = await readdir(staticDir, {
+    recursive: true,
+    withFileTypes: true,
+  });
+  const entries = allEntries.filter((o) => o.isFile());
 
   const skippedFiles: string[] = [];
   const files: string[] = [];

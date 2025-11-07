@@ -15,8 +15,8 @@ export const NavBarItem = ({ path, title }: NavBarItemProps) => {
   const currentPath = usePathname() as `/${string}`;
   const router = useRouter();
   const handleClick = useCallback(
-    (e: MouseEvent) => {
-      e.preventDefault();
+    (event: MouseEvent) => {
+      event.preventDefault();
       router.push(path);
     },
     [path, router],
@@ -34,7 +34,7 @@ export const NavBarItem = ({ path, title }: NavBarItemProps) => {
             ? 'text-orangeYellowCrayola'
             : 'text-lightGray hover:text-lightGray70 focus:text-lightGray70',
         )}
-        onClick={!isActive ? handleClick : preventDefault}
+        onClick={isActive ? preventDefault : handleClick}
         href={path}
       >
         {title}

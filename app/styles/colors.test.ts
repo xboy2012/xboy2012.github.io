@@ -5,7 +5,7 @@ import { colors } from '../../src/config/colors';
 describe('colors.css', () => {
   const readCss = (): Promise<string> => {
     const cssFile = resolve(import.meta.dirname, './colors.css');
-    return readFile(cssFile, 'utf-8');
+    return readFile(cssFile, 'utf8');
   };
 
   test('colors.css should be align with javascript', async () => {

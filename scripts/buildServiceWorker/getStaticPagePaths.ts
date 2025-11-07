@@ -35,7 +35,7 @@ export const getStaticPagePaths = async (rootDir: string) => {
         withFileTypes: true,
       });
       const dirEntries = entries.filter((o) => o.isDirectory());
-      const promises = dirEntries.map((o) => dfs(parts.concat(o.name)));
+      const promises = dirEntries.map((o) => dfs([...parts, o.name]));
       await Promise.all(promises);
     };
 

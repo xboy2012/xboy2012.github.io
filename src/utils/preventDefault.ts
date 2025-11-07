@@ -2,6 +2,6 @@ interface Preventable {
   preventDefault(): void;
 }
 
-export const preventDefault = (e: Preventable) => {
-  e.preventDefault();
+export const preventDefault = (event: Preventable) => {
+  event.preventDefault();
 };

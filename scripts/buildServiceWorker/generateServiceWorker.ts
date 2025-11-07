@@ -60,11 +60,7 @@ export const generateServiceWorker = async (rootDir: string) => {
 
   const outputProduction = async () => {
     const code = await compressCode(rawCode);
-    await writeFile(
-      pathJoin(rootDir, 'out', 'serviceWorker.js'),
-      code,
-      'utf-8',
-    );
+    await writeFile(pathJoin(rootDir, 'out', 'serviceWorker.js'), code, 'utf8');
     console.log('Output serviceWorker.js successfully!');
   };
 
@@ -73,7 +69,7 @@ export const generateServiceWorker = async (rootDir: string) => {
     await writeFile(
       pathJoin(rootDir, 'out', 'serviceWorker.dev.js'),
       code,
-      'utf-8',
+      'utf8',
     );
     console.log('Output serviceWorker.dev.js successfully!');
   };

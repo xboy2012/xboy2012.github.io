@@ -1,7 +1,10 @@
 import { generateServiceWorker } from './generateServiceWorker';
 import { getRootDir } from '../../src/utils/getRootDir';
 
-(async () => {
+// entry: build serviceWorker
+const main = async () => {
   const rootDir = getRootDir();
   await generateServiceWorker(rootDir);
-})();
+};
+
+main();

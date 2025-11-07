@@ -14,6 +14,6 @@ export const requestIndexing = async (accessToken: string, url: string) => {
     },
   );
   if (response.status != 200) {
-    throw Error('Failed to request indexing');
+    throw new Error('Failed to request indexing');
   }
 };
