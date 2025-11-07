@@ -185,13 +185,13 @@ export default defineConfig([
     },
   },
   {
-    files: ['next-env.d.ts'],
-    rules: {
-      '@typescript-eslint/triple-slash-reference': 'off',
-      'unicorn/prevent-abbreviations': 'off',
-    },
-  },
-  {
-    ignores: ['.next', '.swc', 'coverage', 'node_modules', 'out'],
+    ignores: [
+      'next-env.d.ts',
+      '.next',
+      '.swc',
+      'coverage',
+      'node_modules',
+      'out',
+    ],
   },
 ]);

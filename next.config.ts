@@ -15,10 +15,6 @@ const nextConfigFn: NextConfigFn = (phase) => {
     images: {
       unoptimized: true,
     },
-    eslint: {
-      dirs: ['.'],
-      ignoreDuringBuilds: true,
-    },
     typescript: {
       ignoreBuildErrors: true,
     },
