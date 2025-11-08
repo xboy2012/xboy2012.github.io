@@ -135,6 +135,7 @@ export default defineConfig([
     files: [
       '**/*.test.{ts,tsx,js,jsx}',
       'scripts/**',
+      'tools/**',
       'eslint.config.mts',
       'jest.config.ts',
       'jest.setup.ts',

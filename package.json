@@ -8,7 +8,7 @@
     "build": "tsx scripts/build",
     "start": "next start",
     "lint": "eslint && stylelint '**/*.css'",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "tsx scripts/typecheck",
     "prepare": "husky && tsx scripts/prepare",
     "test": "jest"
   },

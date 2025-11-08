@@ -1,5 +1,6 @@
 import { readFile, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
+import { getRootDir } from '../src/utils/getRootDir';
 
 const fileContent = `// THIS FILE IS AUTO-GENERATED, DO NOT MODIFY
 // TODO: This file is a workaround until StyleLint finally support stylelint.config.mts natively.
@@ -14,9 +15,8 @@ const isNodeError = (error: unknown): error is NodeJS.ErrnoException => {
   return !!error && error instanceof Error;
 };
 
-export const generateStylelintConfig = async (
-  rootDir: string,
-): Promise<void> => {
+export const generateStylelintConfig = async (): Promise<void> => {
+  const rootDir = getRootDir();
   const filePath = join(rootDir, 'stylelint.config.mjs');
 
   let oldContent = '';

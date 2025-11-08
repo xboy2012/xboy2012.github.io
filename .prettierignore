@@ -1,5 +1,14 @@
 node_modules
 
+.idea
+
+/.swc
+/.rollup.cache
+
+# typescript
+*.tsbuildinfo
+
 /next-env.d.ts
 /.next
 /out
+/coverage

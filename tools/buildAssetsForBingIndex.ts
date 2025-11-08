@@ -1,6 +1,6 @@
 import { writeFile } from 'node:fs/promises';
 import { join as pathJoin } from 'node:path';
-import { getRootDir } from '../../src/utils/getRootDir';
+import { getRootDir } from '../src/utils/getRootDir';
 
 export const buildAssetsForBingIndex = async () => {
   if (process.env.NODE_ENV !== 'production') {
@@ -18,7 +18,6 @@ export const buildAssetsForBingIndex = async () => {
   }
 
   const rootDir = getRootDir();
-
   const keyFilePath = pathJoin(rootDir, 'out', `${key}.txt`);
   await writeFile(keyFilePath, key, 'utf8');
 };

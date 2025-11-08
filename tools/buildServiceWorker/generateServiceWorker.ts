@@ -5,6 +5,7 @@ import { compressCode } from './compressCode';
 import { prettierCode } from './prettierCode';
 import { getNextStaticFiles } from './getNextStaticFiles';
 import { getHashInfo } from './getHashInfo';
+import { getRootDir } from '../../src/utils/getRootDir';
 import type { JsonSerializable } from '../../src/types';
 
 const wrapJSON = (values: Record<string, JsonSerializable>) => {
@@ -15,8 +16,9 @@ const wrapJSON = (values: Record<string, JsonSerializable>) => {
   return result;
 };
 
-export const generateServiceWorker = async (rootDir: string) => {
+export const generateServiceWorker = async () => {
   console.log('Start building service worker\n');
+  const rootDir = getRootDir();
   const [nextStaticFilesInfo, hashInfo] = await Promise.all([
     getNextStaticFiles(rootDir),
     getHashInfo(rootDir),

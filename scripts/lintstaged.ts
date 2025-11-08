@@ -1,14 +1,11 @@
-import { lintStaged } from './lintStaged';
-import lintStagedConfig from './lintstaged.config';
-import { getRootDir } from '../../src/utils/getRootDir';
+import { lintStaged } from '../tools/lintstaged/lintStaged';
+import lintStagedConfig from '../tools/lintstaged/lintstaged.config';
 
 // entry: LintStaged
 const main = async () => {
-  const rootDir = getRootDir();
   const success = await lintStaged({
     concurrent: true,
     config: lintStagedConfig,
-    cwd: rootDir,
     relative: true,
     stash: true,
   });

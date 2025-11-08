@@ -37,7 +37,15 @@ const config: Config = {
 
     'custom-property-pattern': null,
   },
-  ignoreFiles: ['node_modules/**', '.next/**', 'out/**', 'coverage/**'],
+  ignoreFiles: [
+    '**/.idea/**',
+    '**/node_modules/**',
+    '.next/**',
+    'out/**',
+    'coverage/**',
+    '.swc/**',
+    '.rollup.cache/**',
+  ],
 };
 
 export default config;

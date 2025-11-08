@@ -38,5 +38,6 @@ yarn-error.log*
 /.rollup.cache
 
 .idea
+/next-env.d.ts
 /postcss.config.mjs
 /stylelint.config.mjs

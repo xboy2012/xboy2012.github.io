@@ -1,7 +1,7 @@
-import sitemap from '../../app/sitemap';
-import { PROD_BASE_URL, PROD_DOMAIN } from '../../src/config/app';
+import sitemap from '../app/sitemap';
+import { PROD_BASE_URL, PROD_DOMAIN } from '../src/config/app';
 
-const main = async () => {
+export const requestBingIndexing = async () => {
   // see https://www.bing.com/indexnow/getstarted#
 
   const key = process.env.BING_INDEX_NOW_KEY;
@@ -29,5 +29,3 @@ const main = async () => {
     throw new Error('Failed to request indexing');
   }
 };
-
-main();
