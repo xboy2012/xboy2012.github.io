@@ -9,31 +9,24 @@ import { fileURLToPath } from 'node:url';
 import { basename, dirname, join } from 'node:path';
 import { createJiti } from 'jiti';
 
-// During 'next build' only import.meta.url has value
-const configFile = import.meta.url;
-const getProjectDir = () => {
-  let dir = dirname(fileURLToPath(configFile));
+const resolve = (targetFile) => {
+  // During 'next build' only import.meta.url has value
+  let dir = dirname(fileURLToPath(import.meta.url));
   while (true) {
-    console.log(dir);
-    // should skip .next directory
-    if (basename(dir) === '.next') {
-      dir = dirname(dir);
-      continue;
-    }
-    const pkgJsonPath = join(dir, 'package.json');
-    if (existsSync(pkgJsonPath)) {
-      return dir;
+    const path = join(dir, targetFile);
+    if (existsSync(path)) {
+      return path;
     }
     const newDir = dirname(dir);
     if (newDir === dir) {
-      throw new Error('Cannot find Project Root');
+      throw new Error(\`Cannot find $\{targetFile}\`);
     }
     dir = newDir;
   }
 };
 
-const jiti = createJiti(configFile);
-export default jiti(join(getProjectDir(), 'postcss.config.mts')).default;
+const jiti = createJiti();
+export default jiti(resolve('postcss.config.mts')).default;
 `;
 
 const isNodeError = (error: unknown): error is NodeJS.ErrnoException => {
