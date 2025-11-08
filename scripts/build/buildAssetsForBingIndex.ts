@@ -1,10 +1,8 @@
 import { writeFile } from 'node:fs/promises';
 import { join as pathJoin } from 'node:path';
-import { getRootDir } from '../../../src/utils/getRootDir';
+import { getRootDir } from '../../src/utils/getRootDir';
 
-// entry: post-build
-
-const main = async () => {
+export const buildAssetsForBingIndex = async () => {
   if (process.env.NODE_ENV !== 'production') {
     console.log(
       'Skipped generating Bing IndexNow key file in non-production environment',
@@ -24,5 +22,3 @@ const main = async () => {
   const keyFilePath = pathJoin(rootDir, 'out', `${key}.txt`);
   await writeFile(keyFilePath, key, 'utf8');
 };
-
-main();

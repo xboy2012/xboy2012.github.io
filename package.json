@@ -5,7 +5,7 @@
   "scripts": {
     "clean": "tsx scripts/clean",
     "dev": "next dev",
-    "build": "next build && tsx scripts/buildServiceWorker && tsx scripts/bingIndexing/postbuild",
+    "build": "tsx scripts/build",
     "start": "next start",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
