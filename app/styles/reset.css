@@ -1,6 +1,6 @@
 @layer base {
   html {
-    font-family: 'Poppins', sans-serif;
+    font-family: Poppins, sans-serif;
   }
 
   *,
@@ -31,7 +31,7 @@
    * responsive larger than 1250px screen 2xl
    */
 
-  @media (min-width: 1250px) {
+  @media (width >= 1250px) {
     body::-webkit-scrollbar {
       width: 20px;
     }
@@ -42,15 +42,15 @@
 
     body::-webkit-scrollbar-thumb {
       box-shadow:
-        inset 1px 1px 0 hsla(0, 0%, 100%, 0.11),
-        inset -1px -1px 0 hsla(0, 0%, 100%, 0.11);
-      background: hsla(0, 0%, 100%, 0.1);
+        inset 1px 1px 0 #ffffff1c,
+        inset -1px -1px 0 #ffffff1c;
+      background: #ffffff19;
       border-radius: 20px;
       border: 5px solid var(--color-smokyBlack);
     }
 
     body::-webkit-scrollbar-thumb:hover {
-      background: hsla(0, 0%, 100%, 0.15);
+      background: #ffffff26;
     }
 
     body::-webkit-scrollbar-button {

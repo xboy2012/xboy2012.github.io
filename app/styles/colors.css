@@ -1,14 +1,14 @@
 @theme {
-  --color-jet: hsl(0, 0%, 22%);
-  --color-onyx: hsl(240, 1%, 17%);
-  --color-eerieBlack1: hsl(240, 2%, 13%);
-  --color-eerieBlack2: hsl(240, 2%, 12%);
-  --color-eerieBlack3: hsl(240, 2%, 20%);
-  --color-smokyBlack: hsl(0, 0%, 7%);
-  --color-white2: hsl(0, 0%, 98%);
-  --color-orangeYellowCrayola: hsl(45, 100%, 72%);
+  --color-jet: #383838;
+  --color-onyx: #2b2b2c;
+  --color-eerieBlack1: #202022;
+  --color-eerieBlack2: #1e1e1f;
+  --color-eerieBlack3: #323234;
+  --color-smokyBlack: #121212;
+  --color-white2: #fafafa;
+  --color-orangeYellowCrayola: #ffdb70;
   --color-vegasGold: #ceb15a;
-  --color-lightGray: hsl(0, 0%, 84%);
-  --color-lightGray70: hsla(0, 0%, 84%, 0.7);
+  --color-lightGray: #d6d6d6;
+  --color-lightGray70: #d6d6d6b2;
   --color-navbar: #2b2b2cbf;
 }

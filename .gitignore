@@ -39,3 +39,4 @@ yarn-error.log*
 
 .idea
 /postcss.config.mjs
+/stylelint.config.mjs

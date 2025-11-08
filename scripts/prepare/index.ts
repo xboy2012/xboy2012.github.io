@@ -1,10 +1,14 @@
-import { action } from './action';
 import { getRootDir } from '../../src/utils/getRootDir';
+import { generatePostCssConfig } from './generatePostCssConfig';
+import { generateStylelintConfig } from './generateStyleLintConfig';
 
 // entry: prepare
 const main = async () => {
   const rootDir = getRootDir();
-  await action(rootDir);
+  await Promise.all([
+    generatePostCssConfig(rootDir),
+    generateStylelintConfig(rootDir),
+  ]);
 };
 
 main();

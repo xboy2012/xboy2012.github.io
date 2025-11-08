@@ -142,6 +142,8 @@ export default defineConfig([
       'postcss.config.mts',
       'postcss.config.mjs',
       'prettier.config.mts',
+      'stylelint.config.mjs',
+      'stylelint.config.mts',
     ],
     rules: {
       'import/no-extraneous-dependencies': [

@@ -6,6 +6,15 @@ const config: Config = {
   quoteProps: 'consistent',
   useTabs: false,
   tabWidth: 2,
+
+  overrides: [
+    {
+      files: ['**/*.css'],
+      options: {
+        singleQuote: false,
+      },
+    },
+  ],
 };
 
 export default config;

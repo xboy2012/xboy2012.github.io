@@ -14,7 +14,7 @@ export const ProjectItem = ({
   image: string;
 }) => {
   return (
-    <li className="group animate-scaleUp break-inside-avoid">
+    <li className="group animate-scale-up break-inside-avoid">
       <a
         href={link}
         className="block w-full"

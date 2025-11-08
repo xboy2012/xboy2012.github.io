@@ -3,14 +3,17 @@
     0% {
       opacity: 0;
     }
+
     100% {
       opacity: 1;
     }
   }
-  @keyframes scaleUp {
+
+  @keyframes scale-up {
     0% {
       transform: scale(0.5);
     }
+
     100% {
       transform: scale(1);
     }
@@ -29,6 +32,6 @@
   animation: fade 0.5s ease backwards;
 }
 
-@utility animate-scaleUp {
-  animation: scaleUp 0.25s ease forwards;
+@utility animate-scale-up {
+  animation: scale-up 0.25s ease forwards;
 }

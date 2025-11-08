@@ -33,7 +33,7 @@ const isNodeError = (error: unknown): error is NodeJS.ErrnoException => {
   return !!error && error instanceof Error;
 };
 
-export const action = async (rootDir: string): Promise<void> => {
+export const generatePostCssConfig = async (rootDir: string): Promise<void> => {
   const filePath = join(rootDir, 'postcss.config.mjs');
 
   let oldContent = '';
@@ -49,4 +49,5 @@ export const action = async (rootDir: string): Promise<void> => {
   if (oldContent !== fileContent) {
     await writeFile(filePath, fileContent, 'utf8');
   }
+  console.log('Generated postcss.config.mjs');
 };
