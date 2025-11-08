@@ -1,32 +1,38 @@
 import type { Configuration } from 'lint-staged';
 import { filterFilesRequiresESLint } from './filterFilesRequiresESLint';
 import { filterFilesRequiresPrettier } from './filterFilesRequiresPrettier';
-import { filterFilesExceptExtensions } from './filterFilesExceptExtensions';
 
-const JsExtensions = [
-  '.js',
-  '.jsx',
-  '.cjs',
-  '.mjs',
-] as const satisfies string[];
-const tsExtensions = [
-  '.ts',
-  '.tsx',
-  '.mts',
-  '.cts',
-] as const satisfies string[];
-const styleExtensions = ['.css'] as const satisfies string[];
-
-// js,ts,styles has already been handled by eslint/stylelint, skip for prettier
-const skipPrettierExtensionSet = new Set([
-  ...JsExtensions,
+const jsExtensions = ['js', 'jsx', 'cjs', 'mjs'] as const satisfies string[];
+const tsExtensions = ['ts', 'tsx', 'mts', 'cts'] as const satisfies string[];
+const styleExtensions = ['css'] as const satisfies string[];
+const eslintExtensions = [
+  ...jsExtensions,
   ...tsExtensions,
+] as const satisfies string[];
+
+const buildPattern = (extensions: readonly string[]) => {
+  if (extensions.length === 1) {
+    return `*.${extensions[0]}`;
+  }
+  return `*.{${extensions.join(',')}}`;
+};
+
+const buildReversePattern = (extensions: readonly string[]) => {
+  return `!(${extensions.map((extension) => `*.${extension}`).join('|')})`;
+};
+
+const tsPattern = buildPattern(tsExtensions);
+const eslintPattern = buildPattern(eslintExtensions);
+const stylePattern = buildPattern(styleExtensions);
+const otherPattern = buildReversePattern([
+  // eslint/stylelint has already used prettier internally, skip for prettier
+  ...eslintExtensions,
   ...styleExtensions,
 ]);
 
 const lintStagedConfig: Configuration = {
-  '*.{ts,tsx,mts,cts}': () => 'tsc --noEmit',
-  '*.{js,jsx,cjs,mjs,ts,tsx,mts,cts}': async (files) => {
+  [tsPattern]: () => 'tsc --noEmit',
+  [eslintPattern]: async (files) => {
     const eslintFiles = await filterFilesRequiresESLint(files);
     if (eslintFiles.length) {
       return [
@@ -36,17 +42,13 @@ const lintStagedConfig: Configuration = {
     }
     return [];
   },
-  '*.css': (files) => {
+  [stylePattern]: (files) => {
     return [
       `stylelint --fix '${files.join(' ')}'`,
       `git add '${files.join(' ')}'`,
     ];
   },
-  '*': async (originalFiles) => {
-    const files = filterFilesExceptExtensions(
-      originalFiles,
-      skipPrettierExtensionSet,
-    );
+  [otherPattern]: async (files) => {
     const prettierFiles = await filterFilesRequiresPrettier(files);
     if (prettierFiles.length) {
       return [
