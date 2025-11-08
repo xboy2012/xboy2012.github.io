@@ -3,16 +3,26 @@ import { filterFilesRequiresESLint } from './filterFilesRequiresESLint';
 import { filterFilesRequiresPrettier } from './filterFilesRequiresPrettier';
 import { filterFilesExceptExtensions } from './filterFilesExceptExtensions';
 
-const JsTsExtensions = [
+const JsExtensions = [
   '.js',
   '.jsx',
   '.cjs',
   '.mjs',
+] as const satisfies string[];
+const tsExtensions = [
   '.ts',
   '.tsx',
   '.mts',
   '.cts',
-];
+] as const satisfies string[];
+const styleExtensions = ['.css'] as const satisfies string[];
+
+// js,ts,styles has already been handled by eslint/stylelint, skip for prettier
+const skipPrettierExtensionSet = new Set([
+  ...JsExtensions,
+  ...tsExtensions,
+  ...styleExtensions,
+]);
 
 const lintStagedConfig: Configuration = {
   '*.{ts,tsx,mts,cts}': () => 'tsc --noEmit',
@@ -26,8 +36,17 @@ const lintStagedConfig: Configuration = {
     }
     return [];
   },
+  '*.css': (files) => {
+    return [
+      `stylelint --fix '${files.join(' ')}'`,
+      `git add '${files.join(' ')}'`,
+    ];
+  },
   '*': async (originalFiles) => {
-    const files = filterFilesExceptExtensions(originalFiles, JsTsExtensions);
+    const files = filterFilesExceptExtensions(
+      originalFiles,
+      skipPrettierExtensionSet,
+    );
     const prettierFiles = await filterFilesRequiresPrettier(files);
     if (prettierFiles.length) {
       return [
