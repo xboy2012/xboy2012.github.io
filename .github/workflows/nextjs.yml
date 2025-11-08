@@ -27,6 +27,7 @@ concurrency:
 jobs:
   # Build job
   build:
+    name: Run Next.js Build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -58,7 +59,7 @@ jobs:
         with:
           path: ./out
   eslint:
-    name: Run eslint scanning
+    name: Run ESLint Scan
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -71,9 +72,24 @@ jobs:
       - name: Install dependencies
         run: yarn install
       - name: Run ESLint
-        run: yarn lint
+        run: yarn eslint
+  stylelint:
+    name: Run StyleLint Scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: yarn
+      - name: Install dependencies
+        run: yarn install
+      - name: Run StyleLint
+        run: yarn stylelint '**/*.css'
   typescript:
-    name: Run TypeScript building
+    name: Run TypeScript Build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -109,7 +125,7 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-    needs: [eslint, typescript, jest, build]
+    needs: [eslint, stylelint, typescript, jest, build]
     steps:
       - name: Deploy to GitHub Pages
         id: deployment

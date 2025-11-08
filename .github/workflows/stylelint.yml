@@ -1,4 +1,4 @@
-name: ESLint
+name: StyleLint
 
 on:
   pull_request:
@@ -7,7 +7,7 @@ on:
 
 jobs:
   eslint:
-    name: Run ESLint Scan
+    name: Run StyleLint Scan
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -26,5 +26,5 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
-      - name: Run ESLint
-        run: yarn eslint
+      - name: Run StyleLint
+        run: yarn stylelint '**/*.css'
