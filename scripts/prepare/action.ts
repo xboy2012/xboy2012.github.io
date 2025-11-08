@@ -6,7 +6,7 @@ const fileContent = `// THIS FILE IS AUTO-GENERATED, DO NOT MODIFY
 
 import { existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
-import { basename, dirname, join } from 'node:path';
+import { dirname, join } from 'node:path';
 import { createJiti } from 'jiti';
 
 const resolve = (targetFile) => {
