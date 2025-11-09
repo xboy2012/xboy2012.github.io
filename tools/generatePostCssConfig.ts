@@ -1,6 +1,6 @@
-import { getRootDir } from '../src/utils/getRootDir';
 import { join } from 'node:path';
-import { readFile, writeFile } from 'node:fs/promises';
+import { getRootDir } from '../src/utils/getRootDir';
+import { writeFileIfChange } from '../src/utils/writeFileIfChange';
 
 const fileContent = `// THIS FILE IS AUTO-GENERATED, DO NOT MODIFY
 // TODO: This file is a workaround until Next.js finally support postcss.config.mts natively.
@@ -30,26 +30,9 @@ const jiti = createJiti();
 export default jiti(resolve('postcss.config.mts')).default;
 `;
 
-const isNodeError = (error: unknown): error is NodeJS.ErrnoException => {
-  return !!error && error instanceof Error;
-};
-
 export const generatePostCssConfig = async (): Promise<void> => {
   const rootDir = getRootDir();
   const filePath = join(rootDir, 'postcss.config.mjs');
-
-  let oldContent = '';
-
-  try {
-    oldContent = await readFile(filePath, 'utf8');
-  } catch (error) {
-    if (!isNodeError(error) || error.code !== 'ENOENT') {
-      throw error;
-    }
-  }
-
-  if (oldContent !== fileContent) {
-    await writeFile(filePath, fileContent, 'utf8');
-  }
+  await writeFileIfChange(filePath, fileContent);
   console.log('Generated postcss.config.mjs');
 };
