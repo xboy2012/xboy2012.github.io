@@ -6,7 +6,7 @@ export const IconBox = memo(() => {
     <span
       className={cx(
         'flex justify-center items-center relative',
-        'bg-borderGradientOnyx text-orangeYellowCrayola shadow-1 z-1',
+        'bg-borderGradientOnyx text-orangeYellowCrayola shadow-1 xl:shadow-1xl z-1',
         'w-7.5 h-7.5 rounded-lg text-base',
         'md:w-12 md:h-12 md:rounded-xl md:text-lg',
         'print:hidden',

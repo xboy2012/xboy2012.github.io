@@ -15,7 +15,7 @@ export const ContactItem = ({
       <i
         className={cx(
           'relative bg-borderGradientOnyx flex justify-center items-center',
-          'text-orangeYellowCrayola shadow-1 z-1',
+          'text-orangeYellowCrayola shadow-1 xl:shadow-1xl z-1',
           'w-7.5 h-7.5 md:w-12 md:h-12',
           'rounded-lg md:rounded-xl',
           'text-base md:text-lg',

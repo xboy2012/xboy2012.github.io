@@ -20,7 +20,7 @@ export const ServiceItem = ({
   return (
     <li
       className={cx(
-        'relative bg-borderGradientOnyx p-5 rounded-3.5 shadow-2 z-1',
+        'relative bg-borderGradientOnyx p-5 rounded-3.5 shadow-2 xl:shadow-2xl z-1',
         'md:flex md:justify-start md:items-start md:gap-5 md:p-7.5',
         'print:bg-none print:border-none print:shadow-none print:p-0 print:!gap-0',
       )}

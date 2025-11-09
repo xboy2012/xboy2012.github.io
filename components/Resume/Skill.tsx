@@ -13,7 +13,7 @@ export const Skill = () => {
         className={cx(
           'relative bg-borderGradientOnyx',
           'pt-11 pb-4 px-4 md:pt-6 md:pb-7.5 md:px-7.5',
-          'rounded-3.5 shadow-2 cursor-pointer z-1',
+          'rounded-3.5 shadow-2 xl:shadow-2xl cursor-pointer z-1',
           'print:bg-none print:border-none print:p-0 print:shadow-none',
         )}
       >

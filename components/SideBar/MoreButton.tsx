@@ -27,7 +27,7 @@ export const MoreButton = ({ onClick }: Props) => {
         'group block absolute -top-4 -right-4 border-none',
         'rounded-tl-0 rounded-br-0 rounded-tr-4 rounded-bl-4',
         'text-3.5 md:text-4 text-orangeYellowCrayola cursor-pointer',
-        'cursor-pointer bg-borderGradientOnyx shadow-2',
+        'cursor-pointer bg-borderGradientOnyx shadow-2 xl:shadow-2xl',
         'p-2.5 z-1 transition-all duration-250 ease-default',
         'md:-top-7.5 md:-right-7.5 md:py-2.5 md:px-4',
         '2xl:hidden',
