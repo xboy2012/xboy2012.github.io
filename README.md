@@ -2,11 +2,11 @@
 ![TypeScript](https://img.shields.io/badge/typescript-%5E5.9.3-blue?logo=typescript)
 ![Node.js](https://img.shields.io/badge/node.js-%3E=24.10.0-green?logo=nodedotjs)
 ![Prettier](https://img.shields.io/badge/prettier-^3.6.2-ff69b4.svg?logo=prettier)
-![ESLint](https://img.shields.io/badge/eslint-^9.37.0-341bab.svg?logo=eslint)
+![ESLint](https://img.shields.io/badge/eslint-^9.39.1-341bab.svg?logo=eslint)
 
-![Next.js](https://img.shields.io/badge/next.js-15.5.4-20232a.svg?logo=next.js)
+![Next.js](https://img.shields.io/badge/next.js-16.0.1-20232a.svg?logo=next.js)
 ![React](https://img.shields.io/badge/react-^19.2.0-20232a.svg?logo=react)
-![TailwindCSS](https://img.shields.io/badge/tailwindcss-^4.1.14-38b2ac.svg?logo=tailwind-css)
+![TailwindCSS](https://img.shields.io/badge/tailwindcss-^4.1.17-38b2ac.svg?logo=tailwind-css)
 ![Yarn](https://img.shields.io/badge/yarn-1.22.22-2c8ebb.svg?logo=yarn)
 
 ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?logo=html5&logoColor=white)
@@ -68,13 +68,13 @@ Code standard covers more than just ESLint:
 - Code formats are mostly ensured by Prettier.
 - Static analyze of the JavaScript and TypeScript Code, using ESLint.
 - Prebuild check by TypeScript Compiling.
-- Best practices are enforced by Stylelint. (TODO)
+- Best practices are enforced by Stylelint.
 - Some conventions and project-specific rules are implemented by custom rules and scripts.
 - Git commit should follow the conventional commits standard.
 
 ## Test
 
-The whole project has a 100% test coverage, with detailed tests.
+The whole project has a 100% unit test coverage, with detailed tests.
 I totally understand the importance of complementary test coverage, and enforce it in my project.
 
 ## Accessibility
