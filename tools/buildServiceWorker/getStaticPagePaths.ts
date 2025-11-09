@@ -1,6 +1,6 @@
 import { readdir } from 'node:fs/promises';
 import { join as pathJoin } from 'node:path';
-import { pathExists } from './pathExists';
+import { pathExists } from '../../src/utils/pathExists';
 import type { PathString } from '../../src/types';
 
 const excludedDirs = new Set<PathString>(['/_next/', '/404/', '/exp/']);
