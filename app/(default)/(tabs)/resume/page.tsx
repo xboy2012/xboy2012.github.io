@@ -1,1 +1,7 @@
-export { Resume as default } from '../../../../components/Resume';
+import { Resume } from '../../../../components/Resume';
+
+const ResumePage = () => {
+  return <Resume />;
+};
+
+export default ResumePage;
