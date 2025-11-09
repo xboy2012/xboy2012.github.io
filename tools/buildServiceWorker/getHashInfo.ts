@@ -1,6 +1,6 @@
 import { join as pathJoin } from 'node:path';
 import { getStaticPagePaths } from './getStaticPagePaths';
-import { getFileMD5 } from './getFileMD5';
+import { getFileMD5 } from '../../src/utils/getFileMD5';
 import type {
   HashInfo,
   PageHashInfo,
