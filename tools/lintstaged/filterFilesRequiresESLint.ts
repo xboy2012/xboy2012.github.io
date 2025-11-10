@@ -1,9 +1,12 @@
 import { ESLint } from 'eslint';
+import { singleton } from '../../src/utils/singleton';
+
+const getESLint = singleton(() => new ESLint());
 
 export const filterFilesRequiresESLint = async (
   files: readonly string[],
 ): Promise<string[]> => {
-  const eslint = new ESLint();
+  const eslint = getESLint();
   const ignores = await Promise.all(
     files.map((file) => eslint.isPathIgnored(file)),
   );
