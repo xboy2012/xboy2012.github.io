@@ -18,22 +18,22 @@ jest.mock('prettier', () => {
 });
 
 describe('filterFilesRequiresPrettier', () => {
-  test('ignored', async () => {
+  it('ignored', async () => {
     const result = await filterFilesRequiresPrettier(['/ignored/1.ts']);
     expect(result).toEqual([]);
   });
 
-  test('unknown parser', async () => {
+  it('unknown parser', async () => {
     const result = await filterFilesRequiresPrettier(['/tracked/1.unknown']);
     expect(result).toEqual([]);
   });
 
-  test('tracked', async () => {
+  it('tracked', async () => {
     const result = await filterFilesRequiresPrettier(['/tracked/1.ts']);
     expect(result).toEqual(['/tracked/1.ts']);
   });
 
-  test('mixed cases', async () => {
+  it('mixed cases', async () => {
     const result = await filterFilesRequiresPrettier([
       '/ignored/1.ts',
       '/ignored/2.unknown',

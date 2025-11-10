@@ -3,7 +3,11 @@ import { ProjectFilterDropDown } from './ProjectFilterDropDown';
 import { categories } from './categories';
 
 describe('ProjectFilterDropDown', () => {
-  test('renders properly', () => {
+  const categoriesWithoutAll = categories.filter(
+    (category) => category !== 'All',
+  );
+
+  it('renders properly', () => {
     const handleChange = jest.fn();
 
     render(<ProjectFilterDropDown category="All" onChange={handleChange} />);
@@ -12,10 +16,7 @@ describe('ProjectFilterDropDown', () => {
     expect(ddlButton).toBeInTheDocument();
     fireEvent.click(ddlButton);
 
-    for (const category of categories) {
-      if (category === 'All') {
-        continue;
-      }
+    for (const category of categoriesWithoutAll) {
       const categoryButton = screen.getByText(category);
       expect(categoryButton).toBeInTheDocument();
       fireEvent.click(categoryButton);

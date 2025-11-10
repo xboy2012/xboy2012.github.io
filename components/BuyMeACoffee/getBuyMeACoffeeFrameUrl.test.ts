@@ -10,7 +10,7 @@ describe('getBuyMeACoffeeFrameUrl', () => {
     }
   };
 
-  test('getBuyMeACoffeeFrameUrl', () => {
+  it('getBuyMeACoffeeFrameUrl', () => {
     const url = getBuyMeACoffeeFrameUrl({ account: 'test', color: '#000000' });
     expect(isValidUrl(url)).toBe(true);
   });

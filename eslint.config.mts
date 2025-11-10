@@ -3,6 +3,7 @@ import type { Plugin, RulesConfig } from '@eslint/core';
 import js from '@eslint/js';
 import eslintPluginNext from '@next/eslint-plugin-next';
 import eslintPluginImport from 'eslint-plugin-import';
+import eslintPluginJest from 'eslint-plugin-jest';
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
 import eslintPluginUnicorn from 'eslint-plugin-unicorn';
 import eslintPluginReact from 'eslint-plugin-react';
@@ -185,6 +186,27 @@ export default defineConfig([
           prefer: 'type-imports',
         },
       ],
+    },
+  },
+  {
+    files: ['**/*.test.{ts,tsx}'],
+    extends: [
+      eslintPluginJest.configs['flat/recommended'],
+      eslintPluginJest.configs['flat/style'],
+    ],
+    rules: {
+      'jest/consistent-test-it': 'error',
+      'jest/max-expects': 'error',
+      'jest/max-nested-describe': ['error', { max: 3 }],
+      'jest/no-conditional-in-test': 'error',
+      'jest/no-confusing-set-timeout': 'error',
+      'jest/no-duplicate-hooks': 'error',
+      'jest/no-test-return-statement': 'error',
+      // 'jest/prefer-called-with': 'error',
+      'jest/prefer-comparison-matcher': 'error',
+      'jest/prefer-equality-matcher': 'error',
+      'jest/prefer-jest-mocked': 'error',
+      'jest/require-top-level-describe': 'error',
     },
   },
   {

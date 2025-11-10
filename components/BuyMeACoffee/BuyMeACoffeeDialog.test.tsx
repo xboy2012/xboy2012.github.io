@@ -8,7 +8,7 @@ import {
 } from './BuyMeACoffeeContext';
 
 describe('BuyMeACoffeeDialog', () => {
-  test('renders correctly', () => {
+  it('renders correctly', () => {
     const App = () => {
       const { setDialogVisible } = useBuyMeACoffeeContext();
       const handleOpen = useCallback(() => {

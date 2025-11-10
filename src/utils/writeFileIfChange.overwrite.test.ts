@@ -16,7 +16,7 @@ describe('writeFileIfChange', () => {
   beforeAll(setup);
   afterAll(dispose);
 
-  test('overwrite existing file', async () => {
+  it('overwrite existing file', async () => {
     const fileName = 'existing.txt';
     const oldContent = 'existing';
     const fileContent = 'new';

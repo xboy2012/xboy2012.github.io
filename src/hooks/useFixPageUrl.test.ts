@@ -20,7 +20,7 @@ jest.mock('../utils/getFixedPageUrl', () => {
 });
 
 describe('useFixPageUrl should work as expected', () => {
-  test('should not redirect', () => {
+  it('should not redirect', () => {
     mockFixedPageUrl = undefined;
     renderHook(() => {
       useFixPageUrl();
@@ -28,7 +28,7 @@ describe('useFixPageUrl should work as expected', () => {
     expect(replaceBrowserUrl).not.toHaveBeenCalled();
   });
 
-  test('should redirect', () => {
+  it('should redirect', () => {
     mockFixedPageUrl = new URL('https://www.example.com/a');
     renderHook(() => {
       useFixPageUrl();

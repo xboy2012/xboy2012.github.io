@@ -1,7 +1,7 @@
 import { preventDefault } from './preventDefault';
 
 describe('preventDefault', () => {
-  test('should call preventDefault method of the event object', () => {
+  it('should call preventDefault method of the event object', () => {
     // Mocking MouseEvent object
     const eventMock = {
       preventDefault: jest.fn(),

@@ -11,13 +11,13 @@ jest.mock('../../src/data', () => ({
 }));
 
 describe('render test', () => {
-  test('should render correctly', () => {
+  it('should render correctly', () => {
     twitter = 'abcd';
     const { container } = render(<LinkTwitter />);
     expect(container.innerHTML).toBeTruthy();
   });
 
-  test('should render empty', () => {
+  it('should render empty', () => {
     twitter = '';
     const { container } = render(<LinkTwitter />);
     expect(container.innerHTML).toBeFalsy();

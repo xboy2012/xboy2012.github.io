@@ -3,7 +3,7 @@ import { renderHook } from '@testing-library/react';
 import { useMounted } from './useMounted';
 
 describe('useMounted', () => {
-  test('renders correctly', () => {
+  it('renders correctly', () => {
     const values: boolean[] = [];
     const record = (value: boolean) => {
       values.push(value);

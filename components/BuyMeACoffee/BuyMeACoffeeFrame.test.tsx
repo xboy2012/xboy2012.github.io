@@ -7,7 +7,7 @@ jest.mock('./getBuyMeACoffeeFrameUrl', () => ({
 }));
 
 describe('BuyMeACoffeeFrame', () => {
-  test('renders without crashing', () => {
+  it('renders without crashing', () => {
     const account = 'test';
     const color = '#000000';
     const className = 'testClassName';

@@ -7,28 +7,31 @@ const p = (pathname: PathString) => {
 };
 
 describe('getFixedPageUrl() should work as expected', () => {
-  test('no need to fix', () => {
-    expect(getFixedPageUrl(p('/'))).toBeUndefined();
-    expect(getFixedPageUrl(p('/resume/'))).toBeUndefined();
-    expect(getFixedPageUrl(p('/portfolio/'))).toBeUndefined();
-    expect(getFixedPageUrl(p('/blog/'))).toBeUndefined();
-  });
+  const noNeedFixes: PathString[] = ['/', '/resume/', '/portfolio/', '/blog/'];
 
-  test('fix', () => {
-    expect(getFixedPageUrl(p('/index'))!.pathname).toBe('/');
-    expect(getFixedPageUrl(p('/index.html'))!.pathname).toBe('/');
-    expect(getFixedPageUrl(p('/resume'))!.pathname).toBe('/resume/');
-    expect(getFixedPageUrl(p('/resume/index'))!.pathname).toBe('/resume/');
-    expect(getFixedPageUrl(p('/resume/index.html'))!.pathname).toBe('/resume/');
-    expect(getFixedPageUrl(p('/portfolio'))!.pathname).toBe('/portfolio/');
-    expect(getFixedPageUrl(p('/portfolio/index'))!.pathname).toBe(
-      '/portfolio/',
-    );
-    expect(getFixedPageUrl(p('/portfolio/index.html'))!.pathname).toBe(
-      '/portfolio/',
-    );
-    expect(getFixedPageUrl(p('/blog'))!.pathname).toBe('/blog/');
-    expect(getFixedPageUrl(p('/blog/index'))!.pathname).toBe('/blog/');
-    expect(getFixedPageUrl(p('/blog/index.html'))!.pathname).toBe('/blog/');
-  });
+  for (const value of noNeedFixes) {
+    it(`no need to fix for "${value}"`, () => {
+      expect(getFixedPageUrl(p(value))).toBeUndefined();
+    });
+  }
+
+  const needFixes: [PathString, PathString][] = [
+    ['/index', '/'],
+    ['/index.html', '/'],
+    ['/resume', '/resume/'],
+    ['/resume/index', '/resume/'],
+    ['/resume/index.html', '/resume/'],
+    ['/portfolio', '/portfolio/'],
+    ['/portfolio/index', '/portfolio/'],
+    ['/portfolio/index.html', '/portfolio/'],
+    ['/blog', '/blog/'],
+    ['/blog/index', '/blog/'],
+    ['/blog/index.html', '/blog/'],
+  ];
+
+  for (const [value, fixed] of needFixes) {
+    it(`fix "${value}"`, () => {
+      expect(getFixedPageUrl(p(value))!.pathname).toBe(fixed);
+    });
+  }
 });

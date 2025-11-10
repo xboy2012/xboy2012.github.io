@@ -19,13 +19,13 @@ describe('ObfuscateLongString', () => {
     jest.mocked(useMounted).mockImplementation(() => mounted);
   });
 
-  test('should render mounted=false', () => {
+  it('should render mounted=false', () => {
     mounted = false;
     render(<ObfuscateLongString text="text" />);
     expect(screen.getByText('InitialObfuscateLongString')).toBeInTheDocument();
   });
 
-  test('should render mounted=true', () => {
+  it('should render mounted=true', () => {
     mounted = true;
     render(<ObfuscateLongString text="text" />);
     expect(screen.getByText('CssObfuscateLongString')).toBeInTheDocument();

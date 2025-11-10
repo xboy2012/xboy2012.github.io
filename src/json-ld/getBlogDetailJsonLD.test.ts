@@ -2,7 +2,7 @@ import { getBlogDetailJsonLD } from './getBlogDetailJsonLD';
 import { getBlogs } from '../blogs/getBlogs';
 
 describe('JsonLD test', () => {
-  test('should return as expected', async () => {
+  it('should return as expected', async () => {
     const blogs = await getBlogs();
     const blog = blogs.find((blog) => !blog.link)!;
     const result1 = getBlogDetailJsonLD(blog);

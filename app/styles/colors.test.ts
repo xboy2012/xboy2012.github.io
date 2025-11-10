@@ -8,7 +8,7 @@ describe('colors.css', () => {
     return readFile(cssFile, 'utf8');
   };
 
-  test('colors.css should be align with javascript', async () => {
+  it('colors.css should be align with javascript', async () => {
     const cssContent = await readCss();
     const expectedCssContent = [
       '@theme {',

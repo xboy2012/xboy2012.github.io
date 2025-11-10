@@ -1,7 +1,7 @@
 import { singleton } from './singleton';
 
 describe('singleton() test', () => {
-  test('should work as expected', () => {
+  it('should work as expected', () => {
     const fn = jest.fn(() => Math.random().toString());
     const resultFn = singleton(fn);
     const result1 = resultFn();
@@ -11,7 +11,7 @@ describe('singleton() test', () => {
     expect(result1).toBeTruthy();
   });
 
-  test('should not cache result if error occurs', () => {
+  it('should not cache result if error occurs', () => {
     const random = Math.random().toString();
     const fn = jest.fn();
     fn.mockImplementationOnce(() => {

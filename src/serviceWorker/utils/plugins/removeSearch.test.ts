@@ -15,7 +15,7 @@ const mockParam = (url: string) => {
 };
 
 describe('formatPage test', () => {
-  test('should keep original url if no search param', async () => {
+  it('should keep original url if no search param', async () => {
     const param = mockParam('https://www.example.com/');
     const result1 = await removeSearch.cacheKeyWillBeUsed!(param);
     expect(result1).toBe(param.request);
@@ -23,7 +23,7 @@ describe('formatPage test', () => {
     expect(result2).toBe(param.request);
   });
 
-  test('should remove search param', async () => {
+  it('should remove search param', async () => {
     const param = mockParam('https://www.example.com/?a=123');
     const result1 = await removeSearch.cacheKeyWillBeUsed!(param);
     expect(result1).toBe('https://www.example.com/');

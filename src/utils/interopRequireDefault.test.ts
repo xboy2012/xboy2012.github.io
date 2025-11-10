@@ -1,33 +1,39 @@
 import { interopRequireDefault, type Interoped } from './interopRequireDefault';
 
 describe('interopRequireDefault() should work as expected', () => {
-  test('top level values', () => {
-    expect(interopRequireDefault('')).toBe('');
-    expect(interopRequireDefault(undefined)).toBe(undefined);
-    expect(interopRequireDefault(null)).toBe(null);
-    expect(interopRequireDefault(true)).toBe(true);
-    expect(interopRequireDefault(false)).toBe(false);
-    expect(interopRequireDefault(NaN)).toBeNaN();
-    expect(interopRequireDefault(0)).toBe(0);
-    expect(interopRequireDefault(100)).toBe(100);
+  const values = [undefined, null, true, false, 0, 100];
 
+  it('top level value ""', () => {
+    expect(interopRequireDefault('')).toBe('');
+  });
+  it('top level value NaN', () => {
+    expect(interopRequireDefault(NaN)).toBeNaN();
+  });
+  it('top level value {}', () => {
     const obj = {};
     expect(interopRequireDefault(obj)).toBe(obj);
   });
+  for (const value of values) {
+    it(`top level value ${value}`, () => {
+      expect(interopRequireDefault(value)).toBe(value);
+    });
+  }
 
-  test('default export values', () => {
+  it('default export value ""', () => {
     expect(interopRequireDefault({ default: '' })).toBe('');
-    expect(interopRequireDefault({ default: undefined })).toBe(undefined);
-    expect(interopRequireDefault({ default: null })).toBe(null);
-    expect(interopRequireDefault({ default: true })).toBe(true);
-    expect(interopRequireDefault({ default: false })).toBe(false);
+  });
+  it('default export value NaN', () => {
     expect(interopRequireDefault({ default: NaN })).toBeNaN();
-    expect(interopRequireDefault({ default: 0 })).toBe(0);
-    expect(interopRequireDefault({ default: 100 })).toBe(100);
-
+  });
+  it('default export value {}', () => {
     const obj = {};
     expect(interopRequireDefault({ default: obj })).toBe(obj);
   });
+  for (const value of values) {
+    it(`default export value ${value}`, () => {
+      expect(interopRequireDefault({ default: value })).toBe(value);
+    });
+  }
 
   const validateTypes = () => {
     type Equal<A, B> =
@@ -82,7 +88,7 @@ describe('interopRequireDefault() should work as expected', () => {
     >();
   };
 
-  test('types', () => {
+  it('types', () => {
     expect(validateTypes).not.toThrow();
   });
 });

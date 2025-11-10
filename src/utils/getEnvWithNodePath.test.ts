@@ -24,14 +24,14 @@ describe('getEnvWithNodePath', () => {
 
   const binDir = join('$ROOT$', 'node_modules', '.bin');
 
-  test('should add new PATH when there is no existing PATH', () => {
+  it('should add new PATH when there is no existing PATH', () => {
     env = {};
     const expectedResult = { PATH: binDir };
 
     expect(getEnvWithNodePath()).toEqual(expectedResult);
   });
 
-  test('should prepend to existing PATH', () => {
+  it('should prepend to existing PATH', () => {
     env = { PATH: 'other' };
     const expectedResult = { PATH: `${binDir}${delimiter}other` };
     expect(getEnvWithNodePath()).toEqual(expectedResult);

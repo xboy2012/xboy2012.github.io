@@ -1,7 +1,10 @@
 import { preCacheUrls } from './preCacheUrls';
 
 describe('preCacheUrls test', () => {
-  test('preCacheUrls works', async () => {
+  const sortStrings = (values: Iterable<string>): string[] => {
+    return [...values].sort((a, b) => (a < b ? -1 : 1));
+  };
+  it('preCacheUrls works', async () => {
     const cacheName = `cache-${Math.random().toString(36).substring(2)}`;
 
     const existUrls = ['/a.js', '/b.js'];
@@ -35,7 +38,7 @@ describe('preCacheUrls test', () => {
       newUrls,
     );
 
-    const array = [...resultUrls].sort((a, b) => (a < b ? -1 : 1));
+    const array = sortStrings(resultUrls);
     expect(array).toEqual(newUrls);
   });
 });

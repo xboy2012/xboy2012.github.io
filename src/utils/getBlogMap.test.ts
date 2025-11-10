@@ -2,7 +2,7 @@ import { getBlogMap } from './getBlogMap';
 import { getBlogs } from '../blogs/getBlogs';
 
 describe('getBlogMap test', () => {
-  test('should return a map of blog data', async () => {
+  it('should return a map of blog data', async () => {
     const blogMap = await getBlogMap();
     const blogs = await getBlogs();
 
@@ -15,7 +15,7 @@ describe('getBlogMap test', () => {
     }
   });
 
-  test('should return the same promise on subsequent calls', () => {
+  it('should return the same promise on subsequent calls', () => {
     const blogMap1 = getBlogMap();
     const blogMap2 = getBlogMap();
 

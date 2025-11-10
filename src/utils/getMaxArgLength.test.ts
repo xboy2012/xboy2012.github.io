@@ -18,7 +18,7 @@ describe('getMaxArgLength', () => {
   ];
 
   for (const [platform, length] of values) {
-    test(`work as expected for '${platform}'`, () => {
+    it(`work as expected for '${platform}'`, () => {
       mockPlatform(platform);
       expect(getMaxArgLength()).toBe(length);
     });

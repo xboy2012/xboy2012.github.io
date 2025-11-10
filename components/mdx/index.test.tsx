@@ -8,7 +8,7 @@ describe('mdx components should work as expected', () => {
     if (tagName === 'wrapper') {
       continue;
     }
-    test(`[${tagName}]'s implement should work as expected`, () => {
+    it(`[${tagName}]'s implement should work as expected`, () => {
       const Component = mdxComponents[tagName] as ComponentType<
         PropsWithChildren<{ className: string }>
       >;

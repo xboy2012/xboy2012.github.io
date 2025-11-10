@@ -10,7 +10,7 @@ describe('getBuyMeACoffeeUrl', () => {
     }
   };
 
-  test('getBuyMeACoffeeUrl', () => {
+  it('getBuyMeACoffeeUrl', () => {
     const url = getBuyMeACoffeeUrl('test');
     expect(isValidUrl(url)).toBe(true);
   });

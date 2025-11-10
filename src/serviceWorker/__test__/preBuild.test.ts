@@ -6,7 +6,7 @@ describe('preBuild related tests', () => {
   const rootDir = getRootDir();
 
   for (const variableName of ['NEXT_STATIC_FILES', 'HASH_INFO']) {
-    test(`predefined [${variableName}] should only occur once`, async () => {
+    it(`predefined [${variableName}] should only occur once`, async () => {
       const dir = pathJoin(rootDir, 'src', 'serviceWorker');
       const results = await globDirContentOccurrence(
         rootDir,

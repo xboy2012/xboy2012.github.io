@@ -1,7 +1,7 @@
 import { getNextStaticFiles } from './getNextStaticFiles';
 
 describe('getNextStaticFiles', () => {
-  test('should return correctly', () => {
+  it('should return correctly', () => {
     const NEXT_STATIC_FILES = ['/_next/static/js-01234567.js'];
     // @ts-expect-error mock inject value
     global.NEXT_STATIC_FILES = NEXT_STATIC_FILES;

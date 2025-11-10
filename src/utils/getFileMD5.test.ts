@@ -8,13 +8,13 @@ describe('getFileMD5', () => {
   beforeAll(setup);
   afterAll(dispose);
 
-  test('error', async () => {
+  it('error', async () => {
     const path = join(dir, 'none-existing.txt');
 
     await expect(getFileMD5(path)).rejects.toThrow();
   });
 
-  test('ok', async () => {
+  it('ok', async () => {
     const path = join(dir, 'ok.txt');
     await writeFile(path, '123456', 'utf8');
     const md5 = await getFileMD5(path);

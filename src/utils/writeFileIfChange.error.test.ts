@@ -17,7 +17,7 @@ describe('writeFileIfChange', () => {
   beforeAll(setup);
   afterAll(dispose);
 
-  test('should throw unexpected error', async () => {
+  it('should throw unexpected error', async () => {
     const fileName = 'file.txt';
     const fileContent = 'file';
     const filePath = join(dir, fileName);

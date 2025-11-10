@@ -1,7 +1,7 @@
 import { getProcessEnv } from './getProcessEnv';
 
 describe('getProcessEnv', () => {
-  test('work as expected', () => {
+  it('work as expected', () => {
     expect(getProcessEnv()).toBe(process.env);
   });
 });

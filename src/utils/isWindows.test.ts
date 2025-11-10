@@ -15,17 +15,17 @@ describe('isWindows', () => {
     Object.defineProperty(process, 'platform', { value: originalPlatform });
   });
 
-  test('should return true for windows', () => {
+  it('should return true for windows', () => {
     mockPlatform('win32');
     expect(isWindows()).toBe(true);
   });
 
-  test('should return false for MacOS', () => {
+  it('should return false for MacOS', () => {
     mockPlatform('darwin');
     expect(isWindows()).toBe(false);
   });
 
-  test('should return false for linux', () => {
+  it('should return false for linux', () => {
     mockPlatform('linux');
     expect(isWindows()).toBe(false);
   });

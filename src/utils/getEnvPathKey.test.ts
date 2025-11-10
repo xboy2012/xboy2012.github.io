@@ -24,19 +24,19 @@ describe('getEnvPathKey', () => {
       .mockImplementation(() => env as typeof process.env);
   });
 
-  test('should return "PATH" for non-windows', () => {
+  it('should return "PATH" for non-windows', () => {
     isWin = false;
     env = { PATH: 'fakePath' };
     expect(getEnvPathKey()).toBe('PATH');
   });
 
-  test('should return case insensitive for windows', () => {
+  it('should return case insensitive for windows', () => {
     isWin = true;
     env = { Path: 'fakePath' };
     expect(getEnvPathKey()).toBe('Path');
   });
 
-  test('should return "PATH as fallback for windows', () => {
+  it('should return "PATH as fallback for windows', () => {
     isWin = true;
     env = {};
     expect(getEnvPathKey()).toBe('PATH');

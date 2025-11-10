@@ -1,4 +1,5 @@
 import { isPageRscPath } from './isPageRscPath';
+import type { PathString } from '../../types';
 
 describe('isPageRscPath() should work as expected', () => {
   beforeAll(() => {
@@ -12,19 +13,28 @@ describe('isPageRscPath() should work as expected', () => {
     ];
   });
 
-  test('valid cases', () => {
-    expect(isPageRscPath('/index.txt')).toBe(true);
-    expect(isPageRscPath('/a/index.txt')).toBe(true);
-  });
+  const validCases: PathString[] = ['/index.txt', '/a/index.txt'];
 
-  test('invalid cases', () => {
-    const hash = Math.random().toString(36).substring(2);
-    expect(isPageRscPath(`/_next/static/media/img.${hash}.jpg`)).toBe(false);
-    expect(isPageRscPath('/')).toBe(false);
-    expect(isPageRscPath('/invalid')).toBe(false);
-    expect(isPageRscPath('/invalid/index.txt')).toBe(false);
-    expect(isPageRscPath('/favicon.ico')).toBe(false);
-    expect(isPageRscPath('/manifest.webmanifest')).toBe(false);
-    expect(isPageRscPath('/serviceWorker.js')).toBe(false);
-  });
+  for (const path of validCases) {
+    it(`valid case "${path}"`, () => {
+      expect(isPageRscPath(path)).toBe(true);
+    });
+  }
+
+  const hash = Math.random().toString(36).substring(2);
+  const invalidCases: PathString[] = [
+    `/_next/static/media/img.${hash}.jpg`,
+    '/',
+    '/invalid',
+    '/invalid/index.txt',
+    '/favicon.ico',
+    '/manifest.webmanifest',
+    '/serviceWorker.js',
+  ];
+
+  for (const path of invalidCases) {
+    it(`invalid case "${path}"`, () => {
+      expect(isPageRscPath(path)).toBe(false);
+    });
+  }
 });

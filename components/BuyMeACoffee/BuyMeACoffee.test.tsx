@@ -17,7 +17,7 @@ jest.mock('./BuyMeACoffeeContext', () => ({
 }));
 
 describe('BuyMeACoffee', () => {
-  test('should render correctly', () => {
+  it('should render correctly', () => {
     render(<BuyMeACoffee />);
     expect(screen.getByText('BuyMeACoffeeButton')).toBeInTheDocument();
     expect(screen.getByText('BuyMeACoffeeDialog')).toBeInTheDocument();

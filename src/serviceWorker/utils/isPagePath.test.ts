@@ -1,4 +1,5 @@
 import { isPagePath } from './isPagePath';
+import type { PathString } from '../../types';
 
 describe('isPagePath() should work as expected', () => {
   beforeAll(() => {
@@ -12,26 +13,38 @@ describe('isPagePath() should work as expected', () => {
     ];
   });
 
-  test('whitelist page paths', () => {
-    expect(isPagePath('/')).toBe(true);
-    expect(isPagePath('/index')).toBe(true);
-    expect(isPagePath('/index.html')).toBe(true);
-    expect(isPagePath('/a')).toBe(true);
-    expect(isPagePath('/a/')).toBe(true);
-    expect(isPagePath('/a/index')).toBe(true);
-    expect(isPagePath('/a/index.html')).toBe(true);
-  });
+  const whitelist: PathString[] = [
+    '/',
+    '/index',
+    '/index.html',
+    '/a',
+    '/a/',
+    '/a/index',
+    '/a/index.html',
+  ];
 
-  test('other', () => {
-    const hash = Math.random().toString(36).substring(2);
-    expect(isPagePath(`/_next/static/media/img.${hash}.jpg`)).toBe(false);
-    expect(isPagePath('/favicon.ico')).toBe(false);
-    expect(isPagePath('/manifest.webmanifest')).toBe(false);
-    expect(isPagePath('/serviceWorker.js')).toBe(false);
-    expect(isPagePath('/index.txt')).toBe(false);
-    expect(isPagePath('/resume/index.txt')).toBe(false);
-    expect(isPagePath('/portfolio/index.txt')).toBe(false);
-    expect(isPagePath('/blog/index.txt')).toBe(false);
-    expect(isPagePath('/invalid-path')).toBe(false);
-  });
+  for (const path of whitelist) {
+    it(`whitelist page path "${path}"`, () => {
+      expect(isPagePath(path)).toBe(true);
+    });
+  }
+
+  const hash = Math.random().toString(36).substring(2);
+  const others: PathString[] = [
+    `/_next/static/media/img.${hash}.jpg`,
+    '/favicon.ico',
+    '/manifest.webmanifest',
+    '/serviceWorker.js',
+    '/index.txt',
+    '/resume/index.txt',
+    '/portfolio/index.txt',
+    '/blog/index.txt',
+    '/invalid-path',
+  ];
+
+  for (const path of others) {
+    it(`other path "${path}"`, () => {
+      expect(isPagePath(path)).toBe(false);
+    });
+  }
 });

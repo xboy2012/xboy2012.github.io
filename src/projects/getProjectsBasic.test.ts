@@ -1,23 +1,17 @@
 import { getProjectsBasic } from './getProjectsBasic';
+import { collectDuplicateValues } from '../utils/collectDuplicateValues';
 
 describe('projects data should follow some conventions', () => {
-  test('should return the same reference', () => {
+  it('should return the same reference', () => {
     const result1 = getProjectsBasic();
     const result2 = getProjectsBasic();
     expect(result1).toBe(result2);
   });
 
-  test('projects should have distinct ids', () => {
-    const set = new Set<string>();
-    const duplicatedIds: string[] = [];
-    for (const project of getProjectsBasic()) {
-      const projectId = project.id;
-      if (set.has(projectId)) {
-        duplicatedIds.push(projectId);
-      } else {
-        set.add(projectId);
-      }
-    }
+  it('projects should have distinct ids', () => {
+    const duplicatedIds = collectDuplicateValues(
+      getProjectsBasic().map((project) => project.id),
+    );
     expect(duplicatedIds).toHaveLength(0);
   });
 });

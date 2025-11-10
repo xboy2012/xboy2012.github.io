@@ -2,28 +2,22 @@ import { join as pathJoin } from 'node:path';
 import { getBlogsBasic } from './getBlogsBasic';
 import { getRootDir } from '../utils/getRootDir';
 import { pathExists } from '../utils/pathExists';
+import { collectDuplicateValues } from '../utils/collectDuplicateValues';
 
 describe('blogs data should follow some conventions', () => {
   const rootDir = getRootDir();
 
-  test('blogs should have distinct ids', () => {
-    const set = new Set<string>();
-    const duplicatedIds: string[] = [];
-    for (const blog of getBlogsBasic()) {
-      const blogId = blog.id;
-      if (set.has(blogId)) {
-        duplicatedIds.push(blogId);
-      } else {
-        set.add(blogId);
-      }
-    }
+  it('blogs should have distinct ids', () => {
+    const duplicatedIds = collectDuplicateValues(
+      getBlogsBasic().map((blog) => blog.id),
+    );
     expect(duplicatedIds).toHaveLength(0);
   });
 
   for (const blog of getBlogsBasic()) {
     if (!blog.link) {
       const blogId = blog.id;
-      test(`[${blogId}] should have a matched mdx file`, async () => {
+      it(`[${blogId}] should have a matched mdx file`, async () => {
         const filePath = pathJoin(
           rootDir,
           'src',

@@ -18,19 +18,19 @@ describe('addHashQuery test', () => {
     ];
   });
 
-  test('add hash tags for index.html', async () => {
+  it('add hash tags for index.html', async () => {
     const param = mockParam('https://www.example.com/');
     const result = await addHashQuery.cacheKeyWillBeUsed!(param);
     expect(result).toBe(`https://www.example.com/?_=${indexHtmlHash}`);
   });
 
-  test('add hash tags for index.txt', async () => {
+  it('add hash tags for index.txt', async () => {
     const param = mockParam('https://www.example.com/index.txt');
     const result = await addHashQuery.cacheKeyWillBeUsed!(param);
     expect(result).toBe(`https://www.example.com/index.txt?_=${indexTxtHash}`);
   });
 
-  test('skip processing', async () => {
+  it('skip processing', async () => {
     const param = mockParam('https://www.example.com/bcdef');
     const result = await addHashQuery.cacheKeyWillBeUsed!(param);
     expect(result).toBe(param.request);

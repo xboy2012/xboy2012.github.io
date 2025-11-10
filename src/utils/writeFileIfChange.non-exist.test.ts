@@ -16,7 +16,7 @@ describe('writeFileIfChange', () => {
   beforeAll(setup);
   afterAll(dispose);
 
-  test('write File if not exist', async () => {
+  it('write File if not exist', async () => {
     const fileName = 'non-exist.txt';
     const fileContent = 'non-exist';
     const filePath = join(dir, fileName);

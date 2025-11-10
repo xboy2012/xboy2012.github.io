@@ -19,7 +19,7 @@ describe('isErrnoException', () => {
   ];
 
   for (const [desc, value] of invalidValues) {
-    test(`should return false for ${desc}`, () => {
+    it(`should return false for ${desc}`, () => {
       expect(isErrnoException(value)).toBe(false);
     });
   }
@@ -30,7 +30,7 @@ describe('isErrnoException', () => {
   ];
 
   for (const [desc, value] of truthyValues) {
-    test(`should return true for ${desc}`, () => {
+    it(`should return true for ${desc}`, () => {
       expect(isErrnoException(value)).toBe(true);
     });
   }

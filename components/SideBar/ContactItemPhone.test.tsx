@@ -15,13 +15,13 @@ jest.mock('../../src/data', () => ({
 }));
 
 describe('render test', () => {
-  test('should render correctly', () => {
+  it('should render correctly', () => {
     phoneCA = '123456';
     render(<ContactItemPhone />);
     expect(screen.getByText(phoneCA)).toBeInTheDocument();
   });
 
-  test('should render empty', () => {
+  it('should render empty', () => {
     phoneCA = '';
     const { container } = render(<ContactItemPhone />);
     expect(container.innerHTML).toBeFalsy();

@@ -15,13 +15,13 @@ jest.mock('../../src/data', () => ({
 }));
 
 describe('render test', () => {
-  test('should render correctly', () => {
+  it('should render correctly', () => {
     email = 'example@example.com';
     render(<ContactItemEmail />);
     expect(screen.getByText(email)).toBeInTheDocument();
   });
 
-  test('should render empty', () => {
+  it('should render empty', () => {
     email = '';
     const { container } = render(<ContactItemEmail />);
     expect(container.innerHTML).toBeFalsy();

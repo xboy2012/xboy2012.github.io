@@ -11,7 +11,7 @@ jest.mock('../../src/hooks/useJsonLD', () => {
 });
 
 describe('should render as expected', () => {
-  test('should render the component', () => {
+  it('should render the component', () => {
     const meta: BlogData = {
       id: `id-${Math.random().toString(36).substring(2)}`,
       title: `title-${Math.random().toString(36).substring(2)}`,

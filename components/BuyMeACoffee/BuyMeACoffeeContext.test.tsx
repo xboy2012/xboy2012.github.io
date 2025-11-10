@@ -6,19 +6,19 @@ import {
 } from './BuyMeACoffeeContext';
 
 describe('BuyMeACoffeeContext', () => {
-  test('renders correctly', () => {
-    const App = () => {
-      const { dialogVisible, setDialogVisible } = useBuyMeACoffeeContext();
-      const handleSwitch = useCallback(() => {
-        setDialogVisible((value) => !value);
-      }, [setDialogVisible]);
-      return (
-        <>
-          {dialogVisible && <div>Dialog</div>}
-          <button onClick={handleSwitch}>Switch</button>
-        </>
-      );
-    };
+  const App = () => {
+    const { dialogVisible, setDialogVisible } = useBuyMeACoffeeContext();
+    const handleSwitch = useCallback(() => {
+      setDialogVisible((value) => !value);
+    }, [setDialogVisible]);
+    return (
+      <>
+        {dialogVisible && <div>Dialog</div>}
+        <button onClick={handleSwitch}>Switch</button>
+      </>
+    );
+  };
+  it('renders correctly', () => {
     render(
       <BuyMeACoffeeProvider>
         <App />

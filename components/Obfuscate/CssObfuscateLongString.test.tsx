@@ -2,7 +2,7 @@ import { render } from '@testing-library/react';
 import { CssObfuscateLongString } from './CssObfuscateLongString';
 
 describe('CssObfuscateLongString', () => {
-  test('should render correctly', () => {
+  it('should render correctly', () => {
     const text = Math.random().toString(36).substring(2);
     const { container } = render(<CssObfuscateLongString text={text} />);
     expect(container.childNodes).toHaveLength(1);

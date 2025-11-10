@@ -1,38 +1,40 @@
 import { formatPagePath } from './formatPagePath';
+import type { PathString } from '../types';
 
 describe('formatPagePath() should work as expected', () => {
-  test('/', () => {
-    const expected = '/';
-    expect(formatPagePath('/')).toBe(expected);
-    expect(formatPagePath('/index')).toBe(expected);
-    expect(formatPagePath('/index/')).toBe(expected);
-    expect(formatPagePath('/index.html')).toBe(expected);
-  });
+  const cases: [PathString, PathString[]][] = [
+    ['/', ['/', '/index', '/index/', '/index.html']],
+    [
+      '/resume/',
+      [
+        '/resume',
+        '/resume/',
+        '/resume/index',
+        '/resume/index/',
+        '/resume/index.html',
+      ],
+    ],
+    [
+      '/portfolio/',
+      [
+        '/portfolio',
+        '/portfolio/',
+        '/portfolio/index',
+        '/portfolio/index/',
+        '/portfolio/index.html',
+      ],
+    ],
+    [
+      '/blog/',
+      ['/blog', '/blog/', '/blog/index', '/blog/index/', '/blog/index.html'],
+    ],
+  ];
 
-  test('/resume', () => {
-    const expected = '/resume/';
-    expect(formatPagePath('/resume')).toBe(expected);
-    expect(formatPagePath('/resume/')).toBe(expected);
-    expect(formatPagePath('/resume/index')).toBe(expected);
-    expect(formatPagePath('/resume/index/')).toBe(expected);
-    expect(formatPagePath('/resume/index.html')).toBe(expected);
-  });
-
-  test('/portfolio', () => {
-    const expected = '/portfolio/';
-    expect(formatPagePath('/portfolio')).toBe(expected);
-    expect(formatPagePath('/portfolio/')).toBe(expected);
-    expect(formatPagePath('/portfolio/index')).toBe(expected);
-    expect(formatPagePath('/portfolio/index/')).toBe(expected);
-    expect(formatPagePath('/portfolio/index.html')).toBe(expected);
-  });
-
-  test('/blog', () => {
-    const expected = '/blog/';
-    expect(formatPagePath('/blog')).toBe(expected);
-    expect(formatPagePath('/blog/')).toBe(expected);
-    expect(formatPagePath('/blog/index')).toBe(expected);
-    expect(formatPagePath('/blog/index/')).toBe(expected);
-    expect(formatPagePath('/blog/index.html')).toBe(expected);
-  });
+  for (const [expected, paths] of cases) {
+    for (const path of paths) {
+      it(`should resolve "${path}" to "${expected}"`, () => {
+        expect(formatPagePath(path)).toBe(expected);
+      });
+    }
+  }
 });

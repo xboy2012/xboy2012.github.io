@@ -11,19 +11,19 @@ jest.mock('../src/hooks/useFixPageUrl', () => {
 });
 
 describe('should render as expected', () => {
-  test("should render correctly when status === 'ok'", () => {
+  it("should render correctly when status === 'ok'", () => {
     mockStatus = 'ok';
     const result = render(<NotFound />);
     expect(result.container.innerHTML).toBeTruthy();
   });
 
-  test("should render correctly when status === 'pending'", () => {
+  it("should render correctly when status === 'pending'", () => {
     mockStatus = 'pending';
     const result = render(<NotFound />);
     expect(result.container.innerHTML).toBeTruthy();
   });
 
-  test("should render correctly when status === 'redirecting'", () => {
+  it("should render correctly when status === 'redirecting'", () => {
     mockStatus = 'redirecting';
     const result = render(<NotFound />);
     expect(result.container.innerHTML).toBeTruthy();

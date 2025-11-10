@@ -16,7 +16,7 @@ describe('writeFileIfChange', () => {
   beforeAll(setup);
   afterAll(dispose);
 
-  test('should not overwrite the same content', async () => {
+  it('should not overwrite the same content', async () => {
     const fileName = 'same.txt';
     const fileContent = 'same';
     const filePath = join(dir, fileName);

@@ -1,7 +1,7 @@
 import { buildQueryString } from './buildQueryString';
 
 describe('buildQueryString', () => {
-  test('should build query string correctly with valid key-value pairs', () => {
+  it('should build query string correctly with valid key-value pairs', () => {
     const query = {
       name: 'John',
       age: '30',
@@ -10,7 +10,7 @@ describe('buildQueryString', () => {
     expect(queryString).toBe('name=John&age=30');
   });
 
-  test('should handle undefined, null values and empty string correctly', () => {
+  it('should handle undefined, null values and empty string correctly', () => {
     const query = {
       '': 'abc',
       'emptyStringValue': '',
@@ -21,11 +21,11 @@ describe('buildQueryString', () => {
     expect(queryString).toBe('');
   });
 
-  test('should handle empty object correctly', () => {
+  it('should handle empty object correctly', () => {
     expect(buildQueryString({})).toBe('');
   });
 
-  test('should handle special characters in values correctly', () => {
+  it('should handle special characters in values correctly', () => {
     const query = {
       'ID Number': '123',
       'name': 'John Doe',

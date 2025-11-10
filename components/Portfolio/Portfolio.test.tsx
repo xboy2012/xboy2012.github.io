@@ -10,7 +10,7 @@ jest.mock('../../src/hooks/useJsonLD', () => {
 });
 
 describe('should render as expected', () => {
-  test('should render the component', async () => {
+  it('should render the component', async () => {
     const projects = await getProjects();
     const result = render(<Portfolio projects={projects} />);
     expect(result.container.innerHTML).toBeTruthy();

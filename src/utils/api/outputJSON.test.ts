@@ -2,7 +2,7 @@ import { outputJSON } from './outputJSON';
 import { calculateDataHash } from './calculateDataHash';
 
 describe('outputJSON test', () => {
-  test('should work as expected', async () => {
+  it('should work as expected', async () => {
     const data = {
       b: Math.random(),
       a: Math.random(),

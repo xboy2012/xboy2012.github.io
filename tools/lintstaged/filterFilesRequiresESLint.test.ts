@@ -10,17 +10,17 @@ jest.mock('eslint', () => {
 });
 
 describe('filterFilesRequiresESLint', () => {
-  test('ignored', async () => {
+  it('ignored', async () => {
     const result = await filterFilesRequiresESLint(['/ignored/1.ts']);
     expect(result).toEqual([]);
   });
 
-  test('tracked', async () => {
+  it('tracked', async () => {
     const result = await filterFilesRequiresESLint(['/tracked/2.ts']);
     expect(result).toEqual(['/tracked/2.ts']);
   });
 
-  test('mixed cases', async () => {
+  it('mixed cases', async () => {
     const result = await filterFilesRequiresESLint([
       '/ignored/1.ts',
       '/tracked/2.ts',

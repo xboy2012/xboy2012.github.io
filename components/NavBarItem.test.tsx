@@ -13,7 +13,7 @@ jest.mock('next/navigation', () => {
 });
 
 describe('NavBarItem should work as expected', () => {
-  test('should render correctly when active', () => {
+  it('should render correctly when active', () => {
     const path = '/';
     const title = Math.random().toString(36).substring(2);
     render(<NavBarItem path={path} title={title} />);
@@ -23,7 +23,7 @@ describe('NavBarItem should work as expected', () => {
     expect(mockRouter.push).not.toHaveBeenCalled();
   });
 
-  test('should render correctly when not active', () => {
+  it('should render correctly when not active', () => {
     const path = '/resume';
     const title = Math.random().toString(36).substring(2);
     render(<NavBarItem path={path} title={title} />);

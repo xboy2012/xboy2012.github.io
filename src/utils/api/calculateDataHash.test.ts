@@ -1,7 +1,7 @@
 import { calculateDataHash } from './calculateDataHash';
 
 describe('calculateDataHash test', () => {
-  test('should return the same hash if contents are the same', () => {
+  it('should return the same hash if contents are the same', () => {
     const rand = [Math.random(), Math.random()];
     const hash1 = calculateDataHash({ a: rand[0], b: rand[1] });
     expect(hash1).toHaveLength(8);
@@ -10,7 +10,7 @@ describe('calculateDataHash test', () => {
     expect(hash1).toBe(hash2);
   });
 
-  test('should return different hashes if contents are different', () => {
+  it('should return different hashes if contents are different', () => {
     const hash1 = calculateDataHash({ a: 123 });
     expect(hash1).toHaveLength(8);
     const hash2 = calculateDataHash({ a: 456 });

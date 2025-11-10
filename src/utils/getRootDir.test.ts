@@ -36,7 +36,7 @@ describe('getRootDir', () => {
     return findDirRootPromise;
   };
 
-  test('esm should return correct path', async () => {
+  it('esm should return correct path', async () => {
     const expectedResult = await findRootDir();
     expect(getRootDir()).toBe(expectedResult);
   });

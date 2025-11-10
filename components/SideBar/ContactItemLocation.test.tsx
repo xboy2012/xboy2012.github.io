@@ -15,13 +15,13 @@ jest.mock('../../src/data', () => ({
 }));
 
 describe('render test', () => {
-  test('should render correctly', () => {
+  it('should render correctly', () => {
     location = 'TestLocation';
     render(<ContactItemLocation />);
     expect(screen.getByText(location)).toBeInTheDocument();
   });
 
-  test('should render empty', () => {
+  it('should render empty', () => {
     location = '';
     const { container } = render(<ContactItemLocation />);
     expect(container.innerHTML).toBeFalsy();

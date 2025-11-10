@@ -4,14 +4,15 @@ import { categories } from './categories';
 import { getProjects } from '../../src/projects/getProjects';
 
 describe('Projects', () => {
-  test('renders properly', async () => {
+  const categoriesWithoutAll = categories.filter(
+    (category) => category !== 'All',
+  );
+
+  it('renders properly', async () => {
     const projects = await getProjects();
     render(<Projects projects={projects} />);
 
-    for (const category of categories) {
-      if (category === 'All') {
-        continue;
-      }
+    for (const category of categoriesWithoutAll) {
       const categoryButton = screen.queryAllByText(category)[0];
       expect(categoryButton).toBeInTheDocument();
       fireEvent.click(categoryButton);

@@ -3,7 +3,7 @@ import { ProjectFilterFlat } from './ProjectFilterFlat';
 import { categories } from './categories';
 
 describe('ProjectFilterFlat', () => {
-  test('renders properly', () => {
+  it('renders properly', () => {
     const handleChange = jest.fn();
 
     render(<ProjectFilterFlat category="All" onChange={handleChange} />);

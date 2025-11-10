@@ -8,12 +8,12 @@ describe('pathExists', () => {
   beforeAll(setup);
   afterAll(dispose);
 
-  test('existing path', async () => {
+  it('existing path', async () => {
     const exists = await pathExists(dir);
     expect(exists).toBe(true);
   });
 
-  test('non-existing path', async () => {
+  it('non-existing path', async () => {
     const path = join(dir, 'non-existing');
     const exists = await pathExists(path);
     expect(exists).toBe(false);

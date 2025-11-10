@@ -13,7 +13,7 @@ describe('cx() should work as expected', () => {
       cx(1, true, 'abc', 'def', {
         toString: () => 'serializableObject',
       }),
-    ).toEqual('1 true abc def serializableObject');
+    ).toBe('1 true abc def serializableObject');
   });
 
   const emptyValues = ['', undefined, null, NaN, false, 0];

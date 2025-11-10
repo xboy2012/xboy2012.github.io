@@ -35,7 +35,7 @@ describe('BuyMeACoffeeButton', () => {
     dialogVisible = false;
   });
 
-  test('render correctly when isMobile=true', () => {
+  it('render correctly when isMobile=true', () => {
     isMobile = true;
     render(<BuyMeACoffeeButton />);
     const link = screen.getByRole('link');
@@ -44,7 +44,7 @@ describe('BuyMeACoffeeButton', () => {
     expect(link).toHaveAttribute('rel', 'noopener noreferrer');
   });
 
-  test('render correctly when isMobile=false', () => {
+  it('render correctly when isMobile=false', () => {
     isMobile = false;
     render(<BuyMeACoffeeButton />);
     const link = screen.getByRole('button');

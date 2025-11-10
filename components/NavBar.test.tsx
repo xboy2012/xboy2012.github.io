@@ -8,7 +8,7 @@ jest.mock('./NavBarItem', () => {
 });
 
 describe('should render as expected', () => {
-  test('should render the component', () => {
+  it('should render the component', () => {
     const result = render(<NavBar />);
     expect(result.container.innerHTML).toBeTruthy();
   });

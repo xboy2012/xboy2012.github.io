@@ -25,7 +25,7 @@ describe('useJsonLD test in node.js server', () => {
     injectedScriptJSX = null;
   });
 
-  test('should invoke fn', () => {
+  it('should invoke fn', () => {
     const fn = jest.fn(() => ({}) as Thing);
     const App = () => {
       useJsonLD(fn);
@@ -36,7 +36,7 @@ describe('useJsonLD test in node.js server', () => {
     expect(fn).toHaveBeenCalledTimes(1);
   });
 
-  test('should do nothing for empty json', () => {
+  it('should do nothing for empty json', () => {
     const fn = jest.fn(() => null);
 
     const App = () => {
@@ -50,7 +50,7 @@ describe('useJsonLD test in node.js server', () => {
     expect(resultHTML).toBe('');
   });
 
-  test('should work as expected for normal json', () => {
+  it('should work as expected for normal json', () => {
     const json = { _: Math.random().toString(36).substring(2) };
 
     const fn = jest.fn(() => json as unknown as Thing);
