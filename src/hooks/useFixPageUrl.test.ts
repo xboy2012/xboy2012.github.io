@@ -3,8 +3,11 @@ import { useFixPageUrl } from './useFixPageUrl';
 import { replaceBrowserUrl } from '../utils/replaceBrowserUrl';
 
 jest.mock('../utils/replaceBrowserUrl', () => {
+  const { replaceBrowserUrl } = jest.requireActual(
+    '../utils/replaceBrowserUrl',
+  );
   return {
-    replaceBrowserUrl: jest.fn(),
+    replaceBrowserUrl: jest.fn(replaceBrowserUrl),
   };
 });
 
