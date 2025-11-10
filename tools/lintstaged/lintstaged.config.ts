@@ -35,26 +35,17 @@ const lintStagedConfig: Configuration = {
   [eslintPattern]: async (files) => {
     const eslintFiles = await filterFilesRequiresESLint(files);
     if (eslintFiles.length) {
-      return [
-        `eslint --fix '${eslintFiles.join("' '")}'`,
-        `git add '${eslintFiles.join("' '")}'`,
-      ];
+      return [`eslint '${eslintFiles.join("' '")}'`];
     }
     return [];
   },
   [stylePattern]: (files) => {
-    return [
-      `stylelint --fix '${files.join(' ')}'`,
-      `git add '${files.join(' ')}'`,
-    ];
+    return [`stylelint '${files.join(' ')}'`];
   },
   [otherPattern]: async (files) => {
     const prettierFiles = await filterFilesRequiresPrettier(files);
     if (prettierFiles.length) {
-      return [
-        `prettier --write '${prettierFiles.join("' '")}'`,
-        `git add '${prettierFiles.join("' '")}'`,
-      ];
+      return [`prettier '${prettierFiles.join("' '")}'`];
     }
     return [];
   },
