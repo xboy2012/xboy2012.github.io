@@ -1,7 +1,7 @@
-import { access, constants } from 'node:fs/promises';
 import { join as pathJoin } from 'node:path';
 import { getBlogsBasic } from './getBlogsBasic';
 import { getRootDir } from '../utils/getRootDir';
+import { pathExists } from '../utils/pathExists';
 
 describe('blogs data should follow some conventions', () => {
   const rootDir = getRootDir();
@@ -31,7 +31,8 @@ describe('blogs data should follow some conventions', () => {
           'mdx',
           `${blogId}.mdx`,
         );
-        await access(filePath, constants.R_OK);
+        const exists = await pathExists(filePath);
+        expect(exists).toBe(true);
       });
     }
   }

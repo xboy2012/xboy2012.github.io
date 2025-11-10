@@ -29,7 +29,7 @@ describe('interopRequireDefault() should work as expected', () => {
     expect(interopRequireDefault({ default: obj })).toBe(obj);
   });
 
-  test('types', () => {
+  const validateTypes = () => {
     type Equal<A, B> =
       (<T>() => T extends A ? 1 : 2) extends <T>() => T extends B ? 1 : 2
         ? true
@@ -80,5 +80,9 @@ describe('interopRequireDefault() should work as expected', () => {
       Interoped<{ default: string } | { default: number }>,
       string | number
     >();
+  };
+
+  test('types', () => {
+    expect(validateTypes).not.toThrow();
   });
 });
