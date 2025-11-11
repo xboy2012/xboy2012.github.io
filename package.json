@@ -61,7 +61,7 @@
     "postcss-calc": "^10.1.1",
     "postcss-load-config": "^6.0.1",
     "prettier": "^3.6.2",
-    "rollup": "^4.53.1",
+    "rollup": "^4.53.2",
     "rollup-plugin-esbuild": "^6.2.1",
     "schema-dts": "^1.1.5",
     "stylelint": "^16.25.0",
