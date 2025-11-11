@@ -16,7 +16,7 @@ export const LinkTwitter = () => {
         href={`https://twitter.com/${twitter}`}
         target="_blank"
         rel="noreferrer noopener"
-        className="block text-lightGray70 text-lg hover:text-lightGray"
+        className="text-lightGray70 hover:text-lightGray block text-lg"
       >
         <LogoTwitter />
         <span style={{ display: 'none' }}>{title}</span>

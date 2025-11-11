@@ -6,9 +6,9 @@ export const ArticleTitle = memo(({ title }: { title: string }) => {
     <header>
       <h2
         className={cx(
-          'relative text-white2 capitalize text-6 md:text-8',
-          'pb-2 mb-4',
-          'md:font-600 md:pb-4 md:mb-5',
+          'text-white2 text-6 md:text-8 relative capitalize',
+          'mb-4 pb-2',
+          'md:font-600 md:mb-5 md:pb-4',
           'lg:pb-5',
           'print:hidden',
         )}
@@ -16,8 +16,8 @@ export const ArticleTitle = memo(({ title }: { title: string }) => {
         {title}
         <div
           className={cx(
-            'absolute bottom-0 left-0 bg-textGradientYellow rounded-1',
-            'w-7.5 h-1 md:w-10 md:h-1.25',
+            'bg-textGradientYellow rounded-1 absolute bottom-0 left-0',
+            'h-1 w-7.5 md:h-1.25 md:w-10',
             'print:hidden',
           )}
           aria-hidden

@@ -10,8 +10,8 @@ export const EmailRender = ({ email }: { email: string }) => {
       onClick={mounted ? undefined : preventDefault}
       href={mounted ? `mailto:${email}` : '#'}
       className={cx(
-        'block cursor-pointer text-3.5 md:text-4 font-300',
-        '2xl:whitespace-nowrap 2xl:overflow-hidden 2xl:text-ellipsis',
+        'text-3.5 md:text-4 font-300 block cursor-pointer',
+        '2xl:truncate',
       )}
     >
       <Obfuscate text={email} />

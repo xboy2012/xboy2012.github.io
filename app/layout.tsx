@@ -162,18 +162,18 @@ export default function RootLayout({
         <ServiceWorkerRegister />
         <main
           className={cx(
-            'mt-4 mb-19 mx-3 min-w-65 text-white2',
+            'text-white2 mx-3 mt-4 mb-19 min-w-65',
             'md:mt-15 md:mb-25 xl:mb-15',
-            '2xl:max-w-300 2xl:mx-auto',
-            'flex flex-col 2xl:flex-row 2xl:justify-center 2xl:items-stretch 2xl:gap-6',
-            'print:text-black print:!m-0',
+            '2xl:mx-auto 2xl:max-w-300',
+            'flex flex-col 2xl:flex-row 2xl:items-stretch 2xl:justify-center 2xl:gap-6',
+            'print:!m-0 print:text-black',
           )}
         >
           <div
             className={cx(
               'order-2',
-              'xl:relative xl:w-max xl:m-auto',
-              '2xl:min-w-[75%] 2xl:w-[75%] 2xl:m-0',
+              'xl:relative xl:m-auto xl:w-max',
+              '2xl:m-0 2xl:w-[75%] 2xl:min-w-[75%]',
             )}
           >
             <NavBar />

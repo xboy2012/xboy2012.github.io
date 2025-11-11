@@ -20,16 +20,16 @@ export const ServiceItem = ({
   return (
     <li
       className={cx(
-        'relative bg-borderGradientOnyx p-5 rounded-3.5 shadow-2 xl:shadow-2xl z-1',
-        'md:flex md:justify-start md:items-start md:gap-5 md:p-7.5',
-        'print:bg-none print:border-none print:shadow-none print:p-0 print:!gap-0',
+        'bg-borderGradientOnyx rounded-3.5 shadow-2 relative z-1 p-5 xl:shadow-2xl',
+        'md:flex md:items-start md:justify-start md:gap-5 md:p-7.5',
+        'print:!gap-0 print:border-none print:bg-none print:p-0 print:shadow-none',
       )}
     >
-      <div className="absolute inset-px bg-eerieBlack1 bg-bgGradientJet rounded-inherit -z-1 print:hidden" />
-      <div className="mb-2.5 md:mb-0 md:mt-1.25 print:hidden">
+      <div className="bg-eerieBlack1 bg-bgGradientJet rounded-inherit absolute inset-px -z-1 print:hidden" />
+      <div className="mb-2.5 md:mt-1.25 md:mb-0 print:hidden">
         <div
           className={cx(
-            'mx-auto aspect-square bg-contain bg-center bg-no-repeat w-10 h-10',
+            'mx-auto aspect-square h-10 w-10 bg-contain bg-center bg-no-repeat',
             classNames[id],
           )}
           title={name}
@@ -39,8 +39,8 @@ export const ServiceItem = ({
       <div className="text-center md:text-left">
         <h4
           className={cx(
-            'mb-2 text-white2 capitalize text-4.5 md:text-6',
-            'print:text-inherit print:text-4.5 print:mb-0',
+            'text-white2 text-4.5 md:text-6 mb-2 capitalize',
+            'print:text-4.5 print:mb-0 print:text-inherit',
           )}
         >
           {name}

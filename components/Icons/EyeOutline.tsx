@@ -2,6 +2,6 @@ import { memo } from 'react';
 
 export const EyeOutline = memo(() => {
   return (
-    <i className="block w-4 h-4 bg-contain bg-center bg-no-repeat bg-eye" />
+    <i className="bg-eye block h-4 w-4 bg-contain bg-center bg-no-repeat" />
   );
 });

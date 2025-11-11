@@ -11,32 +11,32 @@ export const ContactItem = ({
   children: ReactNode;
 }) => {
   return (
-    <li className="max-w-full flex items-center gap-4">
+    <li className="flex max-w-full items-center gap-4">
       <i
         className={cx(
-          'relative bg-borderGradientOnyx flex justify-center items-center',
+          'bg-borderGradientOnyx relative flex items-center justify-center',
           'text-orangeYellowCrayola shadow-1 xl:shadow-1xl z-1',
-          'w-7.5 h-7.5 md:w-12 md:h-12',
+          'h-7.5 w-7.5 md:h-12 md:w-12',
           'rounded-lg md:rounded-xl',
           'text-base md:text-lg',
           'print:hidden',
         )}
         aria-hidden
       >
-        <span className="absolute block inset-px bg-eerieBlack1 rounded-inherit -z-1" />
+        <span className="bg-eerieBlack1 rounded-inherit absolute inset-px -z-1 block" />
         <Icon />
       </i>
 
       <span
         className={cx(
-          'block w-contact max-w-contact md:w-contact2 md:max-w-contact2 text-white2',
-          'print:w-auto print:max-w-none print:flex print:flex-row print:items-center print:justify-center print:text-inherit',
+          'w-contact max-w-contact md:w-contact2 md:max-w-contact2 text-white2 block',
+          'print:flex print:w-auto print:max-w-none print:flex-row print:items-center print:justify-center print:text-inherit',
         )}
       >
         <label
           className={cx(
-            'block text-lightGray70 text-3 uppercase mb-0.5',
-            'print:mb-0 print:mr-2 print:text-inherit',
+            'text-lightGray70 text-3 mb-0.5 block uppercase',
+            'print:mr-2 print:mb-0 print:text-inherit',
           )}
         >
           {title}

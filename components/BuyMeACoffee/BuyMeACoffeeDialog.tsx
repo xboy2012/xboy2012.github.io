@@ -12,7 +12,7 @@ const CloseButton = () => {
   return (
     <button
       className={cx(
-        'absolute w-8 h-8 right-2 top-2',
+        'absolute top-2 right-2 h-8 w-8',
         'flex items-center justify-center',
         'cursor-pointer border-none outline-none',
       )}
@@ -20,7 +20,7 @@ const CloseButton = () => {
       title="Close"
     >
       <svg
-        className="w-4 h-4"
+        className="h-4 w-4"
         width="16"
         height="16"
         viewBox="0 0 28 28"
@@ -41,13 +41,13 @@ const InnerDialog = () => {
     <div
       className={cx(
         'fixed right-4 bottom-18 z-1000',
-        'w-105 h-150 bg-white rounded-2.5',
+        'rounded-2.5 h-150 w-105 bg-white',
       )}
     >
       <BuyMeACoffeeFrame
         account="xboy2012"
         color={colors.vegasGold}
-        className={cx('w-full h-full', 'rounded-2.5')}
+        className={cx('h-full w-full', 'rounded-2.5')}
       />
       <CloseButton />
     </div>

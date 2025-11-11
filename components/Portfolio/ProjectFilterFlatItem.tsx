@@ -19,7 +19,7 @@ export const ProjectFilterFlatItem = ({
     <li key={category}>
       <button
         className={cx(
-          'block text-4 bg-none border-none cursor-pointer transition-all duration-250 ease-default',
+          'text-4 ease-default block cursor-pointer border-none bg-none transition-all duration-250',
           active
             ? 'text-orangeYellowCrayola print:font-600'
             : 'text-lightGray70 hover:text-lightGray70',

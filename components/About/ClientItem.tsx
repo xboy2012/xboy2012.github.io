@@ -18,8 +18,8 @@ export const ClientItem = ({ name, link }: { name: string; link: string }) => {
       className={cx(
         'min-w-[calc(50%-8px)] sm:min-w-[calc(33.33%-10px)]',
         'md:min-w-[calc(33.33%-35px)] xl:min-w-[calc(25%-38px)]',
-        'snap-start aspect-5/3 overflow-hidden',
-        'print:min-w-0 print:aspect-auto',
+        'aspect-5/3 snap-start overflow-hidden',
+        'print:aspect-auto print:min-w-0',
       )}
     >
       <a
@@ -27,7 +27,7 @@ export const ClientItem = ({ name, link }: { name: string; link: string }) => {
         target="_blank"
         rel="noreferrer noopener"
         title={name}
-        className="relative block w-full h-full"
+        className="relative block h-full w-full"
       >
         <div
           className={cx(
@@ -38,8 +38,8 @@ export const ClientItem = ({ name, link }: { name: string; link: string }) => {
         />
         <p
           className={cx(
-            'absolute -left-250 -top-250',
-            'print:relative print:left-auto print:top-auto print:font-300',
+            'absolute -top-250 -left-250',
+            'print:font-300 print:relative print:top-auto print:left-auto',
           )}
         >
           {name}

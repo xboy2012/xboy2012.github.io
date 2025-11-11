@@ -29,7 +29,7 @@ export const NavBarItem = ({ path, title }: NavBarItemProps) => {
     <li>
       <a
         className={cx(
-          'block px-2 py-5 text-4.5 xl:text-4 xl:font-500',
+          'text-4.5 xl:text-4 xl:font-500 block px-2 py-5',
           isActive
             ? 'text-orangeYellowCrayola'
             : 'text-lightGray hover:text-lightGray70 focus:text-lightGray70',

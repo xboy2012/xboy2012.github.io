@@ -20,8 +20,8 @@ export const TimelineList = memo(({ data }: { data: TimelineItem[] }) => {
             {isFirst && (
               <div
                 className={cx(
-                  'absolute -top-12.5 h-15 -left-7.5 md:-left-10',
-                  'w-px bg-jet',
+                  'absolute -top-12.5 -left-7.5 h-15 md:-left-10',
+                  'bg-jet w-px',
                   'print:hidden',
                 )}
                 aria-hidden
@@ -31,7 +31,7 @@ export const TimelineList = memo(({ data }: { data: TimelineItem[] }) => {
               <div
                 className={cx(
                   'absolute top-2 -bottom-7.5 -left-7.5 md:-left-10',
-                  'w-px bg-jet',
+                  'bg-jet w-px',
                   'print:hidden',
                 )}
                 aria-hidden
@@ -39,12 +39,12 @@ export const TimelineList = memo(({ data }: { data: TimelineItem[] }) => {
             )}
 
             <div className="print:flex">
-              <h4 className="text-white2 text-3.5 md:text-4 leading-x1.3 mb-2 print:text-inherit print:flex-grow">
+              <h4 className="text-white2 text-3.5 md:text-4 leading-x1.3 mb-2 print:flex-grow print:text-inherit">
                 {title}
               </h4>
 
               {!!(from && to) && (
-                <span className="block text-vegasGold font-400 leading-x1.6 print:text-inherit">
+                <span className="text-vegasGold font-400 leading-x1.6 block print:text-inherit">
                   {`${from} — ${to}`}
                 </span>
               )}
@@ -63,9 +63,9 @@ export const TimelineList = memo(({ data }: { data: TimelineItem[] }) => {
 
             <div
               className={cx(
-                'absolute top-1.25 h-1.5 w-1.5 -left-8',
-                'md:h-2 md:w-2 md:-left-11',
-                'bg-textGradientYellow rounded-full shadow-timeline',
+                'absolute top-1.25 -left-8 h-1.5 w-1.5',
+                'md:-left-11 md:h-2 md:w-2',
+                'bg-textGradientYellow shadow-timeline rounded-full',
                 'print:hidden',
               )}
               aria-hidden

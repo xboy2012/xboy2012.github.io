@@ -4,10 +4,7 @@ import { getGoogleMapUrl } from '../../src/utils/getGoogleMapUrl';
 export const LocationRender = ({ location }: { location: string }) => {
   return (
     <a
-      className={cx(
-        'block text-3.5 md:text-4 font-300',
-        '2xl:whitespace-nowrap 2xl:overflow-hidden 2xl:text-ellipsis',
-      )}
+      className={cx('text-3.5 md:text-4 font-300 block', '2xl:truncate')}
       href={getGoogleMapUrl(location)}
       target="_blank"
       rel="noreferrer noopener"

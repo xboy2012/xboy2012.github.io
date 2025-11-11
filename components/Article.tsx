@@ -6,10 +6,10 @@ export const Article = ({ children }: { children?: ReactNode }) => {
     <article
       className={cx(
         'animate-fade',
-        'bg-eerieBlack2 border border-solid border-jet rounded-5 p-4 shadow-1 xl:shadow-1xl z-1',
-        'md:w-130 md:mx-auto md:p-7.5',
-        'lg:w-175 xl:w-237.5 xl:shadow-5 2xl:w-auto 2xl:min-h-full',
-        'print:!w-full print:bg-inherit print:border-none print:shadow-none print:p-0',
+        'bg-eerieBlack2 border-jet rounded-5 shadow-1 xl:shadow-1xl z-1 border border-solid p-4',
+        'md:mx-auto md:w-130 md:p-7.5',
+        'xl:shadow-5 lg:w-175 xl:w-237.5 2xl:min-h-full 2xl:w-auto',
+        'print:!w-full print:border-none print:bg-inherit print:p-0 print:shadow-none',
       )}
     >
       {children}

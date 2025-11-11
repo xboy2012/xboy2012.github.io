@@ -10,6 +10,7 @@ import eslintPluginReact from 'eslint-plugin-react';
 import eslintPluginReactHooks from 'eslint-plugin-react-hooks';
 import globals from 'globals';
 import { configs as typeScriptEslintConfigs } from 'typescript-eslint';
+import { getTailwindCssConfig } from './tools/eslint/getTailwindCssConfig';
 
 export default defineConfig([
   js.configs.recommended,
@@ -188,6 +189,7 @@ export default defineConfig([
       ],
     },
   },
+  getTailwindCssConfig(),
   {
     files: ['**/*.test.{ts,tsx}'],
     extends: [

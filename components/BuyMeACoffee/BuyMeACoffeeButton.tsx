@@ -40,17 +40,17 @@ export const BuyMeACoffeeButton = () => {
   return (
     <a
       className={cx(
-        'flex items-center justify-center w-12 h-12 z-1000',
-        'rounded-full bg-vegasGold',
-        'border-none outline-none cursor-pointer',
-        'transition-all duration-250 ease-default hover:scale-110',
+        'z-1000 flex h-12 w-12 items-center justify-center',
+        'bg-vegasGold rounded-full',
+        'cursor-pointer border-none outline-none',
+        'ease-default transition-all duration-250 hover:scale-110',
         'fixed right-4 bottom-20 sm:bottom-4',
       )}
       title="Buy Me A Coffee"
       {...linkProps}
       onClick={handleClick}
     >
-      <div className="w-10 h-10 bg-coffee bg-contain bg-center bg-no-repeat" />
+      <div className="bg-coffee h-10 w-10 bg-contain bg-center bg-no-repeat" />
     </a>
   );
 };

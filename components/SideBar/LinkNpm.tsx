@@ -16,7 +16,7 @@ export const LinkNpm = () => {
         href={`https://www.npmjs.com/~${npm}`}
         target="_blank"
         rel="noreferrer noopener"
-        className="block text-lightGray70 text-lg hover:text-lightGray"
+        className="text-lightGray70 hover:text-lightGray block text-lg"
       >
         <LogoNpm />
         <span style={{ display: 'none' }}>{npm}</span>

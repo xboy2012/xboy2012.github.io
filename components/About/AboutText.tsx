@@ -6,7 +6,7 @@ export const AboutText = () => {
     <section
       className={cx(
         'text-lightGray text-3.5 md:text-4 font-300 leading-x1.6 md:mb-10',
-        'print:text-inherit print:!mb-0',
+        'print:!mb-0 print:text-inherit',
       )}
     >
       {userData.intro.map((text, index) => {
