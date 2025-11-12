@@ -40,7 +40,7 @@ const lintStagedConfig: Configuration = {
     return [];
   },
   [stylePattern]: (files) => {
-    return [`stylelint '${files.join(' ')}'`];
+    return [`stylelint '${files.join("' '")}'`];
   },
   [otherPattern]: async (files) => {
     const prettierFiles = await filterFilesRequiresPrettier(files);
