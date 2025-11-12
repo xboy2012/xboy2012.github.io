@@ -17,7 +17,7 @@ export const Projects = ({ projects }: { projects: ProjectData[] }) => {
   }, [curCategory, projects]);
 
   return (
-    <section className="projects">
+    <section>
       <ProjectFilterFlat category={curCategory} onChange={setCurCategory} />
       <ProjectFilterDropDown category={curCategory} onChange={setCurCategory} />
       <ProjectList data={filteredProjects} />
