@@ -31,7 +31,7 @@ export const ProjectItem = ({
           <div
             className={cx(
               'absolute top-0 left-0 z-1 h-full w-full bg-transparent',
-              'ease-default transition-all duration-250',
+              'transition-all duration-250 ease-default',
               'group-hover:bg-black group-hover:opacity-50',
             )}
           />
@@ -39,7 +39,7 @@ export const ProjectItem = ({
             className={cx(
               'bg-jet text-orangeYellowCrayola',
               'absolute top-1/2 left-1/2 z-1 rounded-xl p-5 text-xl',
-              'ease-default transition-all duration-250',
+              'transition-all duration-250 ease-default',
               '-translate-x-1/2 -translate-y-1/2 scale-80 opacity-0',
               'group-hover:scale-100 group-hover:opacity-100',
             )}
@@ -50,7 +50,7 @@ export const ProjectItem = ({
           <div
             className={cx(
               'h-full w-full bg-cover bg-center bg-no-repeat',
-              'ease-default transition-all duration-250 group-hover:scale-110',
+              'transition-all duration-250 ease-default group-hover:scale-110',
             )}
             style={{
               backgroundImage: `url("${image}")`,
@@ -59,11 +59,11 @@ export const ProjectItem = ({
           />
         </figure>
 
-        <h3 className="text-white2 text-4 font-400 leading-x1.3 ml-2.5 capitalize print:text-inherit">
+        <h3 className="ml-2.5 text-4 leading-x1.3 font-400 text-white2 capitalize print:text-inherit">
           {title}
         </h3>
 
-        <p className="text-lightGray70 text-3.5 md:text-4 font-300 ml-2.5 print:text-inherit">
+        <p className="ml-2.5 text-3.5 font-300 text-lightGray70 md:text-4 print:text-inherit">
           {category}
         </p>
       </a>

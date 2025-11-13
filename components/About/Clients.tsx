@@ -5,7 +5,7 @@ import { ClientItem } from './ClientItem';
 export const Clients = () => {
   return (
     <section className="mb-4 break-inside-avoid">
-      <h3 className="text-white2 text-4.5 md:text-6 capitalize print:mb-2 print:text-inherit">
+      <h3 className="text-4.5 text-white2 capitalize md:text-6 print:mb-2 print:text-inherit">
         Who I work for
       </h3>
 
@@ -15,9 +15,9 @@ export const Clients = () => {
           '-mx-4 my-0 p-6 md:-mx-7.5 md:p-11',
           'flex-wrap sm:flex-nowrap',
           'scroll-smooth sm:overflow-x-auto',
-          'overscroll-inline-contain snap-inline-mandatory',
+          'snap-inline-mandatory overscroll-inline-contain',
           'scroll-px-6 md:scroll-px-11',
-          'webkit-scrollbar:w-1.25 webkit-scrollbar:h-1.25',
+          'webkit-scrollbar:h-1.25 webkit-scrollbar:w-1.25',
           'webkit-scrollbar-track:bg-onyx',
           'webkit-scrollbar-track:rounded-1.25',
           'webkit-scrollbar-thumb:bg-orangeYellowCrayola',

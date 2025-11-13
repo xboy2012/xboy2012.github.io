@@ -12,21 +12,21 @@ export const SkillItem = ({
   return (
     <li className={cx('md:mb-6 print:!mb-0', isLast ? 'mb-0' : 'mb-4')}>
       <div className="mb-2 flex items-center gap-1.25">
-        <h5 className="text-white2 text-3.5 md:text-4 font-500 capitalize print:text-inherit">
+        <h5 className="text-3.5 font-500 text-white2 capitalize md:text-4 print:text-inherit">
           {skill}
         </h5>
         <p>
           <data
             value={percent}
-            className="text-lightGray text-3.5 md:text-4 font-300 print:text-inherit"
+            className="text-3.5 font-300 text-lightGray md:text-4 print:text-inherit"
           >
             {`${percent}%`}
           </data>
         </p>
       </div>
-      <div className="bg-jet rounded-2.5 h-2 w-full print:hidden">
+      <div className="h-2 w-full rounded-2.5 bg-jet print:hidden">
         <div
-          className="bg-textGradientYellow rounded-inherit h-full"
+          className="h-full rounded-inherit bg-textGradientYellow"
           style={{ width: `${percent}%` }}
         ></div>
       </div>

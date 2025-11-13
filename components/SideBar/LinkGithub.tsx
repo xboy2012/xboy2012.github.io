@@ -16,7 +16,7 @@ export const LinkGithub = () => {
         href={`https://github.com/${github}`}
         target="_blank"
         rel="noreferrer noopener"
-        className="text-lightGray70 hover:text-lightGray block text-lg"
+        className="block text-lg text-lightGray70 hover:text-lightGray"
       >
         <LogoGithub />
         <span style={{ display: 'none' }}>{title}</span>

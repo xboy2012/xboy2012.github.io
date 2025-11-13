@@ -5,7 +5,7 @@ export const AboutText = () => {
   return (
     <section
       className={cx(
-        'text-lightGray text-3.5 md:text-4 font-300 leading-x1.6 md:mb-10',
+        'text-3.5 leading-x1.6 font-300 text-lightGray md:mb-10 md:text-4',
         'print:!mb-0 print:text-inherit',
       )}
     >

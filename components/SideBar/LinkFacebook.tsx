@@ -16,7 +16,7 @@ export const LinkFacebook = () => {
         href={`https://www.facebook.com/${facebook}`}
         target="_blank"
         rel="noreferrer noopener"
-        className="text-lightGray70 hover:text-lightGray block text-lg"
+        className="block text-lg text-lightGray70 hover:text-lightGray"
       >
         <LogoFacebook />
         <span style={{ display: 'none' }}>{title}</span>

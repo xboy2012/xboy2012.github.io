@@ -25,11 +25,11 @@ export const SideBar = () => {
     <aside
       className={cx(
         'order-1',
-        'bg-eerieBlack2 border-jet rounded-5 border border-solid p-4',
-        'shadow-1 xl:shadow-1xl z-1 mb-4 overflow-hidden transition-all duration-500 ease-in-out',
+        'rounded-5 border border-solid border-jet bg-eerieBlack2 p-4',
+        'z-1 mb-4 overflow-hidden shadow-1 transition-all duration-500 ease-in-out xl:shadow-1xl',
         'md:mx-auto md:mb-7.5 md:w-130 md:p-7.5',
         'lg:w-175',
-        'xl:shadow-5 xl:w-237.5',
+        'xl:w-237.5 xl:shadow-5',
         '2xl:sticky 2xl:top-15 2xl:z-1 2xl:mb-0 2xl:h-full 2xl:w-auto 2xl:pt-15',
         showSideBar
           ? 'max-h-101 md:max-h-146 2xl:max-h-[initial]'
@@ -46,15 +46,15 @@ export const SideBar = () => {
           'transition-all duration-500 ease-in-out 2xl:visible 2xl:opacity-100',
           showSideBar ? 'visible opacity-100' : 'invisible opacity-0',
           'print:visible print:opacity-100',
-          'no-js:!opacity-100 no-js:!visible',
+          'no-js:!visible no-js:!opacity-100',
         )}
       >
         <Separator />
 
         <ul
           className={cx(
-            'grid-cols-1fr grid gap-4 md:gap-5 lg:gap-x-4',
-            'lg:grid-cols-1fr1fr 2xl:grid-cols-1fr lg:gap-y-7.5',
+            'grid grid-cols-1fr gap-4 md:gap-5 lg:gap-x-4',
+            'lg:grid-cols-1fr1fr lg:gap-y-7.5 2xl:grid-cols-1fr',
             'print:flex print:flex-col print:gap-0',
           )}
         >

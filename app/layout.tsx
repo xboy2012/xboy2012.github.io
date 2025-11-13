@@ -162,7 +162,7 @@ export default function RootLayout({
         <ServiceWorkerRegister />
         <main
           className={cx(
-            'text-white2 mx-3 mt-4 mb-19 min-w-65',
+            'mx-3 mt-4 mb-19 min-w-65 text-white2',
             'md:mt-15 md:mb-25 xl:mb-15',
             '2xl:mx-auto 2xl:max-w-300',
             'flex flex-col 2xl:flex-row 2xl:items-stretch 2xl:justify-center 2xl:gap-6',

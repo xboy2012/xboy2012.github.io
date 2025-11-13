@@ -4,7 +4,7 @@ import type { BlogData } from '../../src/types';
 export const BlogList = ({ blogs }: { blogs: BlogData[] }) => {
   return (
     <section className="mb-2.5">
-      <ul className="grid-cols-1fr lg:grid-cols-1fr1fr print:!grid-cols-1fr grid gap-5 md:gap-7.5">
+      <ul className="grid grid-cols-1fr gap-5 md:gap-7.5 lg:grid-cols-1fr1fr print:!grid-cols-1fr">
         {blogs.map(({ id, link, title, desc, image, datetime, category }) => {
           return (
             <BlogItem

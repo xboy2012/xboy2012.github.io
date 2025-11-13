@@ -41,7 +41,7 @@ const InnerDialog = () => {
     <div
       className={cx(
         'fixed right-4 bottom-18 z-1000',
-        'rounded-2.5 h-150 w-105 bg-white',
+        'h-150 w-105 rounded-2.5 bg-white',
       )}
     >
       <BuyMeACoffeeFrame
