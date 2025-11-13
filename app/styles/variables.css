@@ -34,6 +34,7 @@
 }
 
 @theme inline {
+  --radius-0: 0;
   --radius-1: 4px;
   --radius-1_25: 5px;
   --radius-2_5: 10px;
@@ -113,4 +114,5 @@
   --spacing-contact2: calc(100% - 64px);
   --aspect-4\/3: 4/3;
   --aspect-5\/3: 5/3;
+  --blur-2_5: 10px;
 }

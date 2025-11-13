@@ -25,7 +25,7 @@ export const ProjectItem = ({
           className={cx(
             'relative mb-4 overflow-hidden rounded-2xl',
             'h-50 w-full sm:aspect-4/3 sm:h-auto',
-            'print:border-px print:border-solid print:border-black',
+            'print:border print:border-solid print:border-black',
           )}
         >
           <div

@@ -1,12 +1,16 @@
+import { cx } from '../../src/utils/cx';
+
 export const SkillItem = ({
   skill,
   percent,
+  isLast,
 }: {
   skill: string;
   percent: number;
+  isLast: boolean;
 }) => {
   return (
-    <li className="!last:mb-0 mb-4 md:mb-6 print:!mb-0">
+    <li className={cx('md:mb-6 print:!mb-0', isLast ? 'mb-0' : 'mb-4')}>
       <div className="mb-2 flex items-center gap-1.25">
         <h5 className="text-white2 text-3.5 md:text-4 font-500 capitalize print:text-inherit">
           {skill}

@@ -33,7 +33,7 @@ export const BlogItem = (props: BlogItemProps) => {
             'overflow-hidden',
             'h-50 w-full sm:aspect-video sm:h-auto xl:aspect-auto xl:h-57.5',
             'rounded-xl md:rounded-2xl',
-            'print:border-px print:mr-4 print:h-50 print:w-50 print:border-solid print:border-black',
+            'print:border print:mr-4 print:h-50 print:w-50 print:border-solid print:border-black',
           )}
         >
           <div

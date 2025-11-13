@@ -18,8 +18,16 @@ export const Skill = () => {
         )}
       >
         <div className="bg-bgGradientJet bg-eerieBlack1 rounded-inherit absolute inset-px -z-1 print:hidden" />
-        {userData.skills.map(({ skill, percent }) => {
-          return <SkillItem key={skill} skill={skill} percent={percent} />;
+        {userData.skills.map(({ skill, percent }, index) => {
+          const isLast = index === userData.skills.length - 1;
+          return (
+            <SkillItem
+              key={skill}
+              skill={skill}
+              percent={percent}
+              isLast={isLast}
+            />
+          );
         })}
       </ul>
     </section>
