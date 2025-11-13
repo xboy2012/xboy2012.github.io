@@ -1,9 +1,9 @@
-import type { ConfigObject } from '@eslint/core';
+import type { ConfigWithExtendsArray } from '@eslint/config-helpers';
 import eslintPluginBetterTailwindCss from 'eslint-plugin-better-tailwindcss';
 import { join } from 'node:path';
 import { getRootDir } from '../../src/utils/getRootDir';
 
-export const getTailwindCssConfig = (): ConfigObject[] => {
+export const getTailwindCssConfig = (): ConfigWithExtendsArray => {
   return [
     {
       plugins: {
