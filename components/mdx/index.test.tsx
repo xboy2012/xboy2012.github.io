@@ -12,6 +12,7 @@ describe('mdx components should work as expected', () => {
       const Component = mdxComponents[tagName] as ComponentType<
         PropsWithChildren<{ className: string }>
       >;
+      // eslint-disable-next-line better-tailwindcss/no-unregistered-classes -- intended usage
       const className = `className-${Math.random().toString(36).substring(2)}`;
       const text = Math.random().toString(36).substring(2);
       const result = render(

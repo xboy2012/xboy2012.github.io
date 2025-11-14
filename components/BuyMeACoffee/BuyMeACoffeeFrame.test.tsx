@@ -10,7 +10,8 @@ describe('BuyMeACoffeeFrame', () => {
   it('renders without crashing', () => {
     const account = 'test';
     const color = '#000000';
-    const className = 'testClassName';
+    // eslint-disable-next-line better-tailwindcss/no-unregistered-classes -- intended usage
+    const className = `className-${Math.random().toString(36).substring(2)}`;
     const { container } = render(
       <BuyMeACoffeeFrame
         account={account}

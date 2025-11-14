@@ -3,6 +3,8 @@ import eslintPluginBetterTailwindCss from 'eslint-plugin-better-tailwindcss';
 import { join } from 'node:path';
 import { getRootDir } from '../../src/utils/getRootDir';
 
+const getCssEntry = () => join(getRootDir(), 'app', 'globals.css');
+
 export const getTailwindCssConfig = (): ConfigWithExtendsArray => {
   return [
     {
@@ -16,14 +18,8 @@ export const getTailwindCssConfig = (): ConfigWithExtendsArray => {
       },
       settings: {
         'better-tailwindcss': {
-          entryPoint: join(getRootDir(), 'app', 'globals.css'),
+          entryPoint: getCssEntry(),
         },
-      },
-    },
-    {
-      files: ['**/*.test.{ts,tsx}'],
-      rules: {
-        'better-tailwindcss/no-unregistered-classes': 'off',
       },
     },
   ];
