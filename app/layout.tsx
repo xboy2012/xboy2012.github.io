@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import type { ReactNode } from 'react';
 import { cx } from '../src/utils/cx';
+import { makeAbsoluteSrc } from '../src/utils/makeAbsoluteSrc';
 import { colors } from '../src/config/colors';
 import {
   APP_DEFAULT_TITLE,
@@ -11,42 +12,83 @@ import { SideBar } from '../components/SideBar';
 import { ServiceWorkerRegister } from '../components/ServiceWorkerRegister';
 import { NavBar } from '../components/NavBar';
 import { useNoJs } from '../src/hooks/useNoJs';
-import src from '../src/utils/getImageUrl';
-import { getFullUrl } from '../src/utils/getFullUrl';
-import type { WithLooseDefault, ImportedImage } from '../src/types';
 import './globals.css';
 import { BuyMeACoffee } from '../components/BuyMeACoffee';
 
-const defineIcons = (
-  icons: {
-    url:
-      | WithLooseDefault<ImportedImage>
-      | Promise<WithLooseDefault<ImportedImage>>
-      | (() =>
-          | WithLooseDefault<ImportedImage>
-          | Promise<WithLooseDefault<ImportedImage>>);
-    type: string;
-    sizes: string;
-    rel?: string;
-  }[],
-): Promise<
-  {
-    url: string;
-    type: string;
-    sizes: string;
-    rel?: string;
-  }[]
-> => {
-  const promises = icons.map(async (icon) => {
-    const url = icon.url;
-    const urlObj = await (typeof url === 'function' ? url() : url);
-    const fullUrl = getFullUrl(src(urlObj));
-    return { ...icon, url: fullUrl };
-  });
-  return Promise.all(promises);
+const getIcons = () => {
+  return makeAbsoluteSrc<
+    'url',
+    {
+      url: string;
+      type: string;
+      sizes: string;
+      rel?: string;
+    }
+  >('url', [
+    // universal icons
+    {
+      url: import('./images/icon/ns-256.png'),
+      type: 'image/png',
+      sizes: '256x256',
+    },
+    {
+      url: import('./images/icon/ns-128.png'),
+      type: 'image/png',
+      sizes: '128x128',
+    },
+    {
+      url: import('./images/icon/64.png'),
+      type: 'image/png',
+      sizes: '64x64',
+    },
+    {
+      url: import('./images/icon/32.png'),
+      type: 'image/png',
+      sizes: '32x32',
+    },
+    {
+      url: import('./images/icon/16.png'),
+      type: 'image/png',
+      sizes: '16x16',
+    },
+
+    // apple icons
+    {
+      url: import('./images/icon/ns-180.png'),
+      type: 'image/png',
+      sizes: '180x180',
+      rel: 'apple-touch-icon',
+    },
+    {
+      url: import('./images/icon/ns-152.png'),
+      type: 'image/png',
+      sizes: '152x152',
+      rel: 'apple-touch-icon',
+    },
+    {
+      url: import('./images/icon/ns-120.png'),
+      type: 'image/png',
+      sizes: '120x120',
+      rel: 'apple-touch-icon',
+    },
+    {
+      url: import('./images/icon/ns-76.png'),
+      type: 'image/png',
+      sizes: '76x76',
+      rel: 'apple-touch-icon',
+    },
+
+    // default favicon
+    {
+      url: '/favicon.ico',
+      type: 'image/x-icon',
+      sizes: '16x16 32x32 48x48 64x64 128x128',
+    },
+  ]);
 };
 
 export const generateMetadata = async (): Promise<Metadata> => {
+  const icons = await getIcons();
   return {
     description: APP_DESCRIPTION,
     title: {
@@ -75,67 +117,7 @@ export const generateMetadata = async (): Promise<Metadata> => {
       },
       description: APP_DESCRIPTION,
     },
-    icons: await defineIcons([
-      // universal icons
-      {
-        url: import('./images/icon/ns-256.png'),
-        type: 'image/png',
-        sizes: '256x256',
-      },
-      {
-        url: import('./images/icon/ns-128.png'),
-        type: 'image/png',
-        sizes: '128x128',
-      },
-      {
-        url: import('./images/icon/64.png'),
-        type: 'image/png',
-        sizes: '64x64',
-      },
-      {
-        url: import('./images/icon/32.png'),
-        type: 'image/png',
-        sizes: '32x32',
-      },
-      {
-        url: import('./images/icon/16.png'),
-        type: 'image/png',
-        sizes: '16x16',
-      },
-
-      // apple icons
-      {
-        url: import('./images/icon/ns-180.png'),
-        type: 'image/png',
-        sizes: '180x180',
-        rel: 'apple-touch-icon',
-      },
-      {
-        url: import('./images/icon/ns-152.png'),
-        type: 'image/png',
-        sizes: '152x152',
-        rel: 'apple-touch-icon',
-      },
-      {
-        url: import('./images/icon/ns-120.png'),
-        type: 'image/png',
-        sizes: '120x120',
-        rel: 'apple-touch-icon',
-      },
-      {
-        url: import('./images/icon/ns-76.png'),
-        type: 'image/png',
-        sizes: '76x76',
-        rel: 'apple-touch-icon',
-      },
-
-      // default favicon
-      {
-        url: '/favicon.ico',
-        type: 'image/x-icon',
-        sizes: '16x16 32x32 48x48 64x64 128x128',
-      },
-    ]),
+    icons,
   };
 };
 
