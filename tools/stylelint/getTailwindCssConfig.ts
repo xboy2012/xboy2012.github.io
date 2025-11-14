@@ -1,10 +1,8 @@
-import type { PartialStyleLintConfig } from './types';
+import type { Config } from 'stylelint';
 
-export const getTailwindCssConfig = (): PartialStyleLintConfig => {
+export const getTailwindCssConfig = (): Config => {
   return {
-    // tailwind
     rules: {
-      // tailwind rules
       'import-notation': null,
       'at-rule-no-unknown': [
         true,

@@ -1,6 +1,6 @@
-import type { PartialStyleLintConfig } from './types';
+import type { Config } from 'stylelint';
 
-export const getStylisticConfig = (): PartialStyleLintConfig => {
+export const getStylisticConfig = (): Config => {
   return {
     plugins: ['stylelint-prettier'],
     extends: ['@stylistic/stylelint-config', 'stylelint-prettier/recommended'],
