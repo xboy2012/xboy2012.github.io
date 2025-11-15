@@ -99,7 +99,8 @@ export type ProjectData = Readonly<{
   image: string;
 }>;
 
-export interface CompanyData {
+export type CompanyData = Readonly<{
+  id: string;
   name: string;
   link: string;
-}
+}>;

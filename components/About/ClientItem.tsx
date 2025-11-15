@@ -1,18 +1,24 @@
+import { useMemo, type FC } from 'react';
 import { cx } from '../../src/utils/cx';
-import type { CompanyName } from '../../src/companies';
+import { getCompanyById, type CompanyId } from '../../src/companies';
 
 const classNames: Record<string, string> = {
-  'Microsoft': 'bg-cover bg-microsoft bg-white',
-  'Tencent': 'bg-contain bg-tencent bg-white',
-  'NIO': 'bg-contain bg-nio bg-white',
-  'LeetCode': 'bg-contain bg-leetcode bg-white',
-  'Temu': 'bg-cover bg-temu',
-  'Pinduoduo': 'bg-cover bg-pdd',
-  'MyShell.ai': 'bg-cover bg-myshell',
-  'Wacai': 'bg-cover bg-wacai',
-} satisfies Record<CompanyName, string>;
+  microsoft: 'bg-cover bg-microsoft bg-white',
+  tencent: 'bg-contain bg-tencent bg-white',
+  nio: 'bg-contain bg-nio bg-white',
+  leetcode: 'bg-contain bg-leetcode bg-white',
+  temu: 'bg-cover bg-temu',
+  pdd: 'bg-cover bg-pdd',
+  myshell: 'bg-cover bg-myshell',
+  wacai: 'bg-cover bg-wacai',
+} satisfies Record<CompanyId, string>;
 
-export const ClientItem = ({ name, link }: { name: string; link: string }) => {
+interface ClientItemProps {
+  id: CompanyId;
+}
+
+export const ClientItem: FC<ClientItemProps> = ({ id }) => {
+  const { name, link } = useMemo(() => getCompanyById(id), [id]);
   return (
     <li
       className={cx(
@@ -32,7 +38,7 @@ export const ClientItem = ({ name, link }: { name: string; link: string }) => {
         <div
           className={cx(
             'h-full rounded bg-center bg-no-repeat',
-            classNames[name],
+            classNames[id],
             'print:hidden',
           )}
         />

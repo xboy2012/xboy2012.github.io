@@ -27,8 +27,8 @@ export const Clients = () => {
           'print:m-0 print:flex-col print:gap-0 print:p-0',
         )}
       >
-        {companies.map(({ name, link }) => {
-          return <ClientItem key={name} name={name} link={link} />;
+        {companies.map(({ id }) => {
+          return <ClientItem key={id} id={id} />;
         })}
       </ul>
     </section>
