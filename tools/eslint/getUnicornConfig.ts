@@ -60,6 +60,7 @@ export const getUnicornConfig = (): ConfigWithExtendsArray => {
         'unicorn/switch-case-braces': 'off',
         'unicorn/prefer-string-replace-all': 'off',
         'unicorn/prefer-dom-node-append': 'off',
+        'unicorn/prefer-string-raw': 'off',
       },
     },
     {
