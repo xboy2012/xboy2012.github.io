@@ -1,5 +1,3 @@
-/* istanbul ignore file */
-
 import type { MDXComponents } from 'mdx/types';
 import { getMdxComponents } from '../components/mdx';
 
