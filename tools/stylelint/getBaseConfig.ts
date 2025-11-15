@@ -11,6 +11,7 @@ export const getBaseConfig = (): Config => {
       'coverage/**',
       '.swc/**',
       '.rollup.cache/**',
+      'temp/**',
     ],
 
     defaultSeverity: 'error',

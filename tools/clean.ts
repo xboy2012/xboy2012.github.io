@@ -8,6 +8,7 @@ const filesToClean = [
   'coverage',
   'out',
   'tsconfig.tsbuildinfo',
+  'temp',
 ] as const;
 
 export const clean = async (): Promise<void> => {

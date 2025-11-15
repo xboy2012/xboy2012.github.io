@@ -5,7 +5,7 @@ export const getBaseConfig = (): ConfigWithExtendsArray => {
   return [
     js.configs.recommended,
     {
-      ignores: ['node_modules'],
+      ignores: ['node_modules', 'temp'],
     },
   ];
 };
