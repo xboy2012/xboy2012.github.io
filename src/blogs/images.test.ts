@@ -3,6 +3,7 @@ import { readdir } from 'node:fs/promises';
 import { basename, extname, join, relative } from 'node:path';
 import { getRootDir } from '../utils/getRootDir';
 import { listGitIgnoredFiles } from '../utils/listGitIgnoredFiles';
+import { collectDuplicatedBySelector } from '../utils/collectDuplicatedBySelector';
 
 describe('images should follow conventions', () => {
   const rootDir = getRootDir();
@@ -35,7 +36,6 @@ describe('images should follow conventions', () => {
     const relativePath = relative(rootDir, fullPath);
     return relativePath;
   };
-
   const hasSubFolder = ({ parentPath }: Dirent): boolean =>
     parentPath !== imagesDir;
   const noSubFolder = (entry: Dirent): boolean => !hasSubFolder(entry);
@@ -46,34 +46,6 @@ describe('images should follow conventions', () => {
     name.toLowerCase() !== name;
   const hasLongName = ({ name }: Dirent): boolean =>
     basename(name, extname(name)).length >= MAX_NAME_LENGTH;
-
-  const collectExtensionDiffFiles = () => {
-    const map = new Map<string, Set<string>>();
-    for (const entry of entries.filter(noSubFolder).filter(extensionValid)) {
-      const { name } = entry;
-      const fileNameWithoutExtension = basename(name);
-      let set = map.get(fileNameWithoutExtension);
-      if (!set) {
-        set = new Set();
-        map.set(fileNameWithoutExtension, set);
-      }
-      set.add(name);
-    }
-
-    const result: string[] = [];
-
-    for (const [, set] of map) {
-      if (set.size > 1) {
-        for (const name of set) {
-          const fullPath = join(imagesDir, name);
-          const relativePath = relative(rootDir, fullPath);
-          result.push(relativePath);
-        }
-      }
-    }
-
-    return result;
-  };
 
   it('should not contain subfolders', () => {
     const invalid = entries.filter(hasSubFolder).map(dump);
@@ -89,7 +61,11 @@ describe('images should follow conventions', () => {
   });
 
   it('should not contain same image name with different extensions', () => {
-    expect(collectExtensionDiffFiles()).toHaveLength(0);
+    const invalid = collectDuplicatedBySelector(
+      entries,
+      ({ name }) => basename(name, extname(name)), // fileNameWithoutExtension
+    ).map(dump);
+    expect(invalid).toHaveLength(0);
   });
 
   it('should not contain upper-case image names', () => {
