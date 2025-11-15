@@ -1,5 +1,3 @@
-import type { CompanyData } from './types';
-
 export const companies = [
   { id: 'microsoft', name: 'Microsoft', link: 'https://www.microsoft.com' },
   { id: 'tencent', name: 'Tencent', link: 'https://www.tencent.com' },
@@ -9,9 +7,15 @@ export const companies = [
   { id: 'pdd', name: 'Pinduoduo', link: 'https://m.pinduoduo.com' },
   { id: 'myshell', name: 'MyShell.ai', link: 'https://myshell.ai' },
   { id: 'wacai', name: 'Wacai', link: 'https://www.wacai.com' },
-] as const satisfies readonly CompanyData[];
+] as const satisfies {
+  id: string;
+  name: string;
+  link: string;
+}[];
 
-export type CompanyId = (typeof companies)[number]['id'];
+export type CompanyData = Readonly<(typeof companies)[number]>;
+
+export type CompanyId = CompanyData['id'];
 
 let companyMap: Map<CompanyId, CompanyData> | undefined;
 const getCompanyMap = () => {

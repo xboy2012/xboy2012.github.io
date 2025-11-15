@@ -98,9 +98,3 @@ export type ProjectData = Readonly<{
   title: string;
   image: string;
 }>;
-
-export type CompanyData = Readonly<{
-  id: string;
-  name: string;
-  link: string;
-}>;
