@@ -72,6 +72,7 @@
     "ts-jest": "^29.4.5",
     "ts-node": "^10.9.2",
     "tsx": "^4.20.6",
+    "type-fest": "^4.41.0",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.46.4",
     "whatwg-fetch": "^3.6.20"

@@ -4,7 +4,11 @@ import { Projects } from './Projects';
 import { JsonLD } from './JsonLD';
 import type { ProjectData } from '../../src/types';
 
-export const Portfolio = ({ projects }: { projects: ProjectData[] }) => {
+export const Portfolio = ({
+  projects,
+}: {
+  projects: readonly ProjectData[];
+}) => {
   return (
     <Article>
       <JsonLD projects={projects} />

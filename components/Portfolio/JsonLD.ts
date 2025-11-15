@@ -5,7 +5,7 @@ import { getSideBarJsonLD } from '../../src/json-ld/getSideBarJsonLD';
 import { useJsonLD } from '../../src/hooks/useJsonLD';
 import type { ProjectData } from '../../src/types';
 
-export const JsonLD = ({ projects }: { projects: ProjectData[] }) => {
+export const JsonLD = ({ projects }: { projects: readonly ProjectData[] }) => {
   useJsonLD(() => getPortfolioJsonLD(projects));
   useJsonLD(getSideBarJsonLD);
   return null;

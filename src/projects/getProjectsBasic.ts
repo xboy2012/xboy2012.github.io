@@ -1,21 +1,10 @@
-import type {
-  ImportedImage,
-  ProjectCategory,
-  WithLooseDefault,
-} from '../types';
+import type { ImageDefinition, ProjectData } from '../types';
 
-type ProjectDataBasic = Readonly<{
-  id: string;
-  category: ProjectCategory;
-  link: string;
-  title: string;
-  image: () =>
-    | WithLooseDefault<ImportedImage>
-    | Promise<WithLooseDefault<ImportedImage>>;
-}>;
+export type ProjectDataBasic = ImageDefinition<'image', ProjectData>;
 
-let _projects: ProjectDataBasic[] | undefined;
-export const getProjectsBasic = () => {
+let _projects: readonly ProjectDataBasic[] | undefined;
+
+export const getProjectsBasic = (): readonly ProjectDataBasic[] => {
   if (!_projects) {
     _projects = [
       {

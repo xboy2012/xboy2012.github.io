@@ -6,7 +6,11 @@ import { ProjectList } from './ProjectList';
 import { ProjectFilterFlat } from './ProjectFilterFlat';
 import { ProjectFilterDropDown } from './ProjectFilterDropDown';
 
-export const Projects = ({ projects }: { projects: ProjectData[] }) => {
+export const Projects = ({
+  projects,
+}: {
+  projects: readonly ProjectData[];
+}) => {
   const [curCategory, setCurCategory] = useState<Category>('All');
 
   const filteredProjects = useMemo<ReadonlyArray<ProjectData>>(() => {

@@ -4,7 +4,7 @@ import { BlogList } from './BlogList';
 import { JsonLD } from './JsonLD';
 import type { BlogData } from '../../src/types';
 
-export const Blog = ({ blogs }: { blogs: BlogData[] }) => {
+export const Blog = ({ blogs }: { blogs: readonly BlogData[] }) => {
   return (
     <Article>
       <JsonLD blogs={blogs} />

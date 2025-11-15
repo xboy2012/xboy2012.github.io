@@ -1,19 +1,14 @@
 import { getBlogsBasic } from './getBlogsBasic';
-import src from '../utils/getImageUrl';
+import { makeAbsoluteSrc } from '../utils/makeAbsoluteSrc';
 import type { BlogData } from '../types';
 
-let promise: Promise<BlogData[]> | undefined;
+let promise: Promise<readonly BlogData[]> | undefined;
 
-const _getBlogsFull = (): Promise<BlogData[]> => {
-  const blogs = getBlogsBasic();
-  const promises = blogs.map(async (blog): Promise<BlogData> => {
-    const image = src(await blog.image());
-    return { ...blog, image };
-  });
-  return Promise.all(promises);
+const _getBlogsFull = () => {
+  return makeAbsoluteSrc<'image', BlogData>('image', getBlogsBasic());
 };
 
-export const getBlogs = (): Promise<BlogData[]> => {
+export const getBlogs = (): Promise<readonly BlogData[]> => {
   if (!promise) {
     promise = _getBlogsFull();
   }

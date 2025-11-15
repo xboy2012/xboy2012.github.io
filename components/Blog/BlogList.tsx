@@ -1,7 +1,7 @@
 import { BlogItem } from './BlogItem';
 import type { BlogData } from '../../src/types';
 
-export const BlogList = ({ blogs }: { blogs: BlogData[] }) => {
+export const BlogList = ({ blogs }: { blogs: readonly BlogData[] }) => {
   return (
     <section className="mb-2.5">
       <ul className="grid grid-cols-1fr gap-5 md:gap-7.5 lg:grid-cols-1fr1fr print:!grid-cols-1fr">

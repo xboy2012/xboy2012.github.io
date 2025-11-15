@@ -6,7 +6,7 @@ import type { ProjectData } from '../types';
 
 let json: ItemList | undefined;
 
-export const getPortfolioJsonLD = (projects: ProjectData[]) => {
+export const getPortfolioJsonLD = (projects: readonly ProjectData[]) => {
   if (!json) {
     json = {
       '@type': 'ItemList',

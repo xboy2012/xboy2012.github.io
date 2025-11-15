@@ -4,7 +4,7 @@ import { PERSON_ID } from '../config/json-ld';
 import { getFullUrl } from '../utils/getFullUrl';
 import type { BlogData } from '../types';
 
-export const getBlogListJsonLD = (blogs: BlogData[]): Blog => {
+export const getBlogListJsonLD = (blogs: readonly BlogData[]): Blog => {
   return {
     '@type': 'Blog',
     'name': `${userData.name}'s Blogs`,

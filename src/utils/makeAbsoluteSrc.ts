@@ -1,20 +1,6 @@
-import type { ImportedImage, WithLooseDefault } from '../types';
+import type { UrlOrSrc, ImageDefinition } from '../types';
 import { getFullUrl } from './getFullUrl';
 import src from './getImageUrl';
-
-type UrlOrSrc =
-  | WithLooseDefault<ImportedImage>
-  | Promise<WithLooseDefault<ImportedImage>>
-  | (() =>
-      | WithLooseDefault<ImportedImage>
-      | Promise<WithLooseDefault<ImportedImage>>);
-
-type ImageDefinition<
-  K extends 'src' | 'url',
-  T extends { [P in K]: string },
-> = Omit<T, K> & {
-  [P in K]: UrlOrSrc;
-};
 
 const getUrl = async (value: UrlOrSrc) => {
   const urlObj = await (typeof value === 'function' ? value() : value);
@@ -22,12 +8,12 @@ const getUrl = async (value: UrlOrSrc) => {
 };
 
 export const makeAbsoluteSrc = <
-  K extends 'src' | 'url',
+  K extends string,
   T extends { [P in K]: string },
 >(
   field: K,
-  icons: ImageDefinition<K, T>[],
-): Promise<T[]> => {
+  icons: readonly ImageDefinition<K, T>[],
+): Promise<readonly T[]> => {
   const promises = icons.map(async (icon) => {
     const fullUrl = await getUrl(icon[field]);
     return { ...icon, [field]: fullUrl } as T;

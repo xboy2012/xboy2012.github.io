@@ -1,5 +1,19 @@
 export type WithLooseDefault<T> = T | { default: T };
 
+export type UrlOrSrc =
+  | WithLooseDefault<ImportedImage>
+  | Promise<WithLooseDefault<ImportedImage>>
+  | (() =>
+      | WithLooseDefault<ImportedImage>
+      | Promise<WithLooseDefault<ImportedImage>>);
+
+export type ImageDefinition<
+  K extends string,
+  T extends { [P in K]: string },
+> = Omit<T, K> & {
+  [P in K]: UrlOrSrc;
+};
+
 export type JsonSerializable =
   | string
   | number

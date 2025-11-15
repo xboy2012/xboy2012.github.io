@@ -1,18 +1,10 @@
-import type { ImportedImage, WithLooseDefault } from '../types';
+import type { BlogData, ImageDefinition } from '../types';
 
-export interface BlogDataBasic {
-  id: string;
-  link?: string;
-  title: string;
-  desc: string;
-  image: () => Promise<WithLooseDefault<ImportedImage>>;
-  datetime: `${string}-${string}-${string}`;
-  category: string;
-}
+export type BlogDataBasic = ImageDefinition<'image', BlogData>;
 
-let _blogs: ReadonlyArray<BlogDataBasic>;
+let _blogs: readonly BlogDataBasic[];
 
-export const getBlogsBasic = (): ReadonlyArray<BlogDataBasic> => {
+export const getBlogsBasic = (): readonly BlogDataBasic[] => {
   if (!_blogs) {
     _blogs = [
       {
