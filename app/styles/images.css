@@ -6,16 +6,6 @@
   /* user avatar */
   --background-image-avatar: url("../images/avatar.jpg");
 
-  /* icons for companies */
-  --background-image-leetcode: url("../images/company/leetcode.svg");
-  --background-image-microsoft: url("../images/company/microsoft.svg");
-  --background-image-myshell: url("../images/company/myshell.jpg");
-  --background-image-nio: url("../images/company/nio.svg");
-  --background-image-pdd: url("../images/company/pdd.jpg");
-  --background-image-temu: url("../images/company/temu.jpg");
-  --background-image-tencent: url("../images/company/tencent.svg");
-  --background-image-wacai: url("../images/company/wacai.jpg");
-
   /* icons for services */
   --background-image-icon-arch: url("../images/services/arch.svg");
   --background-image-icon-devops: url("../images/services/devops.svg");

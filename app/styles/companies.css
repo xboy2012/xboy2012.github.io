@@ -1,0 +1,10 @@
+@theme {
+  --background-image-microsoft: url("../images/company/microsoft.svg");
+  --background-image-tencent: url("../images/company/tencent.svg");
+  --background-image-nio: url("../images/company/nio.svg");
+  --background-image-leetcode: url("../images/company/leetcode.svg");
+  --background-image-temu: url("../images/company/temu.jpg");
+  --background-image-pdd: url("../images/company/pdd.jpg");
+  --background-image-myshell: url("../images/company/myshell.jpg");
+  --background-image-wacai: url("../images/company/wacai.jpg");
+}
