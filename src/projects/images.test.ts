@@ -2,7 +2,7 @@ import type { Dirent } from 'node:fs';
 import { readdir } from 'node:fs/promises';
 import { basename, extname, join, relative } from 'node:path';
 import { getRootDir } from '../utils/getRootDir';
-import { listGitIgnoredFiles } from '../../tools/listGitIgnoredFiles';
+import { listGitIgnoredFiles } from '../utils/listGitIgnoredFiles';
 
 describe('images should follow conventions', () => {
   const rootDir = getRootDir();

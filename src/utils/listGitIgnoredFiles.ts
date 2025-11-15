@@ -1,6 +1,6 @@
 import { join, relative } from 'node:path';
 import { execSync } from 'node:child_process';
-import { getRootDir } from '../src/utils/getRootDir';
+import { getRootDir } from './getRootDir';
 
 export const listGitIgnoredFiles = (absoluteDirPath: string): Set<string> => {
   const rootDir = getRootDir();
