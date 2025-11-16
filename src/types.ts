@@ -53,7 +53,11 @@ export interface UserData {
   title: string;
   email: string;
   phoneCA: string;
-  location: string;
+  location: {
+    city: string;
+    province: string;
+    country: string;
+  };
   facebook: string;
   twitter: string;
   github: string;

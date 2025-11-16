@@ -5,7 +5,11 @@ export const userData = {
   title: 'Staff Software Engineer',
   email: 'xboy2008@live.cn',
   phoneCA: '+12369657673',
-  location: 'Vancouver, BC, Canada',
+  location: {
+    city: 'Vancouver',
+    province: 'BC',
+    country: 'Canada',
+  },
   facebook: 'xboy2012',
   twitter: 'xboy2012',
   github: 'xboy2012',

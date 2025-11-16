@@ -21,9 +21,9 @@ export const getSideBarJsonLD = (): Person => {
       'telephone': /* istanbul ignore next */ userData.phoneCA || undefined,
       'address': {
         '@type': 'PostalAddress',
-        'addressLocality': 'Richmond',
-        'addressRegion': 'BC',
-        'addressCountry': 'CA',
+        'addressLocality': userData.location.city,
+        'addressRegion': userData.location.province,
+        'addressCountry': userData.location.country,
       },
       'jobTitle': userData.title,
       'description': userData.intro,
