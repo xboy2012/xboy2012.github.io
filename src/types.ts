@@ -1,3 +1,5 @@
+import type { ReadonlyDeep } from 'type-fest';
+
 export type WithLooseDefault<T> = T | { default: T };
 
 export type UrlOrSrc =
@@ -14,14 +16,23 @@ export type ImageDefinition<
   [P in K]: UrlOrSrc;
 };
 
+export type JsonSerializableMutable =
+  | string
+  | number
+  | boolean
+  | undefined
+  | null
+  | JsonSerializableMutable[]
+  | { [key: string]: JsonSerializableMutable };
+
 export type JsonSerializable =
   | string
   | number
   | boolean
   | undefined
   | null
-  | JsonSerializable[]
-  | { [key: string]: JsonSerializable };
+  | readonly JsonSerializable[]
+  | { readonly [key: string]: JsonSerializable };
 
 export type ImportedImage = { src: string } | string;
 
@@ -32,23 +43,23 @@ export type AssetHashInfo = [PathString, string];
 
 export type HashInfo = [PageHashInfo[], AssetHashInfo[]];
 
-export interface TimelineItem {
+export type EducationItem = Readonly<{
   from: string;
   to: string;
   title: string;
-  desc: string | string[];
-}
+  desc: string;
+}>;
 
-export interface WorkExperienceItem {
+export type WorkExperienceItem = Readonly<{
   from: string;
   to: string;
   title: string;
-  desc: string | string[];
+  desc: string[];
   location: string;
   company: string;
-}
+}>;
 
-export interface UserData {
+export type UserData = ReadonlyDeep<{
   name: string;
   title: string;
   email: string;
@@ -65,10 +76,10 @@ export interface UserData {
   linkedin: string;
   intro: string[];
   services: ServiceData[];
-  educations: TimelineItem[];
+  educations: EducationItem[];
   workExperiences: WorkExperienceItem[];
   skills: { skill: string; percent: number }[];
-}
+}>;
 
 export type BlogData = Readonly<{
   id: string;

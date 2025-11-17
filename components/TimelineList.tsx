@@ -1,14 +1,14 @@
-import { memo } from 'react';
 import type { FC, ReactNode } from 'react';
 import { cx } from '../src/utils/cx';
-import type { TimelineItem } from '../src/types';
 
-const Wrapper: FC<{
+export const TimelineListItem: FC<{
+  isFirst: boolean;
   isLast: boolean;
   children: ReactNode;
-}> = ({ isLast, children }) => {
+}> = ({ isFirst, isLast, children }) => {
   return (
     <li className={cx('relative break-inside-avoid', !isLast && 'mb-5')}>
+      <Prefix isFirst={isFirst} isLast={isLast} />
       {children}
     </li>
   );
@@ -47,7 +47,7 @@ const Prefix: FC<{
   );
 };
 
-const Desc: FC<{
+export const TimelineListItemDesc: FC<{
   children: ReactNode;
 }> = ({ children }) => {
   return (
@@ -57,7 +57,9 @@ const Desc: FC<{
   );
 };
 
-const Title: FC<{ children: string }> = ({ children }) => {
+export const TimelineListItemTitle: FC<{ children: string }> = ({
+  children,
+}) => {
   return (
     <h4 className="mb-2 text-3.5 leading-x1.3 text-white2 md:text-4 print:flex-grow print:text-inherit">
       {children}
@@ -65,7 +67,7 @@ const Title: FC<{ children: string }> = ({ children }) => {
   );
 };
 
-const Period: FC<{
+export const TimelineListItemPeriod: FC<{
   from: string;
   to: string;
 }> = ({ from, to }) => {
@@ -76,34 +78,12 @@ const Period: FC<{
   );
 };
 
-export const TimelineList = memo(({ data }: { data: TimelineItem[] }) => {
-  const lastIndex = data.length - 1;
+export const TimelineList: FC<{
+  children: ReactNode;
+}> = ({ children }) => {
   return (
     <ul className={cx('ml-11 text-3.5 md:ml-16 md:text-4', 'print:!ml-0')}>
-      {data.map(({ from, to, title, desc }, index) => {
-        const isFirst = index === 0;
-        const isLast = index === lastIndex;
-        return (
-          <Wrapper key={index} isLast={isLast}>
-            <Prefix isFirst={isFirst} isLast={isLast} />
-            <div className="print:flex">
-              <Title>{title}</Title>
-              {!!(from && to) && <Period from={from} to={to} />}
-            </div>
-            {Array.isArray(desc) ? (
-              desc.map((text, i) => {
-                return (
-                  <Desc key={i}>
-                    <span>•</span> <span>{text}</span>
-                  </Desc>
-                );
-              })
-            ) : (
-              <Desc>{desc}</Desc>
-            )}
-          </Wrapper>
-        );
-      })}
+      {children}
     </ul>
   );
-});
+};
