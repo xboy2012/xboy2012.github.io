@@ -36,6 +36,7 @@
     ".rollup.cache",
     ".swc",
     "coverage",
-    "out"
+    "out",
+    "temp"
   ]
 }
