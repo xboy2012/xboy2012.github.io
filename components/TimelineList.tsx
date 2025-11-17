@@ -3,6 +3,17 @@ import type { FC, ReactNode } from 'react';
 import { cx } from '../src/utils/cx';
 import type { TimelineItem } from '../src/types';
 
+const Wrapper: FC<{
+  isLast: boolean;
+  children: ReactNode;
+}> = ({ isLast, children }) => {
+  return (
+    <li className={cx('relative break-inside-avoid', !isLast && 'mb-5')}>
+      {children}
+    </li>
+  );
+};
+
 const Prefix: FC<{
   isFirst: boolean;
   isLast: boolean;
@@ -46,30 +57,38 @@ const Desc: FC<{
   );
 };
 
+const Title: FC<{ children: string }> = ({ children }) => {
+  return (
+    <h4 className="mb-2 text-3.5 leading-x1.3 text-white2 md:text-4 print:flex-grow print:text-inherit">
+      {children}
+    </h4>
+  );
+};
+
+const Period: FC<{
+  from: string;
+  to: string;
+}> = ({ from, to }) => {
+  return (
+    <span className="block leading-x1.6 font-400 text-vegasGold print:text-inherit">
+      {`${from} — ${to}`}
+    </span>
+  );
+};
+
 export const TimelineList = memo(({ data }: { data: TimelineItem[] }) => {
   const lastIndex = data.length - 1;
   return (
     <ul className={cx('ml-11 text-3.5 md:ml-16 md:text-4', 'print:!ml-0')}>
-      {data.map((o, index) => {
+      {data.map(({ from, to, title, desc }, index) => {
         const isFirst = index === 0;
         const isLast = index === lastIndex;
-        const { from, to, title, desc } = o;
         return (
-          <li
-            key={index}
-            className={cx('relative break-inside-avoid', !isLast && 'mb-5')}
-          >
+          <Wrapper key={index} isLast={isLast}>
             <Prefix isFirst={isFirst} isLast={isLast} />
             <div className="print:flex">
-              <h4 className="mb-2 text-3.5 leading-x1.3 text-white2 md:text-4 print:flex-grow print:text-inherit">
-                {title}
-              </h4>
-
-              {!!(from && to) && (
-                <span className="block leading-x1.6 font-400 text-vegasGold print:text-inherit">
-                  {`${from} — ${to}`}
-                </span>
-              )}
+              <Title>{title}</Title>
+              {!!(from && to) && <Period from={from} to={to} />}
             </div>
             {Array.isArray(desc) ? (
               desc.map((text, i) => {
@@ -82,7 +101,7 @@ export const TimelineList = memo(({ data }: { data: TimelineItem[] }) => {
             ) : (
               <Desc>{desc}</Desc>
             )}
-          </li>
+          </Wrapper>
         );
       })}
     </ul>
