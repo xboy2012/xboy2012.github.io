@@ -143,13 +143,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '24'
-          cache: 'yarn'
-      - name: Install dependencies
-        run: yarn install
       - name: Run Google Indexing
         env:
           GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
-        run: yarn tsx scripts/googleIndexing
+        run: node scripts/tsx.mts scripts/googleIndexing
 
   # Bing Indexing
   bing:
@@ -163,10 +160,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '24'
-          cache: 'yarn'
-      - name: Install dependencies
-        run: yarn install
       - name: Run Bing Indexing
         env:
           BING_INDEX_NOW_KEY: ${{ secrets.BING_INDEX_NOW_KEY }}
-        run: yarn tsx scripts/bingIndexing
+        run: node scripts/tsx.mts scripts/bingIndexing
