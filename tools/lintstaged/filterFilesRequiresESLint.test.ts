@@ -1,6 +1,7 @@
 import { filterFilesRequiresESLint } from './filterFilesRequiresESLint';
 
 jest.mock('eslint', () => {
+  // eslint-disable-next-line xboy2012/no-class -- required to mock eslint
   class ESLint {
     async isPathIgnored(path: string) {
       return path.startsWith('/ignored/');

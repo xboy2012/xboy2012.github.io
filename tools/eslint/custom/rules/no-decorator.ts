@@ -3,15 +3,15 @@ import type { JSSyntaxElement, Rule } from 'eslint';
 export const rule: Rule.RuleModule = {
   meta: {
     docs: {
-      description: 'Prevent usage of TypeScript Enums',
+      description: 'Prevent usage of decorator',
     },
   },
   create(context) {
     return {
-      TSEnumDeclaration(node: JSSyntaxElement) {
+      Decorator(node: JSSyntaxElement) {
         context.report({
           node,
-          message: 'Usage of TypeScript Enums is forbidden',
+          message: 'Usage of decorator is forbidden',
         });
       },
     };
