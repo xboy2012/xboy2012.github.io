@@ -2,14 +2,9 @@ import { renderHook } from '@testing-library/react';
 import { useFixPageUrl } from './useFixPageUrl';
 import { replaceBrowserUrl } from '../utils/replaceBrowserUrl';
 
-jest.mock('../utils/replaceBrowserUrl', () => {
-  const { replaceBrowserUrl } = jest.requireActual(
-    '../utils/replaceBrowserUrl',
-  );
-  return {
-    replaceBrowserUrl: jest.fn(replaceBrowserUrl),
-  };
-});
+jest.mock('../utils/replaceBrowserUrl', () => ({
+  replaceBrowserUrl: jest.fn(),
+}));
 
 let mockFixedPageUrl: URL | undefined;
 
