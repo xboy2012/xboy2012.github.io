@@ -2,7 +2,6 @@ import type { MetadataRoute } from 'next';
 import { colors } from '../src/config/colors';
 import { userData } from '../src/data';
 import { makeAbsoluteSrc } from '../src/utils/makeAbsoluteSrc';
-import type { ReadonlyDeep } from 'type-fest';
 
 const getIcons = () => {
   return makeAbsoluteSrc<
@@ -115,9 +114,7 @@ const getScreenshots = () => {
   ]);
 };
 
-const generateManifest = async (): Promise<
-  ReadonlyDeep<MetadataRoute.Manifest>
-> => {
+const generateManifest = async (): Promise<MetadataRoute.Manifest> => {
   const [icons, screenshots] = await Promise.all([
     getIcons(),
     getScreenshots(),

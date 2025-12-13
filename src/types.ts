@@ -1,5 +1,3 @@
-import type { ReadonlyDeep } from 'type-fest';
-
 export type WithLooseDefault<T> = T | { default: T };
 
 export type UrlOrSrc =
@@ -16,23 +14,14 @@ export type ImageDefinition<
   [P in K]: UrlOrSrc;
 };
 
-export type JsonSerializableMutable =
-  | string
-  | number
-  | boolean
-  | undefined
-  | null
-  | JsonSerializableMutable[]
-  | { [key: string]: JsonSerializableMutable };
-
 export type JsonSerializable =
   | string
   | number
   | boolean
   | undefined
   | null
-  | readonly JsonSerializable[]
-  | { readonly [key: string]: JsonSerializable };
+  | JsonSerializable[]
+  | { [key: string]: JsonSerializable };
 
 export type ImportedImage = { src: string } | string;
 
@@ -43,23 +32,23 @@ export type AssetHashInfo = [PathString, string];
 
 export type HashInfo = [PageHashInfo[], AssetHashInfo[]];
 
-export type EducationItem = Readonly<{
+export interface EducationItem {
   from: string;
   to: string;
   title: string;
   desc: string;
-}>;
+}
 
-export type WorkExperienceItem = Readonly<{
+export interface WorkExperienceItem {
   from: string;
   to: string;
   title: string;
   desc: string[];
   location: string;
   company: string;
-}>;
+}
 
-export type UserData = ReadonlyDeep<{
+export interface UserData {
   name: string;
   title: string;
   email: string;
@@ -79,9 +68,9 @@ export type UserData = ReadonlyDeep<{
   educations: EducationItem[];
   workExperiences: WorkExperienceItem[];
   skills: { skill: string; percent: number }[];
-}>;
+}
 
-export type BlogData = Readonly<{
+export interface BlogData {
   id: string;
   link?: string;
   title: string;
@@ -89,15 +78,15 @@ export type BlogData = Readonly<{
   image: string;
   datetime: `${string}-${string}-${string}`;
   category: string;
-}>;
+}
 
 export type ServiceId = 'frontend' | 'fullstack' | 'devops' | 'arch';
 
-export type ServiceData = Readonly<{
+export interface ServiceData {
   id: ServiceId;
   name: string;
   desc: string;
-}>;
+}
 
 export type ProjectCategory =
   | 'Applications'
@@ -106,10 +95,10 @@ export type ProjectCategory =
   | 'AI'
   | 'Business';
 
-export type ProjectData = Readonly<{
+export interface ProjectData {
   id: string;
   category: ProjectCategory;
   link: string;
   title: string;
   image: string;
-}>;
+}

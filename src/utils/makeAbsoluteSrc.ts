@@ -13,7 +13,7 @@ export const makeAbsoluteSrc = <
 >(
   field: K,
   icons: readonly ImageDefinition<K, T>[],
-): Promise<readonly T[]> => {
+): Promise<T[]> => {
   const promises = icons.map(async (icon) => {
     const fullUrl = await getUrl(icon[field]);
     return { ...icon, [field]: fullUrl } as T;

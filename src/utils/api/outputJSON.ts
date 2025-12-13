@@ -2,7 +2,7 @@ import type { JsonSerializable } from '../../types';
 import { stableJsonStringify } from '../stableJsonStringify';
 import { calculateDataHash } from './calculateDataHash';
 
-export const outputJSON = (data: JsonSerializable) => {
+export const outputJSON = <T extends JsonSerializable>(data: T) => {
   const hash = calculateDataHash(data);
   const json = stableJsonStringify({ hash, data });
   return new Response(json, {

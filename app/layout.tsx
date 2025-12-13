@@ -14,7 +14,6 @@ import { NavBar } from '../components/NavBar';
 import { useNoJs } from '../src/hooks/useNoJs';
 import './globals.css';
 import { BuyMeACoffee } from '../components/BuyMeACoffee';
-import type { ReadonlyDeep } from 'type-fest';
 
 const getIcons = () => {
   return makeAbsoluteSrc<
@@ -88,7 +87,7 @@ const getIcons = () => {
   ]);
 };
 
-export const generateMetadata = async (): Promise<ReadonlyDeep<Metadata>> => {
+export const generateMetadata = async (): Promise<Metadata> => {
   const icons = await getIcons();
   return {
     description: APP_DESCRIPTION,
