@@ -8,6 +8,7 @@ import { getReactConfig } from './tools/eslint/getReactConfig';
 import { getTailwindCssConfig } from './tools/eslint/getTailwindCssConfig';
 import { getTypeScriptConfig } from './tools/eslint/getTypeScriptConfig';
 import { getUnicornConfig } from './tools/eslint/getUnicornConfig';
+import { getCustomConfig } from './tools/eslint/getCustomConfig';
 
 export default defineConfig([
   getBaseConfig(),
@@ -19,4 +20,5 @@ export default defineConfig([
   getTypeScriptConfig(),
   getTailwindCssConfig(),
   getJestConfig(),
+  getCustomConfig(),
 ]);
