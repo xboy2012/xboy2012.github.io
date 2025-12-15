@@ -37,7 +37,6 @@ yarn-error.log*
 *.tsbuildinfo
 
 /.swc
-/.rollup.cache
 
 .idea
 /next-env.d.ts

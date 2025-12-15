@@ -10,7 +10,6 @@ export const getBaseConfig = (): Config => {
       'out/**',
       'coverage/**',
       '.swc/**',
-      '.rollup.cache/**',
       'temp/**',
     ],
 

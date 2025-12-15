@@ -1,8 +1,6 @@
 import { join as pathJoin } from 'node:path';
 import { writeFile } from 'node:fs/promises';
 import { bundleCode } from './bundleCode';
-import { compressCode } from './compressCode';
-import { prettierCode } from './prettierCode';
 import { getNextStaticFiles } from './getNextStaticFiles';
 import { getHashInfo } from './getHashInfo';
 import { getRootDir } from '../../src/utils/getRootDir';
@@ -11,7 +9,7 @@ import type { JsonSerializable } from '../../src/types';
 const wrapJSON = (values: Record<string, JsonSerializable>) => {
   const result: Record<string, string> = {};
   for (const key of Object.keys(values)) {
-    result[key] = JSON.stringify(values[key], null, 2);
+    result[key] = JSON.stringify(values[key]);
   }
   return result;
 };
@@ -51,23 +49,29 @@ export const generateServiceWorker = async () => {
   console.log(hashInfo[1]);
   console.log();
 
-  const rawCode = await bundleCode({
-    entry: pathJoin(rootDir, 'src', 'serviceWorker', 'index.ts'),
-    inject: wrapJSON({
-      'process.env.NODE_ENV': 'production',
-      'NEXT_STATIC_FILES': staticFiles,
-      'HASH_INFO': hashInfo,
-    }),
+  const entry = pathJoin(rootDir, 'src', 'serviceWorker', 'index.ts');
+  const inject = wrapJSON({
+    'process.env.NODE_ENV': 'production',
+    'NEXT_STATIC_FILES': staticFiles,
+    'HASH_INFO': hashInfo,
   });
 
   const outputProduction = async () => {
-    const code = await compressCode(rawCode);
+    const code = await bundleCode({
+      entry,
+      inject,
+      minify: true,
+    });
     await writeFile(pathJoin(rootDir, 'out', 'serviceWorker.js'), code, 'utf8');
     console.log('Output serviceWorker.js successfully!');
   };
 
   const outputDev = async () => {
-    const code = await prettierCode(rawCode);
+    const code = await bundleCode({
+      entry,
+      inject,
+      minify: false,
+    });
     await writeFile(
       pathJoin(rootDir, 'out', 'serviceWorker.dev.js'),
       code,
